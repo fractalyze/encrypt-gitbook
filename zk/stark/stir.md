@@ -6,8 +6,6 @@ description: >-
 
 # STIR
 
-**Special thanks to** [**Giacomo Fenzi**](https://gfenzi.io/) **for feedback and review.**
-
 ## Introduction
 
 [**STIR**](https://eprint.iacr.org/2024/390) has achieved the fewest number of queries among IOPP (Interactive Oracle Proof of Proximity) systems based on RS codes. To achieve $$\lambda$$-bit security, the query complexity, which was $$O(\lambda \log d)$$ in the traditional FRI, can be reduced to $$O(\log d + \lambda \log \log d)$$. As the number of queries decreases, the verifier time also decreases, and particularly, the number of verifier hash operations is reduced. In the FRI family, proofs are often generated recursively, and reducing the constraints on the verifier hash in recursive proofs is particularly meaningful. Thanks to this optimization, the corresponding research paper was awarded Best Paper at CRYPTO 2024.
@@ -16,9 +14,9 @@ description: >-
 
 In **coding theory**, a **code** is a set of rules or patterns used to encode information, particularly to detect and correct errors that might occur during data transmission or storage. A **codeword** is an individual element within a code, representing a specific valid encoded message according to the code's rules.
 
-Now, let’s briefly talk about **RS (Reed-Solomon) codes**. RS can be expressed as $$RS(\mathbb{F}, N, d)$$, where $$\mathbb{F}$$ is the field, $$N$$ is the size of the evaluation domain, and $$d$$ is the maximum degree of the polynomial $$P$$. A codeword consists of the values evaluated from the polynomial $$P$$ over $$N$$.
+Now, let’s briefly talk about **RS (Reed-Solomon) codes**. RS can be expressed as $$\mathsf{RS}(\mathbb{F}, N, d)$$, where $$\mathbb{F}$$ is the field, $$N$$ is the size of the evaluation domain, and $$d$$ is the maximum degree of the polynomial $$P$$. A codeword consists of the values evaluated from the polynomial $$P$$ over $$N$$.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfRwaaBAYqGZ6YGGnJrnmPrZwsIYEglCiKjkNElsPB4R8XXfSAwjYXNp9d5NUnLF6UugFQaQTPJCB-QnQd4cw_or1adSuypU_eEItdaXlQLiW6TwLUvy3bqbM1DKTYPMp6Sy-9qAtpcjRxq4IQIgKBuDvEP?key=vhEzQ8jv-fZTNOXYNsPOVg" alt=""><figcaption><p>Fig 1. The blue points represent an <span class="math">RS(\mathbb{F}, N, 2)</span> codeword, where <span class="math">N</span>, the evaluation domain, has a size of 4. From left to right, if we label the graphs as 1 through 4, then graphs 2 and 3 illustrate possible valid <span class="math">RS(\mathbb{F}, N, 2)</span> codewords. In contrast, the red points in graph 4 depict an invalid <span class="math">RS(\mathbb{F}, N, 2)</span> codeword due to the degree constraint. The purple points indicate intersections between the blue and red lines.</p></figcaption></figure>
+<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfRwaaBAYqGZ6YGGnJrnmPrZwsIYEglCiKjkNElsPB4R8XXfSAwjYXNp9d5NUnLF6UugFQaQTPJCB-QnQd4cw_or1adSuypU_eEItdaXlQLiW6TwLUvy3bqbM1DKTYPMp6Sy-9qAtpcjRxq4IQIgKBuDvEP?key=vhEzQ8jv-fZTNOXYNsPOVg" alt=""><figcaption><p>Fig 1. The blue points represent an <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codeword, where <span class="math">N</span>, the evaluation domain, has a size of 4. From left to right, if we label the graphs as 1 through 4, then graphs 2 and 3 illustrate possible valid <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codewords. In contrast, the red points in graph 4 depict an invalid <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codeword due to the degree constraint. The purple points indicate intersections between the blue and red lines.</p></figcaption></figure>
 
 Codewords must correspond to polynomials of (at most) a prescribed degree d or else be classified as invalid. In the example above, our required $$d$$ is 1. Since the red codeword in the rightmost figure has a degree of 2, it does not satisfy the condition of being a degree of 1 and is therefore invalid; however as the red codewords in the middle two graphs are of degree 1, they are valid. From this, we can infer that given $$N$$ and $$d$$, uniquely valid codewords must differ from each other by at least $$N - d$$ (3 in this example) values.
 
@@ -82,4 +80,6 @@ The figure above illustrates the differences in argument size, verifier hash com
 
 In conclusion, these four techniques collectively reduce the rate, enabling a reduction in the number of queries. This approach is referred to as "Shift," resulting in the protocol name of STIR (Shift To Improve Rate). Recently, the same authors of the STIR paper presented a new technique called [WHIR](https://eprint.iacr.org/2024/1586.pdf), which was introduced at zkSummit 12, so interested readers may consider watching the presentation. I’ve skipped the explanation of how STIR achieves $$O(\log d + \lambda \log \log d)$$. For those interested in the details, please refer to sections C.1 and C.2 of the paper.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+>
+> Reviewed by [Giacomo Fenzi](https://gfenzi.io/) from [EPFL](https://www.epfl.ch/)&#x20;

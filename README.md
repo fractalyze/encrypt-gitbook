@@ -36,4 +36,4 @@ $$
 x \equiv 1 \cdot 35 + 3 \cdot 21 + 2 \cdot 15 \equiv 128 \equiv 23 \pmod {105}
 $$
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)

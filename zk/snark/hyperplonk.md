@@ -83,9 +83,9 @@ $$
 $$
 
 $$
-\mathsf{PCS.BatchVerify}(S_{commit}, S_{open}, x, \pi) \stackrel{?}= 1 \\ 
-S_{commit} = \{C_A, C_B, C_C, C_Q\} \text{, } \\
-S_{open} = \{A(x), B(x), C(x), \frac{A(x) + B(x) - C(x)}{t(x)}\}
+\mathsf{PCS.BatchVerify}(S_{\mathsf{commit}}, S_{\mathsf{open}}, x, \pi) \stackrel{?}= 1 \\ 
+S_{\mathsf{commit}} = \{C_A, C_B, C_C, C_Q\} \text{, } \\
+S_{\mathsf{open}} = \{A(x), B(x), C(x), \frac{A(x) + B(x) - C(x)}{t(x)}\}
 $$
 
 ### High-degree custom gates in Plonk
@@ -170,10 +170,10 @@ $$
 7. To validate the proof, the verifier performs the following test. If the test is passed, the verifier accepts the proof:
 
 $$
-\mathsf{PCS.BatchVerify}(S_{commit}, S_{open}, x, \pi) \stackrel{?}= 1 \\ 
-S_{commit} = \{C_A, C_B, C_C, C_Q\} \text{, } \\
+\mathsf{PCS.BatchVerify}(S_{\mathsf{commit}}, S_{\mathsf{open}}, x, \pi) \stackrel{?}= 1 \\ 
+S_{\mathsf{commit}} = \{C_A, C_B, C_C, C_Q\} \text{, } \\
 \begin{align*}
-S_{open} = \big\{A(x), B(x), C(x), \frac{s_0(x)\cdot f_0(x) + y\cdot s_1(x) \cdot f_1(x) + y^2 \cdot s_2(x) \cdot f_2(x)}{t(x)}\big\} 
+S_{\mathsf{open}} = \big\{A(x), B(x), C(x), \frac{s_0(x)\cdot f_0(x) + y\cdot s_1(x) \cdot f_1(x) + y^2 \cdot s_2(x) \cdot f_2(x)}{t(x)}\big\} 
 \end{align*}
 $$
 
@@ -181,8 +181,8 @@ From the above, the approximate total execution time for the Plonk prover can be
 
 $$
 \begin{align*}
-T_{total} = &N_{poly} \cdot T_{commit} + N_{poly} \cdot (T_{IFFT} + T_{HighDegreeFFT}) +  \\ &N_{gate} \cdot (T_{gateeval} + T_{HighDegreeIFFT}) + T_{batchopen}
-\end{align*}
+  T_{\mathsf{total}} = &N_{\mathsf{poly}} \cdot T_{\mathsf{commit}} + N_{\mathsf{poly}} \cdot (T_{\mathsf{IFFT}} + T_{\mathsf{HighDegreeFFT}}) +  \\ &N_{\mathsf{gate}} \cdot (T_{\mathsf{gateeval}} + T_{\mathsf{HighDegreeIFFT}}) + T_{\mathsf{batchopen}}
+  \end{align*}
 $$
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcmQUXXFSDkqOaN9gJKcfTqGm879yEZTjw2FpXE9oXZV2yIwe7HYCJ-TyL1C4pyyh3zUYrtJjobXjd79VFnHbpU9aJ4-RGQRfJ7MLECinv9GXU3pUxn93PUclFWHMc3QkCRDNrn?key=co-yKRJV7WOYUZIzIkM_ZekV" alt=""><figcaption></figcaption></figure>
@@ -200,7 +200,7 @@ This image is taken from the paper, and describes HyperPlonk and HyperPlonk+.
 In HyperPlonk, the way constraints are imposed is not fundamentally different from Plonk. For example, to represent an addition gate, the following expression can be used:
 
 $$
-A(\vec{X}) + B(\vec{X}) - C(\vec{X})
+A(\bm{X}) + B(\bm{X}) - C(\bm{X})
 $$
 
 Plonk uses a **ZeroCheck** followed by a **QuotientCheck**, as shown below:
@@ -212,7 +212,7 @@ $$
 HyperPlonk instead uses a **ZeroCheck** followed by a **SumCheck**:
 
 $$
-P(\vec{X}) = 0 \space \forall \vec{X} \in B \rightarrow \sum_{\vec{b} \in B}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot P(\vec{b}) = 0
+P(\bm{X}) = 0 \space \forall \bm{X} \in B \rightarrow \sum_{\bm{b} \in B}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot P(\bm{b}) = 0
 $$
 
 ### High-degree custom gates in HyperPlonk
@@ -227,14 +227,14 @@ $$
 Why does using SumCheck eliminate the overhead for high-degree custom gates? Using the same example as above, the prover's claim can be expressed as follows:
 
 $$
-\sum_{i = 0}^2 y^i \cdot \hat{s}_i(\vec{X}) \cdot \hat{f}_i(\vec{X}) \stackrel{?}= 0\mathsf{, where}\\
-\hat{s}_i(\vec{X}) = \sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot s_i(\vec{b}), \\
+\sum_{i = 0}^2 y^i \cdot \hat{s}_i(\bm{X}) \cdot \hat{f}_i(\bm{X}) \stackrel{?}= 0\mathsf{, where}\\
+\hat{s}_i(\bm{X}) = \sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot s_i(\bm{b}), \\
 \begin{align*}
-\hat{f}_0(\vec{X}) = (\sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot A(\vec{b}))(\sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot B(\vec{b}))(\sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot C(\vec{b})) - 1\mathsf{,}\\
+\hat{f}_0(\bm{X}) = (\sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot A(\bm{b}))(\sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot B(\bm{b}))(\sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot C(\bm{b})) - 1\mathsf{,}\\
 
-\hat{f}_1(\vec{X}) = (\sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot A(\vec{b}))(\sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot B(\vec{b}))-\sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot C(\vec{b})\mathsf{,}\\
+\hat{f}_1(\bm{X}) = (\sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot A(\bm{b}))(\sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot B(\bm{b}))-\sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot C(\bm{b})\mathsf{,}\\
 
-\hat{f}_2(\vec{X}) = \sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot A(\vec{b}) + \sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot B(\vec{b}) -\sum_{\vec{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\vec{X}, \vec{b})\cdot C(\vec{b})\\
+\hat{f}_2(\bm{X}) = \sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot A(\bm{b}) + \sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot B(\bm{b}) -\sum_{\bm{b} \in \{0, 1\}^{\mu}}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot C(\bm{b})\\
 \end{align*}
 $$
 
@@ -287,7 +287,7 @@ If $$n$$ is treated as a constant, the SumCheck protocol allows **ZeroCheck to b
 **ProductCheck** is a method to verify whether the product of a polynomial over a boolean hypercube equals a constant $$c$$:
 
 $$
-\prod_{\vec{X} \in \{0, 1\}^\mu}h(\vec{X}) = c\text{, where } h(\vec{X}) = \frac{f(\vec{X})}{ g(\vec{X})}
+\prod_{\bm{X} \in \{0, 1\}^\mu}h(\bm{X}) = c\text{, where } h(\bm{X}) = \frac{f(\bm{X})}{ g(\bm{X})}
 $$
 
 For univariate polynomials, this is typically computed using a running product column, as explained in the previous article[ From Halo2, LogUp to LogUp-GKR](https://blog.kroma.network/from-halo2-lookup-logup-to-logup-gkr-4af3bf143d38). For multivariate polynomials, the process involves the following steps:
@@ -295,7 +295,7 @@ For univariate polynomials, this is typically computed using a running product c
 1. Define $$v$$ to satisfy the following conditions:
 
 $$
-v(0, \vec{X}) = h(\vec{X}), \space v(1, \vec{X}) = v(\vec{X}, 0) \cdot v(\vec{X}, 1)\text{, where } v(1, \dots, 1) = 0
+v(0, \bm{X}) = h(\bm{X}), \space v(1, \bm{X}) = v(\bm{X}, 0) \cdot v(\bm{X}, 1)\text{, where } v(1, \dots, 1) = 0
 $$
 
 This allows $$v$$ to be computed as shown in the diagram below:
@@ -315,8 +315,8 @@ This allows $$v$$ to be computed as shown in the diagram below:
 
 $$
 \begin{align*}
-\hat{h}(X_0, \vec{X}) = (1 - X_0)\cdot(v(1, \vec{X}) - v(\vec{X}, 0)\cdot v(\vec{X}, 1)) + X_0\cdot (g(\vec{X})\cdot v(0, \vec{X}) - f(\vec{X}))
-\end{align*}
+  \hat{h}(X_0, \bm{X}) = (1 - X_0)\cdot(v(1, \bm{X}) - v(\bm{X}, 0)\cdot v(\bm{X}, 1)) + X_0\cdot (g(\bm{X})\cdot v(0, \bm{X}) - f(\bm{X}))
+  \end{align*}
 $$
 
 3. Using $$\hat{h}$$, perform **ZeroCheck → SumCheck** as described earlier. Since $$\hat{h}$$ evaluates to zero for all points in $$\{0,1\}^3$$, this check ensures the validity of $$v$$.
@@ -342,8 +342,8 @@ In multivariate polynomials, $$s_i^\sigma$$ is similarly constructed as shown in
 Using the same random value $$\alpha$$, this is transformed into a **MultiSetEquality** as follows:
 
 $$
-\frac{\prod_{\vec{b} \in \{0, 1\}^2}(\vec{X} - \alpha s_0(\vec{b} )- A(\vec{b}))(X - \alpha s_1(\vec{b} )- B(\vec{b}))(X - \alpha  s_2(\vec{b} )  - C(\vec{b}))}{
-\prod_{\vec{b} \in \{0, 1\}^2}(X - \alpha s^{\sigma}_0(\vec{b}) - A(\vec{b}))(X - \alpha  s^{\sigma}_1(\vec{b}) - B(\vec{b}))(X - \alpha s^{\sigma}_2(\vec{b}) - C(\vec{b}))} \stackrel{?}= 1
+\frac{\prod_{\bm{b} \in \{0, 1\}^2}(\bm{X} - \alpha s_0(\bm{b} )- A(\bm{b}))(\bm{X} - \alpha s_1(\bm{b} )- B(\bm{b}))(\bm{X} - \alpha  s_2(\bm{b} )  - C(\bm{b}))}{
+\prod_{\bm{b} \in \{0, 1\}^2}(\bm{X} - \alpha s^{\sigma}_0(\bm{b}) - A(\bm{b}))(\bm{X} - \alpha  s^{\sigma}_1(\bm{b}) - B(\bm{b}))(\bm{X} - \alpha s^{\sigma}_2(\bm{b}) - C(\bm{b}))} \stackrel{?}= 1
 $$
 
 **MultiSetEquality** can now be replaced by the **ProductCheck** protocol described earlier. This enables efficient verification using the established steps for product consistency.
@@ -450,4 +450,4 @@ The figure above is a capture from the presentation by **Benedikt Bünz** at **Z
 
 Graph b above and the video screenshot both support this observation. While not covered, HyperPlonk has also contributed to the optimization of multivariate polynomial commitments, as seen in systems like Orion+. Despite these significant contributions, the Conclusions and Open Problems section of the paper highlights several areas for future work, introducing ideas for continued improvements and research.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)

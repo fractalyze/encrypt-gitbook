@@ -63,4 +63,4 @@ $$
 g_{n-1}(r_{n-1}) \stackrel{?}= f(r_0, r_1, \dots, r_{n-2}, r_{n-1} )
 $$
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)

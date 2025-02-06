@@ -1,7 +1,3 @@
----
-description: Authored by @ashjeong
----
-
 # FRI
 
 Short for “Fast Reed-Solomon Interactive Oracle Proofs of Proximity”, the FRI Protocol is a [polynomial commitment scheme](https://docs.scroll.io/en/learn/zero-knowledge/polynomial-commitment-schemes/) designed for zkSTARKS. All Interactive Oracle Proofs of Proximity (IOPPs) are designed to verify that a large dataset or computation closely matches a specific structure using only a few queries. FRI, in particular, addresses the challenge of low-degree testing within this framework. But what is “Low Degree Testing,” you ask? Let’s talk about the “Reed-Solomon” portion in FRI’s title to explain.
@@ -16,7 +12,7 @@ The goal of Reed-Solomon encoding is to securely pass a message successfully to 
 
 Say User A wants to send the message “ABC” to a User B with Reed-Solomon encoding…
 
-First, User A converts this message into a polynomial of degree "$$\text{total values} - 1$$." In our case, that’s $$\text{len}(ABC) - 1 = 3-1 = 2$$.
+First, User A converts this message into a polynomial of degree "$$\text{total values} - 1$$." In our case, that’s $$\mathsf{len}(ABC) - 1 = 3-1 = 2$$.
 
 <figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Figure 1. Reed Solomon Encoding — Converting a message into a polynomial</p></figcaption></figure>
 
@@ -65,13 +61,13 @@ As aforementioned, the commit phase follows the prover folding the polynomial to
 First, $$f_0(x)$$ is split into two different parts: the terms with a degree of an even number and the terms with a degree of an odd number.
 
 $$
-f_o(x) = f_{0\_even}(x^2) + X \cdot f_{0\_odd}(x^2)
+f_o(x) = f_{0\_\mathsf{even}}(x^2) + X \cdot f_{0\_\mathsf{odd}}(x^2)
 $$
 
 Then the folded polynomial is created from these two parts along with the challenge:
 
 $$
-f_1(x) = f_{0\_even}(x)+\beta_0\cdot f_{0\_odd}(x)
+f_1(x) = f_{0\_\mathsf{even}}(x)+\beta_0\cdot f_{0\_\mathsf{odd}}(x)
 $$
 
 Let’s check how this works with an example:
@@ -83,7 +79,7 @@ $$
 Our even and odd degree terms would then be split up as such:
 
 $$
-f_{0\_even}(x^2) = x^4+5x^2+7\\f_{0\_even}(x)=x^2+9x+7\\ \ \\x\cdot f_{0\_odd}(x^2)=5x^3+8x\\f_{0\_odd}(x)=5x+8
+f_{0\_\mathsf{even}}(x^2) = x^4+5x^2+7\\f_{0\_\mathsf{even}}(x)=x^2+9x+7\\ \ \\x\cdot f_{0\_\mathsf{odd}}(x^2)=5x^3+8x\\f_{0\_\mathsf{odd}}(x)=5x+8
 $$
 
 From these two split polynomials we can now create our folded polynomial:
@@ -115,19 +111,19 @@ In the query phase, the verifier ensures that the prover’s polynomial evaluati
 4. The verifier uses $$f_i(x)$$ and $$f_i(-x)$$ to create $$f_{i+1}(x^2)$$ themselves and checks with the prover’s given answer. How does the verifier do this? Let’s take a look:
 
 $$
-f_i(x) = f_{i\_even}(x^2)+X\cdot f_{i\_odd}(x^2)\\f_i(-x) = f_{i\_even}(x^2)-X\cdot f_{i\_odd}(x^2)
+f_i(x) = f_{i\_\mathsf{even}}(x^2)+X\cdot f_{i\_\mathsf{odd}}(x^2)\\f_i(-x) = f_{i\_\mathsf{even}}(x^2)-X\cdot f_{i\_\mathsf{odd}}(x^2)
 $$
 
 Through solving the system of equations of $$f_i(x)$$ and $$f_i(-x)$$, we can get $$f_{i\_ even}(x^2)$$ and $$f_{i\_odd}(x^2)$$.
 
 $$
-f_{i\_even}(x^2)= \frac{f_i(x) + f_i(-x)}{2}\\f_{i\_odd}(x^2)= \frac{f_i(x) - f_i(-x)}{2x}
+f_{i\_\mathsf{even}}(x^2)= \frac{f_i(x) + f_i(-x)}{2}\\f_{i\_\mathsf{odd}}(x^2)= \frac{f_i(x) - f_i(-x)}{2x}
 $$
 
 Finally, with $$f_{i\_ even}(x^2)$$ and $$f_{i\_ odd}(x^2)$$ , we can create $$f_{i+1}(x^2)$$ or the next folded polynomial’s evaluations.
 
 $$
-f_{i+1}(x^2) = f_{i\_even}(x^2)+\beta_i\cdot f_{i\_odd}(x^2)\\ \ \\\begin{align*}f_{i+1}(x^2) &=\frac{f_i(x)+f_i(-x)}{2}+\beta_i\cdot\frac{f_i(x)-f_i(-x)}{2x}\\ &=\frac{xf_i(x)+xf_i(-x)+\beta_if_i(x)-\beta_if_i(-x)}{2x}\\&=\frac{(x+\beta_i)f_i(x)+(x-\beta_i)f_i(-x)}{2x}\\&=\frac{(1+\beta_ix^{-1})f_i(x)+(1-\beta_ix^{-1})f_i(-x)}{2}\end{align*}
+f_{i+1}(x^2) = f_{i\_\mathsf{even}}(x^2)+\beta_i\cdot f_{i\_\mathsf{odd}}(x^2)\\ \ \\\begin{align*}f_{i+1}(x^2) &=\frac{f_i(x)+f_i(-x)}{2}+\beta_i\cdot\frac{f_i(x)-f_i(-x)}{2x}\\ &=\frac{xf_i(x)+xf_i(-x)+\beta_if_i(x)-\beta_if_i(-x)}{2x}\\&=\frac{(x+\beta_i)f_i(x)+(x-\beta_i)f_i(-x)}{2x}\\&=\frac{(1+\beta_ix^{-1})f_i(x)+(1-\beta_ix^{-1})f_i(-x)}{2}\end{align*}
 $$
 
 Thus with the received $$f_i(x)$$ and $$f_i(-x)$$ and knowing $$x$$ and $$\beta_i$$, the verifier can create $$f_{i+1}(x^2)$$.
@@ -157,4 +153,4 @@ The FRI Protocol stands as a valuable IOPP protocol to reduce the number of quer
 * [**RedShift: Transparent SNARKs from List Polynomial Commitments**](https://eprint.iacr.org/2019/1400.pdf) by Matter Labs — Section 8 and Section F provide an in-depth view of added security features and optimizations
 * [**A summary on the FRI low degree test**](https://eprint.iacr.org/2022/1216.pdf) by Polygon Labs — An extensive view into Two Adic FRI
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from A41
+> Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from [A41](https://www.a41.io/)

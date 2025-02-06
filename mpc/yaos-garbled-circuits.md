@@ -214,4 +214,4 @@ In the end, I showed how Yao’s Garbled Circuits runs as an MPC protocol and in
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXejOMDj_89bqDNgbSJsFmVekyp1GiZZXhOZxtNVs0xnoAFvi61d5JWcJUMZxUfh1lGjsB2guaLDpd5WVrCNkCAQCJPgpNw288urd07WOPRl0gPD0o7cEyvuaAMHY7Sms6yz1BjbDg?key=0uoSKKXKnc_kt3GeIL0d8N1J" alt=""><figcaption><p>Resulting gate rows from the naive case to the optimized case</p></figcaption></figure>
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from A41
+> Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from [A41](https://www.a41.io/)

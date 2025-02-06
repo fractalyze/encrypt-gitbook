@@ -29,4 +29,4 @@ $$
 
 Note that the property of [endomorphism](../group-theory.md#endomorphism-a-homomorphism-where-domain-and-codomain-are-the-same-object) is used for this process.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)

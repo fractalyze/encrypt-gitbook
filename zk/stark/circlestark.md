@@ -214,17 +214,17 @@ But where did $$C$$ come from? It denotes $$2A^2-1$$, while $$-C$$ is $$2B^2-1$$
 1. Repeat $$l$$ times where $$l$$ is the number of times you want to query to achieve target soundness:
    1. Pick $$x_0 \in L^{(0)}$$ uniformly at random.
    2. ($$J$$-folding) For $$i = 1$$:
-      1. Query $$f$$ at $$x_0$$ and $$J(x_0)$$. Compute\
+      1. Query $$f$$ at $$x_0$$ and $$J(x_0)$$. Compute \
          $$f^{(0)}(x_0)=f(x_0)-\lambda\cdot v_n(x_0)\\f^{(0)}(J(x_0))=f(J(x_0)) - \lambda\cdot v_n(J(x_0))$$
       2. Compute\
-         $$f^{(0)}_0(\pi_x(x_0)) = \frac{f^{(0)}(x_0) + f^{(0)}(J(x_0))}{2}\\f^{(0)}_1(\pi_x(x_0)) = \frac{f^{(0)}(x_0) + f^{(0)}(J(x_0))}{2y}$$$$f^{(0)}_1(\pi_x(x_0)) = \frac{f^{(0)}(x_0) + f^{(0)}(J(x_0))}{2y}$$
-      3. Query $$f^{(1)}$$ at $$x_1=\pi_x(x_0)$$ and check if\
+         &#x20;$$f^{(0)}_0(\pi_x(x_0)) = \frac{f^{(0)}(x_0) + f^{(0)}(J(x_0))}{2}\\f^{(0)}_1(\pi_x(x_0)) = \frac{f^{(0)}(x_0) + f^{(0)}(J(x_0))}{2y}$$
+      3. Query $$f^{(1)}$$ at $$x_1=\pi_x(x_0)$$ and check if \
          $$f^{(1)}(\pi_x(x_0)) = f^{(0)}_{0}(\pi_x(x_0)) + \beta_1 f^{(0)}_{1}(\pi_x(x_0))$$
    3. ($$\pi$$-folding) For $$i = 2\dots r$$:
       1. Calculate $$x_i=\pi(x_{i-1})=2x^2_{i-1}-1$$
       2. Query $$f^{(i-1)}$$ at $$-x_{i-1}$$. (the value at $$x_{i-1}$$ is queried in the previous round)
       3. Compute\
-         $$f^{(i-1)}_0(x_i) = \frac{f^{(i-1)}(x_{i-1}) + f^{(i-1)}(-x_{i-1})}{2}$$$$f^{(i-1)}_1(x_i) = \frac{f^{(i-1)}(x_{i-1}) - f^{(i-1)}(-x_{i-1}))}{2x_{i-1}}$$$$f^{(i-1)}_0(x_i) = \frac{f^{(i-1)}(x_{i-1}) + f^{(i-1)}(-x_{i-1})}{2}\\f^{(i-1)}_1(x_i) = \frac{f^{(i-1)}(x_{i-1}) - f^{(i-1)}(-x_{i-1}))}{2x_{i-1}}$$
+         $$f^{(i-1)}_0(x_i) = \frac{f^{(i-1)}(x_{i-1}) + f^{(i-1)}(-x_{i-1})}{2}\\f^{(i-1)}_1(x_i) = \frac{f^{(i-1)}(x_{i-1}) - f^{(i-1)}(-x_{i-1}))}{2x_{i-1}}$$
       4. Query $$f^{(i)}$$ at $$x_i$$ and check if\
          $$f^{(i)}(x_i) = f^{(i-1)}_{0}(x_i) + \beta_i f^{(i-1)}_{1}(x_i)$$
 2. ACCEPT if all checks passed. REJECT otherwise
@@ -327,4 +327,4 @@ The initial implementation of CircleFFT demonstrated a performance improvement b
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfKa7ZTmOWjYWu0GW9F40puA6VN0jc9Knc0_NRoZeyDDw5sIqkN0fdo80_1R6DEjswuaUH3UqwwLtzxcTcCiFAgbc2yRcAUP3jSp58VHIYZcgEMvE0eSu98Lcgmm0SKfpVJ7MztyQ?key=1385YX6DfUHFTeEpVWcvBXAQ" alt=""><figcaption><p>Figure 7. Initial benchmark result of CFFT</p></figcaption></figure>
 
-> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from A41
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from [A41](https://www.a41.io/)

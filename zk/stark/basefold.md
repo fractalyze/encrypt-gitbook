@@ -167,21 +167,21 @@ $$\mathsf{IOPP.Query}: (\pi_d, \dots, \pi_0) \rightarrow \text{accept or reject}
 
 ### Multilinear PCS based on interleaving BaseFold IOPP
 
-When performing the sumcheck protocol, the problem is reduced to an evaluation claim. Interestingly, the BaseFold IOPP shares a similar structure: given an input oracle that encodes a polynomial $$f \in \mathbb{F}[X_0, X_1, \dots, X_{d-1}]$$, the final oracle sent by the honest prover in the IOPP protocol is precisely an encoding of a random evaluation $$f(r)$$, where $$z = (r_0, r_1, \dots, r_{d-1})$$.
+When performing the sumcheck protocol, the problem is reduced to an evaluation claim. Interestingly, the BaseFold IOPP shares a similar structure: given an input oracle that encodes a polynomial $$f \in \mathbb{F}[X_0, X_1, \dots, X_{d-1}]$$, the final oracle sent by the honest prover in the IOPP protocol is precisely an encoding of a random evaluation $$f(\bm{r})$$, where $$\bm{r} = (r_0, r_1, \dots, r_{d-1})$$.
 
-Thus, the sumcheck protocol and the IOPP protocol can be executed interleaved, sharing the same random challenge. At the end, the verifier needs to check whether the evaluation claim $$f(z)=y$$, obtained through the sumcheck protocol, matches the final prover message from the IOPP protocol. It performs as follows:
+Thus, the sumcheck protocol and the IOPP protocol can be executed interleaved, sharing the same random challenge. At the end, the verifier needs to check whether the evaluation claim $$f(\bm{r})=y$$, obtained through the sumcheck protocol, matches the final prover message from the IOPP protocol. It performs as follows:
 
 $$\mathsf{PC.Eval}$$
 
-Public input: oracle $$\pi_f := \mathsf{Enc}_d(f) \in \mathbb{F}^{n_d}$$, point $$z$$, claimed evaluation $$y = f(z) \in \mathbb{F}$$
+Public input: oracle $$\pi_f := \mathsf{Enc}_d(f) \in \mathbb{F}^{n_d}$$, point $$\bm{r}$$, claimed evaluation $$y = f(\bm{r}) \in \mathbb{F}$$
 
 Prover witness: the polynomial $$f \in \mathbb{F}[X_0, X_1, \dots, X_{d-1}]$$
 
 1. The prover sends the following to the verifier:
 
 $$
-h_d(X) =\sum_{b \in \{0, 1\}^{d-1}} f(b, X) \cdot \widetilde{\mathsf{eq}}_z(b, X), \\
-\widetilde{\mathsf{eq}}_z(X_0, X_1, \dots, X_{d-1}) = \prod_{i = 0}^{d-1}(z_i \cdot X_i + (1 - z_i)(1 - X_i))
+h_d(X) =\sum_{\bm{b} \in \{0, 1\}^{d-1}} f(\bm{b}, X) \cdot \widetilde{\mathsf{eq}}_r(\bm{b}, X), \\
+\widetilde{\mathsf{eq}}_r(X_0, X_1, \dots, X_{d-1}) = \prod_{i = 0}^{d-1}(r_i \cdot X_i + (1 - r_i)(1 - X_i))
 $$
 
 3. For $$i$$ from $$d − 1$$ to $$0$$:
@@ -193,7 +193,7 @@ $$
 7. if $$i > 0$$, the prover sends verifier.
 
 $$
-h_i(X) =\sum_{b \in \{0, 1\}^{i-1}} f(b, X, r_i, \dots, r_{d-1}) \cdot \widetilde{\mathsf{eq}}_z(b, X, r_i, \dots, r_{d-1})
+h_i(X) =\sum_{\bm{b} \in \{0, 1\}^{i-1}} f(\bm{b}, X, r_i, \dots, r_{d-1}) \cdot \widetilde{\mathsf{eq}}_z(\bm{b}, X, r_i, \dots, r_{d-1})
 $$
 
 8. The verifier checks that
@@ -251,4 +251,4 @@ In a 64-bit SNARK:
   * **Verifier time**: Slower with a small number of variables but faster with a large number of variables.
   * **Proof size**: Larger
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)

@@ -2,29 +2,29 @@
 
 ## Brief recap of FRI
 
-In FRI, our starting point is an input function $$f^{(0)} : L^{(0)} \rightarrow \mathbb{F}$$ where $$\mathbb{F}$$ is a ﬁnite ﬁeld, $$L^{(0)} \subset \mathbb{F}$$ is the evaluation domain. The FRI protocol is a two-phase protocol (the two phases are called COMMIT and QUERY) that convinces a veriﬁer that $$f^{(0)}$$ is close to the Reed-Solomon code $$RS[\mathbb{F}, L^{(0)}, \rho]$$.
+In FRI, our starting point is an input function $$f^{(0)} : \mathcal{L}^{(0)} \rightarrow \mathbb{F}$$ where $$\mathbb{F}$$ is a ﬁnite ﬁeld, $$\mathcal{L}^{(0)} \subset \mathbb{F}$$ is the evaluation domain. The FRI protocol is a two-phase protocol (the two phases are called COMMIT and QUERY) that convinces a veriﬁer that $$f^{(0)}$$ is close to the Reed-Solomon code $$\mathsf{RS}[\mathbb{F}, \mathcal{L}^{(0)}, \rho]$$.
 
 ### COMMIT phase:
 
 1. For $$i = 0$$ to $$r - 1$$:
    1. The veriﬁer picks uniformly random $$\beta_i \in \mathbb{F}$$ and sends it to the prover.
-   2. The prover sends a merkle proof of a function $$f^{(i+1)} : L^{(i+1)} \rightarrow \mathbb{F}$$. (In the case of an honest prover, $$f^{(i+1)} = f^{(i)}_{even} + \beta_if^{(i)}_{odd}$$).
+   2. The prover sends a merkle proof of a function $$f^{(i+1)} : \mathcal{L}^{(i+1)} \rightarrow \mathbb{F}$$. (In the case of an honest prover, $$f^{(i+1)} = f^{(i)}_{\mathsf{even}} + \beta_if^{(i)}_{\mathsf{odd}}$$).
 2. The prover sends a value $$C \in \mathbb{F}_q$$. (In the case of an honest prover, $$f^{(r)}$$ is the constant function with value = $$C$$).
 
 ### QUERY phase: (executed by the Veriﬁer)
 
 1. Repeat $$l$$ times:
-   1. Pick $$x_0 \in L^{(0)}$$ uniformly at random.
+   1. Pick $$x_0 \in \mathcal{L}^{(0)}$$ uniformly at random.
    2. For $$i = 0$$ to $$r - 1$$:
-      1. Deﬁne $$x_{i+1} \in L^{(i+1)}$$ by $$x_{i+1} = x_i^2$$.
-      2. Query $$f^{(i)}$$ at $$x_i$$ and $$-x_i$$ to compute $$f^{(i)}_{even}(x_{i+1})$$ and $$f^{(i)}_{odd}(x_{i+1})$$.
-      3. Query $$f^{(i+1)}(x_{i+1})$$ and if $$f^{(i)}_{even}(x_{i+1}) + \beta_i f^{(i)}_{odd}(x_{i+1})\neq f^{(i+1)}(x_{i+1})$$, then REJECT.
+      1. Deﬁne $$x_{i+1} \in \mathcal{L}^{(i+1)}$$ by $$x_{i+1} = x_i^2$$.
+      2. Query $$f^{(i)}$$ at $$x_i$$ and $$-x_i$$ to compute $$f^{(i)}_{\mathsf{even}}(x_{i+1})$$ and $$f^{(i)}_{\mathsf{odd}}(x_{i+1})$$.
+      3. Query $$f^{(i+1)}(x_{i+1})$$ and if $$f^{(i)}_{\mathsf{even}}(x_{i+1}) + \beta_i f^{(i)}_{\mathsf{odd}}(x_{i+1})\neq f^{(i+1)}(x_{i+1})$$, then REJECT.
 2. If $$f^{(r)}(x_r) \neq C$$, then REJECT.
 3. ACCEPT
 
 ### Properties
 
-For $$V=RS[\mathbb{F}, D, \rho]$$ where $$D$$ is an FFT-friendly domain (subgroup of size $$n=2^k$$),[ BBHR17](https://eccc.weizmann.ac.il/report/2017/134) showed that FRI satisfies the following:
+For $$V=\mathsf{RS}[\mathbb{F}, D, \rho]$$ where $$D$$ is an FFT-friendly domain (subgroup of size $$n=2^k$$),[ BBHR17](https://eccc.weizmann.ac.il/report/2017/134) showed that FRI satisfies the following:
 
 * Prover time $$\leq 6n$$, proof length $$\leq \frac{n}{3}$$
 * Verifier time $$\leq 21 \log n$$, query complexity $$\leq 2 \log n$$
@@ -39,7 +39,7 @@ For $$V=RS[\mathbb{F}, D, \rho]$$ where $$D$$ is an FFT-friendly domain (subgrou
 The soundness of a proximity testing protocol can be described by a soundness function $$s(\cdot)$$ that takes as input a proximity parameter $$\delta$$, and outputs the minimum rejection probability of the verifier, where this minimum is taken over all words that are $$\delta$$-far from the code.
 
 $$
-s(\delta)= \min\{\forall w \text{ s.t }\Delta(w, \mathcal{C})\geq \delta: Pr_{rej}(w)\}
+s(\delta)= \min\{\forall w \text{ s.t }\Delta(w, \mathcal{C})\geq \delta: \mathsf{Pr}_{rej}(w)\}
 $$
 
 where $$Pr_{rej}(w)$$ is the rejection probability of the word $$w$$.
@@ -96,14 +96,14 @@ Therefore, we needed something different to break this soundness barrier and the
 
 ## DEEP FRI
 
-First, what do we mean by “pretenders”? Let's say a malicious prover has a very large degree polynomial that agrees on all of $$L^{(0)}$$ with a low-degree polynomial. Then how does the verifier differentiate between such pretenders and an actual low-degree polynomial? If we sample $$x_0\in L^{(0)}$$, we won't find any discrepancies. Therefore, we attempt to sample outside the evaluation domain using quotient functions.
+First, what do we mean by “pretenders”? Let's say a malicious prover has a very large degree polynomial that agrees on all of $$\mathcal{L}^{(0)}$$ with a low-degree polynomial. Then how does the verifier differentiate between such pretenders and an actual low-degree polynomial? If we sample $$x_0\in \mathcal{L}^{(0)}$$, we won't find any discrepancies. Therefore, we attempt to sample outside the evaluation domain using quotient functions.
 
 ### Quotienting
 
 If $$f^{(0)}$$ is indeed evaluations of low-degree polynomial $$P(X)$$ on $$D$$ then verifier should be able to query $$P$$ on an arbitrary $$z\in\mathbb{F}$$. Suppose the prover claims $$P(z)=a$$, then $$P(X) - a$$ is divisible by $$X-z$$ so let's denote it as:
 
 $$
-QUOTIENT(P, z, a) = \frac{P(X) - a}{X-z}
+\mathsf{QUOTIENT}(P, z, a) = \frac{P(X) - a}{X-z}
 $$
 
 ### COMMIT phase:
@@ -111,17 +111,17 @@ $$
 1. For $$i = 0$$ to $$r - 1$$:
    1. The verifier picks uniformly random $$\beta_i, z_i \in \mathbb{F}$$.
    2. The prover sends $$f^{(i)}_{even}(z_i) + \beta_i f^{(i)}_{odd}(z_i)=a$$.
-   3. The prover sends a merkle proof of a function $$f^{(i+1)} : L^{(i+1)} \rightarrow \mathbb{F}$$. (In the case of an honest prover, $$f^{(i+1)}(X)=QUOTIENT(f^{(i)}_{even}(X) + \beta_i f^{(i)}_{odd}(X), z_i, a))$$.
+   3. The prover sends a merkle proof of a function $$f^{(i+1)} : L^{(i+1)} \rightarrow \mathbb{F}$$. (In the case of an honest prover, $$f^{(i+1)}(X)=\mathsf{QUOTIENT}(f^{(i)}_{\mathsf{even}}(X) + \beta_i f^{(i)}_{\mathsf{odd}}(X), z_i, a))$$.
 2. The prover sends a value $$C \in \mathbb{F}_q$$. (In the case of an honest prover, $$f^{(r)}$$ is the constant function with value = $$C$$).
 
 ### QUERY phase: (executed by the Veriﬁer)
 
 1. Repeat $$l$$ times:
-   1. Pick $$x_0 \in L^{(0)}$$ uniformly at random.
+   1. Pick $$x_0 \in \mathcal{L}^{(0)}$$ uniformly at random.
    2. For $$i = 0$$ to $$r - 1$$:
-      1. Deﬁne $$x_{i+1} \in L^{(i+1)}$$ by $$x_{i+1} = x_i^2$$.
-      2. Query $$f^{(i)}$$ at $$x_i$$ and $$-x_i$$ to compute $$f^{(i)}_{odd}(x_{i+1})$$ and $$f^{(i)}_{even}(x_{i+1})$$.
-      3. If $$\frac{(f^{(i)}_{even}(x_{i+1}) + \beta_i f^{(i)}_{odd}(x_{i+1})) - a}{(x_{i+1} - z_i)}\neq f^{(i+1)}(x_{i+1})$$, then REJECT.
+      1. Deﬁne $$x_{i+1} \in \mathcal{L}^{(i+1)}$$ by $$x_{i+1} = x_i^2$$.
+      2. Query $$f^{(i)}$$ at $$x_i$$ and $$-x_i$$ to compute $$f^{(i)}_{\mathsf{odd}}(x_{i+1})$$ and $$f^{(i)}_{\mathsf{even}}(x_{i+1})$$.
+      3. If $$\frac{(f^{(i)}_{\mathsf{even}}(x_{i+1}) + \beta_i f^{(i)}_{\mathsf{odd}}(x_{i+1})) - a}{(x_{i+1} - z_i)}\neq f^{(i+1)}(x_{i+1})$$, then REJECT.
 2. If $$f^{(r)}(x_r) \neq C$$, then REJECT.
 3. ACCEPT
 
@@ -146,4 +146,4 @@ The special case for tightness of the lower bound in Lemma 3.1 is something we c
 | BGKS20    | Eli Ben-Sasson, Lior Goldberg, Swastik Kopparty, and Shubhangi Saraf. 2020. DEEP-FRI: Sampling outside the box improves soundness. In Proceedings of the 11th Innovations in Theoretical Computer Science Conference (LIPIcs), Thomas Vidick (Ed.), Vol. 151. Schloss Dagstuhl - Leibniz-Zentrum für Informatik, 5:1–5:32. DOI:[https://doi.org/10.4230/LIPIcs](https://doi.org/10.4230/LIPIcs). ITCS.2020.5                                                                                                |
 | BCIKS2023 | Eli Ben-Sasson, Dan Carmon, Yuval Ishai, Swastik Kopparty, and Shubhangi Saraf. 2023. Proximity Gaps for Reed–Solomon Codes. J. ACM 70, 5, Article 31 (October 2023), 57 pages.[ https://doi.org/10.1145/3614423](https://doi.org/10.1145/3614423)                                                                                                                                                                                                                                                          |
 
-> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from A41
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from [A41](https://www.a41.io/)

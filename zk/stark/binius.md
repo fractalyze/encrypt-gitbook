@@ -58,7 +58,7 @@ This is equivalent to the **AND operation**.
 
 #### Binary Tower <a href="#binary-tower" id="binary-tower"></a>
 
-CommentA **binary tower** is a hierarchical structure of finite fields, where each field in the hierarchy is an extension of the previous field, and the base field is $$\mathbb{F}_2$$​. In [An Iterated Quadratic Extension of GF(2)](https://www.fq.math.ca/Scanned/26-4/wiedemann.pdf), it is stated that an extension field can be constructed as
+A **binary tower** is a hierarchical structure of finite fields, where each field in the hierarchy is an extension of the previous field, and the base field is $$\mathbb{F}_2$$​. In [An Iterated Quadratic Extension of GF(2)](https://www.fq.math.ca/Scanned/26-4/wiedemann.pdf), it is stated that an extension field can be constructed as
 
 $$
 T_0 := \mathbb{F}_2 \\T_1 := T_0[X_0] / (X_0^2 + X_0 + 1) \cong \mathbb{F}_{2^2}\\T_2 := T_1[X_1] / (X_1^2 + X_1  X_0 + 1) \cong \mathbb{F}_{2^4} \\T_3 := T_2[X_2] / (X_2^2 + X_2 X_1 + 1) \cong \mathbb{F}_{2^8}\\
@@ -153,26 +153,27 @@ Using Binary Towers for extension field operations provides an advantage over do
 
 In **Brakedown**, instead of Reed-Solomon (RS) codes, linear codes with linear encoding time are used. In comparison, **Binius** adopts the overall style of Brakedown while leveraging **RS codes** with the [**Singleton bound**](https://en.wikipedia.org/wiki/Singleton_bound), which states that the maximum distance for $$[n, k, d]$$-codes is $$d \leq n - k + 1$$. Furthermore, instead of using [radix-2 FFT](https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#The_radix-2_DIT_case) for RS encoding in a binary field, **additive FFT** ([paper](https://arxiv.org/pdf/1404.3458)) is used; however, the size of the alphabet must be at least $$n$$, but the size of the alphabet $$\mathbb{F}_2$$​ is far smaller than $$n$$. To address this, we construct $$\mathbb{F}_{2^{16}}$$​ using, for example, 16 instances of $$\mathbb{F}_2$$​. This method is called **packing**. Since the encoding is performed in blocks of $$\mathbb{F}_{2^{16}}$$​, this is referred to as **block-level encoding**.
 
-Given $$g(X_0, \dots, X_{l-1}) \in T_{\iota}[X_0, \dots, X_{l-1}]^{\le1}$$ a[nd evaluation po](#user-content-fn-2)[^2]int $$r = (r_0, \dots, r_{l-1}) \in T_\tau^l$$, let $$t$$ be an $$(m_0 = 2^{l_0}) \times (m_1 = 2^{l_1})$$ matrix consisting of the coefficients in the multilinear Lagrange basis. (For simplicity, let $$\iota = 0, \kappa = 4, \tau = 7$$. As aforementioned in the Binary Towers section, $$T_\iota = \mathbb{F}_{2}, T_\kappa = \mathbb{F}_{2^{16}}, T_\tau = \mathbb{F}_{2^{128}}$$. The evaluation $$g(r)$$ can then be computed as follows:
+$$g(X_0, \dots, X_{l-1}) \in T_{\iota}[X_0, \dots, X_{l-1}]^{\le1}$$ and evaluation point $$\bm{r} = (r_0, \dots, r_{l-1}) \in T_\tau^l$$, let $$t$$ be an $$(m_0 = 2^{l_0}) \times (m_1 = 2^{l_1})$$ matrix consisting of the coefficients in the multilinear Lagrange basis. (For simplicity, let $$\iota = 0, \kappa = 4, \tau = 7$$.  As aforementioned in the Binary Towers section, $$T_\iota = \mathbb{F}_{2}, T_\kappa = \mathbb{F}_{2^{16}}, T_\tau = \mathbb{F}_{2^{128}}$$. The evaluation $$g(\bm{r})$$ can then be computed as follows:
 
 $$
-g(r) = \otimes_{i = l_1}^{l - 1}(1 - r_i, r_i)\cdot (t_i)_{i=0}^{m_0 - 1} \cdot \otimes_{i = 0}^{l_1 - 1}(1 - r_i, r_i)
+g(\bm{r}) = \otimes_{i = l_1}^{l - 1}(1 - r_i, r_i)\cdot (t_i)_{i=0}^{m_0 - 1} \cdot \otimes_{i = 0}^{l_1 - 1}(1 - r_i, r_i)
 $$
 
-Here, $$l = (l_0 = 7) + l_1$$, and $$t_i \in (T_\iota^{m_1})^{m_0}$$ is the $$i$$-th row of $$t$$.
+Here, $$l = (l_0 = 7) + l_1$$, and $$\bm{t_i} \in (T_\iota^{m_1})^{m_0}$$ is the $$i$$-th row of $$\bm{t}$$.
 
-1.  From the $$m_0 \times m_1$$ ​matrix $$t$$, pack each row of length $$m_1$$ ​into a new $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$pack(t)$$.
+1.  From the $$m_0 \times m_1$$ ​matrix $$\bm{t}$$, pack each row of length $$m_1$$ ​into a new $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$\mathsf{pack}(\bm{t})$$.
 
     <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
-2.  If the rate is $$ho$$, encode each row of the $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$pack(t)$$ into rows of length $$n = \frac{m_1}{2^\kappa}\cdot\rho^{-1}$$, forming an $$m_0 \times n$$ matrix $$u$$. The prover sends a Merkle hash-based commitment of the $$u$$ matrix to the verifier. Note that while the polynomial represented by the $$t$$ matrix is $$g$$, the polynomial represented by $$pack(t)$$ is a new polynomial $$g'$$.\\
+2.  If the rate is $$\rho$$, encode each row of the $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$\mathsf{pack}(\bm{t})$$ into rows of length $$n = \frac{m_1}{2^\kappa}\cdot\rho^{-1}$$, forming an $$m_0 \times n$$ matrix $$u$$. The prover sends a Merkle hash-based commitment of the $$u$$ matrix to the verifier. Note that while the polynomial represented by the $$\bm{t}$$ matrix is $$g$$, the polynomial represented by $$\mathsf{pack}(\bm{t})$$ is a new polynomial $$g'$$.\
+
 
     <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
-3. The verifier samples $$r = (r_0, \dots,r_{l-1}) \leftarrow \mathbb{F_{2^{128}}^l}$$​ and sends it to the prover.
-4.  The prover computes $$s = g(r_0, \dots, r_{l-1})$$ and $$t' = \otimes_{i = l_1}^{l-1}(1 - r_i, r_i)\cdot (t_i)_{i = 0}^{m_0 - 1}$$, and sends both to the verifier. Note that $$r$$ is over $$\mathbb{F}_{2^{128}}$$, $$t$$ is over $$\mathbb{F}_2$$​, and $$t'$$ is over $$\mathbb{F}_{2^{128}}$$. As mentioned in Binary Towers, multiplication in this setting is performed efficiently.
+3. The verifier samples $$\bm{r} = (r_0, \dots,r_{l-1}) \leftarrow \mathbb{F_{2^{128}}^l}$$​ and sends it to the prover.
+4.  The prover computes $$s = g(r_0, \dots, r_{l-1})$$ and $$\bm{t'} = \otimes_{i = l_1}^{l-1}(1 - r_i, r_i)\cdot (\bm{t_i})_{i = 0}^{m_0 - 1}$$, and sends both to the verifier. Note that $$\bm{r}$$ is over $$\mathbb{F}_{2^{128}}$$, $$\bm{t}$$ is over $$\mathbb{F}_2$$​, and $$\bm{t'}$$ is over $$\mathbb{F}_{2^{128}}$$. As mentioned in Binary Towers, multiplication in this setting is performed efficiently.
 
     <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
-5. The verifier samples $$j_i \leftarrow \{0, \dots, n - 1\}$$ for $$\gamma$$ times, where $$\gamma$$ is the repetition count, and sends $$J = \{j_0, \dots, j_{\gamma - 1}\}$$ to the prover (Remember $$n = \frac{m_1}{2^\kappa}\cdot\rho^{-1}$$).
-6. The verifier uses Merkle proofs to verify that $$\big\{(u_{i, j})\big\}_{j \in J}$$​ is correct.
+5. The verifier samples $$j_i \leftarrow \{0, \dots, n - 1\}$$ for $$\gamma$$ times, where $$\gamma$$ is the repetition count, and sends $$\bm{J} = \{j_0, \dots, j_{\gamma - 1}\}$$ to the prover (Remember $$n = \frac{m_1}{2^\kappa}\cdot\rho^{-1}$$).
+6. The verifier uses Merkle proofs to verify that $$\big\{(u_{i, j})\big\}_{j \in \bm{J}}$$​ is correct.
 7.  Finally, the verifier checks that packing and encoding were performed correctly:\
     . Given that $$j_i$$​ ranges between $$0$$ and $$n = \frac{c}{16} \cdot \rho^{-1}$$, testing is performed at the **block level** in units of $$\mathbb{F}_{2^{16}}$$​. This is referred to as **block-level testing**.
 
@@ -180,7 +181,8 @@ Here, $$l = (l_0 = 7) + l_1$$, and $$t_i \in (T_\iota^{m_1})^{m_0}$$ is the $$i$
 
 ### Pack Virtual Polynomial
 
-Let us revisit the block-level encoding described earlier. In a **Polynomial IOP**, the polynomial that the verifier requests the prover to open is $$g \in \mathbb{F}_2[X_0, \dots, X_{l-1}]^{\leq 1}$$. However, the polynomial that the prover actually commits to and opens is $$g'$$, which is derived by packing $$g$$ into $$g' \in \mathbb{F}_{2^{\kappa}}[X_0, \dots, X_{l - \kappa - 1}]^{\leq 1}$$. The **packing function** $$\widetilde{\text{pack}}_{\kappa}$$​ is defined as follows:\\
+Let us revisit the block-level encoding described earlier. In a **Polynomial IOP**, the polynomial that the verifier requests the prover to open is $$g \in \mathbb{F}_2[X_0, \dots, X_{l-1}]^{\leq 1}$$. However, the polynomial that the prover actually commits to and opens is $$g'$$, which is derived by packing $$g$$ into $$g' \in \mathbb{F}_{2^{\kappa}}[X_0, \dots, X_{l - \kappa - 1}]^{\leq 1}$$. The **packing function** $$\widetilde{\mathsf{pack}}_{\kappa}$$​ is defined as follows:\
+
 
 $$
 \widetilde{\mathsf{pack}}_{\kappa}(g)(X_0, \dots, X_{l - \kappa - 1}) :=\sum_{v\in B_\kappa}\tilde{g}(v_0, \dots, v_{\kappa - 1}, X_0, \dots, X_{l - \kappa - 1}) \cdot \beta_v
@@ -198,38 +200,38 @@ $$
 Using a **sumcheck protocol**, this computation can be replaced with an evaluation claim such that:
 
 $$
-\widetilde{\mathsf{pack}}_\kappa(g)(r') \stackrel{?}= s'
+\widetilde{\mathsf{pack}}_\kappa(g)(\bm{r'}) \stackrel{?}= s'
 $$
 
 Replacing $$\beta_v$$ with $$\tilde{\beta} \in \mathbb{F}_\kappa[X_0, \dots, X_{\kappa - 1}]^{\le 1}$$, the following equation is defined:
 
 $$
-\widetilde{\mathsf{pack}}_{\kappa}(g)(r')(Y_0, \dots, Y_{\kappa - 1}) := \tilde{g}(Y_0, \dots, Y_{\kappa - 1}, {r'}_0, \dots, {r'}_{l - \kappa - 1}) \cdot \tilde{\beta}(Y_0, \dots, Y_{\kappa - 1})
+\widetilde{\mathsf{pack}}_{\kappa}(g)(\bm{r'})(Y_0, \dots, Y_{\kappa - 1}) := \tilde{g}(Y_0, \dots, Y_{\kappa - 1}, {r'}_0, \dots, {r'}_{l - \kappa - 1}) \cdot \tilde{\beta}(Y_0, \dots, Y_{\kappa - 1})
 $$
 
 The following sum holds:
 
 $$
-\sum_{Y \in B_{ \kappa}}\widetilde{\mathsf{pack}}_{\kappa}(g)(r')(Y_0, \dots, Y_{\kappa - 1}) = s'
+\sum_{Y \in B_{ \kappa}}\widetilde{\mathsf{pack}}_{\kappa}(g)(\bm{r'})(Y_0, \dots, Y_{\kappa - 1}) = s'
 $$
 
 For example, when $$\kappa = 2$$:
 
 $$
-\begin{align*} \widetilde{\mathsf{pack}}_2(g)(r') = s' =&\tilde{g}(1, 1, {r'}_0, {r'}_1)\cdot Y_1Y_0 + \tilde{g}(0, 1, {r'}_0, {r'}_1)\cdot Y_1 + \\ &\tilde{g}(1, 0, {r'}_0, {r'}_1)\cdot Y_0 + \tilde{g}(0, 0, {r'}_0, {r'}_1)\cdot 1 \end{align*}
+\begin{align*} \widetilde{\mathsf{pack}}_2(g)(\bm{r'}) = s' =&\tilde{g}(1, 1, {r'}_0, {r'}_1)\cdot Y_1Y_0 + \tilde{g}(0, 1, {r'}_0, {r'}_1)\cdot Y_1 + \\ &\tilde{g}(1, 0, {r'}_0, {r'}_1)\cdot Y_0 + \tilde{g}(0, 0, {r'}_0, {r'}_1)\cdot 1 \end{align*}
 $$
 
 By applying a **sumcheck protocol**, this is replaced with an evaluation claim:
 
 $$
-\tilde{g}(r || r') \cdot \tilde{\beta}(r) \stackrel{?}= s
+\tilde{g}(\bm{r} || \bm{r'}) \cdot \tilde{\beta}(\bm{r}) \stackrel{?}= s
 $$
 
-Thus, we obtain $$\tilde{g}(r || r')$$, allowing us to query the original polynomial $$g$$ through its **virtual polynomial** $$g'$$.
+Thus, we obtain $$\tilde{g}(\bm{r} || \bm{r'})$$, allowing us to query the original polynomial $$g$$ through its **virtual polynomial** $$g'$$.
 
 ### Shift Virtual Polynomial
 
-As introduced in the previous article on **HyperPlonk**, the **shift polynomial** helps traverse the evaluation domain. For $$b \in \{0, \dots, l-1\}$$ and shift offset $$o \in B_b$$​, the **shift mapping** $$s_{b, o}: B_l \rightarrow B_l$$​ is defined such that, for $$u := s_{b, o}(v)$$, the condition $$\{u\} \equiv \{v\} + \{o\} \pmod{2^b}$$ holds. For example, shifting by $$o = \{1, 0\} \in B_2$$​ (a single step) works as follows:
+As introduced in the previous article on **HyperPlonk**, the **shift polynomial** helps traverse the evaluation domain. For $$\bm{b} \in \{0, \dots, l-1\}$$ and shift offset $$o \in B_b$$​, the **shift mapping** $$s_{b, o}: B_l \rightarrow B_l$$​ is defined such that, for $$u := s_{b, o}(v)$$, the condition $$\{u\} \equiv \{v\} + \{o\} \pmod{2^b}$$ holds. For example, shifting by $$o = \{1, 0\} \in B_2$$​ (a single step) works as follows:
 
 $$
 s_{b, o}(0, 0, 0) = (1, 0, 0) \\ 
@@ -258,7 +260,7 @@ $$
 Thus, the **shift polynomial** $$\widetilde{\mathsf{shift}}_{b, o}(g)$$ is defined as:
 
 $$
-\widetilde{\text{shift}}_{b, o}(g)(v) := \sum_{u \in B_b}\tilde{g}(u_0, \dots, u_{b-1}, v_b, \dots, v_{l-1})\cdot \widetilde{\text{s-ind}}_{b, o}(u_0, \dots, u_{b-1}, v_0, \dots, v_{b-1})
+\widetilde{\text{shift}}_{b, o}(g)(\bm{v}) := \sum_{u \in B_b}\tilde{g}(u_0, \dots, u_{b-1}, v_b, \dots, v_{l-1})\cdot \widetilde{\text{s-ind}}_{b, o}(u_0, \dots, u_{b-1}, v_0, \dots, v_{b-1})
 $$
 
 For the earlier example:
@@ -277,19 +279,19 @@ $$
 By applying the **sumcheck protocol**, we get the evaluation claim:
 
 $$
-\widetilde{\text{shift}}_{b,o}(g)(r') \stackrel{?}= s'
+\widetilde{\text{shift}}_{b,o}(g)(\bm{r'}) \stackrel{?}= s'
 $$
 
 This leads to:
 
 $$
-\widetilde{\text{shift}}_{b,o}(g)(r')(Y_0, \dots, Y_{b- 1}) := \tilde{g}(Y_0, \dots, Y_{b- 1}, {r'}_b, \dots, {r'}_{l - 1}) \cdot \widetilde{\text{s-ind}}_{b,o}(Y_0, \dots, Y_{b - 1}, {r'}_0, \dots, {r'}_{b-1})
+\widetilde{\text{shift}}_{b,o}(g)(\bm{r'})(Y_0, \dots, Y_{b- 1}) := \tilde{g}(Y_0, \dots, Y_{b- 1}, {r'}_b, \dots, {r'}_{l - 1}) \cdot \widetilde{\text{s-ind}}_{b,o}(Y_0, \dots, Y_{b - 1}, {r'}_0, \dots, {r'}_{b-1})
 $$
 
 The following sum holds:
 
 $$
-\sum_{Y \in B_{ \kappa}}\widetilde{\text{shift}}_{b,o}(g)(r')(Y_0, \dots, Y_{b - 1}) = s'
+\sum_{Y \in B_{ \kappa}}\widetilde{\text{shift}}_{b,o}(g)(\bm{r'})(Y_0, \dots, Y_{b - 1}) = s'
 $$
 
 This allows us to query the **shift polynomial** $$\text{shift}_{b, o}(g)$$ using the **virtual polynomial** $$g$$ and $$\text{s-ind}_{b,o}$$.
@@ -306,8 +308,6 @@ The image above is captured from the **Binius** paper. The first row, **Hyrax**,
 
 The image above is captured from the **Binius** paper. It turns out Binius is almost 2 times faster to commit, around 2\~3 times faster to prove, and around 5\~6 times faster to verify.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
 
 [^1]: ?
-
-[^2]: test

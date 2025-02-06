@@ -8,13 +8,13 @@ description: >-
 
 ## Introduction
 
-Demonstrating that all values in Set $$A$$ belong to Set $$S$$ is called a Lookup. In ZK, this Lookup is used to prove that a value falls within a specific range or to reference a value proven in another circuit. [Since 2022, significant advancements have been made in Lookup techniques](https://ingonyama-zk.github.io/ingopedia/protocolsLookup.html). Recently, it has converged into implementing one of two approaches: LogUp-GKR or Lasso. At ProgCrypto 2023, as seen in [the video by Dohun Kim](https://www.youtube.com/watch?v=AyhU7j2nGGI) from the PSE team, the performance of the two methods is reported to be nearly identical. In this article, we aim to discuss how Halo2 Lookup evolved into LogUp-GKR, as observed in the video.
+Demonstrating that all values in Set $$\bm{A}$$ belong to Set $$\bm{S}$$ is the core feature of Lookup. In ZK, this Lookup is used to prove that a value falls within a specific range or to reference a value proven in another circuit. [Since 2022, significant advancements have been made in Lookup techniques](https://ingonyama-zk.github.io/ingopedia/protocolsLookup.html). Recently, it has converged into implementing one of two approaches: LogUp-GKR or Lasso. At ProgCrypto 2023, as seen in [the video by Dohun Kim](https://www.youtube.com/watch?v=AyhU7j2nGGI) from the PSE team, the performance of the two methods is reported to be nearly identical. In this article, we aim to discuss how Halo2 Lookup evolved into LogUp-GKR, as observed in the video.
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXctCTK9dno_sgW663Eph9OiyS-Nq7AHbsyTRdcSVQHoAxCQUOYw8PKIw3OVkyigZaXahjzdi4Fi_DaafBUMyZp9sCoA0Avcm8xATg6Wsyoh7kxjyjgHw3cZ9C7IpezDc0USIBWp?key=qDCl38TNxspCRBTGEVc_9MzT" alt=""><figcaption></figcaption></figure>
 
 ## Background
 
-Prerequisites: [Multiset Check](../../primitives/multiset-check.md) and [Sumcheck](../../primitives/sumcheck.md) for more dtails
+Prerequisites: See [Multiset Check](../../primitives/multiset-check.md) and [Sumcheck](../../primitives/sumcheck.md) for more details
 
 ### Polynomial = Column
 
@@ -49,9 +49,9 @@ On the other hand, if the domain is expressed as a boolean hypercube as shown be
 In the table above, $$A(X)$$ can be expressed as follows. (See [eq extension](https://jolt.a16zcrypto.com/background/eq-polynomial.html) for more details)
 
 $$
-A(X) = \mathsf{eq}(X, (0, 0)) \cdot 1 + \mathsf{eq}(X, (1, 0)) \cdot 2 + \mathsf{eq}(X, (0, 1)) \cdot 1 + \mathsf{eq}(X, (1, 1)) \cdot 3 \\
-\mathsf{eq}(X, Y) = \begin{cases}
-1 & \text{ if } X = Y \\
+A(\bm{X}) = \mathsf{eq}(\bm{X}, (0, 0)) \cdot 1 + \mathsf{eq}(\bm{X}, (1, 0)) \cdot 2 + \mathsf{eq}(\bm{X}, (0, 1)) \cdot 1 + \mathsf{eq}(\bm{X}, (1, 1)) \cdot 3 \\
+\mathsf{eq}(\bm{X}, \bm{Y}) = \begin{cases}
+1 & \text{ if } \bm{X} = \bm{Y} \\
 0 & \text{ otherwise }
 \end{cases}
 $$
@@ -60,14 +60,15 @@ $$
 
 ### Halo2 Lookup
 
-Lookup tries to prove that all the unique values in set $$A$$ are also in set $$S$$. In practice, $$S$$ is much smaller and consists of unique, non-repeating values.
+Lookup tries to prove that all the unique values in set $$\bm{A}$$ are also in set $$\bm{S}$$. In practice, $$\bm{S}$$ is much smaller and consists of unique, non-repeating values.
 
 $$
-A = \{1, 2,1,3\} \\
-S = \{1, 2, 3\}
+\bm{A} = \{1, 2,1,3\} \\
+\bm{S} = \{1, 2, 3\}
 $$
 
-All rows larger than $$A$$ and $$S$$ are filled with zeros. In Halo2 Lookup, new polynomials (or auxiliary columns) $$A'(𝑋)$$ and $$S'(𝑋)$$ are created as shown below. Before creating $$A'(𝑋)$$ and $$S'(𝑋)$$, $$A(𝑋)$$ and $$S(𝑋)$$ must be committed. (For convenience, $$L_0(X)$$ is included below, but it is not actually a committed polynomial.) \\
+All rows larger than $$\bm{A}$$ and $$\bm{S}$$ are filled with zeros. In Halo2 Lookup, new polynomials (or auxiliary columns) $$A'(𝑋)$$ and $$S'(𝑋)$$ are created as shown below. Before creating $$A'(𝑋)$$ and $$S'(𝑋)$$, $$A(𝑋)$$ and $$S(𝑋)$$ must be committed. (For convenience, $$L_0(X)$$ is included below, but it is not actually a committed polynomial.)  \
+
 
 |              | L₀(X) | A(X) | S(X) | A'(X) | S'(X) |
 | ------------ | ----- | ---- | ---- | ----- | ----- |
@@ -101,12 +102,12 @@ These constraints can be expressed as follows:
 
 $$
 L_0(X) \cdot (Z(X) - 1) = 0 \\
-(1 - L_{last}(X)) \cdot (Z(\omega X) \cdot (A'(X) + \beta) \cdot (S'(X) + \gamma) - 
+(1 - L_{\mathsf{last}}(X)) \cdot (Z(\omega X) \cdot (A'(X) + \beta) \cdot (S'(X) + \gamma) - 
 Z(X) \cdot (A(X) + \beta) \cdot (S(X) + \gamma))  = 0 \\
-L_{last}(X) \cdot (Z^2(X) - Z(X)) = 0
+L_{\mathsf{last}}(X) \cdot (Z^2(X) - Z(X)) = 0
 $$
 
-For example, if $$\beta = 2$$ and $$\gamma = 3$$, $$Z(X)$$ will be filled as follows. Before constructing $$Z(X)$$, $$A'(X)$$ and $$S'(X)$$ must be committed. (For convenience, $$L_{last}(X)$$ is included below, but it is not actually a committed polynomial.) Since the index of the last row is 4, $$L_{last}(\omega^4) = 1$$.
+For example, if $$\beta = 2$$ and $$\gamma = 3$$, $$Z(X)$$ will be filled as follows. Before constructing $$Z(X)$$, $$A'(X)$$ and $$S'(X)$$ must be committed (For convenience, $$L_{\mathsf{last}}(X)$$ is included below, but it is not actually a committed polynomial). Since the index of the last row is 4, $$L_{\mathsf{last}}(\omega^4) = 1$$.
 
 |              | L₀(X) | Lₗₐₛₜ(X) | A(X) | S(X) | A'(X) | S'(X) | Z(X) |
 | ------------ | ----- | -------- | ---- | ---- | ----- | ----- | ---- |
@@ -132,19 +133,19 @@ $$
 | $$A'$$     | 2                        |
 | $$S'$$     | 1                        |
 
-Since this could break the ZK property, additional random values a to j are added to two columns as shown in the table below. (For convenience, $$\text{Blind}(X)$$ is included but is not actually a committed polynomial.)
+Since this could break the ZK property, additional random values $$a$$ to $$j$$ are added to two columns as shown in the table below. (For convenience, $$\mathsf{Blind}(X)$$ is included but is not actually a committed polynomial.) &#x20;
 
 $$
 L_0(X) \cdot (A'(X) - S'(X)) = 0\\
 L_0(X) \cdot (Z(X) - 1) = 0\\
-L_{last}(X) \cdot (Z^2(X) - Z(X)) = 0\\
-(1 - L_{last}(X) - \mathsf{Blind}(X)) \cdot (Z(\omega X) \cdot (A'(X) + \beta)\cdot(S'(X) + \gamma) - Z(X) \cdot (A(X) + \beta)\cdot(S(X) + \gamma)) = 0\\
-(1 - L_{last}(X) - \mathsf{Blind}(X)) \cdot (A'(X) - A'({\omega}^{-1}X)) \cdot (A'(X) - S'(X)) = 0\\
+L_{\mathsf{last}}(X) \cdot (Z^2(X) - Z(X)) = 0\\
+(1 - L_{\mathsf{last}}(X) - \mathsf{Blind}(X)) \cdot (Z(\omega X) \cdot (A'(X) + \beta)\cdot(S'(X) + \gamma) - Z(X) \cdot (A(X) + \beta)\cdot(S(X) + \gamma)) = 0\\
+(1 - L_{\mathsf{last}}(X) - \mathsf{Blind}(X)) \cdot (A'(X) - A'({\omega}^{-1}X)) \cdot (A'(X) - S'(X)) = 0\\
 $$
 
 <table><thead><tr><th></th><th>L₀(X)</th><th>Lₗₐₛₜ(X)</th><th>Blind(X)</th><th>A(X)</th><th>S(X)</th><th width="99">A'(X)</th><th>S'(X)</th><th>Z(X)</th></tr></thead><tbody><tr><td><span class="math">\omega^0</span></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td><span class="math">\omega^1</span></td><td>0</td><td>0</td><td>0</td><td>2</td><td>2</td><td>1</td><td>0</td><td>1</td></tr><tr><td><span class="math">\omega^2</span></td><td>0</td><td>0</td><td>0</td><td>1</td><td>3</td><td>2</td><td>2</td><td>20/9</td></tr><tr><td><span class="math">\omega^3</span></td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>3</td><td>3</td><td>2</td></tr><tr><td><span class="math">\omega^4</span></td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr><tr><td><span class="math">\omega^5</span></td><td>0</td><td>0</td><td>1</td><td>a</td><td>b</td><td>c</td><td>d</td><td>e</td></tr><tr><td><span class="math">\omega^6</span></td><td>0</td><td>0</td><td>1</td><td>f</td><td>g</td><td>h</td><td>i</td><td>j</td></tr><tr><td><span class="math">\omega^7</span></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></tbody></table>
 
-When using Halo2 Lookup, if there are n input polynomials referencing $$S(X)$$, there are 3n columns to commit, as there are n values of each $$A'$$, $$S'$$, and $$Z$$. The downside of this method is inefficiency, as the same $$S(X)$$ is referenced repeatedly, requiring redundant computations with $$S(X)$$ and $$S'(X)$$. Considering that Lookup is often used to verify ranges, this cost cannot be ignored.
+When using Halo2 Lookup, if there are $$n$$ input polynomials referencing $$S(X)$$, there are $$3n$$ columns to commit, as there are $$n$$ values of each $$A'$$, $$S'$$, and $$Z$$. The downside of this method is inefficiency, as the same $$S(X)$$ is referenced repeatedly, requiring redundant computations with $$S(X)$$ and $$S'(X)$$. Considering that Lookup is often used to verify ranges, this cost cannot be ignored. &#x20;
 
 For more details, refer to [Lookup Argument - The Halo2 Book](https://zcash.github.io/halo2/design/proving-system/lookup.html).
 
@@ -152,12 +153,12 @@ For more details, refer to [Lookup Argument - The Halo2 Book](https://zcash.gith
 
 In the [original LogUp](https://eprint.iacr.org/2022/1530), the protocol is described for multivariate polynomials, but here it is described for univariate polynomials as used in Scroll Halo2.
 
-Let us assume there are two polynomials referencing $$S$$, as shown below:
+Let us assume there are two polynomials referencing $$\bm{S}$$, as shown below:
 
 $$
-A_0 = \{1,2,1,3\} \\
-A_1 = \{1,1,2,2\} \\
-S = \{1,2,3\}
+\bm{A_0} = \{1,2,1,3\} \\
+\bm{A_1} = \{1,1,2,2\} \\
+\bm{S} = \{1,2,3\}
 $$
 
 To solve the problem above, let us create a polynomial $$m(X)$$ that indicates the degree of multiplicity. Before creating $$m(X)$$, $$A_0(X)$$, $$A_1(X)$$, and $$S(X)$$ must be committed.
@@ -175,8 +176,8 @@ Based on this, let us assume that, as before, a running product column $$Z(X)$$ 
 
 $$
 L_0(X) \cdot (Z(X) - 1) = 0 \\
-(1 - L_{last}(X)) \cdot Z(\omega X) \cdot \prod_{i=0}^{1}(A_i(X) + \beta)\cdot (S(X) + \gamma)^{m(X)} - Z(X) \cdot \prod_{i=0}^{1}(A_i(X) + \beta)\cdot(S(X) + \gamma)^{m(X)} = 0 \\ 
-L_{last}(X) \cdot (Z^2(X) - Z(X)) = 0 \\
+(1 - L_{\mathsf{last}}(X)) \cdot Z(\omega X) \cdot \prod_{i=0}^{1}(A_i(X) + \beta)\cdot(S(X) + \gamma)^{m(X)} - Z(X) \cdot \prod_{i=0}^{1}(A_i(X) + \beta)\cdot(S(X) + \gamma)^{m(X)} = 0 \\
+L_{\mathsf{last}}(X) \cdot (Z^2(X) - Z(X)) = 0 \\
 $$
 
 Lemma 3 of LogUp summarizes that Multiset Check, based on products, can be replaced with a sum-based method as shown below:
@@ -199,8 +200,8 @@ These constraints can be expressed as follows:
 
 $$
 L_0(X) \cdot Z(X) = 0 \\
-(1 - L_{last}(X)) \cdot (Z(\omega X) - Z(X) - \sum_{i=0}^{1}(\frac{1}{A_i(X) + \beta}) + \frac{m(X)}{S(X) + \beta}) = 0 \\
-L_{last}(X) \cdot Z(X) = 0 \\
+(1 - L_{\mathsf{last}}(X)) \cdot (Z(\omega X) - Z(X) - \sum_{i=0}^{1}(\frac{1}{A_i(X) + \beta}) + \frac{m(X)}{S(X) + \beta} = 0 \\
+L_{\mathsf{last}}(X) \cdot Z(X) = 0 \\
 $$
 
 Before constructing $$Z(X)$$, $$m(X)$$ must be committed. If $$\beta=2$$, $$Z(X)$$ will be filled as shown below. (For convenience, $$L_0(X)$$ and $$L_{last}(X)$$ are included below but are not actually committed polynomials.)
@@ -217,13 +218,13 @@ Before constructing $$Z(X)$$, $$m(X)$$ must be committed. If $$\beta=2$$, $$Z(X)
 
 In Scroll Halo2, constraints are flexibly expressed with fractional sums, whereas in the original LogUp, they are strictly expressed with polynomial sums. This is also the case in [the video](https://www.youtube.com/watch?v=KeuibiW_tRc) and [article](https://hackmd.io/@plafer/HJGhiRIPC/%2FS1X5XFAwR#Transition-constraint) presented by Polygon Miden at ZKSummit 12.
 
-With the strict method, the degree of the constraint polynomial can increase, which is why the original LogUp separately creates a helper function h as shown below:
+With the strict method, the degree of the constraint polynomial can increase, which is why the original LogUp separately creates a helper function $$h$$ as shown below:
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdkS8qrqxIPoynXCKZVwI47CSP6HGOYSJYQ7uJs1Z62sSyOvq0fcqsVs8XRjoW2gPs2Z3gjf_X3W8wvd_91KefDgTaRfTz9cmBnDkBHEkAuebiCCDd-1PeIcmCon2MmeEOyOR7Q?key=i-_YTrjb0_QJkFzBaKFWlQ0U" alt=""><figcaption></figcaption></figure>
 
-When using univariate LogUp, if there are n input polynomials referencing $$S(X)$$, there are 2 columns to commit: $$m(X)$$ and $$Z(X)$$.
+When using univariate LogUp, if there are $$n$$ input polynomials referencing $$S(X)$$, there are 2 columns to commit: $$m(X)$$ and $$Z(X)$$.
 
-By introducing $$m(X)$$ in LogUp, the computational overhead is reduced. If n is large, the reduction becomes even more significant. However, there is still overhead associated with generating and committing $$Z(X)$$. Can this overhead be eliminated?
+By introducing $$m(X)$$ in LogUp, the computational overhead is reduced. If $$n$$ is large, the reduction becomes even more significant. However, there is still overhead associated with generating and committing $$Z(X)$$. Can this overhead be eliminated?
 
 ### LogUp-GKR
 
@@ -234,15 +235,15 @@ In [https://eprint.iacr.org/2023/1284.pdf](https://eprint.iacr.org/2023/1284.pdf
 Here, $$+_F$$ represents the fraction sum where $$P_i(X)$$ is the numerator and $$Q_i(X)$$ is the denominator.
 
 $$
-\frac{P_i(X)}{Q_i(X)} = \frac{P_{i+1}(X, 0) \cdot Q_{i+1}(X, 1) + P_{i+1}(X, 1) \cdot Q_{i+1}(X, 0)}{Q_{i+1}(X, 0) \cdot Q_{i+1}(X, 1)}
+\frac{P_i(\bm{X})}{Q_i(\bm{X})} = \frac{P_{i+1}(\bm{X}, 0) \cdot Q_{i+1}(\bm{X}, 1) + P_{i+1}(\bm{X}, 1) \cdot Q_{i+1}(\bm{X}, 0)}{Q_{i+1}(\bm{X}, 0) \cdot Q_{i+1}(\bm{X}, 1)}
 $$
 
 Hence, $$+_F$$ is formally defined as below.
 
 $$
-(P_{i+1}(X, 0), Q_{i+1}(X, 0)) +_F (P_{i+1}(X, 1), Q_{i+1}(X, 1)) \\
- = (P_{i+1}(X, 0) \cdot Q_{i+1}(X, 1) + P_{i+1}(X, 1) \cdot Q_{i+1}(X, 0), Q_{i+1}(X, 0) \cdot Q_{i+1}(X, 1)) \\
- = (P_i(X), Q_i(X))
+(P_{i+1}(\bm{X}, 0), Q_{i+1}(\bm{X}, 0)) +_F (P_{i+1}(\bm{X}, 1), Q_{i+1}(\bm{X}, 1)) \\
+ = (P_{i+1}(\bm{X}, 0) \cdot Q_{i+1}(\bm{X}, 1) + P_{i+1}(\bm{X}, 1) \cdot Q_{i+1}(\bm{X}, 0), Q_{i+1}(\bm{X}, 0) \cdot Q_{i+1}(\bm{X}, 1)) \\
+ = (P_i(\bm{X}), Q_i(\bm{X}))
 $$
 
 The constraints can be expressed as follows:
@@ -250,8 +251,8 @@ The constraints can be expressed as follows:
 $$
 P_0(0) \cdot Q_0(1) + P_0(1) \cdot Q_0(0) = 0 \\
 Q_0(0) \cdot Q_0(1) \neq 0 \\
-P_k(\vec{X}) = \sum_{\vec{y} \in H_k} L_k(\vec{X}, \vec{y}) \cdot ( P_{k+1}(\vec{y}, 0) \cdot Q_{k+1}(\vec{y}, 1) + P_{k+1}(\vec{y}, 1) \cdot Q_{k+1}(\vec{y}, 0) ) \\
-Q_k(\vec{X}) = \sum_{\vec{y} \in H_k} L_k(\vec{X}, \vec{y}) \cdot Q_{k+1}(\vec{y}, 0) \cdot Q_{k+1}(\vec{y}, 1)
+P_k(\bm{X}) = \sum_{\bm{b} \in \{0, 1\}^{k + 1}} \mathsf{eq}(\bm{X}, \bm{b}) \cdot ( P_{k+1}(\bm{b}, 0) \cdot Q_{k+1}(\bm{b}, 1) + P_{k+1}(\bm{b}, 1) \cdot Q_{k+1}(\bm{b}, 0) ) \\
+Q_k(\bm{X}) = \sum_{\bm{b} \in \{0, 1\}^{k + 1}} \mathsf{eq}(\bm{X}, \bm{b}) \cdot Q_{k+1}(\bm{b}, 0) \cdot Q_{k+1}(\bm{b}, 1)
 $$
 
 where the first two constraints force the two output fractions to add up to zero.
@@ -262,6 +263,18 @@ The interaction between the prover and verifier proceeds in the following sequen
 * The verifier checks the validity of these values.
 * The verifier samples $$ho_0$$ and $$\lambda_0$$ and sends them to the prover.
 * The prover and verifier execute the sumcheck protocol to assert $$S_0 = P_0(\rho_0) + \lambda_0 Q_0(\rho_0)$$ over the equation below until the final layer.
+
+$$
+\widetilde{P_i}(\bm{X}) + \lambda_i \widetilde{Q_i}(\bm{X}) = 
+
+\sum_{\bm{b} \in \{0,1\}^{k + 1}} \mathsf{eq}(\bm{X}, \bm{b})[\widetilde{P_{i+1}}(\bm{b}, 0) \cdot \widetilde{Q_{i+1}}(\bm{b}, 1) + \widetilde{P_{i+1}}(\bm{b}, 1) \cdot \widetilde{Q_{i+1}}(\bm{b}, 0) + \lambda_i \widetilde{Q_{i+1}}(\bm{b}, 0) \cdot \widetilde{Q_{i+1}}(\bm{b}, 1) ]
+$$
+
+* For the final layer, the prover sends $$P_{\mathsf{last}-1}(\rho_0, \dots, X), Q_{\mathsf{last}-1}(\rho_0, \dots, X)$$ to the verifier.
+* The verifier computes $$P_{\mathsf{last}-1}(\rho_0, \dots, 0) + \lambda_{\mathsf{last}-1}  Q_{\mathsf{last}-1}(\rho_0, \dots, 0) + P_{\mathsf{last}-1}(\rho_0, …, 1) + \lambda_{\mathsf{last}-1}  Q_{\mathsf{last}-1}(\rho_0, …, 1)$$and compares it with the claim $$S_{\mathsf{last}-2}$$.
+* The verifier samples $$\rho_{\mathsf{last}-1}$$ and sends it to the prover.
+* The prover sends $$S_{\mathsf{last} - 1} = P_{\mathsf{last}-1}(\rho_0, \dots, \rho_{n-1}) + \lambda_{\mathsf{last} - 1} Q_{\mathsf{last}-1}(\rho_0, \dots, \rho_{n-1})$$ to the verifier.
+* The verifier queries $$P_{\mathsf{last}-1}(\bm{X}) + \lambda_{\mathsf{last} - 1}Q_{\mathsf{last} - 1}(\bm{X})$$ at $$(\rho_0, \dots, \rho_{n-1})$$ and compares the result with the $$S_{\mathsf{last}-1}$$.
 
 $$
 \widetilde{P_i}(\rho_i) + \lambda_i \widetilde{Q_i}(\rho_i) = 
@@ -298,8 +311,8 @@ When using LogUp-GKR, if there are n input polynomials referencing $$S(X)$$, onl
 
 ## Conclusion
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfZaqS95da_zEaTEKMc3wxSitOgdg2eniCVBJNlcfsofuT8G6rrLSCxoCrFRo04c6GyNBwHDNWbAMbYFsve5zs6T2MCJzbCPQtRxrAHgzCEAf7PZNFFUBek9SrBJhFhBqlprd8M?key=i-_YTrjb0_QJkFzBaKFWlQ0U" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-02-06 at 11.12.03 AM.png" alt=""><figcaption></figcaption></figure>
 
 We have reviewed the evolution from Halo2 Lookup to LogUp-GKR. Initially, the process started with univariate polynomials, but from LogUp onward, multivariate polynomials were used. As the protocol evolved, the number of committed polynomials decreased, leading to improved performance, as illustrated in the examples above.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)

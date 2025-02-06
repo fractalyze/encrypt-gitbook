@@ -156,4 +156,4 @@ While I showed the boolean version of GMW, this protocol also works for **arithm
 
 In total, GMW stands as a notable $$n$$-party MPC protocol based around the concept of secret shares with free XOR gates and costly AND gates. Communication between parties must occur during the start of the protocol, at every AND gate, and at the end of the circuit computation.
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from A41
+> Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from [A41](https://www.a41.io/)

@@ -2,8 +2,6 @@
 
 ## Introduction
 
-Main reference: [Understanding PLONK by Vitalik Buterin](https://vitalik.eth.limo/general/2019/09/22/plonk.html)
-
 The **PLONK arithmetization** is done by representing the target computation $$P$$ as a circuit with logic gates for addition and multiplication, and converting it into a system of equations where the variables are the values on all the wires.
 
 <figure><img src="../../.gitbook/assets/Pasted image 20240530183311.png" alt=""><figcaption><p>Figure 1. Example circuit for <span class="math">x^3+x+5=35</span>. Source: <a href="https://vitalik.eth.limo/general/2019/09/22/plonk.html">https://vitalik.eth.limo/general/2019/09/22/plonk.html</a></p></figcaption></figure>
@@ -75,4 +73,8 @@ With this, it suffices to check if $$p_a(4)\times p_b(4)\times p_c(4)=p'_a(4)\ti
 
 NOTE: The actual accumulator polynomial is defined as $$p(x)=p(x-1)\times(v_1 + X(x)+v_2\times a(x))$$ where $$v_1$$ and $$v_2$$ are randomly sampled. TODO: Elaborate on the reasons behind this construction.
 
-> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from A41
+## References
+
+* [Understanding PLONK by Vitalik Buterin](https://vitalik.eth.limo/general/2019/09/22/plonk.html)
+
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from [A41](https://www.a41.io/)
