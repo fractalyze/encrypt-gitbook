@@ -1,0 +1,46 @@
+# Table of contents
+
+## Primitives
+
+* [Chinese Remainder Theorem (CRT)](README.md)
+* [Coding Theory](primitives/coding-theory/README.md)
+  * [Linear Code](primitives/coding-theory/linear-code.md)
+* [Group Theory](primitives/group-theory.md)
+* [Elliptic Curve](primitives/elliptic-curve/README.md)
+  * [Computing Efficient Scalar Multiplication](primitives/elliptic-curve/computing-efficient-scalar-multiplication.md)
+  * [Fast Elliptic Curve Arithmetic and Improved WEIL Pairing Evaluation](primitives/elliptic-curve/fast-elliptic-curve-arithmetic-and-improved-weil-pairing-evaluation.md)
+* [Multiset Check](primitives/multiset-check.md)
+* [Sumcheck](primitives/sumcheck.md)
+
+## MPC
+
+* [Yao's Garbled Circuits](mpc/yaos-garbled-circuits.md)
+* [GMW](mpc/gmw.md)
+
+## ZK
+
+* [Arithmetization](zk/arithmetization/README.md)
+  * [R1CS](zk/arithmetization/r1cs.md)
+  * [PLONK](zk/arithmetization/plonk.md)
+  * [AIR](zk/arithmetization/air.md)
+* [Folding](zk/folding/README.md)
+  * [LatticeFold](zk/folding/latticefold.md)
+* [Lookup](zk/lookup/README.md)
+  * [LogUp-GKR](zk/lookup/logup-gkr.md)
+* [SNARK](zk/snark/README.md)
+  * [HyperPlonk](zk/snark/hyperplonk.md)
+* [STARK](zk/stark/README.md)
+  * [Additive NTT](zk/stark/additive-ntt.md)
+  * [Basefold](zk/stark/basefold.md)
+  * [Binius](zk/stark/binius.md)
+  * [Brakedown](zk/stark/brakedown.md)
+  * [CircleSTARK](zk/stark/circlestark.md)
+  * [FRI](zk/stark/fri/README.md)
+    * [FRI Security Features and Optimizations](zk/stark/fri/fri-security-features-and-optimizations.md)
+  * [DEEP FRI](zk/stark/deep-fri.md)
+  * [STIR](zk/stark/stir.md)
+
+***
+
+* [About Us](about-us.md)
+* [Contribute to this Site!](contribute-to-this-site.md)
