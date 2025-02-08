@@ -84,7 +84,7 @@ Now what do I mean by this? Well, if the Garbler naively sends over gates every 
 
 In this section, I’ll illustrate optimizations done onto the naive version of Yao’s garbled circuits, as outlined in the [Mina Book](https://o1-labs.github.io/proof-systems/fundamentals/zkbook_2pc/overview.html). More specifically, we’ll go over “Point and Permute,” “Free-XOR,” “Row Reduction,” and “Half Gates.” Note that a full set of boolean gates can be created by using AND and XOR gates, which are the gates that these optimizations target.
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="360"><figcaption><p>Construction of all other boolean gates with AND &#x26; XOR</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="360"><figcaption><p>Construction of all other boolean gates with AND &#x26; XOR</p></figcaption></figure>
 
 ### Point-and-Permute
 
@@ -190,7 +190,7 @@ In total, we get $$Enc_{\textcolor{red}{X_a}}(\textcolor{blue}{X_c})$$ and $$Enc
 
 To optimize this case, we’ll employ a little trick:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="522"><figcaption><p><a href="yaos-garbled-circuits.md#case-3-two-halves-make-a-whole-.-neither-the-garbler-nor-the-evaluator-know-any-of-the-inputs-to-the">Case 3</a> trick (Reference: <a href="https://eprint.iacr.org/2014/756.pdf">“Two Halves Make a Whole” Paper</a>)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt="" width="522"><figcaption><p><a href="yaos-garbled-circuits.md#case-3-two-halves-make-a-whole-.-neither-the-garbler-nor-the-evaluator-know-any-of-the-inputs-to-the">Case 3</a> trick (Reference: <a href="https://eprint.iacr.org/2014/756.pdf">“Two Halves Make a Whole” Paper</a>)</p></figcaption></figure>
 
 If the $$r$$ is a random bit chosen by the Garbler, this means that the $$(a\land \textcolor{red}r)$$ AND gate can be optimized via [Case 1](yaos-garbled-circuits.md#case-1.-the-garbler-knows-one-input-to-an-and-gate-but-doesnt-know-the-other-input), since the Garbler knows $$r$$. Furthermore, if the Garbler can leak $$(r\oplus \textcolor{green}b)$$ to the Evaluator, the $$(\textcolor{red}a\land (r \oplus \textcolor{green}b))$$ AND gate can the optimized via [Case 2](yaos-garbled-circuits.md#case-2.-the-evaluator-knows-one-input-to-an-and-gate-but-doesnt-know-the-other-input), since the Evaluator will know an input. Finally, all together, the XOR gate between $$(a\land \textcolor{red}r)$$ and $$(\textcolor{red}a\land (r \oplus \textcolor{green}b))$$ would be free from the Free-XOR optimization. Therefore, in total, an AND gate where neither input is known by the Garbler or Evaluator can be reduced down to $$1((\textcolor{red}a\land r) \text{AND gate}) + 1((\textcolor{red}a\land (r\oplus \textcolor{green}b)) \text{AND gate}) =$$ **2 ciphertexts**!
 

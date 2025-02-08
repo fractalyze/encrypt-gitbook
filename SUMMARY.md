@@ -28,6 +28,7 @@
 * [Lookup](zk/lookup/README.md)
   * [LogUp-GKR](zk/lookup/logup-gkr.md)
 * [SNARK](zk/snark/README.md)
+  * [Groth16](zk/snark/groth16.md)
   * [HyperPlonk](zk/snark/hyperplonk.md)
 * [STARK](zk/stark/README.md)
   * [Additive NTT](zk/stark/additive-ntt.md)
