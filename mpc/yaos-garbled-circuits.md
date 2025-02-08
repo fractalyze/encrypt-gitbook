@@ -84,7 +84,7 @@ Now what do I mean by this? Well, if the Garbler naively sends over gates every 
 
 In this section, I’ll illustrate optimizations done onto the naive version of Yao’s garbled circuits, as outlined in the [Mina Book](https://o1-labs.github.io/proof-systems/fundamentals/zkbook_2pc/overview.html). More specifically, we’ll go over “Point and Permute,” “Free-XOR,” “Row Reduction,” and “Half Gates.” Note that a full set of boolean gates can be created by using AND and XOR gates, which are the gates that these optimizations target.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcfu7bQDJeO84T0AKLMJ07odjBvEofobV0zxsOS2RBM8f9z9hOCPecnbFKuk6_6lcOWAPWwlSfbZ1DlM52PUyO5aCmh32LxPP_TamQ8xXAG8EenAtDPGQHjEtWZbb6iHhFEu73ylQ?key=0uoSKKXKnc_kt3GeIL0d8N1J" alt="" width="375"><figcaption><p>Construction of all other boolean gates with AND &#x26; XOR</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt="" width="360"><figcaption><p>Construction of all other boolean gates with AND &#x26; XOR</p></figcaption></figure>
 
 ### Point-and-Permute
 
@@ -190,7 +190,7 @@ In total, we get $$Enc_{\textcolor{red}{X_a}}(\textcolor{blue}{X_c})$$ and $$Enc
 
 To optimize this case, we’ll employ a little trick:
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXePrSAdFN-kLNAWGjOVp4eD-H7t5jGhiTku0A9TYkh0bBsZI3JeyVduXxZ0hQ9Mid8-aup5V2zr0HXtZ1DRAjiZZCH_Lhek8YmTGWJST2B4Z6Vx6muEJzBxviuC8GoCvSPmaCB3TQ?key=0uoSKKXKnc_kt3GeIL0d8N1J" alt=""><figcaption><p><a href="yaos-garbled-circuits.md#case-3-two-halves-make-a-whole-.-neither-the-garbler-nor-the-evaluator-know-any-of-the-inputs-to-the">Case 3</a> trick (Reference: <a href="https://eprint.iacr.org/2014/756.pdf">“Two Halves Make a Whole” Paper</a>)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="522"><figcaption><p><a href="yaos-garbled-circuits.md#case-3-two-halves-make-a-whole-.-neither-the-garbler-nor-the-evaluator-know-any-of-the-inputs-to-the">Case 3</a> trick (Reference: <a href="https://eprint.iacr.org/2014/756.pdf">“Two Halves Make a Whole” Paper</a>)</p></figcaption></figure>
 
 If the $$r$$ is a random bit chosen by the Garbler, this means that the $$(a\land \textcolor{red}r)$$ AND gate can be optimized via [Case 1](yaos-garbled-circuits.md#case-1.-the-garbler-knows-one-input-to-an-and-gate-but-doesnt-know-the-other-input), since the Garbler knows $$r$$. Furthermore, if the Garbler can leak $$(r\oplus \textcolor{green}b)$$ to the Evaluator, the $$(\textcolor{red}a\land (r \oplus \textcolor{green}b))$$ AND gate can the optimized via [Case 2](yaos-garbled-circuits.md#case-2.-the-evaluator-knows-one-input-to-an-and-gate-but-doesnt-know-the-other-input), since the Evaluator will know an input. Finally, all together, the XOR gate between $$(a\land \textcolor{red}r)$$ and $$(\textcolor{red}a\land (r \oplus \textcolor{green}b))$$ would be free from the Free-XOR optimization. Therefore, in total, an AND gate where neither input is known by the Garbler or Evaluator can be reduced down to $$1((\textcolor{red}a\land r) \text{AND gate}) + 1((\textcolor{red}a\land (r\oplus \textcolor{green}b)) \text{AND gate}) =$$ **2 ciphertexts**!
 
@@ -202,9 +202,9 @@ Since the random $$r$$ ensures the pointer bit stays random, the Evaluator shoul
 
 Thus, we finally have our final structure for an AND gate where neither the Garbler or Evaluator knows the inputs. Below, we try to show this scheme with a diagram and additionally include an example of how it would run with the values $$\textcolor{red}a=1$$, $$\textcolor{green}b=1$$, and $$r=0$$.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXejlBe6RL-vbIRWPXE8pepeGW-FETBDk1YhPNpMPMr9fARCiD8hO9x6krmWdb6l6t6BLwTmfNVDhdey9oZLm2YltieSS12UPqnZ7zJ3yWN43nSnF8_X7c89gPaUm26-t820PqFE5w?key=0uoSKKXKnc_kt3GeIL0d8N1J" alt=""><figcaption><p>Total structure of an AND gate, where neither the Garbler or Evaluator know the inputs</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>Total structure of an AND gate, where neither the Garbler or Evaluator know the inputs</p></figcaption></figure>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcbpUeLVweIypM8Y5Vk2xwAlmrcjsEGC6kKEVepCCtVSe1UgicxMAYAIV6w74Do_VRALeHLFylA6J0Nrlmtg9hcovITp_RUdXbs8PgMvv-ZkU5oNSTiCrJiiDRltAB2DmgMATVG2Q?key=0uoSKKXKnc_kt3GeIL0d8N1J" alt=""><figcaption><p>Example for the total structure of an AND gate, where neither the Garbler or Evaluator know the inputs <mark style="color:red;">a</mark> = 1, <mark style="color:green;">b</mark> = 1, r = 0</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Example for the total structure of an AND gate, where neither the Garbler or Evaluator know the inputs <mark style="color:red;">a</mark> = 1, <mark style="color:green;">b</mark> = 1, r = 0</p></figcaption></figure>
 
 Therefore, [Case 3](yaos-garbled-circuits.md#case-3-two-halves-make-a-whole-.-neither-the-garbler-nor-the-evaluator-know-any-of-the-inputs-to-the) can be implemented through [Case 1](yaos-garbled-circuits.md#case-1.-the-garbler-knows-one-input-to-an-and-gate-but-doesnt-know-the-other-input) and [Case 2](yaos-garbled-circuits.md#case-2.-the-evaluator-knows-one-input-to-an-and-gate-but-doesnt-know-the-other-input), costing it only two rows.
 
@@ -212,6 +212,6 @@ Therefore, [Case 3](yaos-garbled-circuits.md#case-3-two-halves-make-a-whole-.-ne
 
 In the end, I showed how Yao’s Garbled Circuits runs as an MPC protocol and introduced a couple optimizations that can be added on top of Yao’s Garbled Circuits to drastically reduce the communication overhead between the Garbler and Evaluator by reducing the number of gate rows. The total results of these optimizations are shown below:
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXejOMDj_89bqDNgbSJsFmVekyp1GiZZXhOZxtNVs0xnoAFvi61d5JWcJUMZxUfh1lGjsB2guaLDpd5WVrCNkCAQCJPgpNw288urd07WOPRl0gPD0o7cEyvuaAMHY7Sms6yz1BjbDg?key=0uoSKKXKnc_kt3GeIL0d8N1J" alt=""><figcaption><p>Resulting gate rows from the naive case to the optimized case</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Resulting gate rows from the naive case to the optimized case</p></figcaption></figure>
 
 > Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from [A41](https://www.a41.io/)

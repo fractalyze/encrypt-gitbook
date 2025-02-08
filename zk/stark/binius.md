@@ -142,10 +142,10 @@ Using Binary Towers for extension field operations provides an advantage over do
 * In circuits, various data sizes (e.g., bits) can be represented efficiently with Binary Towers.
 *   When expressing $$\mathbb{F}_{2^{16}}$$ using 16 instances of $$\mathbb{F}_2$$​, efficient **embedding** methods (packing) are available. In contrast, classic methods [depend on the choice of an irreducible ](#user-content-fn-1)[^1]polynomial and are often less efficient.
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 *   Multiplying an element of $$\mathbb{F}_{2^{16}}$$ with an element of $$\mathbb{F}_{2^{128}}$$ is faster than multiplying two elements of $$\mathbb{F}_{2^{128}}$$. The cost is $$8 \cdot \Theta(16^{\log_2 3})$$. In contrast, classic methods require embedding $$\mathbb{F}_{2^{16}}$$​ into $$\mathbb{F}_{2^{128}}$$​, making them slower.
 
-    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## **Protocol Explanation**
 
@@ -163,21 +163,21 @@ Here, $$l = (l_0 = 7) + l_1$$, and $$\bm{t_i} \in (T_\iota^{m_1})^{m_0}$$ is the
 
 1.  From the $$m_0 \times m_1$$ ​matrix $$\bm{t}$$, pack each row of length $$m_1$$ ​into a new $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$\mathsf{pack}(\bm{t})$$.
 
-    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 2.  If the rate is $$\rho$$, encode each row of the $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$\mathsf{pack}(\bm{t})$$ into rows of length $$n = \frac{m_1}{2^\kappa}\cdot\rho^{-1}$$, forming an $$m_0 \times n$$ matrix $$u$$. The prover sends a Merkle hash-based commitment of the $$u$$ matrix to the verifier. Note that while the polynomial represented by the $$\bm{t}$$ matrix is $$g$$, the polynomial represented by $$\mathsf{pack}(\bm{t})$$ is a new polynomial $$g'$$.\
 
 
-    <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 3. The verifier samples $$\bm{r} = (r_0, \dots,r_{l-1}) \leftarrow \mathbb{F_{2^{128}}^l}$$​ and sends it to the prover.
 4.  The prover computes $$s = g(r_0, \dots, r_{l-1})$$ and $$\bm{t'} = \otimes_{i = l_1}^{l-1}(1 - r_i, r_i)\cdot (\bm{t_i})_{i = 0}^{m_0 - 1}$$, and sends both to the verifier. Note that $$\bm{r}$$ is over $$\mathbb{F}_{2^{128}}$$, $$\bm{t}$$ is over $$\mathbb{F}_2$$​, and $$\bm{t'}$$ is over $$\mathbb{F}_{2^{128}}$$. As mentioned in Binary Towers, multiplication in this setting is performed efficiently.
 
-    <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 5. The verifier samples $$j_i \leftarrow \{0, \dots, n - 1\}$$ for $$\gamma$$ times, where $$\gamma$$ is the repetition count, and sends $$\bm{J} = \{j_0, \dots, j_{\gamma - 1}\}$$ to the prover (Remember $$n = \frac{m_1}{2^\kappa}\cdot\rho^{-1}$$).
 6. The verifier uses Merkle proofs to verify that $$\big\{(u_{i, j})\big\}_{j \in \bm{J}}$$​ is correct.
 7.  Finally, the verifier checks that packing and encoding were performed correctly:\
     . Given that $$j_i$$​ ranges between $$0$$ and $$n = \frac{c}{16} \cdot \rho^{-1}$$, testing is performed at the **block level** in units of $$\mathbb{F}_{2^{16}}$$​. This is referred to as **block-level testing**.
 
-    <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Pack Virtual Polynomial
 
@@ -300,7 +300,7 @@ This allows us to query the **shift polynomial** $$\text{shift}_{b, o}(g)$$ usin
 
 While this article does not cover all the details, it addresses the key aspects of utilizing the **binary field**. To enable **RS encoding** using the binary field, we applied a modified version of Brakedown with **packing** and used the **shift operator** to traverse the domain efficiently.
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 The image above is captured from the **Binius** paper. The first row, **Hyrax**, shows the PCS used in **Lasso**, while the second and third rows show **FRI**, the PCS used in **Plonky3**. In **Plonky3**, even when data smaller than 31 bits is used, there is no speed difference, so the data is omitted for efficiency. In the case of **Binius**, while it is slower than **Plonky3 Keccak-256** for **32-bit** data, it significantly reduces the commitment time for **1-bit** data.
 

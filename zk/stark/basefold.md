@@ -203,7 +203,7 @@ $$
 
 ## Conclusion
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 In a 256-bit PCS:
 
@@ -216,7 +216,7 @@ In a 256-bit PCS:
   * **Verifier time**: Faster
   * **Proof size**: Larger
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 In a 64-bit PCS:
 
@@ -229,7 +229,7 @@ In a 64-bit PCS:
   * **Verifier time**: Slower
   * **Proof size**: Larger
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 In a 256-bit SNARK:
 
@@ -242,7 +242,7 @@ In a 256-bit SNARK:
   * **Verifier time**: Similar
   * **Proof size**: Larger
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 In a 64-bit SNARK:
 

@@ -14,11 +14,11 @@ Say User A wants to send the message “ABC” to a User B with Reed-Solomon enc
 
 First, User A converts this message into a polynomial of degree "$$\text{total values} - 1$$." In our case, that’s $$\mathsf{len}(ABC) - 1 = 3-1 = 2$$.
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Figure 1. Reed Solomon Encoding — Converting a message into a polynomial</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>Figure 1. Reed Solomon Encoding — Converting a message into a polynomial</p></figcaption></figure>
 
 Next, User A evaluates this polynomial on a larger domain of a coset and adds more values to hide the original message.
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption><p>Figure 2. Reed Solomon Encoding — Extrapolating the polynomial into a larger codeword.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption><p>Figure 2. Reed Solomon Encoding — Extrapolating the polynomial into a larger codeword.</p></figcaption></figure>
 
 This set of evaluations is sent all together to User B and is named the “codeword.”
 
@@ -28,7 +28,7 @@ User B first receives the codeword from User A, and tries to check a random valu
 
 But what does a rejection actually mean? If we look at figure 2, we can see that if the codeword was valid, all the values should belong to the same line or to the polynomial of the same degree 2. In comparison, in figure 3, we see that one faulty value would jeopardize the degree of the resulting total polynomial by increasing it to a degree higher than 2. This thus introduces the problem of _**low-degree testing**_. Low-degree testing tries to ensure a polynomial is of low-degree, which would insinuate that the original polynomial or codeword is valid.
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Figure 3. Reed Solomon Encoding — Checking a faulty value in a codeword.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>Figure 3. Reed Solomon Encoding — Checking a faulty value in a codeword.</p></figcaption></figure>
 
 ### Low-Degree Testing <a href="#id-0ccd" id="id-0ccd"></a>
 

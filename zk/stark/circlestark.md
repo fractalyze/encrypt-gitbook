@@ -57,7 +57,7 @@ $$
 
 and group inverses are given by the degree-one map $$J(x, y) := (x, −y)$$
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Figure 1. Blue points under the square operation (left) and inverse operation (right) result in red points.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>Figure 1. Blue points under the square operation (left) and inverse operation (right) result in red points.</p></figcaption></figure>
 
 So you can think of $$\pi$$ as doubling the angle it forms with the $$x$$-axis and $$J$$ as a reflection by the $$x$$-axis.
 
@@ -162,7 +162,7 @@ $$
 
 More intuitively, $$f_0$$ is taking the average of $$f$$ and $$f\circ J$$ while $$f_1$$ is the difference between them divided by $$2y$$.
 
-<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption><p>Figure 5. Given the evaluations (left), the result of <span class="math">J</span>-folding is shown. Notice that <span class="math">f_0</span> and <span class="math">f_1</span> can be actually parametrized by only the x-axis.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1).png" alt=""><figcaption><p>Figure 5. Given the evaluations (left), the result of <span class="math">J</span>-folding is shown. Notice that <span class="math">f_0</span> and <span class="math">f_1</span> can be actually parametrized by only the x-axis.</p></figcaption></figure>
 
 ($$\pi$$-folding) Next step:
 
