@@ -65,25 +65,25 @@ So you can think of $$\pi$$ as doubling the angle it forms with the $$x$$-axis a
 
 First, Figure 2 shows how the subgroups would look like in the circle group.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXekBUGeT6ZPLmxCki0oAByra7vFZhRj01lBlIxlRwtZdKODuMdeBG1zcKpmJ2JjrWuWqrQe62CY41F2Wp3k3j78lzY-wQIImxIrTV4LRXDwjyOGPhXW8Mf3yDccb02mqFCvaK4R?key=1385YX6DfUHFTeEpVWcvBXAQ" alt=""><figcaption><p>Figure 2. Subgroups of size 4, 2, 1 (left to right)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (46).png" alt=""><figcaption><p>Figure 2. Subgroups of size 4, 2, 1 (left to right)</p></figcaption></figure>
 
 Taking a coset of a subgroup means that each point in the subgroup will be rotated by the same amount.
 
 **Definition** Let $$G_{n-1}$$ be a cyclic subgroup of $$C(\mathbb{F}_p)$$ of size $$|G_{n-1}=2^{n-1}|$$ for $$n\geq1$$. Any disjoint union $$D=Q\cdot G_{n-1}\cup Q^{-1}\cdot G_{n-1}$$ with $$Q\cdot G_{n-1}\cap Q^{-1}\cdot G_{n-1}=\varnothing$$ is called **twin-coset of size** $$N=2^n$$.
 
-**Remark** Twin-coset maps to itself under inverse since $$J(D)=J(Q\cdot G_{n-1})\cup J(Q^{-1}\cdot G_{n-1})=Q^{-1}\cdot G_{n-1}\cup Q\cdot G_{n-1}$$
+**Remark** Twin-coset maps to itself under inverse, since&#x20;
 
 $$
 J(D)=J(Q\cdot G_{n-1})\cup J(Q^{-1}\cdot G_{n-1})=Q^{-1}\cdot G_{n-1}\cup Q\cdot G_{n-1}
 $$
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcqAcAmwv9rLRNuicTkF7nYYcTn3fv73NSJ-lGE3cEALT0UF_STlp3rrWOpsTCo65WptIdSBgknjlqaq2NqR5_q5INpDv1cJ5yQJrQzZdhVk3bDvDNcA0nJtdJq1-XPqag4CU1wAA?key=1385YX6DfUHFTeEpVWcvBXAQ" alt=""><figcaption><p>Figure 3. Twin cosets of subgroups 4,2,1 (left to right). <span class="math">Q\cdot G_{n-1}</span> is blue and <span class="math">Q^{-1}\cdot G_{n-1}</span> is red. If we take the union, it is a twin coset.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (47).png" alt=""><figcaption><p>Figure 3. Twin cosets of subgroups 4,2,1 (left to right). <span class="math">Q\cdot G_{n-1}</span> is blue and <span class="math">Q^{-1}\cdot G_{n-1}</span> is red. If we take the union, it is a twin coset.</p></figcaption></figure>
 
 **Definition** In the exceptional case that a twin-coset $$D$$ of subgroup $$G_{n-1}$$ is again a coset of the subgroup $$G_n$$, we call $$D$$ a **standard position coset**. **Lemma 3** If $$D$$ is a twin-coset of size $$2^n, n\geq2$$ then its image $$\pi(D)$$ is a twin-coset of size $$2^{n-1}$$. In addition, if $$D$$ is a standard position coset, so is $$\pi(D)$$.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/slidesz/AGV_vUe44BHjsQl3F2CaKX77AgAbJKtvHBfseMULiGYZ16AM-fU7u8GI_3YwPsoTn-puYssCDxQhyLGY33IQZbacWaxykSep7rmO6sWVQ6_d6rgFfHjjcaTGmc4irIKo17qDr8FEza-x=s2048?key=_rmNzEEW39d0tlcQpxlJDbWM" alt=""><figcaption><p>Figure 4. Notice that they are twin-cosets of subgroup 4, 2, 1 (left to right), but are also a coset of subgroup size 8, 4, 2 respectively.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (49).png" alt=""><figcaption><p>Figure 4. Notice that they are twin-cosets of subgroup 4, 2, 1 (left to right), but are also a coset of subgroup size 8, 4, 2 respectively.</p></figcaption></figure>
 
-**Lemma 3 from the paper.** If $$D$$ is a twin-coset of size $$2^n, n\geq2$$ then its image $$\pi(D)$$ is a twin-coset of size $$2^{n-1}$$. In addition, if $$D$$ is a standard position coset, so is $$\pi(D)$$.
+**Lemma 3 from the paper.** If $$D$$ is a twin-coset of size $$2^n, n\geq2$$  then its image $$\pi(D)$$ is a twin-coset of size $$2^{n-1}$$. In addition, if $$D$$ is a standard position coset, so is $$\pi(D)$$.
 
 Proof: $$\pi(D)=\pi(Q\cdot G_{n-1}\cup Q^{-1}\cdot G_{n-1})=\pi(Q)\cdot G_{n-2}\cup\pi(Q^{-1})G_{n-2}$$ and if $$D=Q\cdot G_{n}$$ is a standard position coset, then $$\pi(Q\cdot G_{n})=\pi(Q)\cdot G_{n-1}$$, which means $$\pi(D)$$ is also a standard position coset.
 
@@ -178,7 +178,7 @@ $$
 
 These make up a constant $$c_k = f_{k_0,...,k_{n−1}} \in F$$, for each $$k$$ in the interval $$0 \leq k \leq 2^{n} −1$$, where $$k = k_0 + k_1 2+. . .+k_{n−1}2^{n−1}$$.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/slidesz/AGV_vUcsA5uMsUDFYVPl5eC4mYJ6818-Lwb5_MN0iTKHpZzFt6jC6igJFiyZuv4F-ES3pe_70CDJMl4Einyxs3UWdQErd46DnHtpX3tyEVQcn8_3zMhUTgkIJ0XxhBCulDeZLH_qgQ2dtA=s2048?key=_rmNzEEW39d0tlcQpxlJDbWM" alt=""><figcaption><p>Figure 6. Result of <span class="math">\pi</span>-folding on <span class="math">f_0</span>. We do the same for <span class="math">f_1</span> to get <span class="math">f_{10}</span> and <span class="math">f_{11}</span>.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (51).png" alt=""><figcaption><p>Figure 6. Result of <span class="math">\pi</span>-folding on <span class="math">f_0</span>. We do the same for <span class="math">f_1</span> to get <span class="math">f_{10}</span> and <span class="math">f_{11}</span></p></figcaption></figure>
 
 In Figure 6, $$f_0(x)$$ suddenly has only 4 points. This is because $$f_0(x)$$ actually has only 4 evaluation points $$(-A, -B, B, A)$$ and is only parametrized by $$x$$. It is visualized on a circle for easier group operation visualization. To elaborate:
 
@@ -325,6 +325,6 @@ $$
 
 The initial implementation of CircleFFT demonstrated a performance improvement by a factor of 1.4 in a single-threaded setup. Building on this foundation, Starknet’s next-generation prover, Stwo (“STARK Two”), is designed to enhance and eventually replace the current prover, Stone (“STARK One”).
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfKa7ZTmOWjYWu0GW9F40puA6VN0jc9Knc0_NRoZeyDDw5sIqkN0fdo80_1R6DEjswuaUH3UqwwLtzxcTcCiFAgbc2yRcAUP3jSp58VHIYZcgEMvE0eSu98Lcgmm0SKfpVJ7MztyQ?key=1385YX6DfUHFTeEpVWcvBXAQ" alt=""><figcaption><p>Figure 7. Initial benchmark result of CFFT</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (53).png" alt=""><figcaption><p>Figure 7. Initial benchmark result of CFFT</p></figcaption></figure>
 
 > Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from [A41](https://www.a41.io/)
