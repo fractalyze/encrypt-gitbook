@@ -17,7 +17,7 @@ description: >-
 
 ### Why is FFT a bottleneck?
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcM5GyOUp4JElyZVT9fZAR536TN_CK6Uj3oikkNpJ9RrmRJ73EOCvN3bBWysSXUB9vc51vjdUCGHWlFgyUyDyC0pMqAHINWlzI8-rtr4lOyZSmUgYSYnPYUAdi6inZGc0lM24XIlg?key=co-yKRJV7WOYUZIzIkM_ZekV" alt=""><figcaption><p>Source:<a href="https://math.stackexchange.com/questions/4441884/fft-stride-pattern-formula"> https://math.stackexchange.com/questions/4441884/fft-stride-pattern-formula</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Source:<a href="https://math.stackexchange.com/questions/4441884/fft-stride-pattern-formula"> https://math.stackexchange.com/questions/4441884/fft-stride-pattern-formula</a></p></figcaption></figure>
 
 The diagram above illustrates the FFT process for a polynomial of size 8. First, as shown on the left side of the diagram, a[ bit reversal](https://en.wikipedia.org/wiki/Bit-reversal_permutation) operation is performed. Then, [butterfly](https://en.wikipedia.org/wiki/Butterfly_diagram) operations are executed at each stage. A bit reversal operation takes $$O(N)$$, and a butterfly operation also requires $$O(N)$$. Since the number of stages is $$\log N$$, the overall complexity is $$O(N \cdot \log N)$$. Furthermore, FFT is notoriously difficult to parallelize. This is because, as the stages progress, the memory locations required to compute the outputs for the next stage become increasingly scattered. If calculations must be performed on hardware like GPUs with limited memory, these constraints can be critical.
 
@@ -44,11 +44,11 @@ Modern SNARKs are built by combining Polynomial IOP with PCS, structured as foll
 
 Let's walk through a simple circuit as an example. The circuit above represents a Fibonacci sequence starting with $$(1, 1)$$. Each column in the circuit is interpreted as a univariate polynomial. Since Plonk implements **Univariate IOP + Univariate PCS**, the protocol proceeds as follows:
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXctCnlmtQWEHJx0ibsaPhK1_9QD_k4Tl87cnljg23v6baHY1pyDWxX4wHs-umlqN3THZfmOuc_A2-aKOJQLqRT_yFxdiGBZPKAtEWmvc7tYXE8x8XuDYO65keVfDXXMjOxv5YnFnw?key=co-yKRJV7WOYUZIzIkM_ZekV" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 
 For simplicity, the **Wiring Check (Permutation Argument)** is omitted in this example, as the focus is on why FFT is used.
 
-1. The prover commits to the polynomials A, B, and C to assert that the following relationship holds. This step uses **PCS.BatchCommit**: This step corresponds to **Oracle**.
+1. The prover commits to the polynomials A, B, and C to assert that the following relationship holds. This step uses **PCS.BatchCommit** and corresponds to **Oracle**:
 
 $$
 \mathsf{PCS.BatchCommit}(\{A, B,C\}) \rightarrow \{C_A, C_B, C_C\}
@@ -121,7 +121,7 @@ $$
 \because \deg(s_i(X)) = d \space \land \space \deg(t(X)) = d + 1
 $$
 
-For example, if $$m = 3$$,the custom gates $$f_i$$ are the following:
+For example, if $$m = 3$$, the custom gates $$f_i$$ are the following:
 
 $$
 f_0(X) = A(X) \cdot B(X) \cdot C(X) - 1\\
@@ -133,7 +133,7 @@ Then the degree of $$Q$$ is $$n \cdot d - 1$$, where $$n$$ is the max degree of 
 
 $$
 \begin{align*}
-Q(X) &= \frac{\sum_{i = 0}^{s - 1}y^i \cdot s_i(X)\cdot f_i(X)}{t(X)} = \sum_{i=0}^{n-1}X^{i(d+1)} \cdot q_i(X) \\
+Q(X) &= \frac{\sum_{i = 0}^{m - 1}y^i \cdot s_i(X)\cdot f_i(X)}{t(X)} = \sum_{i=0}^{n-1}X^{i(d+1)} \cdot q_i(X) \\
 &= q_0(X) + X^{d + 1}\cdot  q_1(X) + \dots + X^{(n - 1)\cdot(d + 1)}\cdot q_{n-1}(X)
 \end{align*}
 $$
@@ -142,9 +142,10 @@ Before committing to $$q_i$$, the prover must compute $$f_i$$. For high-degree g
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXc9hU5kVrV1gR78N1OhHivtpcp1UCyu9WKjNa5r2BaK7VaNMrm-SDbJbVv-t0BibB2FK1CFb__J-MFGefnXSZbi1ygh-ZqaUJpDwk-O_pYj5K6SV2_-l9HVkF3hqFfZewIoELMt?key=co-yKRJV7WOYUZIzIkM_ZekV" alt=""><figcaption></figcaption></figure>
 
-The degree becomes $$n \cdot d$$ for the sections highlighted in green, which significantly slows down computation.\
-If the $$n$$ of the custom gate is set too small, flexibility to create a diverse range of computations decreases. On the other hand, if $$n$$ is set too large, it introduces significant overhead in High-Degree FFT, Gate Evaluation, and High-Degree Inverse FFT. Therefore, n must be set to an appropriate value.[ For example, n is 9 in Polygon Miden](https://0xpolygonmiden.github.io/miden-vm/design/main.html?highlight=9#design). On the other hand, there is no such limitation in Halo2.\
-In summary, in a simple protocol as discussed earlier, $$Q$$ could be committed before conducting the **Inverse FFT**. However, when custom gates are introduced, committing $$Q$$ requires going through the following steps:\
+The degree becomes $$n \cdot d$$ for the sections highlighted in green, which significantly slows down computation. If the $$n$$ of the custom gate is set too small, flexibility to create a diverse range of computations decreases. On the other hand, if $$n$$ is set too large, it introduces significant overhead in High-Degree FFT, Gate Evaluation, and High-Degree Inverse FFT. Therefore, $$n$$ must be set to an appropriate value.[ For example, $$f(x) = x * e^{2 pi i \xi x}$$n is 9 in Polygon Miden](https://0xpolygonmiden.github.io/miden-vm/design/main.html?highlight=9#design). On the other hand, there is no such limitation in Halo2.
+
+In summary, in a simple protocol as discussed earlier, $$Q$$ could be committed before conducting the **Inverse FFT**. However, when custom gates are introduced, committing $$Q$$ requires going through the following steps:
+
 **Inverse FFT → High Degree FFT → Gate Evaluation → High Degree Inverse FFT**.
 
 3. The prover commits to $$q_0, q_1, q_2$$.
@@ -154,7 +155,7 @@ $$
 $$
 
 4. The verifier samples a random point $$x$$.
-5. The prover sends $$A(x), B(x), C(x)$$ and $$q(x)$$ along with the opening proof to the verifier:
+5. The prover sends $$A(x), B(x), C(x)$$ and $$q(x)$$ along with the opening proof $$\pi$$ to the verifier:
 
 $$
 \mathsf{PCS.BatchOpen}(\{A, B, C, Q\}, x) \rightarrow \\(\{A(x), B(x), C(x), q_0(x) + x^{d+1} \cdot q_1(x) +  x^{2(d+1)} \cdot q_2(x) \}, \pi)
@@ -209,11 +210,15 @@ $$
 P(X) = 0 \space \forall X \in H \rightarrow P(X) = Q(X)\cdot T(X)
 $$
 
+where $$H := \{ \omega^i | i = 0, 1, \dots, d-1 \}$$ and $$\omega$$ is $$d$$-th root of unity.
+
 HyperPlonk instead uses a **ZeroCheck** followed by a **SumCheck**:
 
 $$
-P(\bm{X}) = 0 \space \forall \bm{X} \in B \rightarrow \sum_{\bm{b} \in B}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot P(\bm{b}) = 0
+P(\bm{X}) = 0 \space \forall \bm{X} \in B_\mu \rightarrow \sum_{\bm{b} \in B_\mu}\widetilde{\mathsf{eq}}(\bm{X}, \bm{b})\cdot P(\bm{b}) = 0
 $$
+
+where $$B_\mu := \{0, 1\}^\mu$$ is the boolean hypercube.
 
 ### High-degree custom gates in HyperPlonk
 
@@ -249,7 +254,7 @@ P(X_0, X_1) = &(1 - X_0)\cdot(1 - X_1)\cdot v_0 + (1 - X_0)\cdot X_1 \cdot v_1 +
 \end{align*}
 $$
 
-Now let’s create an degree 1 univariate polynomial P₀ based on the multilinear polynomial above.
+Now let’s create an degree 1 univariate polynomial $$P_0$$ based on the multilinear polynomial above.
 
 $$
 \begin{align*}
@@ -260,7 +265,7 @@ v_3  \\
 \end{align*}
 $$
 
-The complexity for this computation in round i (starting from 0) is $$O(2^{μ - i - 1})$$.
+The complexity for this computation in round $$i$$ (starting from 0) is $$O(2^{μ - i - 1})$$.
 
 For higher-degree multivariate polynomials, the same method is applied to each component, and the results are multiplied. For example, with $$f_0$$:
 
@@ -290,7 +295,7 @@ $$
 \prod_{\bm{X} \in \{0, 1\}^\mu}h(\bm{X}) = c\text{, where } h(\bm{X}) = \frac{f(\bm{X})}{ g(\bm{X})}
 $$
 
-For univariate polynomials, this is typically computed using a running product column, as explained in the previous article[ From Halo2, LogUp to LogUp-GKR](https://blog.kroma.network/from-halo2-lookup-logup-to-logup-gkr-4af3bf143d38). For multivariate polynomials, the process involves the following steps:
+For univariate polynomials, this is typically computed using a running product column, as explained in [From Halo2, LogUp to LogUp-GKR](https://blog.kroma.network/from-halo2-lookup-logup-to-logup-gkr-4af3bf143d38). For multivariate polynomials, the process involves the following steps:
 
 1. Define $$v$$ to satisfy the following conditions:
 
@@ -326,7 +331,7 @@ $$
 
 In univariate polynomials, verifying Wiring Identity involves constructing $$s_i^\sigma$$ as shown in the figure below. The green arrows denote how the label is moved.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfUm8K05H5hhnQGfj7ZOt0c39pv5DZzIuO0MECoMzq0pw6IjutN4fib_bxOr-UriIbVtDRiwlri1tJr2S-in3RdiE08_QLuSj2oMvIab0jQNBS3EU6-IBSEDg9F8hQNh6fjwL8?key=co-yKRJV7WOYUZIzIkM_ZekV" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-02-10 at 4.35.40 PM.png" alt=""><figcaption></figcaption></figure>
 
 This is then transformed into a **MultiSetEquality** using a random value $$\alpha$$:
 
@@ -337,7 +342,7 @@ $$
 
 In multivariate polynomials, $$s_i^\sigma$$ is similarly constructed as shown in the figure below.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfN3sebbIb-jC8CW-mCE4qBQTxtVFbb5Kdo2ycgzHkjZ6JhlEe1q_e4ZUwrNiFcdyGG9YMxOJMEp2wa867rLDSiGyjF_n112NEbgTsAlRxjQ6CZN-TnFpQs5AMpQSHimu8OhvEp?key=co-yKRJV7WOYUZIzIkM_ZekV" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-02-10 at 4.36.26 PM.png" alt=""><figcaption></figcaption></figure>
 
 Using the same random value $$\alpha$$, this is transformed into a **MultiSetEquality** as follows:
 
@@ -359,10 +364,12 @@ F(\beta, \gamma) := (1 + \beta) ^n \cdot \prod_{i \in [n] }(\gamma + f_i) \cdot 
 G(\beta, \gamma) := \prod_{i \in [n + d -1]} (\gamma(1 + \beta) + s_i + \beta \cdot s_{i + 1})
 $$
 
-The equation above, taken from the Plookup paper, shows how values $$t_i, t_{i+1}, f_i, f_{i+1}$$ ​ are queried at both the $$i$$-th and $$i+1$$-th indices. For univariate polynomials in Plonk, this can be easily expressed as:
+where $$s$$ is  $$(f, t)$$ sorted by $$t$$.
+
+The equation above, taken from the Plookup paper, shows how values $$f_i, s_i, t_{i+1}, s_{i+1}$$ ​ are queried at both the $$i$$-th and $$i+1$$-th indices. For univariate polynomials in Plonk, this can be easily expressed as:
 
 $$
-t_i = t(x), t_{i+1} = t(\omega \cdot x), f_i = f(x), f_{i+1} = f(\omega \cdot x)
+f_i = f(x), s_i = s(x), t_{i+1} = t(\omega \cdot x), s_{i+1} = s(\omega \cdot x)
 $$
 
 This "shift through the domain" is achieved using a **shift function**, which for univariate polynomials is defined as:
@@ -434,7 +441,7 @@ This reduces the complexity, allowing $$g_4$$ to be expressed as a linear functi
 
 Using this linearized shift function, **MultiSetEquality Check** can be efficiently performed. By leveraging the defined **Polynomial IOP**, this shift function enables the protocol to verify lookup arguments in HyperPlonk+ without significant overhead.
 
-This also implies that the domain in the circuit must be represented differently. Specifically, the point $$(0, 0)$$ cannot be included because it is not cyclic. Instead, the cyclic domain should exclude $$(0, 0)$$ and follow this order in the case of 4 or 8 rows.
+This also implies that the domain in the circuit must be represented differently. Specifically, the point $$(0, 0)$$ cannot be included because it is not cyclic. Instead, the cyclic domain should exclude $$(0, 0)$$ and follow this order in the case of 4 or 8 rows:
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfNgCUi6h4mFFNTjnmzVhjc6CH9MVcQnl5dMsTBH7JwfzSpGpOtgdURjku-yVT_49PXFOlaYB44SbczaTcil5KfmfG_s8qtcK8-D3c_jhWQdf3UkBTvgv_mhZCr_6sxAUmeeA4?key=co-yKRJV7WOYUZIzIkM_ZekV" alt=""><figcaption></figcaption></figure>
 

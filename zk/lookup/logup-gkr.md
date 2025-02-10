@@ -10,7 +10,7 @@ description: >-
 
 Demonstrating that all values in Set $$\bm{A}$$ belong to Set $$\bm{S}$$ is the core feature of Lookup. In ZK, this Lookup is used to prove that a value falls within a specific range or to reference a value proven in another circuit. [Since 2022, significant advancements have been made in Lookup techniques](https://ingonyama-zk.github.io/ingopedia/protocolsLookup.html). Recently, it has converged into implementing one of two approaches: LogUp-GKR or Lasso. At ProgCrypto 2023, as seen in [the video by Dohun Kim](https://www.youtube.com/watch?v=AyhU7j2nGGI) from the PSE team, the performance of the two methods is reported to be nearly identical. In this article, we aim to discuss how Halo2 Lookup evolved into LogUp-GKR, as observed in the video.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXctCTK9dno_sgW663Eph9OiyS-Nq7AHbsyTRdcSVQHoAxCQUOYw8PKIw3OVkyigZaXahjzdi4Fi_DaafBUMyZp9sCoA0Avcm8xATg6Wsyoh7kxjyjgHw3cZ9C7IpezDc0USIBWp?key=qDCl38TNxspCRBTGEVc_9MzT" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
 ## Background
 
@@ -307,7 +307,7 @@ The values in the bottom layer will be filled as described in the LogUp-GKR pape
 | (0, 1, 1, 1)     | $$S$$   | 1                 | 3 + $$\beta$$     |
 | (1, 1, 1, 1)     | $$S$$   | 0                 | $$\beta$$         |
 
-When using LogUp-GKR, if there are n input polynomials referencing $$S(X)$$, only 1 column $$m(X)$$ needs to be committed. Additionally, the issue in LogUp with excessively high degrees of constraints has also been resolved.
+When using LogUp-GKR, if there are $$n$$ input polynomials referencing $$S(X)$$, only 1 column $$m(X)$$ needs to be committed. Additionally, the issue in LogUp with excessively high degrees of constraints has also been resolved.
 
 ## Conclusion
 

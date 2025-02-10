@@ -16,7 +16,7 @@ In **coding theory**, a **code** is a set of rules or patterns used to encode in
 
 Now, let’s briefly talk about **RS (Reed-Solomon) codes**. RS can be expressed as $$\mathsf{RS}(\mathbb{F}, N, d)$$, where $$\mathbb{F}$$ is the field, $$N$$ is the size of the evaluation domain, and $$d$$ is the maximum degree of the polynomial $$P$$. A codeword consists of the values evaluated from the polynomial $$P$$ over $$N$$.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfRwaaBAYqGZ6YGGnJrnmPrZwsIYEglCiKjkNElsPB4R8XXfSAwjYXNp9d5NUnLF6UugFQaQTPJCB-QnQd4cw_or1adSuypU_eEItdaXlQLiW6TwLUvy3bqbM1DKTYPMp6Sy-9qAtpcjRxq4IQIgKBuDvEP?key=vhEzQ8jv-fZTNOXYNsPOVg" alt=""><figcaption><p>Fig 1. The blue points represent an <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codeword, where <span class="math">N</span>, the evaluation domain, has a size of 4. From left to right, if we label the graphs as 1 through 4, then graphs 2 and 3 illustrate possible valid <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codewords. In contrast, the red points in graph 4 depict an invalid <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codeword due to the degree constraint. The purple points indicate intersections between the blue and red lines.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (56).png" alt=""><figcaption><p>Fig 1. The blue points represent an <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codeword, where <span class="math">N</span>, the evaluation domain, has a size of 4. From left to right, if we label the graphs as 1 through 4, then graphs 2 and 3 illustrate possible valid <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codewords. In contrast, the red points in graph 4 depict an invalid <span class="math">\mathsf{RS}(\mathbb{F}, N, 2)</span> codeword due to the degree constraint. The purple points indicate intersections between the blue and red lines.</p></figcaption></figure>
 
 Codewords must correspond to polynomials of (at most) a prescribed degree d or else be classified as invalid. In the example above, our required $$d$$ is 1. Since the red codeword in the rightmost figure has a degree of 2, it does not satisfy the condition of being a degree of 1 and is therefore invalid; however as the red codewords in the middle two graphs are of degree 1, they are valid. From this, we can infer that given $$N$$ and $$d$$, uniquely valid codewords must differ from each other by at least $$N - d$$ (3 in this example) values.
 
@@ -28,11 +28,10 @@ When the verifier makes only a limited number of queries, there’s a chance it 
 
 This is why, with a limited number of queries, there’s a trade-off: more queries increase confidence that the function is close to the code, while fewer queries make it easier for the function to “pass” without actually being in close proximity. This is why the probability $$(1−\delta)^t$$ becomes significant, where $$t$$ is the number of queries. This probability is known as the soundness error, and reducing it enhances the protocol’s security. Here rate ρ is defined as $$\frac{d + 1}{ N}$$, so $$\delta \approx 1 - \rho$$. Therefore, lowering the rate preserves security while minimizing the number of queries required.
 
-Protocol Explanation\\
+## Protocol Explanation
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcTB1EMuMcIRrEKZ4rBPt9OrGfHEvDSdPwj_502hrWz_6owJBjR8oz93_CmTKPelucNd-sbdGPcR3A9I_et88et52otrSn0pOu1KIHSUo25Se6ekMu4KNVEJxsWELcNdYkxTvBj_QKS9NLSlRBHDXTW6p0?key=vhEzQ8jv-fZTNOXYNsPOVg" alt=""><figcaption><p>Fig 2. A simple diagram of the query phase of the FRI(left) and STIR(right) protocol.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption><p>Fig 2. A simple diagram of the query phase of the FRI(left) and STIR(right) protocol.</p></figcaption></figure>
 
-\
 Here, $$m$$ represents each round, and $$k$$ is a constant that is a power of 2.
 
 STIR implements each round using four different techniques:
@@ -55,7 +54,7 @@ When creating the codeword, FRI and STIR use domains of different sizes, resulti
 * The verifier should be able to compute $$\mathsf{Quotient}(x)$$ from a sampled point x in the domain excluding $$S$$ in $$\mathbb{F}$$.
 * Suppose that every codeword close to f disagrees from $$\hat{p}$$ (which is derived from $$p$$ and $$S$$). Then $$\mathsf{Quotient}(f, S, p)$$ is far from the code.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfrpiTdg8e_W0jz6IeuZlpn6CQ53Ex-y8cOQlws4xYUt5Zb_5XS8wFJFfRs_uQuhzpUmpgA-JnpZcfJ3uGZmV8sEKe0aSwbsf2_AIUismrB87uE08QXZYap3td5nL4VIcOsJJ574EuFN1YDWgt0q9WEY40?key=vhEzQ8jv-fZTNOXYNsPOVg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (59).png" alt=""><figcaption><p>Fig 3. Description of univariate function quotienting</p></figcaption></figure>
 
 3\. **Out Of Domain Sampling**: Multiple polynomials may satisfy the conditions above, so out of domain sampling narrows it down to the one unique polynomial. To do this, additional random points are added to the subdomain $$S$$ used in **Quotienting**, and values from substituting f at these points are added to $$p$$.
 
@@ -64,9 +63,9 @@ When creating the codeword, FRI and STIR use domains of different sizes, resulti
 * The verifier should be able to compute $$\mathsf{DegCor}(f)$$ from $$f$$.
 * The distance between $$f$$ and $$\mathsf{DegCor}(f)$$ should be preserved with high probability.
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcAsceMO-iohpcQGcgcVDcgvVZSwjY0BEq5BEZRKjN_89WUYIIT5yZElDbVa8XGDdUHSFxxiQF9IBY2k0aTQpw1hqZ2Vbbmev1ZjDpfNvYSPUzWAffWktgt_LwJH3qF6Fb45S4URNJijSis3RKivILM2NWc?key=vhEzQ8jv-fZTNOXYNsPOVg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (60).png" alt=""><figcaption><p>Fig 4. Description of degree correction</p></figcaption></figure>
 
-<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeZ19OrUjUJCjCVLy65TN1F8yXni2Iq2c2v8Je0obmZtv_Uls8Y0uUyJCLxQHQyubvlZKwU5KGo8Njqda6JXUi34yZ9LIyUgCl8oD2-PZqWPX1dPUGkOgtnqQ1atjkQaZxAXxgbR7MlwijYxvsT5w6F6fYS?key=vhEzQ8jv-fZTNOXYNsPOVg" alt=""><figcaption><p>Fig 3. Comparison of FRI and STIR at different <span class="math">ho</span>. Lower is better. Taken from Fig. 4 in the paper</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (61).png" alt=""><figcaption><p>Fig 5. Comparison of FRI and STIR at different <span class="math">\rho</span>. Lower is better.</p></figcaption></figure>
 
 The figure above illustrates the differences in argument size, verifier hash complexity, prover time, and verifier time between the FRI and STIR protocol at different rates. From the above graph, the following facts can be observed:
 
