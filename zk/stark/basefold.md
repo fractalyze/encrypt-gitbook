@@ -50,7 +50,7 @@ The matrix on the left can be transformed into the matrix on the right by applyi
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-12-23 at 3.57.32 PM.png" alt=""><figcaption></figcaption></figure>
 
-If we divide the matrix on the right into four parts, the red and yellow-colored sections are identical and correspond to the matrix used in RS encoding when $$n = 8$$ and $$k = 4$$. The green-colored section is equivalent to multiplying the red matrix by a [diagonal matrix](https://en.wikipedia.org/wiki/Diagonal_matrix) $$T = \text{diag}(1, \omega, \omega^2, \dots, \omega^7)$$. Similarly, the blue-colored section is equivalent to multiplying the red matrix by another diagonal matrix $$T' = \mathsf{diag}(\omega^8, \omega^9, \omega^{10}, \dots, \omega^{15})$$.
+If we divide the matrix on the right into four parts, the red and yellow-colored sections are identical and correspond to the matrix used in RS encoding when $$n = 8$$ and $$k = 4$$. The green-colored section is equivalent to multiplying the red matrix by a [diagonal matrix](https://en.wikipedia.org/wiki/Diagonal_matrix) $$T = \mathsf{diag}(1, \omega, \omega^2, \dots, \omega^7)$$. Similarly, the blue-colored section is equivalent to multiplying the red matrix by another diagonal matrix $$T' = \mathsf{diag}(\omega^8, \omega^9, \omega^{10}, \dots, \omega^{15})$$.
 
 If the matrix used in the encoding of a linear code takes the form above, it is referred to as a **foldable** linear code. Let us define this more formally.
 
@@ -83,7 +83,7 @@ The encoding can be computed recursively as follows:
 
 1. If $$i = 0$$, return $$\mathsf{Enc}_0(m)$$.
 2. Unpack $$1 \times k_i$$ matrix $$m$$ into a pair of $$1 \times k_i / 2$$ matrix $$(m_l, m_r)$$.
-3. Set $$l = \mathsf{Enc}_{i-1}(m_l)$$, $$t = \mathsf{diag(}T_{i-1})$$, and then pack a pair of $$k_i \times n_i / 2$$ matrices $$(l + t \circ r, l - t \circ r)$$ to $$k_i \times n_i$$ matrix.
+3. Set $$l = \mathsf{Enc}_{i-1}(m_l)$$, $$t = \mathsf{diag}(T_{i-1})$$, and then pack a pair of $$k_i  \times n_i / 2$$ matrices $$(l + t \circ r, l - t \circ r)$$ to $$k_i \times n_i$$ matrix.
 
 This approach is valid and can be proven inductively:
 
@@ -199,7 +199,7 @@ $$
 8. The verifier checks that
    1. $$\mathsf{IOPP.query}^{(\pi_d, \dots, \pi_0)}$$ outputs accept.
    2. $$h_d(0) + h_d(1) \stackrel{?}= y$$ and for every $$i \in [1, d - 1]$$, $$h_i(0) + h_i(1) \stackrel{?}= h_{i+1}(r_i)$$.
-   3. $$\text{Enc}_0(h_1(r_0) / \widetilde{\mathsf{eq}}_z(r_0, \dots, r_{d-1})) \stackrel{?}= \pi_0$$.
+   3. $$\mathsf{Enc}_0(h_1(r_0) / \widetilde{\mathsf{eq}}_z(r_0, \dots, r_{d-1})) \stackrel{?}= \pi_0$$.
 
 ## Conclusion
 

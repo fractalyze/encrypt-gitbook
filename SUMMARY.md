@@ -40,6 +40,7 @@
     * [FRI Security Features and Optimizations](zk/stark/fri/fri-security-features-and-optimizations.md)
   * [DEEP FRI](zk/stark/deep-fri.md)
   * [STIR](zk/stark/stir.md)
+  * [WHIR](zk/stark/whir.md)
 
 ***
 
