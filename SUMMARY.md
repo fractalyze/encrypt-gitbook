@@ -16,6 +16,7 @@
 
 * [Yao's Garbled Circuits](mpc/yaos-garbled-circuits.md)
 * [GMW](mpc/gmw.md)
+* [BMR](mpc/bmr.md)
 
 ## ZK
 
