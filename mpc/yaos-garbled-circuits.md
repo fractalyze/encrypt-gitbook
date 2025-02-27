@@ -1,3 +1,7 @@
+---
+description: 'Presentation: https://www.youtube.com/watch?v=-BT-Oyqy5vc'
+---
+
 # Yao's Garbled Circuits
 
 Though Yao’s Garbled Circuits was first introduced in 1986, it still stands as the base for numerous multi-party computation (MPC) methods used today (i.e. [ABY3](https://eprint.iacr.org/2018/403.pdf)). We'll go over the original concept of Yao’s Garbled Circuits and introduce a couple popular optimizations done on top of this protocol. [Lúcás’s article on Yao’s Garbled Circuits](https://cronokirby.com/posts/2022/05/explaining-yaos-garbled-circuits/) and the [Mina book](https://o1-labs.github.io/proof-systems/fundamentals/zkbook_2pc/overview.html) with their reference links to papers served as valuable resources.
