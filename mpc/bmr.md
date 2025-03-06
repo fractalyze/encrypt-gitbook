@@ -1,3 +1,7 @@
+---
+description: 'Presentation: https://www.youtube.com/watch?v=8fvH4GM_A5k'
+---
+
 # BMR
 
 Created by Beaver, Micali, and Rogaway in 1990, the BMR protocol is an multi-party computation (MPC) for boolean circuits for greater than 2 parties. It extends upon the core concept of Yao’s Garbled Circuits with its garbled tables and also carries a constant communication cost similar to Yao’s. Note that explanations online on the specifics of the protocol vary due to the more conceptual nature of the [original paper](https://www.cs.ucdavis.edu/~rogaway/papers/bmr90), so we will focus mostly on the explanation outlined [here](https://securecomputation.org/docs/ch3-fundamentalprotocols.pdf). It is heavily recommended you read [Yao's Garbled Circuits ](yaos-garbled-circuits.md)as a prerequisite.

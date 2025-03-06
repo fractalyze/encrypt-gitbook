@@ -12,6 +12,7 @@
 * [Multiset Check](primitives/multiset-check.md)
 * [Sumcheck](primitives/sumcheck.md)
 * [Commitment Scheme](primitives/commitment-scheme/README.md)
+  * [Fflonk](primitives/commitment-scheme/fflonk.md)
   * [SHPlonk](primitives/commitment-scheme/shplonk.md)
 
 ## MPC
