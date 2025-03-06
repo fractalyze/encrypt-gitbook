@@ -309,3 +309,5 @@ Groth16 is a highly efficient zk-SNARK protocol that combines succinctness, fast
 * [https://ethresear.ch/t/transaction-malleability-attack-of-groth16-proof/15881](https://ethresear.ch/t/transaction-malleability-attack-of-groth16-proof/15881)
 * [https://xn--2-umb.com/22/groth16/](https://xn--2-umb.com/22/groth16/)
 * [https://geometry.xyz/notebook/the-hidden-little-secret-in-snarkjs](https://geometry.xyz/notebook/the-hidden-little-secret-in-snarkjs)
+
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)

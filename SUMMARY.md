@@ -11,6 +11,8 @@
   * [Fast Elliptic Curve Arithmetic and Improved WEIL Pairing Evaluation](primitives/elliptic-curve/fast-elliptic-curve-arithmetic-and-improved-weil-pairing-evaluation.md)
 * [Multiset Check](primitives/multiset-check.md)
 * [Sumcheck](primitives/sumcheck.md)
+* [Commitment Scheme](primitives/commitment-scheme/README.md)
+  * [SHPlonk](primitives/commitment-scheme/shplonk.md)
 
 ## MPC
 
