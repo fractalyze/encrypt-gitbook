@@ -14,6 +14,7 @@
 * [Commitment Scheme](primitives/commitment-scheme/README.md)
   * [Fflonk](primitives/commitment-scheme/fflonk.md)
   * [SHPlonk](primitives/commitment-scheme/shplonk.md)
+  * [Zeromorph](primitives/commitment-scheme/zeromorph.md)
 
 ## MPC
 
