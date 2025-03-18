@@ -49,6 +49,10 @@
   * [STIR](zk/stark/stir.md)
   * [WHIR](zk/stark/whir.md)
 
+## Application
+
+* [zkLogin](application/zklogin.md)
+
 ***
 
 * [About Us](about-us.md)

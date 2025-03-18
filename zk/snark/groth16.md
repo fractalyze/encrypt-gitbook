@@ -80,9 +80,9 @@ where $$L_j(X)$$ are lagrange basis polynomials.
 2. Evaluate $$a(X), b(X), c(X)$$ on a coset domain:
 
 $$
-\bm{a} = \{a(g^0), \dots, a(g^{n-1})\} \\
-\bm{b} = \{b(g^0), \dots, b(g^{n-1})\}  \\
-\bm{c} = \{c(g^0), \dots, c(g^{n-1})\}
+\bm{a} = (a(g^0), \dots, a(g^{n-1})) \\
+\bm{b} = (b(g^0), \dots, b(g^{n-1}))  \\
+\bm{c} = (c(g^0), \dots, c(g^{n-1}))
 $$
 
 where $$g^i = (\eta \omega)^i$$. The reason why we compute on a coset domain is avoiding division by zero since $$t(\omega^j) = 0$$.&#x20;
@@ -90,7 +90,7 @@ where $$g^i = (\eta \omega)^i$$. The reason why we compute on a coset domain is 
 3. Evaluate $$\bm{h}$$:
 
 $$
-\bm{h} = \{\frac{a(g^0)b(g^0) - c(g^0)}{t(g^0)}, \dots, \frac{a(g^{n - 1})b(g^{n - 1}) - c(g^{n - 1})}{t(g^{n-1})}\}
+\bm{h} = \left(\frac{a(g^0)b(g^0) - c(g^0)}{t(g^0)}, \dots, \frac{a(g^{n - 1})b(g^{n - 1}) - c(g^{n - 1})}{t(g^{n-1})}\right)
 $$
 
 4. Compute $$h(X)$$:
@@ -124,9 +124,10 @@ where $$h_i$$ are the coefficients of the $$h(X)$$.
 
 To generate a proof $$\pi$$, the costs are:
 
-* **2 MSM operations** of length $$m +1$$
-* **1 MSM operation** of length $$m - \ell$$
-* **1 MSM operation** of length $$n−1$$
+* **1 MSM operations** of length $$m +1$$ in $$\mathbb{G}_1$$
+* **1 MSM operations** of length $$m +1$$ in $$\mathbb{G}_2$$
+* **1 MSM operation** of length $$m - \ell$$ in $$\mathbb{G}_1$$
+* **1 MSM operation** of length $$n−1$$ in $$\mathbb{G}_1$$
 
 ### [Jordi](https://x.com/jbaylina)'s Trick
 
@@ -216,7 +217,7 @@ where $$\omega'$$ is $$2n$$-th root of unity.
 3. Evaluate $$a'(X), b'(X), c'(X)$$:
 
 $$
-\bm{a'} = \{a'({\omega}^0), \dots, a'({\omega}^{n-1})\} \\\bm{b'} = \{b'({\omega}^0), \dots, b'({\omega}^{n-1})\} \\\bm{c'} = \{c'({\omega}^0), \dots, c'({\omega}^{n-1})\}
+\bm{a'} = (a'({\omega}^0), \dots, a'({\omega}^{n-1})) \\\bm{b'} = (b'({\omega}^0), \dots, b'({\omega}^{n-1})) \\\bm{c'} = (c'({\omega}^0), \dots, c'({\omega}^{n-1}))
 $$
 
 where $$\omega$$ is $$n$$-th root of unity.
@@ -224,7 +225,7 @@ where $$\omega$$ is $$n$$-th root of unity.
 4. Evaluate $$\bm{h}$$:
 
 $$
-\bm{h} = \{a'({\omega}^0)b'({\omega}^0) - c'({\omega}^0), \dots, a'({\omega}^{n - 1})b'({\omega}^{n - 1}) - c'({\omega}^{n - 1})\}
+\bm{h} = (a'({\omega}^0)b'({\omega}^0) - c'({\omega}^0), \dots, a'({\omega}^{n - 1})b'({\omega}^{n - 1}) - c'({\omega}^{n - 1}))
 $$
 
 To compute $$\bm{h}$$, the costs are:
@@ -255,8 +256,53 @@ $$
 
 To verify a proof, the costs are:
 
-* **1 MSM operation** of length $$\ell$$
+* **1 MSM operation** of length $$\ell$$ in $$\mathbb{G}_1$$
 * **3 pairing operations**
+
+#### Batch Proof Verification
+
+Assume there are $$n$$ proofs. We denote each proof $$\pi_i$$ for $$0 \leq i < n$$ as follows:
+
+$$
+\pi_i = ([A_i]_1, [B_i]_2, [C_i]_1)
+$$
+
+Using the random linear combination trick with $$\theta_i \stackrel{\$}\leftarrow \mathbb{F}$$, you can verify proofs in a batch:
+
+$$
+\prod_{i=0}^{n-1} \left(e(\theta_i[A_i]_1, [B_i]_2) \right) \cdot e(\sum_{i=0}^{n-1} \theta_i \left(\sum_{j=0}^{\ell}z_j \left[ \frac{\beta a_j(x) + \alpha b_j(x) + c_j(x)}{\gamma} \right]_1\right), [\gamma]_2) \cdot e(\sum_{i=0}^{n-1}\theta_i[C_i]_1, [-\delta]_2) \stackrel{?}= \left(\prod_{i=0}^{n-1}\theta_i\right) e([\alpha]_1, [\beta]_2)
+$$
+
+**Proof.**
+
+From the single verification case, for $$0 \leq i < n$$, we know that the following equation holds:
+
+$$
+A_iB_i = \alpha \beta +  \sum_{j = 0}^l z_j (\beta a_j(x) + \alpha b_j(x) + c_j(x)) + \delta C_i
+$$
+
+Multiplying both sides by $$\theta_i$$ gives:
+
+$$
+\theta_iA_iB_i = \theta_i \alpha \beta +  \theta_i \left(\sum_{j = 0}^l z_j (\beta a_j(x) + \alpha b_j(x) + c_j(x))\right) + \theta_i \delta C_i
+$$
+
+Summing over $$i = 0$$ to $$n - 1$$, we obtain:
+
+$$
+\sum_{i=0}^{n-1}\theta_i A_iB_i = \left(\sum_{i=0}^{n-1}\theta_i\right) \alpha \beta + \sum_{i=0}^{n-1}\theta_i \left(\sum_{j = 0}^l z_j (\beta a_j(x) + \alpha b_j(x) + c_j(x))\right) + \sum_{i=0}^{n-1}\theta_i \delta C_i
+$$
+
+These are precisely the exponent parts in the batch verification equation.
+
+To verify $$n$$ proofs, the costs are:
+
+* $$n$$ **MSM operations** of length $$\ell$$ in $$\mathbb{G}_1$$
+* $$3n + 1$$ **scalar multiplications** in $$\mathbb{G}_1$$
+* $$n - 1$$ **field multiplications**
+* $$n + 2$$ **pairing operations**
+
+If each proof were verified individually, the process would require $$3n$$ expensive pairing operations. However, batch verification significantly reduces this cost.
 
 ### Malleability
 
