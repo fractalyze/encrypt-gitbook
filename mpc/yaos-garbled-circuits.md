@@ -88,7 +88,7 @@ Now what do I mean by this? Well, if the Garbler naively sends over gates every 
 
 In this section, I’ll illustrate optimizations done onto the naive version of Yao’s garbled circuits, as outlined in the [Mina Book](https://o1-labs.github.io/proof-systems/fundamentals/zkbook_2pc/overview.html). More specifically, we’ll go over “Point and Permute,” “Free-XOR,” “Row Reduction,” and “Half Gates.” Note that a full set of boolean gates can be created by using AND and XOR gates, which are the gates that these optimizations target.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="360"><figcaption><p>Construction of all other boolean gates with AND &#x26; XOR</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt="" width="360"><figcaption><p>Construction of all other boolean gates with AND &#x26; XOR</p></figcaption></figure>
 
 ### Point-and-Permute
 

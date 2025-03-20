@@ -38,6 +38,8 @@
 * [SNARK](zk/snark/README.md)
   * [Groth16](zk/snark/groth16.md)
   * [HyperPlonk](zk/snark/hyperplonk.md)
+  * [Spartan](zk/snark/spartan/README.md)
+    * [SPARK](zk/snark/spartan/spark.md)
 * [STARK](zk/stark/README.md)
   * [Additive NTT](zk/stark/additive-ntt.md)
   * [Basefold](zk/stark/basefold.md)
