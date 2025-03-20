@@ -56,4 +56,5 @@
 ***
 
 * [About Us](about-us.md)
+* [zkVM](zkvm.md)
 * [Contribute to this Site!](contribute-to-this-site.md)
