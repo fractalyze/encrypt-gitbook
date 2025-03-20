@@ -33,6 +33,7 @@
   * [Nova](zk/folding/nova/README.md)
     * [Nova over Cycles of Curves](zk/folding/nova/nova-over-cycles-of-curves.md)
 * [Lookup](zk/lookup/README.md)
+  * [Lasso](zk/lookup/lasso.md)
   * [LogUp-GKR](zk/lookup/logup-gkr.md)
 * [SNARK](zk/snark/README.md)
   * [Groth16](zk/snark/groth16.md)
