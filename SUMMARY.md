@@ -6,6 +6,8 @@
 * [Coding Theory](primitives/coding-theory/README.md)
   * [Linear Code](primitives/coding-theory/linear-code.md)
 * [Group Theory](primitives/group-theory.md)
+* [Encryption Scheme](primitives/encryption-scheme/README.md)
+  * [ElGamal Encryption](primitives/encryption-scheme/elgamal-encryption.md)
 * [Elliptic Curve](primitives/elliptic-curve/README.md)
   * [Computing Efficient Scalar Multiplication](primitives/elliptic-curve/computing-efficient-scalar-multiplication.md)
   * [Fast Elliptic Curve Arithmetic and Improved WEIL Pairing Evaluation](primitives/elliptic-curve/fast-elliptic-curve-arithmetic-and-improved-weil-pairing-evaluation.md)
@@ -55,6 +57,7 @@
 ## Application
 
 * [zkLogin](application/zklogin.md)
+* [zkHoldem](application/zkholdem.md)
 
 ***
 

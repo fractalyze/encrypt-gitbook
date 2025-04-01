@@ -238,7 +238,7 @@ We assume that there exists an extractable polynomial commitment scheme for mult
   * $$O(\log m)$$ for each sumcheck instances
   * The size of the commitment to $$\tilde{w}(\cdot)$$ and the communication in $$\mathsf{PC.Eval}$$
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Total cost of the SpartanNIZK depending on PCS choice</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Total cost of the SpartanNIZK depending on PCS choice</p></figcaption></figure>
 
 ### Computation commitments: zkSNARK from NIZK
 
