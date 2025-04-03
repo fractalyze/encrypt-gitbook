@@ -20,12 +20,14 @@
 
 ## MPC
 
+* [Overview](mpc/overview.md)
 * [Yao's Garbled Circuits](mpc/yaos-garbled-circuits.md)
 * [GMW](mpc/gmw.md)
 * [BMR](mpc/bmr.md)
 
 ## ZK
 
+* [Overview](zk/overview.md)
 * [Arithmetization](zk/arithmetization/README.md)
   * [R1CS](zk/arithmetization/r1cs.md)
   * [PLONK](zk/arithmetization/plonk.md)
@@ -58,6 +60,8 @@
 
 * [zkLogin](application/zklogin.md)
 * [zkHoldem](application/zkholdem.md)
+* [zkTLS](application/zktls/README.md)
+  * [DECO](application/zktls/deco.md)
 
 ***
 

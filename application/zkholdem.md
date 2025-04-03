@@ -1,3 +1,7 @@
+---
+description: 'Presentation: https://www.youtube.com/watch?v=vQ5-Sn2dHFE'
+---
+
 # zkHoldem
 
 ## Introduction
@@ -220,7 +224,7 @@ $$
 
 #### $$\mathsf{zkShuffle.ShuffleEncrypt}$$
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
 
 * Player $$p_i$$ generates a **random permutation matrix** $$\bm{A_i} \in \mathbb{F}^{n\times n}$$.
 * Upon receiving deck $$\bm{C_i} = (c_{i,0}, \dots, c_{i,n-1})$$ from player $$p_{i-1}$$, the shuffled deck $$\bm{S_{i+1}} = (s_{i+1, 0}, \dots , s_{i+1, n-1})$$ is computed as follows:
@@ -245,7 +249,7 @@ $$
 
 #### $$\mathsf{zkShuffle.Decrypt}$$
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 * Each player $$p_i$$ decrypts a received encrypted card $$c: \mathbb{G} \times \mathbb{G}$$ to obtain $$m: \mathbb{G}$$ as follows (The reason shuffling does not need to be considered during decryption is that if we assume the cards were shuffled using $$\mathsf{zkShuffle.ShuffleEncrypt}$$, the final recovered message ($$m$$) will always be one of the elements in $$\bm{C_0}$$.):
 

@@ -139,10 +139,10 @@ However, this approach has a drawback: the validator can infer the relationship 
 To address the issue from **Method 1**, we can design a ZK circuit that hides `sub` while still ensuring its validity.
 
 $$
-C(w: \{ \mathsf{jwt} \}, x: \{\mathsf{addr, tx, pk_{OIDC}} \}): \\H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \mathsf{tx}
+C(x: \{\mathsf{addr, tx, pk_{OIDC}}\}, w: \{ \mathsf{jwt} \}): \\H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \mathsf{tx}
 $$
 
-Here, $$C$$ denotes the circuit, with $$w$$ and $$x$$ representing the witnesses and public inputs, respectively. The circuit outputs $$C(w, x) = 1$$ if the conditions are satisfied; otherwise, it returns $$0$$.
+Here, we use the notation from [the circuit overview](../zk/overview.md#circuit).
 
 However, this approach still has a flaw: the OIDC Provider can infer **the relationship between `sub` and** $$\mathsf{addr}$$**, which could compromise user privacy.**
 
@@ -161,7 +161,7 @@ TODO(chokobole): add how to ensure that only the user can derive their salt.
 Next, we modify the ZK circuit accordingly:
 
 $$
-C(w: \{ \mathsf{jwt, \textcolor{red}{salt}} \}, x: \{\mathsf{addr, tx, pk_{OIDC}} \}): \\H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| \textcolor{red}{salt}}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \mathsf{tx}
+C(x: \{\mathsf{addr, tx, pk_{OIDC}} \}, w: \{ \mathsf{jwt, \textcolor{red}{salt}} \}): \\H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| \textcolor{red}{salt}}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \mathsf{tx}
 $$
 
 However, this approach presents **two major challenges**:
@@ -182,7 +182,7 @@ $$
 Next, we embed $$\mathsf{epk}$$ into the `nonce` and modify the ZK circuit accordingly:
 
 $$
-C(w: \{ \mathsf{jwt, salt} \}, x: \{\mathsf{addr, \textcolor{red}{epk}, pk_{OIDC}} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \textcolor{red}{\mathsf{epk}}
+C(x: \{\mathsf{addr, \textcolor{red}{epk}, pk_{OIDC}} \}, w: \{ \mathsf{jwt, salt} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \textcolor{red}{\mathsf{epk}}
 $$
 
 **Flow Overview**
@@ -207,7 +207,7 @@ A simple solution, such as hashing $$\mathsf{epk}$$ before embedding it into `no
 To prevent this, we introduce randomness $$\mathsf{r}$$ and modify the `nonce` by hashing both $$\mathsf{epk}$$ and $$\mathsf{r}$$:
 
 $$
-C(w: \{ \mathsf{jwt, salt, \textcolor{red}{r}} \}, x: \{\mathsf{addr, epk, pk_{OIDC}} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \textcolor{red}{H(\mathsf{epk \| r})}
+C(x: \{\mathsf{addr, epk, pk_{OIDC}} \}, w: \{ \mathsf{jwt, salt, \textcolor{red}{r}} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \textcolor{red}{H(\mathsf{epk \| r})}
 $$
 
 Now, the OIDC Provider can no longer determine which transactions a given `sub` has signed, ensuring **stronger privacy protection**.
@@ -237,7 +237,7 @@ $$
 The updated ZK circuit is as follows:
 
 $$
-C(w: \{ \mathsf{jwt, salt, r} \}, x: \{\mathsf{addr, epk, \textcolor{red}{exp}, pk_{OIDC}} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= H(\mathsf{epk \| \textcolor{red}{exp} \| r})
+C(x: \{\mathsf{addr, epk, \textcolor{red}{exp}, pk_{OIDC}} \}, w: \{ \mathsf{jwt, salt, r} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= H(\mathsf{epk \| \textcolor{red}{exp} \| r})
 $$
 
 #### Method 7: Adding `iss` to Public Input
@@ -247,7 +247,7 @@ Since $$\mathsf{pk_{OIDC}}$$ (OIDC Provider's public key) **changes periodically
 The ZK circuit is further modified as:
 
 $$
-C(w: \{ \mathsf{jwt, salt, r} \}, x: \{\mathsf{addr, epk, exp, \textcolor{red}{iss}, pk_{OIDC}} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= H(\mathsf{epk \| exp \| r}) \land \textcolor{red}{\mathsf{jwt.iss \stackrel{?}= iss}}
+C(x: \{\mathsf{addr, epk, exp, \textcolor{red}{iss}, pk_{OIDC}} \}, w: \{ \mathsf{jwt, salt, r} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= H(\mathsf{epk \| exp \| r}) \land \textcolor{red}{\mathsf{jwt.iss \stackrel{?}= iss}}
 $$
 
 Additionally, the validator must check that:
@@ -271,7 +271,7 @@ This raises an important question: **how can we implement zkLogin without a `non
 To answer this, let's recall the role of `nonce`. It was used to **bind** $$\mathsf{epk, exp}$$ to the **JWT**. Thus, by modifying the circuit derived in **Method 7**, we can adapt zkLogin as follows:
 
 $$
-C(w: \{ \mathsf{jwt, salt} \}, x: \{\mathsf{addr, epk, exp, iss, \textcolor{red}{h}, pk_{OIDC}} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \textcolor{red}{\mathsf{h}} \stackrel{?}= H(\mathsf{epk \| exp \| \textcolor{red}{jwt}}) \land \mathsf{jwt.iss \stackrel{?}= iss}
+C(x: \{\mathsf{addr, epk, exp, iss, \textcolor{red}{h}, pk_{OIDC}} \}, w: \{ \mathsf{jwt, salt} \}): \\ H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud \| salt}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \textcolor{red}{\mathsf{h}} \stackrel{?}= H(\mathsf{epk \| exp \| \textcolor{red}{jwt}}) \land \mathsf{jwt.iss \stackrel{?}= iss}
 $$
 
 #### Why Is $$\mathsf{r}$$ No Longer Needed?
