@@ -66,6 +66,7 @@
 * [zkHoldem](application/zkholdem.md)
 * [zkTLS](application/zktls/README.md)
   * [DECO](application/zktls/deco.md)
+  * [Proxying is enough](application/zktls/proxying-is-enough.md)
 
 ***
 
