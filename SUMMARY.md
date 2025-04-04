@@ -5,6 +5,7 @@
 * [Chinese Remainder Theorem (CRT)](README.md)
 * [Coding Theory](primitives/coding-theory/README.md)
   * [Linear Code](primitives/coding-theory/linear-code.md)
+* [Number Theoretic Transform](primitives/number-theoretic-transform.md)
 * [Group Theory](primitives/group-theory.md)
 * [Encryption Scheme](primitives/encryption-scheme/README.md)
   * [ElGamal Encryption](primitives/encryption-scheme/elgamal-encryption.md)

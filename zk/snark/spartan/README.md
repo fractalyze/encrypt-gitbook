@@ -225,7 +225,7 @@ We assume that there exists an extractable polynomial commitment scheme for mult
 
 #### Cost Analysis
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>List of possible PCS schemes that can be used</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (3).png" alt=""><figcaption><p>List of possible PCS schemes that can be used</p></figcaption></figure>
 
 * Prover:
   * $$O(n)$$ for each sumcheck instances

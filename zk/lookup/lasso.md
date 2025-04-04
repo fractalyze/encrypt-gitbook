@@ -396,7 +396,7 @@ $$
 
 ### Cost of Spark
 
-<figure><img src="../../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (86) (1).png" alt=""><figcaption></figcaption></figure>
 
 It's worth of noting that while at first glance it seems like increasing $$c$$ incurs an increase in the commitment size and verification cost in a factor linear to $$c$$, since most of the PCS have efficient batching properties for evaluation proofs, the factor $$c$$ can be omitted (i.e. the prover and verifier costs for verifying polynomial evaluations do not grow with $$c$$).
 
