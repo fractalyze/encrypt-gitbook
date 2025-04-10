@@ -105,18 +105,18 @@ $$
 
 ### Iterative Partial Reduction
 
-In a multi-precision setting, suppose the modulo $$n$$ has $$l$$ limbs. Let $$R=r^l$$, where $$w$$ is limb bit width and $$r=2^w$$. To calculate $$T\cdot R^{-1}=T\cdot r^{-l}\mod n$$, the multi-precision Montgomery Reduction operates iteratively on:
+In a multi-precision setting, suppose the modulo $$n$$ has $$l$$ limbs. Let $$R=B^l$$, where $$w$$ is limb bit width and $$B=2^w$$. To calculate $$T\cdot R^{-1}=T\cdot B^{-l}\mod n$$, the multi-precision Montgomery Reduction operates iteratively on:
 
 $$
-T = T_{2l-1}r^{2l-1} + \dots + T_lr^l + T_{l-1}r^{l-1} + \dots + T_0
+T = T_{2l-1}\cdot B^{2l-1} + \dots + T_l\cdot B^l + T_{l-1}\cdot B^{l-1} + \dots + T_0
 $$
 
 where $$T_i$$ represents limb values. At each iteration, the limbs of $$T$$ are reduced one by one which is done by partial reduction. The first partial reduction looks like so:
 
 $$
 \begin{align*}
-T^{(1)}=Tr^{-1} \mod n &= T_{2l-1}r^{2l-2} + \dots + T_lr^{l-1} + T_{l-1}r^{l-2} + \dots + T_1 + (T_0r^{-1} \mod n) &\mod n\\ 
-&= T^{(1)}_{2l-1}r^{2l-2} + \dots + T^{(1)}_lr^{l-1} + T^{(1)}_{l-1}r^{l-2} + \dots  + T^{(1)}_1 &\mod n
+T^{(1)}=T\cdot B^{-1} \mod n &= T_{2l-1}\cdot B^{2l-2} + \dots + T_l\cdot B^{l-1} + T_{l-1}\cdot B^{l-2} + \dots + T_1 + (T_0\cdot B^{-1} \mod n) &\mod n\\ 
+&= T^{(1)}_{2l-1}B^{2l-2} + \dots + T^{(1)}_l\cdot B^{l-1} + T^{(1)}_{l-1}\cdot B^{l-2} + \dots  + T^{(1)}_1 &\mod n
 \end{align*}
 $$
 
@@ -124,35 +124,35 @@ And after the next partial reduction, we will have:
 
 $$
 \begin{align*}
-T^{(2)}=Tr^{-2} \mod n &= T^{(1)}_{2l-1}r^{2l-3} + \dots + T^{(1)}_lr^{l-2} + T^{(1)}_{l-1}r^{l-3} + \dots + T^{(1)}_2+(T^{(1)}_1r^{-1} \mod n) &\mod n\\
-&=T^{(2)}_{2l-1}r^{2l-3} + \dots + T^{(2)}_lr^{l-2} + T^{(2)}_{l-1}r^{l-3} + \dots + T^{(2)}_2 &\mod n\\
+T^{(2)}=T\cdot B^{-2} \mod n &= T^{(1)}_{2l-1}\cdot B^{2l-3} + \dots + T^{(1)}_l\cdot B^{l-2} + T^{(1)}_{l-1}\cdot B^{l-3} + \dots + T^{(1)}_2+(T^{(1)}_1\cdot B^{-1} \mod n) &\mod n\\
+&=T^{(2)}_{2l-1}\cdot B^{2l-3} + \dots + T^{(2)}_l\cdot B^{l-2} + T^{(2)}_{l-1}\cdot B^{l-3} + \dots + T^{(2)}_2 &\mod n\\
 \end{align*}
 $$
 
-and so on. After $$l$$ iterations, we have $$T\cdot r^{-l}\mod n$$ with $$l$$ limbs. The values of limbs change at each round because $$T^{(i)}_i r^{-1} \mod n$$ is also a multi-precision integer.
+and so on. After $$l$$ iterations, we have $$T\cdot B^{-l}\mod n$$ with $$l$$ limbs. The values of limbs change at each round because $$T^{(i)}_i \cdot B^{-1} \mod n$$ is also a multi-precision integer.
 
-### How to multiply by the inverse of $$r$$?
+### How to multiply by the inverse of $$B$$?
 
-At round $$i$$, we need to calculate $$(T^{(i-1)}_{i-1}r^{-1} \mod n)$$. This can be done efficiently, similar to the single-precision case by adding some multiple of $$n$$ to make it divisible by $$r$$:&#x20;
+At round $$i$$, we need to calculate $$(T^{(i-1)}_{i-1}\cdot B^{-1} \mod n)$$. This can be done efficiently, similar to the single-precision case by adding some multiple of $$n$$ to make it divisible by $$B$$:&#x20;
 
-1. Precompute $$n'\coloneqq -n^{-1}\mod r$$.
-2. Calculate $$m_i\coloneqq T^{(i-1)}_{i-1}\cdot n' \mod r$$. Then we have $$T^{(i-1)}_{i-1} + m_i\cdot n \equiv  T^{(i-1)}_{i-1} -T^{(i-1)}_{i-1}\cdot n^{-1}\cdot n \equiv 0\mod r$$
-3. Calculate $$T^{(i-1)}_{i-1}r^{-1}  \equiv (T^{(i-1)}_{i-1} + m_i\cdot n)\cdot r^{-1}\equiv (T^{(i-1)}_{i-1} + m_i\cdot n)\gg w\mod n$$ .
+1. Precompute $$n'\coloneqq -n^{-1}\mod B$$.
+2. Calculate $$m_i\coloneqq T^{(i-1)}_{i-1}\cdot n' \mod B$$. Then we have $$T^{(i-1)}_{i-1} + m_i\cdot n \equiv  T^{(i-1)}_{i-1} -T^{(i-1)}_{i-1}\cdot n^{-1}\cdot n \equiv 0\mod B$$
+3. Calculate $$T^{(i-1)}_{i-1}\cdot B^{-1}  \equiv (T^{(i-1)}_{i-1} + m_i\cdot n)\cdot B^{-1}\equiv (T^{(i-1)}_{i-1} + m_i\cdot n)\gg w\mod n$$ .
 
-Since $$m_i < r$$ and $$T^{(i-1)}_{i-1} < r$$, we have
+Since $$m_i < B$$ and $$T^{(i-1)}_{i-1} < B$$, we have
 
 $$
-(T^{(i-1)}_{i-1}  +m_i\cdot n) / r \leq (r-1 + (r-1)\cdot n)/r=n + (r-1-n)/r < n
+(T^{(i-1)}_{i-1}  +m_i\cdot n) / B \leq (B-1 + (B-1)\cdot n)/B=n + (B-1-n)/B < n
 $$
 
 which means after step 3, we don't have to worry about subtracting $$n$$.
 
 ### How many limbs are needed?
 
-While trying to reduce, we add $$m_i\cdot n$$ every round which can cause potential overflow in the largest limb. Let's calculate how much we added in total. If we omit dividing by $$r$$, at each round, we can see that at each round $$i$$, we add $$m_i \cdot n\cdot r^{i-1}$$. This can be confusing but if you think of round $$i$$ as adding some value $$m_i\cdot n$$ to convert the $$(i-1)$$-th limb to 0, it can be more easier to see.
+While trying to reduce, we add $$m_i\cdot n$$ every round which can cause potential overflow in the largest limb. Let's calculate how much we added in total. If we omit dividing by $$B$$, at each round, we can see that at each round $$i$$, we add $$m_i \cdot n\cdot B^{i-1}$$. This can be confusing but if you think of round $$i$$ as adding some value $$m_i\cdot n$$ to convert the $$(i-1)$$-th limb to 0, it can be more easier to see.
 
 $$
-\text{Total added}=\sum_{i=1}^lm_i\cdot n \cdot r^{i-1}<n\sum_{i=1}^lr \cdot r^{i-1}=n\cdot r\bigg(\frac{r^l-1}{r-1}\bigg)<n\cdot R
+\text{Total added}=\sum_{i=1}^lm_i\cdot n \cdot B^{i-1}<n\sum_{i=1}^lB \cdot B^{i-1}=n\cdot B\bigg(\frac{B^l-1}{B-1}\bigg)<n\cdot R
 $$
 
 This gives that total sum can be $$T+n\cdot R <R^2+n\cdot R < 2R^2=2\cdot2^{2lw}=2^{2lw+1}$$ which needs $$2l+1$$ limbs. For $$T$$, we already need $$2l$$ limbs and after the first step, the least significant limb will be 0's which can be discarded. In the first round, we have a maximum value of  $$T+n<n\cdot R + n=n(R+1)\leq(R-1)(R+1)=R^2-1$$ so it fits within the $$2l$$ limbs. So, if we discard the least significant limb after first round, we don't actually need extra limb space to handle the overflowing.
@@ -161,7 +161,7 @@ This gives that total sum can be $$T+n\cdot R <R^2+n\cdot R < 2R^2=2\cdot2^{2lw}
 
 A complete round $$i$$ of partial reduction can be summarized by the following steps:
 
-1. Compute $$m_i=n' \cdot T^{(i-1)}_{i-1} \mod r$$ (which costs $$1\times 1$$ limb multiplication).
+1. Compute $$m_i=n' \cdot T^{(i-1)}_{i-1} \mod R$$ (which costs $$1\times 1$$ limb multiplication).
 2. Compute $$m_i\cdot n$$ (which costs $$1 \times l$$ limb multiplication).
 3. Set $$T^{(i)}=(T^{(i-1)} + m_i\cdot n ) \gg w$$.
 
@@ -175,15 +175,15 @@ Therefore, the reduced value may require one additional subtraction to bring the
 
 ### Ingonyama Optimization
 
-We have seen that we need to do $$l^2+l$$ multiplications per round for multi-precision Montgomery Reduction. However, [Ingonyama showed](https://hackmd.io/@Ingonyama/Barret-Montgomery#Barrett-Montgomery-duality) that we can reduce it to $$l^2+1$$. Let's see what happens if we just precompute $$r'=r^{-1} \mod n$$ and multiply the free coefficients with $$r'$$. Then, the partial reduction round $$i$$ becomes:
+We have seen that we need to do $$l^2+l$$ multiplications per round for multi-precision Montgomery Reduction. However, [Ingonyama showed](https://hackmd.io/@Ingonyama/Barret-Montgomery#Barrett-Montgomery-duality) that we can reduce it to $$l^2+1$$. Let's see what happens if we just precompute $$B'=B^{-1} \mod n$$ and multiply the free coefficients with $$B'$$. Then, the partial reduction round $$i$$ becomes:
 
-1. Compute $$m'_i=T^{(i-1)}_{i-1}\cdot r'$$ which is $$1\times l$$ limb multiplication, resulting in a $$l+1$$ limb integer.
+1. Compute $$m'_i=T^{(i-1)}_{i-1}\cdot B'$$ which is $$1\times l$$ limb multiplication, resulting in a $$l+1$$ limb integer.
 2. Set $$T^{(i)}=(T^{(i-1)}\gg w) + m'_i$$.
 
 Then, similar to the previous calculation, the upper bound on the total addition will become:
 
 $$
-\text{Total added}=\sum_{i=1}^lm'_i \cdot r^{i-1}<\sum_{i=1}^l n\cdot r \cdot r^{i-1}=n\cdot r\bigg(\frac{r^l-1}{r-1}\bigg)<n\cdot R
+\text{Total added}=\sum_{i=1}^l m'_i \cdot B^{i-1}<\sum_{i=1}^l n\cdot B \cdot B^{i-1}=n\cdot B\bigg(\frac{B^l-1}{B-1}\bigg)<n\cdot R
 $$
 
 So it hasn't changed. Which means the upper bound on the value after $$l$$ reductions will also be the same:
