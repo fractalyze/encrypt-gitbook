@@ -1,4 +1,4 @@
-# Overview
+# MPC
 
 ## &#x6E;**-Party MPC**
 
@@ -16,7 +16,7 @@ In other words:
 
 This approach is designed for **privacy-preserving computation in security-sensitive environments**, enabling collaboration without compromising data confidentiality.
 
-Of course, you can also use notation for the $$f$$ without shared input as follows:
+Notation for $$f$$ without a shared input is as follows:
 
 $$
 \mathsf{MPC}_n(f, w_1,  \dots, w_n) \rightarrow f(w_1, \dots, w_n)

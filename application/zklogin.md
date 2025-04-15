@@ -142,7 +142,7 @@ $$
 C(x: \{\mathsf{addr, tx, pk_{OIDC}}\}, w: \{ \mathsf{jwt} \}): \\H(\mathsf{jwt.iss \| jwt.sub \| jwt.aud}) \stackrel{?}= \mathsf{addr} \land \mathsf{JWT.Verify}(\mathsf{pk_{OIDC}, jwt}) \stackrel{?}=1 \land \mathsf{jwt.nonce} \stackrel{?}= \mathsf{tx}
 $$
 
-Here, we use the notation from [the circuit overview](../zk/overview.md#circuit).
+Here, we use the notation from [here](../introduction/notations-and-definitions/zk.md#circuit).
 
 However, this approach still has a flaw: the OIDC Provider can infer **the relationship between `sub` and** $$\mathsf{addr}$$**, which could compromise user privacy.**
 

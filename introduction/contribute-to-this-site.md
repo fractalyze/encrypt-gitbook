@@ -30,18 +30,6 @@ We encourage authors to follow this general structure:
    1. End the document with a statement like, “Written by \[Name] from \[Organization].”
    2. If there are external reviewers, add “Reviewed by \[Name] from \[Organization].”
 
-#### LaTeX Syntax
-
-* Use standard LaTeX commands:
-  * "\deg"($$\deg$$) over "deg"($$deg$$)
-  * "\max"($$\max$$) over "max"($$max$$)
-  * "\log"($$\log$$) over "log"($$log$$)
-* Use "\bm{}" to represent vectors. e.g., "\bm{b}"($$\bm{b}$$) over "b"($$b$$) or "\vec{b}"($$\vec{b}$$).
-* Use "\mathbb{F}"($$\mathbb{F}$$) over "F"($$F$$) to represent fields.
-* Use "\mathcal{L}"($$\mathcal{L}$$) over "L"($$L$$) to represent evaluation domains.
-* Use \\"mathcal{R}"($$\mathcal{R}$$) over "R"($$R$$) to represent relations.
-* Use "\mathsf{}" to represent a mathematical object name. e.g., "\mathsf{RS}"($$\mathsf{RS}$$) over "RS"($$RS$$) or "\text{RS}"($$\text{RS}$$).
-
 ### 3. Self-Review
 
 Before requesting an internal review, ensure your article is properly formatted and free of glaring errors.
@@ -60,7 +48,7 @@ Ask for a review from every maintainer. The maintainers will review the PR to en
 
 ### 2. Requesting the author of the paper to review
 
-After internal review, you _**must**_ request the original author of the acedmic paper (if accessible) to provide feedback.
+After internal review, you _**must**_ request the original author of the academic paper (if accessible) to provide feedback.
 
 ### 3. Merge
 

@@ -1,6 +1,6 @@
-# Overview
+# ZK
 
-### Circuit
+## Circuit&#x20;
 
 A circuit can be represented as follows:
 
@@ -12,7 +12,7 @@ Here, $$x$$ denotes the **public input**, and $$w$$ denotes the **witness** (i.e
 
 The circuit outputs $$C(x, w) = 1$$ if the conditions are satisfied; otherwise, it returns $$0$$.
 
-#### Example
+### **Example**
 
 Suppose you want to create a circuit that checks whether you know the square root of a value $$X$$ without revealing the square root itself. The circuit can be expressed as:
 

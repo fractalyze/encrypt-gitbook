@@ -1,8 +1,16 @@
 # Table of contents
 
+## Introduction
+
+* [About Us](README.md)
+* [Notations & Definitions](introduction/notations-and-definitions/README.md)
+  * [MPC](introduction/notations-and-definitions/mpc.md)
+  * [ZK](introduction/notations-and-definitions/zk.md)
+* [Contribute to this Site!](introduction/contribute-to-this-site.md)
+
 ## Primitives
 
-* [Chinese Remainder Theorem (CRT)](README.md)
+* [Chinese Remainder Theorem (CRT)](<README (1).md>)
 * [Coding Theory](primitives/coding-theory/README.md)
   * [Linear Code](primitives/coding-theory/linear-code.md)
 * [Number Theoretic Transform](primitives/number-theoretic-transform.md)
@@ -24,14 +32,12 @@
 
 ## MPC
 
-* [Overview](mpc/overview.md)
 * [Yao's Garbled Circuits](mpc/yaos-garbled-circuits.md)
 * [GMW](mpc/gmw.md)
 * [BMR](mpc/bmr.md)
 
 ## ZK
 
-* [Overview](zk/overview.md)
 * [Arithmetization](zk/arithmetization/README.md)
   * [R1CS](zk/arithmetization/r1cs.md)
   * [PLONK](zk/arithmetization/plonk.md)
@@ -70,6 +76,4 @@
 
 ***
 
-* [About Us](about-us.md)
 * [zkVM](zkvm.md)
-* [Contribute to this Site!](contribute-to-this-site.md)

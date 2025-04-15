@@ -183,7 +183,7 @@ $$
 C(x: \{ C, q \}, w: \{ k^\mathsf{Enc}, k^\mathsf{MAC}, m \}) : \\ \sigma \stackrel{?}= \mathsf{HMAC}(k^{\mathsf{MAC}} , m) \land C \stackrel{?}= \mathsf{AES\text{-}CBC.Encrypt}(k^\mathsf{Enc}, m \| \sigma) \land \mathsf{jq.exec}(m, q) \ge 1000
 $$
 
-Here, we use the notation from [the circuit overview](../../zk/overview.md#circuit).
+Here, we use the notation from [the circuit overview](broken-reference).
 
 * $$q$$ is the [jq](https://jqlang.org/) query: `.accounts[] | select(.account_id == 2) | .balance`
 * $$\mathsf{jq.exec}(m, q)$$ denotes applying the jq query $$q$$ to message $$m$$
@@ -243,7 +243,7 @@ In **Method 1**, the prover $$\mathcal{P}$$ knows the full MAC key $$k^{\mathsf{
 However, from **Method 2 onward**, the MAC key is only **additively shared** between $$\mathcal{P}$$ and $$\mathcal{V}$$, meaning:
 
 * $$\mathcal{P}$$ cannot reconstruct the full key.
-* **HMAC must be computed via a Two-Party MPC (2PC)** protocol. In order to send a query, the prover $$\mathcal{P}$$ and the verifier $$\mathcal{V}$$ compute the MAC together as follows(We use the notation defined in [here](../../mpc/overview.md#n-party-mpc)) :
+* **HMAC must be computed via a Two-Party MPC (2PC)** protocol. In order to send a query, the prover $$\mathcal{P}$$ and the verifier $$\mathcal{V}$$ compute the MAC together as follows(We use the notation defined in [here](../../introduction/notations-and-definitions/mpc.md#n-party-mpc)) :
 
 $$
 \mathsf{MPC}_2(\mathsf{HMAC}, k^\mathsf{MAC}_\mathcal{P}, k^\mathsf{MAC}_\mathcal{V}, m) \rightarrow \mathsf{HMAC}(k^\mathsf{MAC}_\mathcal{P} + k^\mathsf{MAC}_\mathcal{V}, m)
