@@ -237,4 +237,4 @@ $$
 
 Although not covered in detail here, the paper also discusses the use of extension fields to enable smaller field sizes and methods to apply this approach to [HyperNova](https://eprint.iacr.org/2023/573)’s [CCS](https://eprint.iacr.org/2023/552.pdf). However, some aspects of LatticeFold limit its application to Protostar's, leaving it an open problem. The significance of LatticeFold lies in it being the first to apply lattice-based cryptography to folding schemes, paving the way for incorporating lattice-based folding schemes into STARKs.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
