@@ -10,3 +10,7 @@ Welcome! This GitBook is maintained by a group of volunteers who are passionate 
   Anyone who authors articles.
 * **Reviewer**\
   Anyone who reviews articles.
+
+## **Contact Us**
+
+If you have any questions or would like to get involved, please reach out to us at zk@a41.io.
