@@ -59,7 +59,7 @@ $$
 \mathsf{pk} = \mathsf{vk} + 
 \left(
 \begin{align*}
-&  [\beta]_1, [\delta]_1,  \{ [a_i(x)]_1\}_{}^{},  \{ [b_i(x)]_1\}_{}^{},  \{ [b_i(x)]_2\}_{}^{}, \\
+&  [\beta]_1, [\delta]_1,  \{ [a_i(x)]_1\}_{i=0}^{m},  \{ [b_i(x)]_1\}_{i=0}^{m},  \{ [b_i(x)]_2\}_{i=0}^{m}, \\
 & \left\{ \left[\frac{\beta a_i(x) + \alpha b_i(x) + c_i(x)}{\delta} \right]_1 \right\}_{i = \ell + 1}^{m}, \left\{ \left[ \frac{x^i t(x)}{\delta} \right]_1 \right\}_{i = 0}^{n - 2} 
 \end{align*}
 \right)
