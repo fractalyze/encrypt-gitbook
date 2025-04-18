@@ -6,8 +6,6 @@ This explains [https://arxiv.org/abs/math/0208038](https://arxiv.org/abs/math/02
 
 Compute $$2P + Q$$ without the intermediate results $$2P$$ and $$P + Q$$ given $$E: y^2 = x^3 + a \cdot x + b$$, where $$4a^3 + 27b^2 \ne 0$$,
 
-**Costs**
-
 * $$2P$$: 1 multiplication, 2 squarings and 1 division. If $$P = (x_1, y_1)$$, $$R = 2P = (x_2, y_2)$$ is computed as follows:
 
 $$
@@ -24,15 +22,11 @@ x_3 = {\lambda_1}^2 - x_1 -x_2,    \\
 y_3 = (x_1 - x_3)\lambda_1 - y_1
 $$
 
-* Naive $$2P + Q$$: 2 multiplications, 3 squarings and 2 divisions
-* Optimized $$2P + Q$$: 1 multiplication, 2 squarings and 2 divisions (+ 1 squaring when $$P = Q$$)
-  * Idea: $$(P + Q) +P$$ instead of $$2P + Q$$ and $$y$$-coordinate is not computed when computing $$(P + Q)$$ ⇒ This saves a field multiplication
-  * if $$P = Q$$
-    * 2 \* (1 multiplication, 2 squarings and 1 division) - 1 multiplication
-  * otherwise
-    * 2 \* (1 multiplication, 1 squaring and 1 division) - 1 multiplication
+* Naive $$2P + Q$$: 2 multiplications, 3 squarings and 2 divisions&#x20;
 
-#### **Algorithm**
+How can we improve this?
+
+## **Algorithm**
 
 Suppose $$P = (x_1, y_1)$$ and $$Q = (x_2, y_2)$$ are distinct points on $$E$$, with $$x_1 \ne x_2$$. The sum $$P + Q$$ has coordinates $$(x_3, y_3)$$, where:
 
@@ -71,6 +65,17 @@ $$
 
 This trick can also be applied when computing $$3P$$. Thus, $$3P + Q = ((P + Q) + P) + P$$ saves 2 multiplicaitons.
 
-<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+
+## Conclusion
+
+The cost of this algorithm is as follows:
+
+* Optimized $$2P + Q$$: 1 multiplication, 2 squarings and 2 divisions (+ 1 squaring when $$P = Q$$)
+  * Idea: $$(P + Q) +P$$ instead of $$2P + Q$$ and $$y$$-coordinate is not computed when computing $$(P + Q)$$ ⇒ This saves a field multiplication
+  * if $$P = Q$$
+    * 2 \* (1 multiplication, 2 squarings and 1 division) - 1 multiplication
+  * otherwise
+    * 2 \* (1 multiplication, 1 squaring and 1 division) - 1 multiplication
 
 > Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
