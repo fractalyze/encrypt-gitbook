@@ -10,6 +10,9 @@
 
 ## Primitives
 
+* [Multiplication](primitives/multiplication/README.md)
+  * [Karatsuba Multiplication](primitives/multiplication/karatsuba-multiplication.md)
+  * [Toom-Cook Multiplication](primitives/multiplication/toom-cook-multiplication.md)
 * [NAF (Non-adjacent form)](primitives/naf-non-adjacent-form.md)
 * [Chinese Remainder Theorem (CRT)](<README (1).md>)
 * [Euclidean Algorithm](primitives/euclidean-algorithm/README.md)
@@ -24,8 +27,12 @@
     * [-Morphisms](primitives/abstract-algebra/group/morphisms.md)
     * [Batch Inverse](primitives/abstract-algebra/group/batch-inverse.md)
   * [Elliptic Curve](primitives/abstract-algebra/elliptic-curve/README.md)
-    * [Coordinate Forms](primitives/abstract-algebra/elliptic-curve/coordinate-forms.md)
-    * [Fast Elliptic Curve Arithmetic and Improved WEIL Pairing Evaluation](primitives/abstract-algebra/elliptic-curve/fast-elliptic-curve-arithmetic-and-improved-weil-pairing-evaluation.md)
+    * [Weierstrass Curve](primitives/abstract-algebra/elliptic-curve/weierstrass-curve/README.md)
+      * [Coordinate Forms](primitives/abstract-algebra/elliptic-curve/weierstrass-curve/coordinate-forms.md)
+      * [Fast Elliptic Curve Arithmetic and Improved WEIL Pairing Evaluation](primitives/abstract-algebra/elliptic-curve/weierstrass-curve/fast-elliptic-curve-arithmetic-and-improved-weil-pairing-evaluation.md)
+    * [Edwards Curve](primitives/abstract-algebra/elliptic-curve/edwards-curve/README.md)
+      * [Coordinate Forms](primitives/abstract-algebra/elliptic-curve/edwards-curve/coordinate-forms.md)
+      * [Twisted Edwards ↔ Short Weierstrass Transformation](primitives/abstract-algebra/elliptic-curve/edwards-curve/twisted-edwards-short-weierstrass-transformation.md)
     * [Batch Inverse for Batch Point Additions](primitives/abstract-algebra/elliptic-curve/batch-inverse-for-batch-point-additions.md)
     * [Scalar Multiplication](primitives/abstract-algebra/elliptic-curve/scalar-multiplication/README.md)
       * [Double-and-add](primitives/abstract-algebra/elliptic-curve/scalar-multiplication/double-and-add.md)
@@ -33,6 +40,7 @@
     * [MSM](primitives/abstract-algebra/elliptic-curve/msm/README.md)
       * [Pippenger's Algorithm](primitives/abstract-algebra/elliptic-curve/msm/pippengers-algorithm.md)
       * [Signed Bucket Index](primitives/abstract-algebra/elliptic-curve/msm/signed-bucket-index.md)
+      * [CycloneMSM](primitives/abstract-algebra/elliptic-curve/msm/cyclonemsm.md)
 * [Encryption Scheme](primitives/encryption-scheme/README.md)
   * [ElGamal Encryption](primitives/encryption-scheme/elgamal-encryption.md)
 * [Modular Arithmetic](primitives/modular-arithmetic/README.md)

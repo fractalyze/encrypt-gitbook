@@ -6,7 +6,7 @@ Affine form refers to the regular $$(x,y)$$ form of coordinates on an $$xy$$-pla
 
 ### **Problem**
 
-For elliptic curves, point addition is done very often as it is considered cheap. To [calculate point addition in affine form](./#calculating-point-additions), we must compute the slope $$m = \frac{y_Q-y_P}{x_Q-x_P}$$. However, calculating field inverses or the $$(x_Q-x_P)^{-1}$$ in this case is expensive, so we want to prevent the calculation of inverses as much as possible.
+For elliptic curves, point addition is done very often as it is considered cheap. [To calculate point addition in affine form](./#addition-short-weierstrass-form), we must compute the slope $$m = \frac{y_Q-y_P}{x_Q-x_P}$$. However, calculating field inverses or the $$(x_Q-x_P)^{-1}$$ in this case is expensive, so we want to prevent the calculation of inverses as much as possible.
 
 ### **Solution**
 
