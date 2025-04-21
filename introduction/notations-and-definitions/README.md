@@ -51,6 +51,10 @@ We will use assertions in protocol descriptions. When the assertions do not hold
     , $$n$$ and $$m$$ are said to be _coprime_.
 * $$\varphi(n)$$ is Euler’s [totient function](https://en.wikipedia.org/wiki/Euler's_totient_function); for $$n \ge 1$$, it is the number of integers in $$\{1, \dots ,n\}$$ coprime with $$n$$.
 
+## Others
+
+* A Montgomery form of $$a \in \mathbb{Z}_N$$ is represented by $$\bar{a} = aR \mod N$$, given a modulus $$N$$ and a Montgomery radix $$R$$ such that $$\gcd (N, R) = 1$$.&#x20;
+
 ## References [#](https://www.zkdocs.com/docs/zkdocs/notation/#references)
 
 * [https://www.zkdocs.com/docs/zkdocs/notation/](https://www.zkdocs.com/docs/zkdocs/notation/)

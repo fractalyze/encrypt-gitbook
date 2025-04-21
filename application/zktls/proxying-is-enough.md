@@ -159,7 +159,7 @@ A **Context Commitment Attack (CMT)** occurs when an adversary can find **two di
 
 <table><thead><tr><th width="253.5947265625">Attack Type</th><th>Hash Function Analogy</th></tr></thead><tbody><tr><td>CDY Attack</td><td><strong>Preimage Attack</strong> (ciphertext → context)</td></tr><tr><td>CMT Attack</td><td><strong>Collision Attack</strong> (same ciphertext → two valid contexts)</td></tr></tbody></table>
 
-<figure><img src="../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (88) (1).png" alt=""><figcaption></figcaption></figure>
 
 This mirrors the security properties of cryptographic hash functions: **If a hash function is collision-resistant, it is also preimage-resistant.** Similarly, **if an AEAD scheme is secure against CMT attacks, it is also secure against CDY attacks.** (We will discuss _Context Unforgeability_ in a later section.)
 
@@ -189,7 +189,7 @@ According to the referenced paper, in AEAD schemes like AES-GCM and ChaCha20-Pol
 
 ### Proxy-based zkTLS
 
-<figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (89) (1).png" alt=""><figcaption></figcaption></figure>
 
 As illustrated above, when the verifier $$\mathcal{V}$$ acts as a proxy between the prover (or TLS client) $$\mathcal{P}$$ and the TLS server $$\mathcal{S}$$, the following advantages arise:
 
@@ -272,7 +272,7 @@ Then a natural question arises: **do we have this kind of padding structure in T
 
 #### Variable Padding
 
-<figure><img src="../../.gitbook/assets/image (90).png" alt=""><figcaption><p>Source: <a href="https://youtu.be/xcA3o2NGlfw?t=845">https://youtu.be/xcA3o2NGlfw?t=845</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (90) (1).png" alt=""><figcaption><p>Source: <a href="https://youtu.be/xcA3o2NGlfw?t=845">https://youtu.be/xcA3o2NGlfw?t=845</a></p></figcaption></figure>
 
 As shown in the image above, many web servers—including those of Google and Twitter—prepend HTTP responses with consistently structured data such as the `HTTP status code` and `Date` fields. This formatting is considered **best practice** under [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231), and widely adopted by major web servers like **Apache** and **Nginx**. According to the paper, more than **85% of webpages** begin with this kind of pattern.
 

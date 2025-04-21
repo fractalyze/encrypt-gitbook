@@ -103,7 +103,9 @@ $$
 
 ## Multi-precision Montgomery Reduction
 
-### Iterative Partial Reduction
+### Separated Operands Scanning (SOS)
+
+#### Iterative Partial Reduction
 
 In a multi-precision setting, suppose the modulo $$n$$ has $$l$$ limbs. Let $$R=B^l$$, where $$w$$ is limb bit width and $$B=2^w$$. To calculate $$T\cdot R^{-1}=T\cdot B^{-l}\mod n$$, the multi-precision Montgomery Reduction operates iteratively on:
 
@@ -131,7 +133,7 @@ $$
 
 and so on. After $$l$$ iterations, we have $$T\cdot B^{-l}\mod n$$ with $$l$$ limbs. The values of limbs change at each round because $$T^{(i)}_i \cdot B^{-1} \mod n$$ is also a multi-precision integer.
 
-### How to multiply by the inverse of $$B$$?
+#### How to multiply by the inverse of $$B$$?
 
 At round $$i$$, we need to calculate $$(T^{(i-1)}_{i-1}\cdot B^{-1} \mod n)$$. This can be done efficiently, similar to the single-precision case by adding some multiple of $$n$$ to make it divisible by $$B$$:&#x20;
 
@@ -147,7 +149,7 @@ $$
 
 which means after step 3, we don't have to worry about subtracting $$n$$.
 
-### How many limbs are needed?
+#### How many limbs are needed?
 
 While trying to reduce, we add $$m_i\cdot n$$ every round which can cause potential overflow in the largest limb. Let's calculate how much we added in total. If we omit dividing by $$B$$, at each round, we can see that at each round $$i$$, we add $$m_i \cdot n\cdot B^{i-1}$$. This can be confusing but if you think of round $$i$$ as adding some value $$m_i\cdot n$$ to convert the $$(i-1)$$-th limb to 0, it can be more easier to see.
 
@@ -157,7 +159,7 @@ $$
 
 This gives that total sum can be $$T+n\cdot R <R^2+n\cdot R < 2R^2=2\cdot2^{2lw}=2^{2lw+1}$$ which needs $$2l+1$$ limbs. For $$T$$, we already need $$2l$$ limbs and after the first step, the least significant limb will be 0's which can be discarded. In the first round, we have a maximum value of  $$T+n<n\cdot R + n=n(R+1)\leq(R-1)(R+1)=R^2-1$$ so it fits within the $$2l$$ limbs. So, if we discard the least significant limb after first round, we don't actually need extra limb space to handle the overflowing.
 
-### Summary of the Iteration step
+#### Summary of the Iteration step
 
 A complete round $$i$$ of partial reduction can be summarized by the following steps:
 
@@ -173,7 +175,9 @@ $$
 
 Therefore, the reduced value may require one additional subtraction to bring the value within the range $$[0,\dots,n-1]$$. Since we need $$l+1$$ limb multiplications for steps 1 and 2, over $$l$$ rounds, we will need a total of $$l^2+l$$ limb multiplications.
 
-### Ingonyama Optimization
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/1996/01/j37acmon.pdf">Analyzing and Comparing Montgomery Multiplication Algorithms</a></p></figcaption></figure>
+
+### SOS with Ingonyama Optimization
 
 We have seen that we need to do $$l^2+l$$ multiplications per round for multi-precision Montgomery Reduction. However, [Ingonyama showed](https://hackmd.io/@Ingonyama/Barret-Montgomery#Barrett-Montgomery-duality) that we can reduce it to $$l^2+1$$. Let's see what happens if we just precompute $$B'=B^{-1} \mod n$$ and multiply the free coefficients with $$B'$$. Then, the partial reduction round $$i$$ becomes:
 
@@ -194,9 +198,55 @@ $$
 
 This gives us the total cost of $$l\cdot l =l^2$$  limb multiplications. Ingonyama's article mentions that this reduction cannot be applied in the last step because $$T^{(l)}=(T^{(l-1)}\gg w) + m'_i$$ will result in a $$l+1$$ limb integer while in the traditional case, we have $$l$$ limbs. Indeed it is true since we add it after the bit shift unlike the original version but if the result is less than $$2\cdot n$$, it shouldn't matter.
 
+### Coarsely Integrated Operands Scanning (CIOS)
+
+In the SOS method above, we iteratively divided $$t$$ by $$B$$ $$l$$ times where $$B$$ denotes the limb base ($$2^w$$) and $$l$$ denotes the number of the limbs. $$l$$ iterations gives the desired result $$t \cdot R^{-1} \mod n$$ since $$R = B^l$$. Now we can discard the lower $$l$$ limbs, which is technically equivalent to dividing by $$R$$.  &#x20;
+
+Naively speaking, SOS algorithm follows this sequence:&#x20;
+
+1. Multiply two large integers in Montgomery form using a [textbook method](https://en.wikipedia.org/wiki/Multiplication_algorithm#Long_multiplication!).
+2. Perform Montgomery reduction to produce $$\bar{c} = \bar{a} \cdot \bar{b}$$ from $$\bar{a} \cdot \bar{b} \cdot R$$.
+
+which results in its namesake "**separated"** in SOS.&#x20;
+
+CIOS, on the other hand, is different from SOS in that it interleaves the multiplication and reduction steps, limb by limb.&#x20;
+
+#### Pseudocode
+
+Now we alternate between iterations of the outer loops for multiplication and reduction.
+
+```
+for i = 0 to l-1
+    C := 0
+    for j = 0 to l-1                         // a * b[i]
+        (C, t[j]) := t[j] + a[j]*b[i] + C  
+    (t[l+1], t[l]) := t[l] + C.              
+    C := 0
+    m := t[0]*n'[0] mod W                    // Partial m for t[0] only
+    (C, _) := t[0] + m*n[0]
+    for j = 1 to s-1                         // Add(t, m*n) >> w 
+        (C, t[j-1]) := t[j] + m*n[j] + C
+    (C, t[l-1]) := t[l] + C                   
+    t[l] := t[l+1] + C                       
+```
+
+Interleaving multiplication and reduction is valid since the value of $$m$$ in the $$i$$-th iteration of the outer loop for reduction depends only on the value $$t[i]$$, which is completely computed by the $$i$$-th iteration of the outer loop for the multiplication.&#x20;
+
+### Cost analysis
+
+|                | CIOS              | SOS               | SOS + Ingonyama    |
+| -------------- | ----------------- | ----------------- | ------------------ |
+| Addition       | $$4l^2 + 4l + 2$$ | $$4l^2 + 4l + 2$$ | $$4l^2 + 4l + 2$$  |
+| Multiplication | $$2l^2 +l$$       | $$2l^2 +l$$       | $$2l^2 +1$$        |
+| Memory space   | $$l+3$$           | $$2l+ 2$$         | $$2l+ 2$$          |
+
+SOS with Ingonyama's optimization saves $$l-1$$ multiplications ($$2l^2 + 1$$ vs. $$2l^2 + l$$) whereas CIOS saves $$l-1$$ memory space compared to SOS ($$2l+2$$ vs. $$l+3$$) owing to not storing the total $$t$$. CIOS can be further optimized using [EdMSM's trick](../../abstract-algebra/elliptic-curve/msm/edmsm.md).&#x20;
+
 ## References
 
 * [https://en.wikipedia.org/wiki/Montgomery\_modular\_multiplication](https://en.wikipedia.org/wiki/Montgomery_modular_multiplication)
 * [https://hackmd.io/@Ingonyama/Barret-Montgomery#Barrett-Montgomery-duality](https://hackmd.io/@Ingonyama/Barret-Montgomery#Barrett-Montgomery-duality)
+* [Analyzing and Comparing Montgomery Multiplication Algorithms](https://www.microsoft.com/en-us/research/wp-content/uploads/1996/01/j37acmon.pdf)
+* [EdMSM: Multi-Scalar-Multiplication for SNARKs and Faster Montgomery multiplication](https://eprint.iacr.org/2022/1400.pdf)
 
-> Written by [BATZORIG ZORIGOO](https://app.gitbook.com/u/lqk5Tx9zY4XYVRfF3ReRDiOhbxG3 "mention") from [A41](https://www.a41.io/)
+> Written by [BATZORIG ZORIGOO](https://app.gitbook.com/u/lqk5Tx9zY4XYVRfF3ReRDiOhbxG3 "mention") and [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention") from [A41](https://www.a41.io/)

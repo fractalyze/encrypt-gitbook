@@ -26,7 +26,7 @@ To dramatically accelerate MSM computation, **CycloneMSM leverages Field Program
 
 MSM involves millions of point additions, so the **efficiency of the addition operation** plays a crucial role in overall performance. In particular, [**affine coordinates**](../weierstrass-curve/coordinate-forms.md#affine) require an inverse operation per addition, which can significantly increase the total computation cost. (Reference: [Explicit Formulas Database](https://www.hyperelliptic.org/EFD))
 
-<figure><img src="../../../../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (92) (1).png" alt=""><figcaption></figcaption></figure>
 
 While [**Extended Jacobian coordinates**](../weierstrass-curve/coordinate-forms.md#xyzz-extended-jacobian) for [**Weierstrass Curves**](../weierstrass-curve/) enable inverse-free operations, the formulas used depend on the context (e.g., addition vs doubling). This results in **variable computational cost**, making it difficult to pipeline efficiently in hardware.
 
@@ -165,7 +165,7 @@ Thanks to this optimization, a **10–20% performance improvement** over Extende
 
 #### Field Arithmetic
 
-<figure><img src="../../../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (93) (1).png" alt=""><figcaption></figcaption></figure>
 
 Arithmetic in the finite field $$\mathbb{F}_q$$ is performed using 377-bit operations in [**Montgomery representation**](../../../modular-arithmetic/modular-reduction/montgomery-reduction.md#the-montgomery-representation), with a Montgomery parameter of $$R = 2^{384}$$. Field multiplication is implemented using **three 384-bit integer multiplications** based on the [**Karatsuba algorithm**.](../../../multiplication/karatsuba-multiplication.md)
 
@@ -178,7 +178,7 @@ By avoiding modular reductions in these cases, resource usage and processing del
 
 #### Constant Multiplier
 
-<figure><img src="../../../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (94) (1).png" alt=""><figcaption></figcaption></figure>
 
 In Montgomery representation, two constant multiplications are required as follows:
 
@@ -209,7 +209,7 @@ This optimization plays a critical role in improving both performance and resour
 
 **MixedAdd Operation (Refer to the left side of Figure 4)**
 
-<figure><img src="../../../../.gitbook/assets/image (96).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (96) (1).png" alt=""><figcaption></figcaption></figure>
 
 In Twisted Edwards curves, $$\mathsf{MixedAdd}$$ uses the following two inputs:
 
@@ -242,9 +242,9 @@ This design converts a full Add into a MixedAdd call, effectively **reusing the 
 
 #### MSM Acceleration
 
-<figure><img src="../../../../.gitbook/assets/image (97).png" alt=""><figcaption><p>They use <span class="math">S_k</span> for bucket instead of <span class="math">B_k</span>.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (97) (1).png" alt=""><figcaption><p>They use <span class="math">S_k</span> for bucket instead of <span class="math">B_k</span>.</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (98) (1).png" alt=""><figcaption></figcaption></figure>
 
 The MSM operation in CycloneMSM is executed through coordinated interaction between the FPGA and the host, following the flow of functions outlined below:
 
@@ -279,9 +279,9 @@ The MSM operation in CycloneMSM is executed through coordinated interaction betw
 
 ## Conclusion
 
-<figure><img src="../../../../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (100) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (99).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (99) (1).png" alt=""><figcaption></figcaption></figure>
 
 CycloneMSM leverages the architectural strengths of FPGAs and the inherent parallelism of MSM operations to deliver a high-performance system that significantly outpaces traditional software-based MSM implementations. The system's achievements are underpinned by the following design philosophies and optimization strategies:
 

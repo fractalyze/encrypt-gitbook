@@ -224,7 +224,7 @@ $$
 
 #### $$\mathsf{zkShuffle.ShuffleEncrypt}$$
 
-<figure><img src="../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (87) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Player $$p_i$$ generates a **random permutation matrix** $$\bm{A_i} \in \mathbb{F}^{n\times n}$$.
 * Upon receiving deck $$\bm{C_i} = (c_{i,0}, \dots, c_{i,n-1})$$ from player $$p_{i-1}$$, the shuffled deck $$\bm{S_{i+1}} = (s_{i+1, 0}, \dots , s_{i+1, n-1})$$ is computed as follows:

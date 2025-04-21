@@ -8,7 +8,7 @@ description: 'Presentation: https://www.youtube.com/watch?v=cTBqiwAx5jA'
 
 Thanks to TLS, users can access their private data securely with guarantees of end-to-end confidentiality and integrity. However, in the traditional TLS model, it is **impossible to prove this data to a third party without relying on trust assumptions**. In other words, a user’s private data remains **trapped at its origin**, with no cryptographically verifiable way to share or prove it externally.
 
-<figure><img src="../../.gitbook/assets/image (2) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 **DECO** (**DEC**entralized **O**racle) is a protocol proposed by researchers at Cornell in 2019 that addresses this problem. It enables **privacy-preserving and selective disclosure** of data transmitted over TLS, allowing users to prove facts about their data to third parties **without revealing the underlying content**.
 
@@ -188,7 +188,7 @@ Here, we use the notation from [the circuit overview](broken-reference).
 * $$q$$ is the [jq](https://jqlang.org/) query: `.accounts[] | select(.account_id == 2) | .balance`
 * $$\mathsf{jq.exec}(m, q)$$ denotes applying the jq query $$q$$ to message $$m$$
 
-<figure><img src="../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (91) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### ❗ Problem
 
