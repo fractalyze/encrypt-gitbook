@@ -125,7 +125,7 @@ Step 2c computes the $$2^{s}P$$ part of the $$kP$$ reduction and is also known a
 Let's change our naive Pippenger's to follow this method and generate our buckets and windows:\
 
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2025-04-18 at 10.43.06 AM.png" alt=""><figcaption><p>Stage 1: Separating previous window <span class="math">W_1</span> into new buckets</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image.avif" alt=""><figcaption><p>Stage 1: Separating previous window <span class="math">W_1</span> into new buckets</p></figcaption></figure>
 
 <figure><img src="../../../../.gitbook/assets/Screenshot 2025-04-18 at 10.44.12 AM.png" alt=""><figcaption><p>Stage 2: Separating previous window <span class="math">W_2</span> into new buckets</p></figcaption></figure>
 

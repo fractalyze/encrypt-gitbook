@@ -70,9 +70,9 @@ $$
 1. Create $$a(X), b(X), c(X)$$:
 
 $$
-a(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} a_i(x_j) \cdot z_i) \\
-b(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} b_i(x_j) \cdot z_i) \\
-c(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} c_i(x_j) \cdot z_i) \\
+a(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} A_{j, i} \cdot z_i) \\
+b(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} A_{j, i} \cdot z_i) \\
+c(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} A_{j, i} \cdot z_i) \\
 $$
 
 where $$L_j(X)$$ are lagrange basis polynomials.
@@ -124,10 +124,14 @@ where $$h_i$$ are the coefficients of the $$h(X)$$.
 
 To generate a proof $$\pi$$, the costs are:
 
-* **1 MSM operations** of length $$m +1$$ in $$\mathbb{G}_1$$
-* **1 MSM operations** of length $$m +1$$ in $$\mathbb{G}_2$$
-* **1 MSM operation** of length $$m - \ell$$ in $$\mathbb{G}_1$$
-* **1 MSM operation** of length $$n−1$$ in $$\mathbb{G}_1$$
+* For computing $$[\mathbb{A}]_1$$:
+  * **1 MSM operation** of length $$m + 1$$ in $$\mathbb{G}_1$$
+* For computing $$[\mathbb{B}]_2$$:
+  * **1 MSM operation** of length $$m + 1$$ in $$\mathbb{G}_2$$
+* For computing $$[\mathbb{C}]_1$$:
+  * **1 MSM operation** of length $$m - \ell$$ in $$\mathbb{G}_1$$
+  * **1 MSM operation** of length $$n − 1$$ in $$\mathbb{G}_1$$
+  * **1 MSM operation** of length $$m + 1$$ in $$\mathbb{G}_1$$ (for $$[B]_1$$)
 
 ### [Jordi](https://x.com/jbaylina)'s Trick
 
@@ -201,7 +205,9 @@ Then computing $$h(X)$$ is performed as follows:
 1. Create $$a(X),b(X),c(X)$$:&#x20;
 
 $$
-a(X) = \sum_{j = 0}^{n-1} L_j(X) (\sum_{i = 0}^{m} a_i(x_j) \cdot z_i) \\b(X) = \sum_{j = 0}^{n-1} L_j(X) (\sum_{i = 0}^{m} b_i(x_j) \cdot z_i) \\c(X) = \sum_{j = 0}^{n-1} L_j(X) (\sum_{i = 0}^{m} c_i(x_j) \cdot z_i) \\
+a(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} A_{j, i} \cdot z_i) \\
+b(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} A_{j, i} \cdot z_i) \\
+c(X) = \sum_{j = 0}^{n-1}  L_j(X) (\sum_{i = 0}^{m} A_{j, i} \cdot z_i) \\
 $$
 
 where $$L_j(X)$$ are lagrange basis polynomials.
