@@ -14,7 +14,7 @@ description: 'Presentation: https://www.youtube.com/watch?v=1upt6GOdYXk'
 
 For a system where the number of instance variables is $$\ell + 1$$, the number of witness variables is $$m - \ell$$ (thus, the total number of variables is $$m + 1$$), and the number of constraints is $$n$$, [R1CS](https://www.notion.so/o/vlMwaGV8Ukn8S4gDaGYp/s/rwz1ZAZJtK5FHz4Y1esA/~/changes/28/zk/arithmetization/r1cs/~/overview) can be represented as follows:
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 This R1CS system can be reduced to a **Quadratic Arithmetic Program (QAP)**:
 

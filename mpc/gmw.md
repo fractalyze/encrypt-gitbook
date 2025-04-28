@@ -6,7 +6,7 @@ Created by Oded **Goldreid**, Silvio **Micali**, and Avi **Wigderson**, **GMW** 
 
 Let’s start with 2-party GMW. Say we have two parties: <mark style="color:red;">Alice</mark> and <mark style="color:green;">Bob</mark>, and we have one boolean gate with 2 input bits $$\textcolor{red}i$$ (known by <mark style="color:red;">Alice</mark>) and $$\textcolor{green}j$$ (known by <mark style="color:green;">Bob</mark>) and one output bit $$k$$.
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>A boolean gate</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption><p>A boolean gate</p></figcaption></figure>
 
 In the GMW protocol, every party first undergoes a process of secret sharing with the other parties on the input bits they know:
 
@@ -16,7 +16,7 @@ The same, but opposite, occurs for <mark style="color:green;">Bob</mark>. <mark 
 
 Therefore a single gate will be portrayed as so by each party:
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>A single boolean gate implemented across 2 parties <mark style="color:red;">Alice</mark> and <mark style="color:green;">Bob</mark></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (2).png" alt=""><figcaption><p>A single boolean gate implemented across 2 parties <mark style="color:red;">Alice</mark> and <mark style="color:green;">Bob</mark></p></figcaption></figure>
 
 Here, we can see that the output of all parties will be XOR-ed together for the final result between all parties.
 
@@ -28,7 +28,7 @@ Since [a full boolean circuit can be created with XOR and AND gates](yaos-garble
 
 A XOR gate is extremely easy to implement in this scenario. A XOR gate means that our $$k$$ output above is $$(\textcolor{red}i\oplus\textcolor{green}j)=(\textcolor{red}{s_i^a}\oplus \textcolor{green}{s_i^b})\oplus(\textcolor{red}{s_j^a}\oplus \textcolor{green}{s_j^b})=(\textcolor{red}{s_i^a}\oplus \textcolor{red}{s_j^a})\oplus(\textcolor{green}{s_i^b}\oplus \textcolor{green}{s_j^b})$$. This means that each party can compute the XOR on their own shares and the final output of each party can be XOR-ed together to get the total XOR result.
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption><p>A single XOR gate implemented in 2-party GMW</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (2).png" alt=""><figcaption><p>A single XOR gate implemented in 2-party GMW</p></figcaption></figure>
 
 ### AND
 
@@ -44,11 +44,11 @@ To communicate the latter half between the parties, we set one party as the send
 
 <mark style="color:red;">Alice</mark> knows her own shares $$\textcolor{red}{s_i^a}$$ and $$\textcolor{red}{s_j^a}$$, but doesn’t know <mark style="color:green;">Bob’s</mark> shares $$\textcolor{green}{s_i^b}$$ and $$\textcolor{green}{s_j^b}$$; however, <mark style="color:red;">Alice</mark> still knows that each of <mark style="color:green;">Bob’s</mark> shares is either $$0$$ or $$1$$. Knowing this, <mark style="color:red;">Alice</mark> can create 4 potential outcomes of $$(\textcolor{red}{s_i^a}\land \textcolor{green}{s_j^b})\oplus(\textcolor{green}{s_i^b}\land \textcolor{red}{s_j^a})$$ using the different permutations of $$\textcolor{green}{s_i^b}$$ and $$\textcolor{green}{s_j^b}$$ as $$(0,0),(0,1),(1,0),(1,1)$$. The following table shows the possible outcomes if <mark style="color:red;">Alice’s</mark> shares of $$\textcolor{red}{s_i^a}$$ and $$\textcolor{red}{s_j^a}$$ were $$0$$ and $$1$$, respectively.
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>Potential outcomes of the logical statement given <span class="math">\textcolor{red}{s_i^a}=0</span> and <span class="math">\textcolor{red}{s_j^a}=1</span></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (2).png" alt=""><figcaption><p>Potential outcomes of the logical statement given <span class="math">\textcolor{red}{s_i^a}=0</span> and <span class="math">\textcolor{red}{s_j^a}=1</span></p></figcaption></figure>
 
 Next, <mark style="color:red;">Alice</mark> creates a random bit $$\textcolor{red}r$$ (let’s say $$\textcolor{red}r=0$$ in our example) and encrypts all the possible outcomes by computing them with $$\oplus \textcolor{red}r$$.
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption><p>Potential outcomes of the logical statement <span class="math">\oplus \textcolor{red}r</span> given <span class="math">\textcolor{red}{s_i^a}=0</span> and <span class="math">\textcolor{red}{s_j^a}=1</span></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (2).png" alt=""><figcaption><p>Potential outcomes of the logical statement <span class="math">\oplus \textcolor{red}r</span> given <span class="math">\textcolor{red}{s_i^a}=0</span> and <span class="math">\textcolor{red}{s_j^a}=1</span></p></figcaption></figure>
 
 Finally, <mark style="color:red;">Alice</mark> sends this “Encrypted Possible Outcomes” table to a 1-out-of-4 oblivious transfer (OT) protocol. On the other side, <mark style="color:green;">Bob</mark> inputs their shares $$\textcolor{green}{s_i^b}=0$$ and $$\textcolor{green}{s_j^b}=1$$ to the same OT protocol. Through OT, <mark style="color:green;">Bob</mark> obtains the value of $$\textcolor{red}r\oplus\bm((\textcolor{red}{s_i^a}\land \textcolor{green}{s_j^b})\oplus(\textcolor{green}{s_i^b}\land \textcolor{red}{s_j^a})\bm)$$ specific to his shares’ values without learning of the other three encrypted possible outcomes, and <mark style="color:red;">Alice</mark> does not know which value <mark style="color:green;">Bob</mark> has obtained.
 
@@ -56,7 +56,7 @@ Finally, <mark style="color:red;">Alice</mark> sends this “Encrypted Possible 
 
 As a result of <mark style="color:red;">Alice’s</mark> computation and interaction with <mark style="color:green;">Bob</mark> in a 1-out-of-4 OT protocol, the AND gate results of both parties can now be determined. <mark style="color:red;">Alice</mark> sets her AND gate result as $$(\textcolor{red}{s_i^a}\land \textcolor{red}{s_j^a})$$ XOR-ed her random bit $$\textcolor{red}r$$, and <mark style="color:green;">Bob</mark> sets his AND gate output as $$(\textcolor{green}{s_i^b}\land \textcolor{green}{s_j^b})$$ XOR-ed the OT result $$\textcolor{red}r\oplus\bm((\textcolor{red}{s_i^a}\land \textcolor{green}{s_j^b})\oplus(\textcolor{green}{s_i^b}\land \textcolor{red}{s_j^a})\bm)$$ he received. Therefore, as seen below, if the results of both parties’s AND gates are now XOR-ed together for the final logical total, the random bit $$\textcolor{red}r$$ is cancelled out, and $$(\textcolor{red}i\land\textcolor{green}j)$$ is successfully computed.
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption><p>A single AND gate implemented in 2-party GMW</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (2).png" alt=""><figcaption><p>A single AND gate implemented in 2-party GMW</p></figcaption></figure>
 
 ## Boolean GMW Protocol Summary <a href="#a7fc" id="a7fc"></a>
 
@@ -86,7 +86,7 @@ This bit sharing process is thus done for all input bits from all parties, ensur
 
 Our diagrams will now extend on our 2-party example and add in <mark style="color:purple;">Carol</mark> as a 3rd party to <mark style="color:red;">Alice</mark> and <mark style="color:green;">Bob</mark>.
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>A single boolean gate implemented across n parties <mark style="color:red;">Alice</mark>, <mark style="color:green;">Bob</mark>, <mark style="color:purple;">Carol</mark>,...</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (2).png" alt=""><figcaption><p>A single boolean gate implemented across n parties <mark style="color:red;">Alice</mark>, <mark style="color:green;">Bob</mark>, <mark style="color:purple;">Carol</mark>,...</p></figcaption></figure>
 
 ### Section 2a.
 
@@ -94,7 +94,7 @@ Our diagrams will now extend on our 2-party example and add in <mark style="colo
 
 Indeed, like the 2-party explanation, each party will XOR their own shares together for their personal XOR operation result. Subsequently, if all parties’ results are XOR-ed together, the final XOR multi-party computation result is revealed.
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption><p>A single XOR gate implemented in <span class="math">n</span>-parties GMW</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (2).png" alt=""><figcaption><p>A single XOR gate implemented in <span class="math">n</span>-parties GMW</p></figcaption></figure>
 
 ### Section 2b.
 

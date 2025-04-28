@@ -175,7 +175,7 @@ $$
 
 Therefore, the reduced value may require one additional subtraction to bring the value within the range $$[0,\dots,n-1]$$. Since we need $$l+1$$ limb multiplications for steps 1 and 2, over $$l$$ rounds, we will need a total of $$l^2+l$$ limb multiplications.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/1996/01/j37acmon.pdf">Analyzing and Comparing Montgomery Multiplication Algorithms</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (3).png" alt=""><figcaption><p><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/1996/01/j37acmon.pdf">Analyzing and Comparing Montgomery Multiplication Algorithms</a></p></figcaption></figure>
 
 ### SOS with Ingonyama Optimization
 

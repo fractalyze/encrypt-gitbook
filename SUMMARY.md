@@ -42,6 +42,7 @@
       * [Signed Bucket Index](primitives/abstract-algebra/elliptic-curve/msm/signed-bucket-index.md)
       * [CycloneMSM](primitives/abstract-algebra/elliptic-curve/msm/cyclonemsm.md)
       * [EdMSM](primitives/abstract-algebra/elliptic-curve/msm/edmsm.md)
+      * [cuZK](primitives/abstract-algebra/elliptic-curve/msm/cuzk.md)
     * [2-Chain and 2-Cycle of Elliptic Curves](primitives/abstract-algebra/elliptic-curve/2-chain-and-2-cycle-of-elliptic-curves.md)
 * [Encryption Scheme](primitives/encryption-scheme/README.md)
   * [ElGamal Encryption](primitives/encryption-scheme/elgamal-encryption.md)

@@ -216,7 +216,7 @@ Therefore, [Case 3](yaos-garbled-circuits.md#case-3-two-halves-make-a-whole-.-ne
 
 In the end, I showed how Yao’s Garbled Circuits runs as an MPC protocol and introduced a couple optimizations that can be added on top of Yao’s Garbled Circuits to drastically reduce the communication overhead between the Garbler and Evaluator by reducing the number of gate rows. The total results of these optimizations are shown below:
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Resulting gate rows from the naive case to the optimized case</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (2).png" alt=""><figcaption><p>Resulting gate rows from the naive case to the optimized case</p></figcaption></figure>
 
 ## References
 
