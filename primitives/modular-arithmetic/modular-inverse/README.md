@@ -26,7 +26,7 @@ Note: This method **only works when** $$p$$ **is prime**. For general modulus $$
 
 ## Modular Inverse using Binary Extended Euclidean Algorithm
 
-However, a more efficient method is to use the [**Extended Euclidean Algorithm**](../euclidean-algorithm/#extended-eculidean-algorithm), which solves the following equation:
+However, a more efficient method is to use the [**Extended Euclidean Algorithm**](../../euclidean-algorithm/#extended-eculidean-algorithm), which solves the following equation:
 
 $$
 ax + py = \gcd(a, p) = 1
@@ -142,7 +142,7 @@ def binary_inverse_fp(a: int, p: int) -> int:
 
 ### For Montgomery Domain
 
-A value $$a$$ is transformed to its [**Montgomery representation**](modular-reduction/montgomery-reduction.md#the-montgomery-representation) as follows:
+A value $$a$$ is transformed to its [**Montgomery representation**](../modular-reduction/montgomery-reduction.md#the-montgomery-representation) as follows:
 
 $$
 \mathsf{toMont}(a) = aR = a2^n

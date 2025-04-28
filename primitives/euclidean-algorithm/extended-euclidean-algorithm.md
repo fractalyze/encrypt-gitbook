@@ -10,7 +10,7 @@ $$
 
 The pair $$(x, y)$$ is also known as the [**Bézout coefficients**](https://en.wikipedia.org/wiki/B%C3%A9zout's_identity).
 
-The **Extended Euclidean Algorithm** is used to compute the [**modular inverse**](../modular-arithmetic/modular-inverse.md) of an integer, which is essential in many cryptographic algorithms like RSA, ECC, and digital signatures.
+The **Extended Euclidean Algorithm** is used to compute the [**modular inverse**](../modular-arithmetic/modular-inverse/) of an integer, which is essential in many cryptographic algorithms like RSA, ECC, and digital signatures.
 
 ## Code (Recursive Version)
 
