@@ -170,7 +170,9 @@ $$
 
 ### Optimization Table (When , $$n = 2^{20}$$)
 
-<table><thead><tr><th width="298.8214111328125">s</th><th>PointAdd Count</th></tr></thead><tbody><tr><td>2</td><td>133,170,041</td></tr><tr><td>4</td><td>66,062,241</td></tr><tr><td>8</td><td>32,521,697</td></tr><tr><td><mark style="color:green;">16</mark></td><td><mark style="color:green;">17,694,705</mark></td></tr><tr><td>32</td><td>60,136,882,169</td></tr><tr><td>64</td><td>110,680,464,442,260,455,421</td></tr><tr><td>128</td><td>680,564,733,841,876,926,926,749,214,863,537,471,487</td></tr></tbody></table>
+<table><thead><tr><th width="298.8214111328125">s</th><th>PointAdd Count</th></tr></thead><tbody><tr><td>2</td><td>134,218,624</td></tr><tr><td>4</td><td>67,110,848</td></tr><tr><td>8</td><td>33,570,784</td></tr><tr><td><mark style="color:green;">16</mark></td><td><mark style="color:green;">18,874,352</mark></td></tr><tr><td>32</td><td>68,727,865,336</td></tr><tr><td>64</td><td>147,573,952,589,680,607,228</td></tr><tr><td>128</td><td>1,361,129,467,683,753,853,853,498,429,727,074,942,974</td></tr></tbody></table>
+
+
 
 > 🔍 This clearly shows that selecting an optimal $$s$$ value is critical for performance.
 
