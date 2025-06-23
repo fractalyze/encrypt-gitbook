@@ -16,10 +16,13 @@ In practice, Double-and-add is implemented as follows:
 // Scalar multiplication: Double-and-Add
 Point ScalarMultiply(Point p, int k) {
     Point result; // point at infinity
+    Point powerOfP = p;
     while (k > 0) {
-        if (k & 1) result += p;
-        result = result.Double();
-        k >>= 1;
+        if (k & 1) {             
+            result = result + powerOfP; 
+        }
+        powerOfP = powerOfP.Double(); 
+        k >>= 1;         
     }
     return result;
 }
@@ -36,15 +39,15 @@ k = 6
 result = 0;
 
 // 1st while loop:
-result = result.Double() // 1 double => 0
+powerOfP = powerOfP.Double()  // 1 double => 2p
 
 // 2nd while loop:
-result += p              // 1 add    => p
-result = result.Double() // 1 double => 2p
+result += powerOfP            // 1 add    => 2p
+powerOfP = powerOfP.Double()  // 1 double => 4p
 
 // 3rd while loop:
-result += p              // 1 add    => 3p
-result = result.Double() // 1 double => 6p
+result += powerOfP            // 1 add    => 6p
+powerOfP = powerOfP.Double()  // 1 double => 8p
 
 = 2 adds + 3 doubles
 ```
