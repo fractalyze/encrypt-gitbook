@@ -17,8 +17,8 @@ In practice, Double-and-add is implemented as follows:
 Point ScalarMultiply(Point p, int k) {
     Point result; // point at infinity
     while (k > 0) {
-        result = result.Double();
         if (k & 1) result += p;
+        result = result.Double();
         k >>= 1;
     }
     return result;
