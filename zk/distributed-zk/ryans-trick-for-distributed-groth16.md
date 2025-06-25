@@ -188,7 +188,7 @@ $$
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-04-22 at 5.57.37 PM.png" alt=""><figcaption></figcaption></figure>
 
-In protocols like [DIZK](https://eprint.iacr.org/2018/691), distributing FFT requires many communications per FFT. In contrast, our protocol incurs less communications only during the `Reduce`, `Send` and `Recv` steps, while the subsequent `AllReduce` step involves only a constant number of group elements. As a result, the total communication cost is significantly lower than that of DIZK. Moreover, this distribution strategy can be efficiently implemented using [SPMD](https://arxiv.org/abs/2105.04663).
+In protocols like [DIZK](dizk.md), distributing FFT requires many communications per FFT. In contrast, our protocol incurs less communications only during the `Reduce`, `Send` and `Recv` steps, while the subsequent `AllReduce` step involves only a constant number of group elements. As a result, the total communication cost is significantly lower than that of DIZK. Moreover, this distribution strategy can be efficiently implemented using [SPMD](https://arxiv.org/abs/2105.04663).
 
 | Communication Step | Communication Cost                             |
 | ------------------ | ---------------------------------------------- |

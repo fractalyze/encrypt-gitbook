@@ -21,7 +21,8 @@
   * [Extended Binary Euclidean Algorithm](primitives/euclidean-algorithm/extended-binary-euclidean-algorithm.md)
 * [Coding Theory](primitives/coding-theory/README.md)
   * [Linear Code](primitives/coding-theory/linear-code.md)
-* [Number Theoretic Transform](primitives/number-theoretic-transform.md)
+* [Number Theoretic Transform](primitives/number-theoretic-transform/README.md)
+  * [Parallel/Distributed FFT](primitives/number-theoretic-transform/parallel-distributed-fft.md)
 * [Abstract Algebra](primitives/abstract-algebra/README.md)
   * [Group](primitives/abstract-algebra/group/README.md)
     * [-Morphisms](primitives/abstract-algebra/group/morphisms.md)
@@ -96,6 +97,7 @@
   * [WHIR](zk/stark/whir.md)
 * [Distributed ZK](zk/distributed-zk/README.md)
   * [Ryan's Trick for Distributed Groth16](zk/distributed-zk/ryans-trick-for-distributed-groth16.md)
+  * [DIZK](zk/distributed-zk/dizk.md)
 
 ## Application
 

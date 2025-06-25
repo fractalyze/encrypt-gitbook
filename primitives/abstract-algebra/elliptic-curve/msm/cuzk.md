@@ -496,7 +496,7 @@ This adaptive strategy allows cuZK to **avoid performance degradation** by choos
 
 Even lightweight operations (e.g., variable initialization) are **executed using small GPU kernels**, ensuring that even single-thread tasks run on the GPU. This design **minimizes data movement** between CPU and GPU.
 
-In addition, cuZK integrates with well-known high-speed [**NTT (Number Theoretic Transform)**](../../../number-theoretic-transform.md) implementations ([GJCC20](https://ieeexplore.ieee.org/document/9201530), [KJPA20](https://arxiv.org/abs/2012.01968), [GXW21](https://ieeexplore.ieee.org/document/9485052)), enabling **complete GPU execution of the entire Groth16 proving pipeline**.
+In addition, cuZK integrates with well-known high-speed [**NTT (Number Theoretic Transform)**](../../../number-theoretic-transform/) implementations ([GJCC20](https://ieeexplore.ieee.org/document/9201530), [KJPA20](https://arxiv.org/abs/2012.01968), [GXW21](https://ieeexplore.ieee.org/document/9485052)), enabling **complete GPU execution of the entire Groth16 proving pipeline**.
 
 #### Transferring Only Essential Data to the GPU
 
