@@ -99,6 +99,7 @@
 * [Distributed ZK](zk/distributed-zk/README.md)
   * [Ryan's Trick for Distributed Groth16](zk/distributed-zk/ryans-trick-for-distributed-groth16.md)
   * [DIZK](zk/distributed-zk/dizk.md)
+  * [Pianist](zk/distributed-zk/pianist.md)
 
 ## Application
 
