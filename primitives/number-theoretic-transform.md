@@ -250,7 +250,7 @@ $$
 
 With this finding, we can calculate $$A_j$$ and $$B_j$$ for $$j=0,\dots,\frac{n}{2}$$ and calculate $$\hat{\bm{a}}$$ by reusing them for the upper half. Notice that $$A_j$$ and $$B_j$$ can be calculated using $$\frac{n}{2}$$ point NTT so if we repeat recursively, we can achieve the best case scenario $$O(n\log n)$$ which occurs when $$n$$ is a power of 2.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (92).png" alt=""><figcaption><p>Figure 1. Cooley-Tukey Butterfly graph notation</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (92).png" alt=""><figcaption><p>Figure 1. Cooley-Tukey Butterfly graph notation</p></figcaption></figure>
 
 Figure 1 illustrates how this butterfly operation is denoted as a graph. This figure represents the computation of $$A+\psi^kB$$ and $$A-\psi^k B$$.
 
@@ -337,7 +337,7 @@ $$
 With this finding, we just need to calculate $$A_i$$ and $$B_i$$ for $$0\leq i \leq \frac{n}{2}-1$$. Notice that $$A_i$$ and $$B_i$$ can be calculated using $$\frac{n}{2}$$ point INTT so if we repeat recursively, we can achieve the best case scenario $$O(n\log n)$$ which occurs when $$n$$ is a power of 2. \
 
 
-<div align="center" data-full-width="false"><figure><img src="../../.gitbook/assets/image (4) (3).png" alt=""><figcaption><p>Figure 2. Gentleman-Sande (GS) butterfly graph notation</p></figcaption></figure></div>
+<div align="center" data-full-width="false"><figure><img src="../.gitbook/assets/image (4) (3).png" alt=""><figcaption><p>Figure 2. Gentleman-Sande (GS) butterfly graph notation</p></figcaption></figure></div>
 
 Figure 2 illustrates how this butterfly operation is denoted as a graph. This figure represents the computation of $$(A+B)$$ and $$(A-B)\psi^k$$.
 
