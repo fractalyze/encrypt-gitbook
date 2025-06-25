@@ -90,13 +90,13 @@ where $$g^i = (\eta \omega)^i$$. The reason why we compute on a coset domain is 
 3. Evaluate $$\bm{h}$$:
 
 $$
-\bm{h} = \left(\frac{a(g^0)b(g^0) - c(g^0)}{t(g^0)}, \dots, \frac{a(g^{n - 1})b(g^{n - 1}) - c(g^{n - 1})}{t(g^{n-1})}\right)
+\bm{h} = \left(\frac{a(g^0)b(g^0) - c(g^0)}{t(\eta)}, \dots, \frac{a(g^{n - 1})b(g^{n - 1}) - c(g^{n - 1})}{t(\eta)}\right)
 $$
 
 4. Compute $$h(X)$$:
 
 $$
-h(X) = \sum_{i = 0}^{n-1}  {L'}_i(X)  \frac{a(g^i)b(g^i) - c(g^i)}{t(g^i)}
+h(X) = \sum_{i = 0}^{n-1}  {L'}_i(X)  \frac{a(g^i)b(g^i) - c(g^i)}{t(\eta)}
 $$
 
 where $${L'}_i(X)$$ are lagrange basis polynomials on a coset domain.
