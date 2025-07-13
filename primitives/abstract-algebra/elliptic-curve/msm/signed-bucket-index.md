@@ -97,7 +97,7 @@ k_7 = 15 &=
 \end{align*}
 $$
 
-With out buckets $$B_{\text{bucket_multiplier, window_index}}$$, we create our windows $$W$$:
+With buckets $$B_{\text{bucket_multiplier, window_index}}$$, we create our windows $$W$$:
 
 $$
 \begin{align*}
@@ -215,8 +215,7 @@ M = 2188824287183927522224640574525727508854836440041603434369820418657580849561
 print((M - 1) // (2**(16 * 15)) + 1 < 2 ** 14) # True
 ```
 
-{% hint style="warning" %}
-#### [Yrrid](https://www.yrrid.com/)’s Trick
+#### 4. Use [Yrrid](https://www.yrrid.com/)’s Trick
 
 Yrrid, the Zprize winner in 2022 for the category "_Prize 1a: Accelerating MSM Operations on GPU_" explains one more optimization they used for their solution to **guarantee that no carry occurs in the final window**. When the **MSB of** $$k$$ **is set to 1**, they apply the following transformation to **reset the MSB to 0**, thereby preventing any carry:
 
@@ -226,9 +225,7 @@ $$
 
 Here, $$M$$ is the modulus of the scalar field (i.e., curve order), and $$k \in [0, M)$$.
 
-Let $$m_\mathsf{last}$$ denote the $$s$$-bit chunk in the final window. Yrrid's trick is said to ensure that $$m_\mathsf{last} + 1$$ doesn't overflow.
-
-Though this is what they state, it appears as if overflow can still occur as shown in the following example:
+Let $$m_\mathsf{last}$$ denote the $$s$$-bit chunk in the final window. Yrrid's trick is said to ensure that we don't overflow to a $$m_\mathsf{last} + 1$$ chunk.
 
 For example, in $$\mathbb{F}_{11}$$ with $$\lambda = 4$$, the values where the MSB of $$k$$ is set to 1 are 8, 9, and 10. This means that -8, -9, and -10 will be transformed into 3, 2, and 1, respectively. With this transformation, the new maximum value of $$k$$ becomes $$2^3 - 1 = 7$$. If $$s = 2$$, then:
 
@@ -236,12 +233,7 @@ $$
 k = k_1 + 2^2k_2
 $$
 
-In this case with the maximum value of $$k$$ as 7, $$k_2$$ will be at most 1, meaning it does not satisfy its limit constraints:
-
-$$
-1\le k_2 + 1< 2^{2-1} = 2
-$$
-{% endhint %}
+In this case with the maximum value of $$k$$ as 7, $$k_2$$ will be at most 1.
 
 ## Code Example
 
