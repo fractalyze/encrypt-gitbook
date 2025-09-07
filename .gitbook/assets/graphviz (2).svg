@@ -1,0 +1,468 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2307pt" height="692pt" viewBox="0.00 0.00 2307.45 692.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 688)">
+<title>cuda_msm</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-688 2303.45,-688 2303.45,4 -4,4"/>
+<!-- msm_cuda_wrapper -->
+<g id="node1" class="node">
+<title>msm_cuda_wrapper</title>
+<polygon fill="none" stroke="black" points="269.52,-275 55.2,-275 55.2,-239 269.52,-239 269.52,-275"/>
+<text text-anchor="middle" x="162.36" y="-252.8" font-family="Monospace" font-size="14.00">msm_cuda_wrapper</text>
+</g>
+<!-- msm_cuda -->
+<g id="node2" class="node">
+<title>msm_cuda</title>
+<polygon fill="none" stroke="black" points="579.34,-275 417.88,-275 417.88,-239 579.34,-239 579.34,-275"/>
+<text text-anchor="middle" x="498.61" y="-252.8" font-family="Monospace" font-size="14.00">msm_cuda</text>
+</g>
+<!-- msm_cuda_wrapper&#45;&gt;msm_cuda -->
+<g id="edge1" class="edge">
+<title>msm_cuda_wrapper-&gt;msm_cuda</title>
+<path fill="none" stroke="black" d="M269.58,-257C313.44,-257 363.79,-257 406,-257"/>
+<polygon fill="black" stroke="black" points="405.88,-260.5 415.88,-257 405.88,-253.5 405.88,-260.5"/>
+</g>
+<!-- get_optimal_nof_chunks -->
+<g id="node3" class="node">
+<title>get_optimal_nof_chunks</title>
+<polygon fill="none" stroke="black" points="935.04,-344 695.04,-344 695.04,-308 935.04,-308 935.04,-344"/>
+<text text-anchor="middle" x="815.04" y="-321.8" font-family="Monospace" font-size="14.00">get_optimal_nof_chunks</text>
+</g>
+<!-- msm_cuda&#45;&gt;get_optimal_nof_chunks -->
+<g id="edge2" class="edge">
+<title>msm_cuda-&gt;get_optimal_nof_chunks</title>
+<path fill="none" stroke="black" d="M579.76,-274.59C622.12,-283.88 674.38,-295.35 718.79,-305.1"/>
+<polygon fill="black" stroke="black" points="717.91,-308.49 728.42,-307.21 719.41,-301.65 717.91,-308.49"/>
+</g>
+<!-- get_optimal_c -->
+<g id="node4" class="node">
+<title>get_optimal_c</title>
+<polygon fill="none" stroke="black" points="905.48,-195 724.59,-195 724.59,-159 905.48,-159 905.48,-195"/>
+<text text-anchor="middle" x="815.04" y="-172.8" font-family="Monospace" font-size="14.00">get_optimal_c</text>
+</g>
+<!-- msm_cuda&#45;&gt;get_optimal_c -->
+<g id="edge3" class="edge">
+<title>msm_cuda-&gt;get_optimal_c</title>
+<path fill="none" stroke="black" d="M559.32,-238.57C592.5,-228.62 634.6,-216.48 672.49,-207 685.66,-203.7 699.58,-200.46 713.35,-197.4"/>
+<polygon fill="black" stroke="black" points="713.84,-200.87 722.86,-195.31 712.34,-194.04 713.84,-200.87"/>
+</g>
+<!-- get_min_nof_chunks -->
+<g id="node5" class="node">
+<title>get_min_nof_chunks</title>
+<polygon fill="none" stroke="black" points="1244.86,-344 1025.85,-344 1025.85,-308 1244.86,-308 1244.86,-344"/>
+<text text-anchor="middle" x="1135.36" y="-321.8" font-family="Monospace" font-size="14.00">get_min_nof_chunks</text>
+</g>
+<!-- msm_cuda&#45;&gt;get_min_nof_chunks -->
+<g id="edge6" class="edge">
+<title>msm_cuda-&gt;get_min_nof_chunks</title>
+<path fill="none" stroke="black" d="M579.6,-262.87C671.12,-269.93 825.42,-282.86 957.58,-299 976,-301.25 995.45,-303.92 1014.46,-306.69"/>
+<polygon fill="black" stroke="black" points="1013.68,-310.12 1024.08,-308.11 1014.7,-303.19 1013.68,-310.12"/>
+</g>
+<!-- multi_chunked_msm -->
+<g id="node6" class="node">
+<title>multi_chunked_msm</title>
+<polygon fill="none" stroke="black" points="924.54,-252 705.53,-252 705.53,-216 924.54,-216 924.54,-252"/>
+<text text-anchor="middle" x="815.04" y="-229.8" font-family="Monospace" font-size="14.00">multi_chunked_msm</text>
+</g>
+<!-- msm_cuda&#45;&gt;multi_chunked_msm -->
+<g id="edge5" class="edge">
+<title>msm_cuda-&gt;multi_chunked_msm</title>
+<path fill="none" stroke="black" d="M579.76,-251.14C614.46,-248.6 655.8,-245.57 694.03,-242.78"/>
+<polygon fill="black" stroke="black" points="694.03,-246.29 703.74,-242.07 693.52,-239.31 694.03,-246.29"/>
+</g>
+<!-- get_optimal_nof_chunks&#45;&gt;get_min_nof_chunks -->
+<g id="edge4" class="edge">
+<title>get_optimal_nof_chunks-&gt;get_min_nof_chunks</title>
+<path fill="none" stroke="black" d="M935.47,-326C961.21,-326 988.43,-326 1014.2,-326"/>
+<polygon fill="black" stroke="black" points="1014.02,-329.5 1024.02,-326 1014.02,-322.5 1014.02,-329.5"/>
+</g>
+<!-- compute_required_memory -->
+<g id="node15" class="node">
+<title>compute_required_memory</title>
+<polygon fill="none" stroke="black" points="1590.82,-522 1334.52,-522 1334.52,-486 1590.82,-486 1590.82,-522"/>
+<text text-anchor="middle" x="1462.67" y="-499.8" font-family="Monospace" font-size="14.00">compute_required_memory</text>
+</g>
+<!-- get_min_nof_chunks&#45;&gt;compute_required_memory -->
+<g id="edge16" class="edge">
+<title>get_min_nof_chunks-&gt;compute_required_memory</title>
+<path fill="none" stroke="black" d="M1151.73,-344.37C1180.04,-376.86 1243.86,-444.1 1313.13,-477 1316.51,-478.6 1319.96,-480.11 1323.49,-481.53"/>
+<polygon fill="black" stroke="black" points="1322.22,-484.79 1332.81,-484.99 1324.66,-478.23 1322.22,-484.79"/>
+</g>
+<!-- bucket_method_msm -->
+<g id="node11" class="node">
+<title>bucket_method_msm</title>
+<polygon fill="none" stroke="black" points="1246.03,-252 1024.69,-252 1024.69,-216 1246.03,-216 1246.03,-252"/>
+<text text-anchor="middle" x="1135.36" y="-229.8" font-family="Monospace" font-size="14.00">bucket_method_msm</text>
+</g>
+<!-- multi_chunked_msm&#45;&gt;bucket_method_msm -->
+<g id="edge11" class="edge">
+<title>multi_chunked_msm-&gt;bucket_method_msm</title>
+<path fill="none" stroke="black" d="M924.69,-234C953.08,-234 983.85,-234 1012.85,-234"/>
+<polygon fill="black" stroke="black" points="1012.78,-237.5 1022.78,-234 1012.78,-230.5 1012.78,-237.5"/>
+</g>
+<!-- msm_precompute_bases_cuda_wrapper -->
+<g id="node7" class="node">
+<title>msm_precompute_bases_cuda_wrapper</title>
+<polygon fill="none" stroke="black" points="324.72,-134 0,-134 0,-98 324.72,-98 324.72,-134"/>
+<text text-anchor="middle" x="162.36" y="-111.8" font-family="Monospace" font-size="14.00">msm_precompute_bases_cuda_wrapper</text>
+</g>
+<!-- cuda_precompute_msm_points -->
+<g id="node8" class="node">
+<title>cuda_precompute_msm_points</title>
+<polygon fill="none" stroke="black" points="636.49,-134 360.72,-134 360.72,-98 636.49,-98 636.49,-134"/>
+<text text-anchor="middle" x="498.61" y="-111.8" font-family="Monospace" font-size="14.00">cuda_precompute_msm_points</text>
+</g>
+<!-- msm_precompute_bases_cuda_wrapper&#45;&gt;cuda_precompute_msm_points -->
+<g id="edge7" class="edge">
+<title>msm_precompute_bases_cuda_wrapper-&gt;cuda_precompute_msm_points</title>
+<path fill="none" stroke="black" d="M325.1,-116C333.14,-116 341.2,-116 349.2,-116"/>
+<polygon fill="black" stroke="black" points="348.95,-119.5 358.95,-116 348.95,-112.5 348.95,-119.5"/>
+</g>
+<!-- cuda_precompute_msm_points&#45;&gt;get_optimal_c -->
+<g id="edge9" class="edge">
+<title>cuda_precompute_msm_points-&gt;get_optimal_c</title>
+<path fill="none" stroke="black" d="M594.8,-134.47C632.23,-141.73 675.24,-150.07 713.19,-157.44"/>
+<polygon fill="black" stroke="black" points="712.31,-160.83 722.79,-159.3 713.64,-153.96 712.31,-160.83"/>
+</g>
+<!-- get_precomputation_nof_chunks -->
+<g id="node9" class="node">
+<title>get_precomputation_nof_chunks</title>
+<polygon fill="none" stroke="black" points="957.58,-134 672.49,-134 672.49,-98 957.58,-98 957.58,-134"/>
+<text text-anchor="middle" x="815.04" y="-111.8" font-family="Monospace" font-size="14.00">get_precomputation_nof_chunks</text>
+</g>
+<!-- cuda_precompute_msm_points&#45;&gt;get_precomputation_nof_chunks -->
+<g id="edge8" class="edge">
+<title>cuda_precompute_msm_points-&gt;get_precomputation_nof_chunks</title>
+<path fill="none" stroke="black" d="M636.61,-116C644.59,-116 652.65,-116 660.69,-116"/>
+<polygon fill="black" stroke="black" points="660.53,-119.5 670.53,-116 660.53,-112.5 660.53,-119.5"/>
+</g>
+<!-- chunked_precompute -->
+<g id="node10" class="node">
+<title>chunked_precompute</title>
+<polygon fill="none" stroke="black" points="925.69,-67 704.38,-67 704.38,-31 925.69,-31 925.69,-67"/>
+<text text-anchor="middle" x="815.04" y="-44.8" font-family="Monospace" font-size="14.00">chunked_precompute</text>
+</g>
+<!-- cuda_precompute_msm_points&#45;&gt;chunked_precompute -->
+<g id="edge10" class="edge">
+<title>cuda_precompute_msm_points-&gt;chunked_precompute</title>
+<path fill="none" stroke="black" d="M586.36,-97.51C626.57,-88.95 674.54,-78.73 716.05,-69.88"/>
+<polygon fill="black" stroke="black" points="716.76,-73.31 725.81,-67.8 715.3,-66.46 716.76,-73.31"/>
+</g>
+<!-- precompute_msm_points_chunk -->
+<g id="node16" class="node">
+<title>precompute_msm_points_chunk</title>
+<polygon fill="none" stroke="black" points="1277.13,-40 993.58,-40 993.58,-4 1277.13,-4 1277.13,-40"/>
+<text text-anchor="middle" x="1135.36" y="-17.8" font-family="Monospace" font-size="14.00">precompute_msm_points_chunk</text>
+</g>
+<!-- chunked_precompute&#45;&gt;precompute_msm_points_chunk -->
+<g id="edge17" class="edge">
+<title>chunked_precompute-&gt;precompute_msm_points_chunk</title>
+<path fill="none" stroke="black" d="M926.03,-39.67C944.05,-38.14 963,-36.53 981.82,-34.94"/>
+<polygon fill="black" stroke="black" points="982.02,-38.43 991.69,-34.1 981.43,-31.46 982.02,-38.43"/>
+</g>
+<!-- upload_scalars -->
+<g id="node12" class="node">
+<title>upload_scalars</title>
+<polygon fill="none" stroke="black" points="1554.66,-198 1370.67,-198 1370.67,-162 1554.66,-162 1554.66,-198"/>
+<text text-anchor="middle" x="1462.67" y="-175.8" font-family="Monospace" font-size="14.00">upload_scalars</text>
+</g>
+<!-- bucket_method_msm&#45;&gt;upload_scalars -->
+<g id="edge12" class="edge">
+<title>bucket_method_msm-&gt;upload_scalars</title>
+<path fill="none" stroke="black" d="M1246.49,-215.72C1282.99,-209.66 1323.44,-202.94 1359.33,-196.99"/>
+<polygon fill="black" stroke="black" points="1359.53,-200.5 1368.82,-195.41 1358.38,-193.6 1359.53,-200.5"/>
+</g>
+<!-- upload_points -->
+<g id="node13" class="node">
+<title>upload_points</title>
+<polygon fill="none" stroke="black" points="1552.73,-252 1372.6,-252 1372.6,-216 1552.73,-216 1552.73,-252"/>
+<text text-anchor="middle" x="1462.67" y="-229.8" font-family="Monospace" font-size="14.00">upload_points</text>
+</g>
+<!-- bucket_method_msm&#45;&gt;upload_points -->
+<g id="edge13" class="edge">
+<title>bucket_method_msm-&gt;upload_points</title>
+<path fill="none" stroke="black" d="M1246.49,-234C1283.58,-234 1324.74,-234 1361.05,-234"/>
+<polygon fill="black" stroke="black" points="1360.64,-237.5 1370.64,-234 1360.64,-230.5 1360.64,-237.5"/>
+</g>
+<!-- split_and_sort_scalars -->
+<g id="node18" class="node">
+<title>split_and_sort_scalars</title>
+<polygon fill="none" stroke="black" points="1575.28,-144 1350.06,-144 1350.06,-108 1575.28,-108 1575.28,-144"/>
+<text text-anchor="middle" x="1462.67" y="-121.8" font-family="Monospace" font-size="14.00">split_and_sort_scalars</text>
+</g>
+<!-- bucket_method_msm&#45;&gt;split_and_sort_scalars -->
+<g id="edge19" class="edge">
+<title>bucket_method_msm-&gt;split_and_sort_scalars</title>
+<path fill="none" stroke="black" d="M1169.9,-215.55C1204.73,-197.14 1261.29,-169.31 1313.13,-153 1321.4,-150.4 1330,-148.02 1338.72,-145.85"/>
+<polygon fill="black" stroke="black" points="1339.42,-149.28 1348.34,-143.56 1337.8,-142.47 1339.42,-149.28"/>
+</g>
+<!-- allocate_and_sort_buckets_by_size -->
+<g id="node19" class="node">
+<title>allocate_and_sort_buckets_by_size</title>
+<polygon fill="none" stroke="black" points="1612.2,-306 1313.13,-306 1313.13,-270 1612.2,-270 1612.2,-306"/>
+<text text-anchor="middle" x="1462.67" y="-283.8" font-family="Monospace" font-size="14.00">allocate_and_sort_buckets_by_size</text>
+</g>
+<!-- bucket_method_msm&#45;&gt;allocate_and_sort_buckets_by_size -->
+<g id="edge20" class="edge">
+<title>bucket_method_msm-&gt;allocate_and_sort_buckets_by_size</title>
+<path fill="none" stroke="black" d="M1246.49,-252.28C1276.29,-257.23 1308.72,-262.61 1339.15,-267.66"/>
+<polygon fill="black" stroke="black" points="1338.33,-271.07 1348.77,-269.26 1339.48,-264.17 1338.33,-271.07"/>
+</g>
+<!-- compute_nof_large_buckets -->
+<g id="node20" class="node">
+<title>compute_nof_large_buckets</title>
+<polygon fill="none" stroke="black" points="1592.37,-90 1332.96,-90 1332.96,-54 1592.37,-54 1592.37,-90"/>
+<text text-anchor="middle" x="1462.67" y="-67.8" font-family="Monospace" font-size="14.00">compute_nof_large_buckets</text>
+</g>
+<!-- bucket_method_msm&#45;&gt;compute_nof_large_buckets -->
+<g id="edge21" class="edge">
+<title>bucket_method_msm-&gt;compute_nof_large_buckets</title>
+<path fill="none" stroke="black" d="M1154.04,-215.75C1183.88,-186.14 1247.43,-128.03 1313.13,-99 1317.13,-97.23 1321.24,-95.58 1325.43,-94.04"/>
+<polygon fill="black" stroke="black" points="1326.22,-97.47 1334.54,-90.91 1323.95,-90.85 1326.22,-97.47"/>
+</g>
+<!-- bucket_accumulation -->
+<g id="node21" class="node">
+<title>bucket_accumulation</title>
+<polygon fill="none" stroke="black" points="1572.93,-468 1352.4,-468 1352.4,-432 1572.93,-432 1572.93,-468"/>
+<text text-anchor="middle" x="1462.67" y="-445.8" font-family="Monospace" font-size="14.00">bucket_accumulation</text>
+</g>
+<!-- bucket_method_msm&#45;&gt;bucket_accumulation -->
+<g id="edge22" class="edge">
+<title>bucket_method_msm-&gt;bucket_accumulation</title>
+<path fill="none" stroke="black" d="M1198.5,-252.48C1225.17,-262.82 1255.17,-277.95 1277.13,-299 1302.39,-323.21 1288.7,-343.96 1313.13,-369 1337.72,-394.2 1371.85,-413.55 1401.19,-427.02"/>
+<polygon fill="black" stroke="black" points="1399.41,-430.06 1409.97,-430.92 1402.25,-423.66 1399.41,-430.06"/>
+</g>
+<!-- bucket_reduction -->
+<g id="node22" class="node">
+<title>bucket_reduction</title>
+<polygon fill="none" stroke="black" points="1561.66,-360 1363.67,-360 1363.67,-324 1561.66,-324 1561.66,-360"/>
+<text text-anchor="middle" x="1462.67" y="-337.8" font-family="Monospace" font-size="14.00">bucket_reduction</text>
+</g>
+<!-- bucket_method_msm&#45;&gt;bucket_reduction -->
+<g id="edge23" class="edge">
+<title>bucket_method_msm-&gt;bucket_reduction</title>
+<path fill="none" stroke="black" d="M1176.32,-252.46C1227.36,-276.02 1309.59,-313.89 1313.13,-315 1325.63,-318.93 1338.92,-322.36 1352.2,-325.33"/>
+<polygon fill="black" stroke="black" points="1351.35,-328.72 1361.86,-327.39 1352.82,-321.88 1351.35,-328.72"/>
+</g>
+<!-- from_montgomery_on_device -->
+<g id="node14" class="node">
+<title>from_montgomery_on_device</title>
+<polygon fill="none" stroke="black" points="1937.95,-198 1666.86,-198 1666.86,-162 1937.95,-162 1937.95,-198"/>
+<text text-anchor="middle" x="1802.41" y="-175.8" font-family="Monospace" font-size="14.00">from_montgomery_on_device</text>
+</g>
+<!-- upload_scalars&#45;&gt;from_montgomery_on_device -->
+<g id="edge14" class="edge">
+<title>upload_scalars-&gt;from_montgomery_on_device</title>
+<path fill="none" stroke="black" d="M1555.07,-180C1585.87,-180 1621.06,-180 1655.02,-180"/>
+<polygon fill="black" stroke="black" points="1654.97,-183.5 1664.97,-180 1654.97,-176.5 1654.97,-183.5"/>
+</g>
+<!-- upload_points&#45;&gt;from_montgomery_on_device -->
+<g id="edge15" class="edge">
+<title>upload_points-&gt;from_montgomery_on_device</title>
+<path fill="none" stroke="black" d="M1552.85,-219.74C1590.09,-213.79 1634.05,-206.76 1674.56,-200.28"/>
+<polygon fill="black" stroke="black" points="1675.07,-203.74 1684.39,-198.71 1673.97,-196.83 1675.07,-203.74"/>
+</g>
+<!-- precompute_points_kernel -->
+<g id="node17" class="node">
+<title>precompute_points_kernel</title>
+<polygon fill="none" stroke="black" points="1587.71,-36 1337.62,-36 1337.62,0 1587.71,0 1587.71,-36"/>
+<text text-anchor="middle" x="1462.67" y="-13.8" font-family="Monospace" font-size="14.00">precompute_points_kernel</text>
+</g>
+<!-- precompute_msm_points_chunk&#45;&gt;precompute_points_kernel -->
+<g id="edge18" class="edge">
+<title>precompute_msm_points_chunk-&gt;precompute_points_kernel</title>
+<path fill="none" stroke="black" d="M1277.62,-20.26C1293.56,-20.07 1309.78,-19.87 1325.64,-19.67"/>
+<polygon fill="black" stroke="black" points="1325.66,-23.17 1335.61,-19.55 1325.57,-16.17 1325.66,-23.17"/>
+</g>
+<!-- split_scalars_kernel -->
+<g id="node23" class="node">
+<title>split_scalars_kernel</title>
+<polygon fill="none" stroke="black" points="1908.4,-144 1696.42,-144 1696.42,-108 1908.4,-108 1908.4,-144"/>
+<text text-anchor="middle" x="1802.41" y="-121.8" font-family="Monospace" font-size="14.00">split_scalars_kernel</text>
+</g>
+<!-- split_and_sort_scalars&#45;&gt;split_scalars_kernel -->
+<g id="edge24" class="edge">
+<title>split_and_sort_scalars-&gt;split_scalars_kernel</title>
+<path fill="none" stroke="black" d="M1575.66,-126C1610.66,-126 1649.35,-126 1684.67,-126"/>
+<polygon fill="black" stroke="black" points="1684.5,-129.5 1694.5,-126 1684.5,-122.5 1684.5,-129.5"/>
+</g>
+<!-- initialize_buckets_kernel -->
+<g id="node28" class="node">
+<title>initialize_buckets_kernel</title>
+<polygon fill="none" stroke="black" points="1923.17,-252 1681.65,-252 1681.65,-216 1923.17,-216 1923.17,-252"/>
+<text text-anchor="middle" x="1802.41" y="-229.8" font-family="Monospace" font-size="14.00">initialize_buckets_kernel</text>
+</g>
+<!-- allocate_and_sort_buckets_by_size&#45;&gt;initialize_buckets_kernel -->
+<g id="edge34" class="edge">
+<title>allocate_and_sort_buckets_by_size-&gt;initialize_buckets_kernel</title>
+<path fill="none" stroke="black" d="M1578.95,-269.57C1609.81,-264.63 1643.33,-259.28 1674.76,-254.25"/>
+<polygon fill="black" stroke="black" points="1674.97,-257.76 1684.29,-252.73 1673.86,-250.85 1674.97,-257.76"/>
+</g>
+<!-- find_cutoff_kernel -->
+<g id="node33" class="node">
+<title>find_cutoff_kernel</title>
+<polygon fill="none" stroke="black" points="1905.29,-90 1699.53,-90 1699.53,-54 1905.29,-54 1905.29,-90"/>
+<text text-anchor="middle" x="1802.41" y="-67.8" font-family="Monospace" font-size="14.00">find_cutoff_kernel</text>
+</g>
+<!-- compute_nof_large_buckets&#45;&gt;find_cutoff_kernel -->
+<g id="edge35" class="edge">
+<title>compute_nof_large_buckets-&gt;find_cutoff_kernel</title>
+<path fill="none" stroke="black" d="M1592.8,-72C1624.15,-72 1657.43,-72 1687.99,-72"/>
+<polygon fill="black" stroke="black" points="1687.6,-75.5 1697.6,-72 1687.6,-68.5 1687.6,-75.5"/>
+</g>
+<!-- large_bucket_accumulation -->
+<g id="node24" class="node">
+<title>large_bucket_accumulation</title>
+<polygon fill="none" stroke="black" points="1930.16,-576 1674.65,-576 1674.65,-540 1930.16,-540 1930.16,-576"/>
+<text text-anchor="middle" x="1802.41" y="-553.8" font-family="Monospace" font-size="14.00">large_bucket_accumulation</text>
+</g>
+<!-- bucket_accumulation&#45;&gt;large_bucket_accumulation -->
+<g id="edge25" class="edge">
+<title>bucket_accumulation-&gt;large_bucket_accumulation</title>
+<path fill="none" stroke="black" d="M1573.07,-459.39C1586.93,-463.53 1600.37,-469.23 1612.2,-477 1636.31,-492.84 1624.05,-515.23 1648.2,-531 1653.29,-534.32 1658.67,-537.27 1664.24,-539.88"/>
+<polygon fill="black" stroke="black" points="1662.51,-542.95 1673.08,-543.64 1665.25,-536.51 1662.51,-542.95"/>
+</g>
+<!-- accumulate_buckets_kernel -->
+<g id="node34" class="node">
+<title>accumulate_buckets_kernel</title>
+<polygon fill="none" stroke="black" points="1930.55,-522 1674.27,-522 1674.27,-486 1930.55,-486 1930.55,-522"/>
+<text text-anchor="middle" x="1802.41" y="-499.8" font-family="Monospace" font-size="14.00">accumulate_buckets_kernel</text>
+</g>
+<!-- bucket_accumulation&#45;&gt;accumulate_buckets_kernel -->
+<g id="edge36" class="edge">
+<title>bucket_accumulation-&gt;accumulate_buckets_kernel</title>
+<path fill="none" stroke="black" d="M1573.32,-467.53C1605.68,-472.71 1641.37,-478.41 1674.71,-483.74"/>
+<polygon fill="black" stroke="black" points="1673.99,-487.17 1684.42,-485.3 1675.1,-480.26 1673.99,-487.17"/>
+</g>
+<!-- bucket_reduction&#45;&gt;initialize_buckets_kernel -->
+<g id="edge29" class="edge">
+<title>bucket_reduction-&gt;initialize_buckets_kernel</title>
+<path fill="none" stroke="black" d="M1561.84,-335.63C1579.59,-331.37 1597.2,-324.86 1612.2,-315 1636.31,-299.16 1624.05,-276.77 1648.2,-261 1655.28,-256.38 1662.91,-252.48 1670.86,-249.21"/>
+<polygon fill="black" stroke="black" points="1671.91,-252.55 1680.06,-245.77 1669.47,-245.99 1671.91,-252.55"/>
+</g>
+<!-- single_stage_multi_reduction_kernel -->
+<g id="node29" class="node">
+<title>single_stage_multi_reduction_kernel</title>
+<polygon fill="none" stroke="black" points="1956.62,-360 1648.2,-360 1648.2,-324 1956.62,-324 1956.62,-360"/>
+<text text-anchor="middle" x="1802.41" y="-337.8" font-family="Monospace" font-size="14.00">single_stage_multi_reduction_kernel</text>
+</g>
+<!-- bucket_reduction&#45;&gt;single_stage_multi_reduction_kernel -->
+<g id="edge30" class="edge">
+<title>bucket_reduction-&gt;single_stage_multi_reduction_kernel</title>
+<path fill="none" stroke="black" d="M1561.81,-342C1585.31,-342 1611.04,-342 1636.64,-342"/>
+<polygon fill="black" stroke="black" points="1636.47,-345.5 1646.47,-342 1636.47,-338.5 1636.47,-345.5"/>
+</g>
+<!-- big_triangle_sum_kernel -->
+<g id="node30" class="node">
+<title>big_triangle_sum_kernel</title>
+<polygon fill="none" stroke="black" points="1922.79,-306 1682.03,-306 1682.03,-270 1922.79,-270 1922.79,-306"/>
+<text text-anchor="middle" x="1802.41" y="-283.8" font-family="Monospace" font-size="14.00">big_triangle_sum_kernel</text>
+</g>
+<!-- bucket_reduction&#45;&gt;big_triangle_sum_kernel -->
+<g id="edge31" class="edge">
+<title>bucket_reduction-&gt;big_triangle_sum_kernel</title>
+<path fill="none" stroke="black" d="M1561.81,-326.31C1597.09,-320.67 1637.39,-314.22 1674.74,-308.25"/>
+<polygon fill="black" stroke="black" points="1674.9,-311.77 1684.22,-306.74 1673.79,-304.86 1674.9,-311.77"/>
+</g>
+<!-- last_pass_kernel -->
+<g id="node31" class="node">
+<title>last_pass_kernel</title>
+<polygon fill="none" stroke="black" points="1899.07,-468 1705.74,-468 1705.74,-432 1899.07,-432 1899.07,-468"/>
+<text text-anchor="middle" x="1802.41" y="-445.8" font-family="Monospace" font-size="14.00">last_pass_kernel</text>
+</g>
+<!-- bucket_reduction&#45;&gt;last_pass_kernel -->
+<g id="edge32" class="edge">
+<title>bucket_reduction-&gt;last_pass_kernel</title>
+<path fill="none" stroke="black" d="M1498.77,-360.44C1535.2,-378.85 1594.29,-406.67 1648.2,-423 1662.87,-427.44 1678.56,-431.24 1694.09,-434.46"/>
+<polygon fill="black" stroke="black" points="1693.39,-437.89 1703.88,-436.41 1694.76,-431.02 1693.39,-437.89"/>
+</g>
+<!-- final_accumulation_kernel -->
+<g id="node32" class="node">
+<title>final_accumulation_kernel</title>
+<polygon fill="none" stroke="black" points="1927.83,-414 1676.98,-414 1676.98,-378 1927.83,-378 1927.83,-414"/>
+<text text-anchor="middle" x="1802.41" y="-391.8" font-family="Monospace" font-size="14.00">final_accumulation_kernel</text>
+</g>
+<!-- bucket_reduction&#45;&gt;final_accumulation_kernel -->
+<g id="edge33" class="edge">
+<title>bucket_reduction-&gt;final_accumulation_kernel</title>
+<path fill="none" stroke="black" d="M1561.81,-357.69C1597.09,-363.33 1637.39,-369.78 1674.74,-375.75"/>
+<polygon fill="black" stroke="black" points="1673.79,-379.14 1684.22,-377.26 1674.9,-372.23 1673.79,-379.14"/>
+</g>
+<!-- initialize_large_bucket_indices -->
+<g id="node25" class="node">
+<title>initialize_large_bucket_indices</title>
+<polygon fill="none" stroke="black" points="2283.9,-684 2008.17,-684 2008.17,-648 2283.9,-648 2283.9,-684"/>
+<text text-anchor="middle" x="2146.03" y="-661.8" font-family="Monospace" font-size="14.00">initialize_large_bucket_indices</text>
+</g>
+<!-- large_bucket_accumulation&#45;&gt;initialize_large_bucket_indices -->
+<g id="edge26" class="edge">
+<title>large_bucket_accumulation-&gt;initialize_large_bucket_indices</title>
+<path fill="none" stroke="black" d="M1839.46,-576.39C1876.87,-594.76 1937.49,-622.55 1992.62,-639 1999.71,-641.12 2007.04,-643.09 2014.48,-644.93"/>
+<polygon fill="black" stroke="black" points="2013.42,-648.27 2023.96,-647.17 2015.04,-641.46 2013.42,-648.27"/>
+</g>
+<!-- sum_reduction_variable_size_kernel -->
+<g id="node26" class="node">
+<title>sum_reduction_variable_size_kernel</title>
+<polygon fill="none" stroke="black" points="2299.45,-630 1992.62,-630 1992.62,-594 2299.45,-594 2299.45,-630"/>
+<text text-anchor="middle" x="2146.03" y="-607.8" font-family="Monospace" font-size="14.00">sum_reduction_variable_size_kernel</text>
+</g>
+<!-- large_bucket_accumulation&#45;&gt;sum_reduction_variable_size_kernel -->
+<g id="edge27" class="edge">
+<title>large_bucket_accumulation-&gt;sum_reduction_variable_size_kernel</title>
+<path fill="none" stroke="black" d="M1920.02,-576.43C1951.23,-581.37 1985.13,-586.72 2016.93,-591.75"/>
+<polygon fill="black" stroke="black" points="2016.16,-595.17 2026.58,-593.28 2017.25,-588.26 2016.16,-595.17"/>
+</g>
+<!-- normalize_kernel -->
+<g id="node27" class="node">
+<title>normalize_kernel</title>
+<polygon fill="none" stroke="black" points="2245.41,-576 2046.66,-576 2046.66,-540 2245.41,-540 2245.41,-576"/>
+<text text-anchor="middle" x="2146.03" y="-553.8" font-family="Monospace" font-size="14.00">normalize_kernel</text>
+</g>
+<!-- large_bucket_accumulation&#45;&gt;normalize_kernel -->
+<g id="edge28" class="edge">
+<title>large_bucket_accumulation-&gt;normalize_kernel</title>
+<path fill="none" stroke="black" d="M1930.62,-558C1964.96,-558 2001.82,-558 2035.13,-558"/>
+<polygon fill="black" stroke="black" points="2034.77,-561.5 2044.77,-558 2034.77,-554.5 2034.77,-561.5"/>
+</g>
+<!-- accumulate_large_buckets_kernel -->
+<g id="node35" class="node">
+<title>accumulate_large_buckets_kernel</title>
+<polygon fill="none" stroke="black" points="2291.67,-522 2000.4,-522 2000.4,-486 2291.67,-486 2291.67,-522"/>
+<text text-anchor="middle" x="2146.03" y="-499.8" font-family="Monospace" font-size="14.00">accumulate_large_buckets_kernel</text>
+</g>
+<!-- large_bucket_accumulation&#45;&gt;accumulate_large_buckets_kernel -->
+<g id="edge37" class="edge">
+<title>large_bucket_accumulation-&gt;accumulate_large_buckets_kernel</title>
+<path fill="none" stroke="black" d="M1920.02,-539.57C1951.23,-534.63 1985.13,-529.28 2016.93,-524.25"/>
+<polygon fill="black" stroke="black" points="2017.25,-527.74 2026.58,-522.72 2016.16,-520.83 2017.25,-527.74"/>
+</g>
+<!-- distribute_large_buckets_kernel -->
+<g id="node36" class="node">
+<title>distribute_large_buckets_kernel</title>
+<polygon fill="none" stroke="black" points="2286.24,-468 2005.83,-468 2005.83,-432 2286.24,-432 2286.24,-468"/>
+<text text-anchor="middle" x="2146.03" y="-445.8" font-family="Monospace" font-size="14.00">distribute_large_buckets_kernel</text>
+</g>
+<!-- large_bucket_accumulation&#45;&gt;distribute_large_buckets_kernel -->
+<g id="edge38" class="edge">
+<title>large_bucket_accumulation-&gt;distribute_large_buckets_kernel</title>
+<path fill="none" stroke="black" d="M1930.34,-544.23C1939.6,-540.67 1948.48,-536.32 1956.62,-531 1980.77,-515.23 1968.47,-492.78 1992.62,-477 1994.47,-475.79 1996.37,-474.62 1998.29,-473.51"/>
+<polygon fill="black" stroke="black" points="1999.62,-476.76 2006.86,-469.03 1996.38,-470.56 1999.62,-476.76"/>
+</g>
+<!-- ssm_kernel -->
+<g id="node37" class="node">
+<title>ssm_kernel</title>
+<polygon fill="none" stroke="black" points="244.65,-329 80.08,-329 80.08,-293 244.65,-293 244.65,-329"/>
+<text text-anchor="middle" x="162.36" y="-306.8" font-family="Monospace" font-size="14.00">ssm_kernel</text>
+</g>
+<!-- sum_reduction_kernel -->
+<g id="node38" class="node">
+<title>sum_reduction_kernel</title>
+<polygon fill="none" stroke="black" points="275.36,-383 49.37,-383 49.37,-347 275.36,-347 275.36,-383"/>
+<text text-anchor="middle" x="162.36" y="-360.8" font-family="Monospace" font-size="14.00">sum_reduction_kernel</text>
+</g>
+<!-- ssm_buckets_kernel -->
+<g id="node39" class="node">
+<title>ssm_buckets_kernel</title>
+<polygon fill="none" stroke="black" points="269.53,-437 55.2,-437 55.2,-401 269.53,-401 269.53,-437"/>
+<text text-anchor="middle" x="162.36" y="-414.8" font-family="Monospace" font-size="14.00">ssm_buckets_kernel</text>
+</g>
+</g>
+</svg>
