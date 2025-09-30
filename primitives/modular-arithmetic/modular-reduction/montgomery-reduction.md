@@ -10,18 +10,18 @@ The method shifts calculations into a special "Montgomery domain" defined by an 
 
 ### The Montgomery Representation
 
-We choose an auxiliary modulus $$R=b^k$$ (where $$b$$ is the base, usually 2) such that $$R>n$$. Critically, $$n$$ and $$R$$ must be coprime: $$\gcd(n,R)=1$$. In this case, this just implies $$n$$ **must be odd**.&#x20;
+We choose an auxiliary modulus $$R=b^w$$ (where $$b$$ is the base, usually 2) such that $$R>n$$. Critically, $$n$$ and $$R$$ must be coprime: $$\gcd(n,R)=1$$. In this case, this just implies $$n$$ **must be odd**.&#x20;
 
 **Definition 1.** The Montgomery representation $$\bar{x}$$ of an integer $$x$$ (where $$0\leq x<n$$) is $$\bar{x} = x \cdot R \mod n$$.
 
 Since $$n$$ and $$R$$ are coprime, we can define the following conversion functions:
 
 * $$\mathsf{fromMont}(\bar{x})$$: Converts $$\bar{x}$$ back to standard form: $$x=\bar{x}⋅R^{−1} \mod n$$. This operation is also called _Montgomery Reduction._
-* $$\mathsf{toMont}(x)$$: Converts $$x$$ into Montgomery form: $$\bar{x}=x⋅b^k \mod n$$. This calculation itself can be optimized with _Montgomery Reduction._
+* $$\mathsf{toMont}(x)$$: Converts $$x$$ into Montgomery form: $$\bar{x}=x⋅b^w \mod n$$. This calculation itself can be optimized with _Montgomery Reduction._
 
-**Lemma 1.** Remainder of the division by $$R=2^k$$ can be efficiently calculated as $$x \mod R =\mathsf{lowbits_k}(x)$$ where $$\mathsf{lowbits}_k(x)$$ takes the least significant $$k$$ bits of $$x$$.
+**Lemma 1.** Remainder of the division by $$R=2^w$$ can be efficiently calculated as $$x \mod R =\mathsf{lowbits}_w(x)$$ where $$\mathsf{lowbits}_w(x)$$ takes the least significant $$w$$ bits of $$x$$.
 
-**Lemma 2.** Quotient $$\lfloor x / R\rfloor$$ can be efficiently computed using bit shift: $$x \gg k$$.
+**Lemma 2.** Quotient $$\lfloor x / R\rfloor$$ can be efficiently computed using bit shift: $$x \gg w$$.
 
 ### **Montgomery Multiplication**
 
@@ -50,10 +50,10 @@ $$
 The key idea to perform Montgomery Reduction efficiently is to find an integer $$m$$ such that $$T + m\cdot n$$ is exactly divisible by $$R$$. Then the desired result can be computed as:
 
 $$
-T\cdot R^{-1}\equiv\frac{T+m⋅n}{R}\equiv(T+m\cdot n)\gg k \mod n
+T\cdot R^{-1}\equiv\frac{T+m⋅n}{R}\equiv(T+m\cdot n)\gg w \mod n
 $$
 
-> What will happen if we precompute $$R^{-1}$$ to compute this?
+> What will happen if we precompute $$R^{-1}$$ to compute $$T\cdot R^{-1}$$?
 
 We need to find $$m$$ such that  $$T+m⋅n≡0 \mod R$$
 
@@ -69,23 +69,79 @@ $$
 To calculate $$m$$ efficiently, we use a precomputed value $$n'=−n^{−1} \mod R$$. This $$n'$$ exists because $$\mathsf{gcd}(n,R)=1$$. Now, we have $$m\coloneqq T\cdot n'\mod R$$ and $$\mathsf{REDC}$$ can be defined as:
 
 $$
-\mathsf{REDC}(T)=(T+m⋅n)\gg k  \mod n
+\mathsf{REDC}(T)=(T+m⋅n)\gg w  \mod n
 $$
 
 And we have:
 
-* $$T<n\cdot R$$ so $$(T\gg k)=T/R< n$$
-* $$m < R$$ so $$(m\cdot n \gg k) = n\cdot m / R< n$$&#x20;
+$$
+\begin{align*}
+0<T&<n\cdot R &\Rightarrow 0&<(T\gg w)=\frac{T}{R}&<n \\
+0<m&< R &\Rightarrow 0&<(m\cdot n \gg w)=n\cdot \frac{m}{R}&<n \\
+\\&&0&<((T+m\cdot n)\gg w)&<2n
+\end{align*}
+$$
 
-Hence, $$((T+m\cdot n)\gg k) < 2n$$ so we just need to subtract $$n$$ once if $$((T+m\cdot n)\gg k)\geq n$$ to take the modulus.
+This means we just need to subtract $$n$$ once if $$((T+m\cdot n)\gg w)\geq n$$ to get the remainder$$\mod n$$.
 
 #### **Overview of `REDC(T)`:**
 
 Given  $$T < n\cdot R$$, and precomputed $$n' \coloneqq −n^{−1} \mod R$$.
 
-1. Calculate $$m=(T⋅n') \mod R=\mathsf{lowbits}_k(\mathsf{lowbits}_k(T)\cdot n')$$. (Effectively: multiply the lowest $$k$$ bits of $$T$$ by $$n'$$, take the lowest $$k$$ bits of the product).
-2. Compute $$x=(T+m⋅n)/R$$. (Involves one multiplication $$m\cdot n$$, one addition, and one right shift by $$k$$).
+1. Calculate $$m=(T⋅n') \mod R=\mathsf{lowbits}_w(\mathsf{lowbits}_w(T)\cdot n')$$. Essentially, a $$w$$-bit non extended multiplication.
+2. Compute $$x=\frac{(T+m\cdot n)}{R}$$. (Involves one extended multiplication $$m\cdot n$$, 3 limb additions, and one right shift by $$w$$).
 3. Return $$x−n$$ if $$x\geq n$$, otherwise return $$x$$.
+
+#### Subtraction Variant `REDC'(T)`
+
+This is a clever optimization to avoid a carry check when adding  $$T+m\cdot n$$ together. Remember that the range of allowed  $$T$$ is $$[0,nR)$$ and typically stored in 2 limbs $$(T_{low}, T_{high})$$. This is also the same for $$m\cdot n$$; let's denote it as $$(mn_{low},mn_{high})$$. Then, $$x=\frac{(T+mn)}{R}$$ is calculated as following:
+
+1. Sum the low limbs.  $$sum_{low}=T_{low} + mn_{low}$$.
+2. Sum the high limbs. $$sum_{high}=T_{high} + mn_{high}$$.
+3. Add 1 to $$sum_{high}$$ if there was a carry in the low sum.
+4. Set  $$x=(sum_{low} + (sum_{high} \ll w)) \gg w$$ (which is simply $$x=sum_{high}$$)
+
+The sum of low limbs is actually guaranteed to be 0 since $$T+m\cdot n \equiv 0 \mod R$$. But we still need to calculate the sum of low limbs to check if it has a carry or not. Notice that, either the sum can be $$0$$ or $$2^{w}$$ for it to have $$w$$ zero bits.
+
+What if it was subtraction instead? Suppose we use another $$m_{neg}$$ to make $$T-m_{neg}\cdot n \equiv 0 \mod R$$. In this case, the $$x=\frac{(T-m_{neg}n)}{R}$$ will be calculated as follows:
+
+1. Subtract the low limbs. $$sub_{low}=T_{low} - m_{neg}n_{low}$$
+2. Subtract the high limbs. $$sub_{high}=T_{high} - m_{neg}n_{high}$$
+3. Subtract 1 from the $$sub_{high}$$ if there was an underflow in the low subtraction.
+4. Set  $$x=(sub_{low} + (sub_{high} \ll w)) \gg w$$ (which is simply $$x=sub_{high}$$).
+
+Again, the low subtraction should have $$w$$ trailing zero bits, so it can be only 0 because $$-2^{w}$$ is actually impossible. This is due to the simple fact that both operands are $$w$$-bit integer which are in the range $$[0, 2^w)$$. Hence, the subtraction will never underflow. With this observation, the calculation is simplified to:
+
+1. Subtract the high limbs. $$sub_{high}=T_{high} - m_{neg}n_{high}$$
+2. Set $$x=(sub_{low} + (sub_{high} \ll w)) \gg w$$ (which is simply $$x=sub_{high}$$)
+
+This effectively replaces 3 addition operations with 1 subtraction and such $$m'$$ can be easily calculated as:
+
+$$
+m_{neg}=T\cdot (n^{-1} \mod R) \mod R
+$$
+
+Thus, in this scheme, our precomputed value would be $$n^{-1} \mod R$$. Also, the range can be calculated as follows:
+
+$$
+\begin{align*}
+0\leq T&<n\cdot R &\Rightarrow 0&\leq(T\gg w)=\frac{T}{R}&<n \\
+0\leq m_{neg}&< R &\Rightarrow 0&\leq(m_{neg}\cdot n \gg w)=n\cdot \frac{m}{R}&<n \\
+\\&&-n&<((T-m_{neg}\cdot n)\gg w)&<n
+\end{align*}
+$$
+
+**Overview of `REDC'(T)`:**
+
+Given  $$T < n\cdot R$$, and precomputed $$n_{inv} \coloneqq n^{−1} \mod R$$.
+
+1. Calculate $$m=(T⋅n_{inv}) \mod R=\mathsf{lowbits}_w(\mathsf{lowbits}_w(T)\cdot n_{inv})$$. Essentially, a $$w$$-bit non extended multiplication.
+2. Compute $$x=(T-m⋅n)/R$$. (Involves one extended multiplication $$m\cdot n$$, 1 limb subtraction, and one right shift by $$k$$).
+3. Return $$x+n$$ if $$x< 0$$, otherwise return $$x$$.
+
+{% hint style="warning" %}
+Subtraction variant can be only applied to single precision case where $$n < R$$. Otherwise, $$T_{low}$$ is actually multi-precision and $$T_{low} - mn_{low}$$ is non-zero and only the last limb will be zero.
+{% endhint %}
 
 ### Summary of Montgomery Reduction
 
