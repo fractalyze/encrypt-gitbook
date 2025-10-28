@@ -119,4 +119,5 @@
 
 * [zkDSL](zkdsl/README.md)
   * [Cairo](zkdsl/cairo.md)
+  * [Cairo M](zkdsl/cairo-m.md)
 * [zkVM](zkvm.md)
