@@ -84,6 +84,7 @@
 * [Lookup](zk/lookup/README.md)
   * [Lasso](zk/lookup/lasso.md)
   * [LogUp-GKR](zk/lookup/logup-gkr.md)
+  * [LogUp\*](zk/lookup/logup.md)
 * [SNARK](zk/snark/README.md)
   * [Groth16](zk/snark/groth16.md)
   * [HyperPlonk](zk/snark/hyperplonk.md)
