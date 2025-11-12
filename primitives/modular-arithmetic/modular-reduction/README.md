@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/2vC5fDOdYck'
----
-
 # Modular Reduction
 
 ## Introduction

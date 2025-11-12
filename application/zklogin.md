@@ -50,7 +50,7 @@ payload = {
     "iat": int(time.time()),
     "exp": int(time.time()) + 3600,  
     "name": "Ryan Kim",
-    "email": "ryan@a41.io",
+    "email": "ryan@fractalyze.io",
     "nonce": "random_nonce_value"  
 }
 

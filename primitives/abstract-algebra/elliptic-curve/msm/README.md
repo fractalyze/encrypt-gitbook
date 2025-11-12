@@ -25,4 +25,4 @@ In terms of elliptic curve operations, we use MSM to calculate the **sum of poin
 
 I also recommend reading [section 1.1](https://tches.iacr.org/plugins/generic/pdfJsViewer/pdf.js/web/viewer.html?file=https%3A%2F%2Ftches.iacr.org%2Findex.php%2FTCHES%2Farticle%2Fdownload%2F10287%2F9736%2F9159#subsection.1.1) of the paper [Speeding Up Multi-Scalar Multiplication over Fixed Points Towards Efficient zkSNARKs](https://tches.iacr.org/index.php/TCHES/article/view/10287/9736). This section provides a very solid overview on lines of research for MSM optimization as of 2023.
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of A41
+> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze
