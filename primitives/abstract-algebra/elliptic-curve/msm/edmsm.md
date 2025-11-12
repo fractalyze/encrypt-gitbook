@@ -184,4 +184,4 @@ The implementation of EdMSM shows that an MSM instance of size $$2^{16}$$ on the
 * [EdMSM: Multi-Scalar-Multiplication for SNARKs and Faster Montgomery multiplication](https://eprint.iacr.org/2022/1400.pdf)
 * [https://www.hyperelliptic.org/EFD/g1p/auto-shortw-xyzz.html](https://www.hyperelliptic.org/EFD/g1p/auto-shortw-xyzz.html)
 
-> Written by [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention") from [A41](https://www.a41.io/)
+> Written by [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention") of Fractalyze

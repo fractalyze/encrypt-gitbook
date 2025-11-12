@@ -77,4 +77,4 @@ NOTE: The actual accumulator polynomial is defined as $$p(x)=p(x-1)\times(v_1 + 
 
 * [Understanding PLONK by Vitalik Buterin](https://vitalik.eth.limo/general/2019/09/22/plonk.html)
 
-> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from [A41](https://www.a41.io/)
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention") of Fractalyze

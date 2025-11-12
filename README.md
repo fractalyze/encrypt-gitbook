@@ -1,6 +1,6 @@
 # About Us
 
-Welcome! This GitBook is maintained by a group of volunteers who are passionate about expanding knowledge in the fields of ZK, MPC, TEE, FHE, PQC and more. We are sponsored by [A41](https://www.a41.io) and welcome contributions from anyone interested in helping us learn and grow together.
+Welcome! This GitBook is maintained by a group of volunteers who are passionate about expanding knowledge in the fields of ZK, MPC, TEE, FHE, PQC and more. We are sponsored by [Fractalyze](https://github.com/fractalyze) and welcome contributions from anyone interested in helping us learn and grow together.
 
 ## Community Roles
 
@@ -13,4 +13,4 @@ Welcome! This GitBook is maintained by a group of volunteers who are passionate 
 
 ## **Contact Us**
 
-If you have any questions or would like to get involved, please reach out to us at zk@a41.io.
+If you have any questions or would like to get involved, please reach out to us at ryan@fractalyze.io.

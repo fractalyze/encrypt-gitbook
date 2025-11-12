@@ -251,4 +251,4 @@ In a 64-bit SNARK:
   * **Verifier time**: Slower with a small number of variables but faster with a large number of variables.
   * **Proof size**: Larger
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

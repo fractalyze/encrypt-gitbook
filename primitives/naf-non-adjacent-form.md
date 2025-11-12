@@ -31,8 +31,9 @@ $$
 \end{array}
 $$
 
-## References
+## &#x20;
 
 * [https://hackmd.io/HkVWGwsRTM2HeBL1VN0lAw](https://hackmd.io/HkVWGwsRTM2HeBL1VN0lAw)
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/Z4DJjtMFfLVXwMaSBRDBJRWVDV12 "mention") of A41
+> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze
+

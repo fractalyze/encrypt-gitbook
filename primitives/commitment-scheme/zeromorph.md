@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://www.youtube.com/watch?v=vFuqRHEjv5k'
----
-
 # Zeromorph
 
 ## Introduction
@@ -700,4 +696,4 @@ Additionally, an important point is that for hiding, only $$\log N + 5$$ element
 * [https://eprint.iacr.org/2023/917](https://eprint.iacr.org/2023/917)
 * [https://www.youtube.com/watch?v=W950pkm3IL0](https://www.youtube.com/watch?v=W950pkm3IL0)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

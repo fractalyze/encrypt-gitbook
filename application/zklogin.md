@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://www.youtube.com/watch?v=vVMS1HbDoEM'
----
-
 # zkLogin
 
 ## Introduction
@@ -455,4 +451,5 @@ Despite these limitations, **zkLogin represents a meaningful step toward improvi
 * [https://arxiv.org/abs/2401.11735](https://arxiv.org/abs/2401.11735)
 * [https://github.com/aptos-foundation/AIPs/blob/main/aips/aip-61.md#the-keyless-zk-relation-mathcalr](https://github.com/aptos-foundation/AIPs/blob/main/aips/aip-61.md#the-keyless-zk-relation-mathcalr)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze
+

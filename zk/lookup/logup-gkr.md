@@ -315,4 +315,4 @@ When using LogUp-GKR, if there are $$n$$ input polynomials referencing $$S(X)$$,
 
 We have reviewed the evolution from Halo2 Lookup to LogUp-GKR. Initially, the process started with univariate polynomials, but from LogUp onward, multivariate polynomials were used. As the protocol evolved, the number of committed polynomials decreased, leading to improved performance, as illustrated in the examples above.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

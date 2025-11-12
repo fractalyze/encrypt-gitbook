@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://www.youtube.com/watch?v=yc7sEg1QikU'
----
-
 # SHPlonk
 
 ## Introduction
@@ -384,4 +380,4 @@ SHPlonk offers a more efficient proof system, balancing prover and verifier cost
 
 * [https://eprint.iacr.org/2020/081.pdf](https://eprint.iacr.org/2020/081.pdf)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

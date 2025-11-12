@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/wNogfbvrX-s'
----
-
 # Modular Square Root
 
 ## Introduction
@@ -98,4 +94,4 @@ Note that, unlike the Legendre symbol, the Jacobi symbol **does not** determine 
 
 The diagram above is taken from [https://eprint.iacr.org/2012/685.pdf](https://eprint.iacr.org/2012/685.pdf) and illustrates how different square root algorithms can be selected based on the modulus and the degree of the extension field. In the following subsections, we introduce several of these algorithms in more detail.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

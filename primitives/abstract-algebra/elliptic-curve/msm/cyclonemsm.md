@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/djA3mzn7BPg'
----
-
 # CycloneMSM
 
 ## Introduction
@@ -308,4 +304,4 @@ In summary, CycloneMSM is more than just a hardware implementation—it is a **d
 * [https://www.youtube.com/watch?v=aZ3CzKZBK38](https://www.youtube.com/watch?v=aZ3CzKZBK38)
 * [https://eprint.iacr.org/2022/1396.pdf](https://eprint.iacr.org/2022/1396.pdf)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

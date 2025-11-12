@@ -153,4 +153,4 @@ The FRI Protocol stands as a valuable IOPP protocol to reduce the number of quer
 * [**RedShift: Transparent SNARKs from List Polynomial Commitments**](https://eprint.iacr.org/2019/1400.pdf) by Matter Labs — Section 8 and Section F provide an in-depth view of added security features and optimizations
 * [**A summary on the FRI low degree test**](https://eprint.iacr.org/2022/1216.pdf) by Polygon Labs — An extensive view into Two Adic FRI
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze

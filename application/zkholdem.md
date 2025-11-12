@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://www.youtube.com/watch?v=vQ5-Sn2dHFE'
----
-
 # zkHoldem
 
 ## Introduction
@@ -330,4 +326,4 @@ These challenges highlight key areas for improvement in real-world applications.
 * [https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-1](https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-1)
 * [https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-2](https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-2)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

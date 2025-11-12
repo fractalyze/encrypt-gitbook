@@ -308,6 +308,6 @@ The image above is captured from the **Binius** paper. The first row, **Hyrax**,
 
 The image above is captured from the **Binius** paper. It turns out Binius is almost 2 times faster to commit, around 2\~3 times faster to prove, and around 5\~6 times faster to verify.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze
 
 [^1]: ?

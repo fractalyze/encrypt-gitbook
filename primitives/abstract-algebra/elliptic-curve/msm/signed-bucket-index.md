@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/4bhCdM7B-Mk'
----
-
 # Signed Bucket Index
 
 > AKA "[NAF (non-adjacent form)](../../../naf-non-adjacent-form.md) method"
@@ -300,4 +296,4 @@ void AddBasesToBuckets(uint32_t s, const std::vector&#x3C;Point> bases,
 
 * [https://hackmd.io/jNXoVmBaSSmE1Z9zgvRW\_w](https://hackmd.io/jNXoVmBaSSmE1Z9zgvRW_w)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") & [Ashley Jeong](https://app.gitbook.com/u/Z4DJjtMFfLVXwMaSBRDBJRWVDV12 "mention") of A41
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") & [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze

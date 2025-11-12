@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/OTCxQ9qIzDY'
----
-
 # GKR
 
 ## Overview

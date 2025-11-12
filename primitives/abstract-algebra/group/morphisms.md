@@ -1,4 +1,4 @@
-# Group Theory
+# -Morphisms
 
 ## **Homomorphism**: A **structure preserving map** between 2 objects.
 
@@ -23,4 +23,4 @@
 
 * e.g., the example above is also an example of automorphism. TODO: Find a better example.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

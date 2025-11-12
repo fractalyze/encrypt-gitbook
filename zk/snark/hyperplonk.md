@@ -457,4 +457,4 @@ The figure above is a capture from the presentation by **Benedikt Bünz** at **Z
 
 Graph b above and the video screenshot both support this observation. While not covered, HyperPlonk has also contributed to the optimization of multivariate polynomial commitments, as seen in systems like Orion+. Despite these significant contributions, the Conclusions and Open Problems section of the paper highlights several areas for future work, introducing ideas for continued improvements and research.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

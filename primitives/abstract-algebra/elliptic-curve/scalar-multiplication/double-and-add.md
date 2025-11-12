@@ -53,4 +53,4 @@ result += powerOfP            // 1 add    : result = 6p
 = 2 adds + 2 doubles
 ```
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/Z4DJjtMFfLVXwMaSBRDBJRWVDV12 "mention") of A41
+> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze

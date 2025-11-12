@@ -93,4 +93,4 @@ Refer to [Hyperelliptic for XYZZ points](https://www.hyperelliptic.org/EFD/g1p/a
 * [https://hackmd.io/@cailynyongyong/HkuoMtz6o#Projective-Coordinates-in-Elliptic-Curves](https://hackmd.io/@cailynyongyong/HkuoMtz6o#Projective-Coordinates-in-Elliptic-Curves)
 * [https://www.hyperelliptic.org/EFD/g1p/auto-shortw.html](https://www.hyperelliptic.org/EFD/g1p/auto-shortw.html)
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/Z4DJjtMFfLVXwMaSBRDBJRWVDV12 "mention") of A41
+> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze

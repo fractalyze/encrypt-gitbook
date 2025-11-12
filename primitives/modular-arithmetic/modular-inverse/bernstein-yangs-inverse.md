@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/t0_iII-nKNw'
----
-
 # Bernstein-Yang's Inverse
 
 ## Introduction
@@ -544,4 +540,4 @@ Ultimately, the `divstep`-based algorithm strikes an excellent balance between *
 * [https://eprint.iacr.org/2019/266](https://eprint.iacr.org/2019/266)
 * [https://github.com/bitcoin-core/secp256k1/blob/master/doc/safegcd\_implementation.md](https://github.com/bitcoin-core/secp256k1/blob/master/doc/safegcd_implementation.md)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

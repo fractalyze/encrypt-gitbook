@@ -23,4 +23,4 @@ $$
 
 The traditional encoding function used in RS-codes involves FFT operations. However, due to the limitations mentioned earlier, alternative encoding methods must be explored.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

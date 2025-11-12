@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/D8b4yi_URJE'
----
-
 # cuZK
 
 ## Introduction
@@ -595,4 +591,4 @@ Its core contributions are as follows:
 
 * [https://eprint.iacr.org/2022/1321](https://eprint.iacr.org/2022/1321)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

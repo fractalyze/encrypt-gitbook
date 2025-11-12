@@ -89,4 +89,4 @@ These features make Edwards curves a popular choice in cryptographic systems suc
 
 * [Daniel J. Bernstein et al., "Twisted Edwards Curves"](https://eprint.iacr.org/2008/013)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

@@ -44,4 +44,4 @@ $$
 \prod_{i=0}^{n-1}(X - a_i) \stackrel{?}= \prod_{i=0}^{n-1}(X - b_i)
 $$
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

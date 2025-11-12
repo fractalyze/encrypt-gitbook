@@ -184,4 +184,4 @@ $$
 
 Once this happens, the invariant $$x^2 = a \cdot b$$ gives $$x^2 = a$$, completing the algorithm.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)&#x20;
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

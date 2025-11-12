@@ -418,4 +418,4 @@ The verifier performs $$O(k \cdot \log m)$$ field operations. The costs of the m
 * [https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf](https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf)&#x20;
 * [https://eprint.iacr.org/2019/550.pdf](https://eprint.iacr.org/2019/550.pdf)&#x20;
 
-> Written by [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention")
+> Written by [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention") of Fractalyze

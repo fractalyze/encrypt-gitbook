@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/eEU1v1ZPHe0'
----
-
 # Modular Inverse
 
 ## Modular Inverse

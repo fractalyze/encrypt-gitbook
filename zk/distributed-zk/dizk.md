@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/jbWOxNntmPQ'
----
-
 # DIZK
 
 ## Introduction
@@ -236,4 +232,4 @@ DIZK shows that zkSNARKs, which were traditionally constrained by memory and com
 * [https://eprint.iacr.org/2018/691](https://eprint.iacr.org/2018/691)
 * [https://www.youtube.com/watch?v=dJn6bb\_gjoA](https://www.youtube.com/watch?v=dJn6bb_gjoA)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

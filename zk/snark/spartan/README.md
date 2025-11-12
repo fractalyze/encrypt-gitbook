@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://www.youtube.com/watch?v=adsGo7DvkJ8'
----
-
 # Spartan
 
 ## Introduction
@@ -261,4 +257,4 @@ According to the table below, which is taken from the paper,  among the proof-su
 
 * #### [Spartan: Efficient and general-purpose zkSNARKs without trusted setup](https://eprint.iacr.org/2019/550)
 
-> Written by [BATZORIG ZORIGOO](https://app.gitbook.com/u/lqk5Tx9zY4XYVRfF3ReRDiOhbxG3 "mention") from [A41](https://www.a41.io/)
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention") of Fractalyze

@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://www.youtube.com/watch?v=dDsAroTRaFI'
----
-
 # Nova
 
 ## Problem Statement
@@ -174,4 +170,4 @@ In proof-of-concept benchmarks, Nova was shown to be 4x faster at proving 10000 
 * [Revisiting the Nova Proof System - Wilson Nguyen](https://www.youtube.com/watch?v=h_PU7FZWiQk)
 * [Revisiting the Nova Proof System on a Cycle of Curves - Wilson Nguyen](https://www.youtube.com/watch?v=l-F5ykQQ4qw)
 
-> Written by [BATZORIG ZORIGOO](https://app.gitbook.com/u/lqk5Tx9zY4XYVRfF3ReRDiOhbxG3 "mention") from [A41](https://www.a41.io/)
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention") of Fractalyze

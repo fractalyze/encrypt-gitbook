@@ -78,6 +78,6 @@ Suppose the modulus $$n$$ has bit width of $$w< \mathsf{word\_size}$$. Then, the
 2. Computing $$x\cdot m:$$ multiplication of bitwidth $$2w\times (k-w)\rightarrow w+k$$.
 3. Computing $$\hat{q}\cdot n:$$ multiplication of bitwidth $$w\times w\rightarrow 2w$$.
 
-TODO([BATZORIG ZORIGOO](https://app.gitbook.com/u/lqk5Tx9zY4XYVRfF3ReRDiOhbxG3 "mention")): add multi-precision case
+TODO([Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention")): add multi-precision case
 
-> Written by [BATZORIG ZORIGOO](https://app.gitbook.com/u/lqk5Tx9zY4XYVRfF3ReRDiOhbxG3 "mention") from [A41](https://www.a41.io/)
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention") of Fractalyze

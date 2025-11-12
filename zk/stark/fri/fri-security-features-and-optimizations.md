@@ -76,4 +76,4 @@ The commitments outlined in the previous section are evaluations on a coset doma
 
 Besides these differences along with the introduction of other features aforementioned such as the proof of work witness and bit reversal storage, Two Adic FRI runs an almost identical folding process to naive FRI.
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/wyEMbFN1Kybygv7v1pKpc2P8q6D2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze

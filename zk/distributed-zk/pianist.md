@@ -549,4 +549,4 @@ As shown above, **the memory usage per machine decreases significantly as the nu
 
 * [https://eprint.iacr.org/2023/1271](https://eprint.iacr.org/2023/1271)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from A41
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

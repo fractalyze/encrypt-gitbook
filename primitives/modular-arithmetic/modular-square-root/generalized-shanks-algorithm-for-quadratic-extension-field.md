@@ -125,4 +125,4 @@ $$
 
 This elegant formula generalizes the classic Shanks algorithm from $$\mathbb{F}_p$$ to quadratic extensions $$\mathbb{F}_{p^2}$$, and avoids iterative procedures entirely.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

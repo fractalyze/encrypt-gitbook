@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://www.youtube.com/watch?v=E5oLEqbx6F4'
----
-
 # Fflonk
 
 ## Introduction
@@ -139,7 +135,7 @@ Here, $$\mathbb{G}_i$$ represents scalar multiplication in $$\mathbb{G}_i$$​, 
 
 **Fflonk** further optimizes batch opening protocols using a **trick inspired by FFT**, (that's why the name starts with ff, which denotes "fast fourier") reducing verifier work while maintaining prover efficiency and proof size. This makes it particularly well-suited for large-scale applications where minimizing verifier overhead is critical. In [https://ethresear.ch/t/on-the-gas-efficiency-of-the-whir-polynomial-commitment-scheme/21301](https://ethresear.ch/t/on-the-gas-efficiency-of-the-whir-polynomial-commitment-scheme/21301), it says verifying **groth16** and **fflonk** proofs costs are almost identical.
 
-TODO(chokobole): compare the prover performance between groth16 and fflonk.
+TODO([Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") ): compare the prover performance between groth16 and fflonk.
 
 ## References
 

@@ -79,6 +79,6 @@ The figure above illustrates the differences in argument size, verifier hash com
 
 In conclusion, these four techniques collectively reduce the rate, enabling a reduction in the number of queries. This approach is referred to as "Shift," resulting in the protocol name of STIR (Shift To Improve Rate). Recently, the same authors of the STIR paper presented a new technique called [WHIR](https://eprint.iacr.org/2024/1586.pdf), which was introduced at zkSummit 12, so interested readers may consider watching the presentation. I’ve skipped the explanation of how STIR achieves $$O(\log d + \lambda \log \log d)$$. For those interested in the details, please refer to sections C.1 and C.2 of the paper.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze
 >
 > Reviewed by [Giacomo Fenzi](https://gfenzi.io/) from [EPFL](https://www.epfl.ch/)&#x20;

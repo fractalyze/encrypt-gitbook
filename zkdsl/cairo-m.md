@@ -449,6 +449,6 @@ That is, the future of zkVMs will not be defined by _which instructions they sup
 
 * [https://github.com/kkrt-labs/cairo-m/blob/5a0a9609714f84352a649ee5b12b402f803e7802/docs/design.pdf](https://github.com/kkrt-labs/cairo-m/blob/5a0a9609714f84352a649ee5b12b402f803e7802/docs/design.pdf)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze
 
 [^1]: Range?

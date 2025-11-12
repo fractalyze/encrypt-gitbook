@@ -58,4 +58,4 @@ This means $$a$$ is also divisible by $$m$$, implying $$a$$ and $$b$$ share a co
 
 Proving the reverse is trivial, so we don't prove it here.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

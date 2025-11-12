@@ -403,6 +403,6 @@ Using the newly proposed Novel Polynomial Basis, the Additive NTT achieves $$O(n
 
 Additionally, it is well-known that polynomial multiplication can be optimized using FFT. Similarly, by leveraging the Novel Polynomial Basis, multiplication in characteristic-2 finite fields can also be optimized.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze
 
 [^1]: n

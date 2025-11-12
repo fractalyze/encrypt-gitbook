@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://www.youtube.com/watch?v=cTBqiwAx5jA'
----
-
 # DECO
 
 ## Introduction
@@ -500,4 +496,4 @@ Its core contributions are as follows:
 * [https://blog.chain.link/deco-parsing-the-response/](https://blog.chain.link/deco-parsing-the-response/)
 * [https://blog.chain.link/hiding-secret-lengths/](https://blog.chain.link/hiding-secret-lengths/)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

@@ -276,4 +276,4 @@ $$
 * [https://hackmd.io/lNOsNGikQgO0hLjYvH6HJA](https://hackmd.io/lNOsNGikQgO0hLjYvH6HJA)
 * [https://eprint.iacr.org/2022/1321.pdf](https://eprint.iacr.org/2022/1321.pdf)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") &[Ashley Jeong](https://app.gitbook.com/u/Z4DJjtMFfLVXwMaSBRDBJRWVDV12 "mention") of A41
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") & [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze

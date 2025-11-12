@@ -47,4 +47,4 @@ Refer to the [Computational Complexity Section](../group/batch-inverse.md#comput
 * [https://hackmd.io/1mpavmFmQNWrahBi8mHBjQ](https://hackmd.io/1mpavmFmQNWrahBi8mHBjQ)
 * [https://hackmd.io/@tazAymRSQCGXTUKkbh1BAg/Sk27liTW9#Optimization-1-Batch-Affine-for-Point-Addition](https://hackmd.io/@tazAymRSQCGXTUKkbh1BAg/Sk27liTW9#Optimization-1-Batch-Affine-for-Point-Addition)
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/Z4DJjtMFfLVXwMaSBRDBJRWVDV12 "mention") of [A41](https://www.a41.io/)
+> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze

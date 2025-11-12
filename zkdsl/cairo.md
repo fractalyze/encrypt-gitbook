@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/zNWatOe9Hmo'
----
-
 # Cairo
 
 ## Introduction
@@ -574,6 +570,4 @@ This shift from _“program-specific circuits”_ to _“program-verifying machi
 
 * [https://eprint.iacr.org/2021/1063](https://eprint.iacr.org/2021/1063)
 
-
-
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

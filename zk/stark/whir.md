@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/JdHqAIMihxg'
----
-
 # WHIR
 
 ## Introduction
@@ -204,4 +200,4 @@ The benchmarking results, as derived from the table above, show a similar trend.
 
 * [https://gfenzi.io/papers/whir/](https://gfenzi.io/papers/whir/)
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

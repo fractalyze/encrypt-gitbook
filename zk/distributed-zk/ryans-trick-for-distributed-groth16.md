@@ -313,4 +313,4 @@ If everything is computed on a single device, and intermediate memory is release
 
 However, with the proposed scheme using **4 GPUs**, this memory requirement is reduced to $$32 + 128 = 160$$ MB. The **Full FFT**, including twiddle factors, requires an additional $$256$$ MB. Therefore, under this setup, **the total memory required per device is approximately** $$256$$ MB.
 
-> Written by [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") from [A41](https://www.a41.io/)
+> Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

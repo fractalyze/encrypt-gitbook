@@ -32,4 +32,4 @@ A 2-cycle is a 2-chain where **both curves are inner and outer curves with respe
 
 * [https://eprint.iacr.org/2022/1400.pdf#page=6](https://eprint.iacr.org/2022/1400.pdf#page=6)
 
-> Written by [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention") from [A41](https://www.a41.io/)
+> Written by [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention") of Fractalyze

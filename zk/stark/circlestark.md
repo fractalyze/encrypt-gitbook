@@ -327,4 +327,4 @@ The initial implementation of CircleFFT demonstrated a performance improvement b
 
 <figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption><p>Figure 7. Initial benchmark result of CFFT</p></figcaption></figure>
 
-> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from [A41](https://www.a41.io/)
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention") of Fractalyze

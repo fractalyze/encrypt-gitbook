@@ -471,4 +471,4 @@ Running a batch of 100 ($$< 2^7$$) degree 15 MSM can be approximated to be ident
 * [https://dev.ingonyama.com/api/cpp/msm](https://dev.ingonyama.com/api/cpp/msm)
 * [https://github.com/ingonyama-zk/icicle-snark](https://github.com/ingonyama-zk/icicle-snark)
 
-> Written by [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention")  &[Ashley Jeong](https://app.gitbook.com/u/Z4DJjtMFfLVXwMaSBRDBJRWVDV12 "mention") of A41
+> Written by [Carson Lee](https://app.gitbook.com/u/Hm5RHrPlu2fbxwXnpUgxmvXVTwB3 "mention")  & [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") of Fractalyze

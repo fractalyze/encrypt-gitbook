@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/jeHQtLduHN8'
----
-
 # Number Theoretic Transform
 
 ## Preliminaries
@@ -346,4 +342,4 @@ Figure 2 illustrates how this butterfly operation is denoted as a graph. This fi
 * [Conceptual Review on Number Theoretic&#x20;  Transform and Comprehensive  &#x20;Review on Its Implementations](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=10177902) by A. Satriawan et al (2023)
 * [Lifting a butterfly – A component-based FFT](https://www.researchgate.net/publication/220060688_Lifting_a_butterfly_-_A_component-based_FFT) by Sibylle Schupp (2003)
 
-> Written by [BATZORIG ZORIGOO](https://app.gitbook.com/u/lqk5Tx9zY4XYVRfF3ReRDiOhbxG3 "mention") of [A41](https://www.a41.io/)
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention") of Fractalyze

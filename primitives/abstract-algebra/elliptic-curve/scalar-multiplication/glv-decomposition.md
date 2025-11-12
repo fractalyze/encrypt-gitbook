@@ -106,4 +106,4 @@ GLV is essential for optimization of [Multi-scalar multiplication (MSM)](../msm/
 * [https://hackmd.io/@drouyang/glv#GLV-Decomposition-for-Multi-Scalar-Multiplication-MSM](https://hackmd.io/@drouyang/glv#GLV-Decomposition-for-Multi-Scalar-Multiplication-MSM)
 * [https://www.iacr.org/archive/crypto2001/21390189.pdf](https://www.iacr.org/archive/crypto2001/21390189.pdf)
 
-> Written by [Ashley Jeong](https://app.gitbook.com/u/Z4DJjtMFfLVXwMaSBRDBJRWVDV12 "mention") and [ryan Kim](https://app.gitbook.com/u/FEVExqcoLKVoL5siVqLSKP5TO5V2 "mention") of A41
+> Written by [Ashley Jeong](https://app.gitbook.com/u/PNJ4Qqiz7kSxSs58UIaauk95AO43 "mention") and [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze
