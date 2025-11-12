@@ -8,7 +8,7 @@ description: 'Presentation: https://www.youtube.com/watch?v=cTBqiwAx5jA'
 
 Thanks to TLS, users can access their private data securely with guarantees of end-to-end confidentiality and integrity. However, in the traditional TLS model, it is **impossible to prove this data to a third party without relying on trust assumptions**. In other words, a user’s private data remains **trapped at its origin**, with no cryptographically verifiable way to share or prove it externally.
 
-<figure><img src="../../.gitbook/assets/image (2) (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
 
 **DECO** (**DEC**entralized **O**racle) is a protocol proposed by researchers at Cornell in 2019 that addresses this problem. It enables **privacy-preserving and selective disclosure** of data transmitted over TLS, allowing users to prove facts about their data to third parties **without revealing the underlying content**.
 
@@ -40,7 +40,7 @@ Thus, both parties derive the same shared key without revealing their private in
 
 ### MAC-then-Encrypt
 
-<figure><img src="../../.gitbook/assets/image (3) (4).png" alt=""><figcaption><p>Source: <a href="https://en.wikipedia.org/wiki/Authenticated_encryption#MAC-then-Encrypt_(MtE)">https://en.wikipedia.org/wiki/Authenticated_encryption#MAC-then-Encrypt_(MtE)</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (122).png" alt=""><figcaption><p>Source: <a href="https://en.wikipedia.org/wiki/Authenticated_encryption#MAC-then-Encrypt_(MtE)">https://en.wikipedia.org/wiki/Authenticated_encryption#MAC-then-Encrypt_(MtE)</a></p></figcaption></figure>
 
 **MAC-then-Encrypt** is the authenticated encryption approach used in **TLS 1.2 and earlier**. It ensures both **confidentiality** and **integrity** by:
 
@@ -188,7 +188,7 @@ Here, we use the notation from [the circuit overview](broken-reference).
 * $$q$$ is the [jq](https://jqlang.org/) query: `.accounts[] | select(.account_id == 2) | .balance`
 * $$\mathsf{jq.exec}(m, q)$$ denotes applying the jq query $$q$$ to message $$m$$
 
-<figure><img src="../../.gitbook/assets/image (91) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
 
 #### ❗ Problem
 

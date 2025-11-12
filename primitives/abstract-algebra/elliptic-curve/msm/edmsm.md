@@ -156,9 +156,9 @@ Over the short Weierstrass (SW) form, we commonly choose extended Jacobian coord
 
 However, it appears that a twisted Edwards (tEd) form is appealing for the bucket method since it has the lowest cost for the mixed addition in extended coordinates. Furthermore, the arithmetic on this form is **complete**, i.e. it eliminates the need of branching in case of adding or doubling compared to a SW form. **We showed in Lemma 2 that all inner BLS curves admit a tEd form.**
 
-<figure><img src="../../../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 Dedicated addition can be applied only when whether the operands in the addition is the same (doubling) or not (addition) is precisely known in advance.&#x20;
 
@@ -174,7 +174,7 @@ The conversion of all the $$P_i$$ points given on a SW curve with affine coordin
 
 The implementation of EdMSM shows that an MSM instance of size $$2^{16}$$ on the BLS12-377 curve is **30% faster** when $$P_i$$ points are given on a tEd curve with the custom coordinates compared to the extended-Jacobian-based version which takes points in affine coordinates on a SW curve.&#x20;
 
-<figure><img src="../../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
 
 ***
 

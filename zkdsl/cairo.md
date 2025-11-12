@@ -169,7 +169,7 @@ Cairo provides only **three address registers**, which serve as pointers:
 
 Cairo’s instructions operate according to the rules described in [**Section 4.5**](https://eprint.iacr.org/2021/1063.pdf#page=32\&zoom=100,150,500). An instruction occupies **one word** if it has no immediate value, and **two words** if it includes an immediate value.
 
-<figure><img src="../.gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
 
 To encode an instruction, the following constraint must hold: (I'll skip the definitions of each term)
 
@@ -425,7 +425,7 @@ In other words, as far as the Cairo execution model is concerned, **overlapping 
 
 Additionally, **function return values** are stored in memory at $$[\mathsf{ap} - 1], [\mathsf{ap} - 2], \dots$$, where $$\mathsf{ap}$$ is the value of the allocation pointer at the end of the function.
 
-<figure><img src="../.gitbook/assets/image (118).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
 
 The figure above illustrates the call stack for the following code:
 

@@ -23,7 +23,7 @@ In a high level view, the protocol iterates from the first layer (output layer) 
 
 Going through all the way down, the first claim is reduced to that of input values, which are known to $$\mathcal{V}$$ and thus can be checked by itself. Reduction in each iteration is done by the [sumcheck protocol](../../primitives/sumcheck.md).&#x20;
 
-<figure><img src="../../.gitbook/assets/image (108).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
 
 > When a circuit is in layered form, it means every leaf appears in the last layer (at depth $$d$$). For a circuit that is not layered, there is a transformation with a blowup in size of factor $$d$$.&#x20;
 
@@ -58,7 +58,7 @@ Functions with a tilde on top of the function name indicates the multilinear ext
 
 (TODO: Make polynomial extension page and set backlinks to it in pages [Spartan](spartan/), [Lasso](../lookup/lasso.md), etc.)
 
-<figure><img src="../../.gitbook/assets/image (109).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
 
 ### Lemma 1
 
@@ -72,7 +72,7 @@ $$
 
 Obviously both hands match at $$\{0,1\}^{k_i}$$. As both hands are multilinear in $$z$$ and a multlinear extension of such mapping is uniquely defined at domain $$\{0,1\}^{k_i}$$, both hands are identical.
 
-<figure><img src="../../.gitbook/assets/image (110).png" alt=""><figcaption><p>Circuit over <span class="math">\mathbb{F}_5</span> with only multiplication gates. </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (176).png" alt=""><figcaption><p>Circuit over <span class="math">\mathbb{F}_5</span> with only multiplication gates. </p></figcaption></figure>
 
 ### Protocol
 
@@ -90,7 +90,7 @@ Obviously both hands match at $$\{0,1\}^{k_i}$$. As both hands are multilinear i
       1. Note that $$q(r_{i+1}) = \widetilde{W}_{i+1}(r_{i+1})$$. The claim is successfully reduced to that of the next layer.&#x20;
 4. After the final round, $$\mathcal{V}$$ directly checks $$m_d = \widetilde{W}_d(r_d)$$. As $$\mathcal{V}$$ knows the input vector, it can evaluate $$\widetilde{W}_d$$ at any point with $$O(n)$$ time complexity where $$n = 2^{k_d}$$, i.e. the length of input.
 
-<figure><img src="../../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (177).png" alt=""><figcaption></figcaption></figure>
 
 For a more detailed explanation and analysis on costs and soundness, please refer to [Section 4.1 and 4.2 of the original paper](https://people.cs.georgetown.edu/jthaler/gkrnotes.pdf).
 
@@ -102,7 +102,7 @@ Similarly in $$\mathcal{V}$$'s cost analysis, the cost for evaluating $$\widetil
 
 When the circuit has the data parallelism property; that is, the same sub-computation is applied independently on different pieces of data and then possibly aggregated, the performance of GKR is greatly improved. Fortunately, data parallel computation is pervasive in real-world computing, including the use cases in ZK era such as [LogUp-GKR](../lookup/logup-gkr.md), [Lasso](../lookup/lasso.md), [Libra](https://eprint.iacr.org/2019/317.pdf) and [Ceno](https://eprint.iacr.org/2024/387.pdf).
 
-<figure><img src="../../.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
 
 Let $$\mathcal{C}$$ be a circuit of size $$S$$ with an arbitrary wiring pattern, and let $$\mathcal{C}'$$ be a "super-circuit" of size $$B \cdot S$$ that applies $$\mathcal{C}$$ independently to $$B = 2^b$$ input data before aggregating results. Labels of gates consists of two indices, one for the location in the layer and the other for which circuit among the copies to choose. For example, $$a = (a_1, a_2) \in \{0,1\}^{k_{i}} \times \{0,1\}^b$$.&#x20;
 
@@ -139,7 +139,7 @@ Note that as the same circuit structure is repeated, $$\widetilde{\mathsf{add}}_
 
 The protocol is the same as the single data version, except for that at layer $$i$$, the sumcheck protocol is applied to $$g_{r_i}^{(i)}$$ instead.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (179).png" alt=""><figcaption></figcaption></figure>
 
 Check [Section 5 of the paper](https://people.cs.georgetown.edu/jthaler/gkrnotes.pdf) for detailed cost analysis. &#x20;
 

@@ -65,7 +65,7 @@ $$
 
 This trick can also be applied when computing $$3P$$. Thus, $$3P + Q = ((P + Q) + P) + P$$ saves 2 multiplicaitons.
 
-<figure><img src="../../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ## Conclusion
 

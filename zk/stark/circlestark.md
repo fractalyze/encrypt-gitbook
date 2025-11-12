@@ -57,7 +57,7 @@ $$
 
 and group inverses are given by the degree-one map $$J(x, y) := (x, −y)$$
 
-<figure><img src="../../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>Figure 1. Blue points under the square operation (left) and inverse operation (right) result in red points.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Figure 1. Blue points under the square operation (left) and inverse operation (right) result in red points.</p></figcaption></figure>
 
 So you can think of $$\pi$$ as doubling the angle it forms with the $$x$$-axis and $$J$$ as a reflection by the $$x$$-axis.
 
@@ -65,7 +65,7 @@ So you can think of $$\pi$$ as doubling the angle it forms with the $$x$$-axis a
 
 First, Figure 2 shows how the subgroups would look like in the circle group.
 
-<figure><img src="../../.gitbook/assets/image (46).png" alt=""><figcaption><p>Figure 2. Subgroups of size 4, 2, 1 (left to right)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (66).png" alt=""><figcaption><p>Figure 2. Subgroups of size 4, 2, 1 (left to right)</p></figcaption></figure>
 
 Taking a coset of a subgroup means that each point in the subgroup will be rotated by the same amount.
 
@@ -77,11 +77,11 @@ $$
 J(D)=J(Q\cdot G_{n-1})\cup J(Q^{-1}\cdot G_{n-1})=Q^{-1}\cdot G_{n-1}\cup Q\cdot G_{n-1}
 $$
 
-<figure><img src="../../.gitbook/assets/image (47).png" alt=""><figcaption><p>Figure 3. Twin cosets of subgroups 4,2,1 (left to right). <span class="math">Q\cdot G_{n-1}</span> is blue and <span class="math">Q^{-1}\cdot G_{n-1}</span> is red. If we take the union, it is a twin coset.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (67).png" alt=""><figcaption><p>Figure 3. Twin cosets of subgroups 4,2,1 (left to right). <span class="math">Q\cdot G_{n-1}</span> is blue and <span class="math">Q^{-1}\cdot G_{n-1}</span> is red. If we take the union, it is a twin coset.</p></figcaption></figure>
 
 **Definition** In the exceptional case that a twin-coset $$D$$ of subgroup $$G_{n-1}$$ is again a coset of the subgroup $$G_n$$, we call $$D$$ a **standard position coset**. **Lemma 3** If $$D$$ is a twin-coset of size $$2^n, n\geq2$$ then its image $$\pi(D)$$ is a twin-coset of size $$2^{n-1}$$. In addition, if $$D$$ is a standard position coset, so is $$\pi(D)$$.
 
-<figure><img src="../../.gitbook/assets/image (49).png" alt=""><figcaption><p>Figure 4. Notice that they are twin-cosets of subgroup 4, 2, 1 (left to right), but are also a coset of subgroup size 8, 4, 2 respectively.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (69).png" alt=""><figcaption><p>Figure 4. Notice that they are twin-cosets of subgroup 4, 2, 1 (left to right), but are also a coset of subgroup size 8, 4, 2 respectively.</p></figcaption></figure>
 
 **Lemma 3 from the paper.** If $$D$$ is a twin-coset of size $$2^n, n\geq2$$  then its image $$\pi(D)$$ is a twin-coset of size $$2^{n-1}$$. In addition, if $$D$$ is a standard position coset, so is $$\pi(D)$$.
 
@@ -162,7 +162,7 @@ $$
 
 More intuitively, $$f_0$$ is taking the average of $$f$$ and $$f\circ J$$ while $$f_1$$ is the difference between them divided by $$2y$$.
 
-<figure><img src="../../.gitbook/assets/image (16) (1).png" alt=""><figcaption><p>Figure 5. Given the evaluations (left), the result of <span class="math">J</span>-folding is shown. Notice that <span class="math">f_0</span> and <span class="math">f_1</span> can be actually parametrized by only the x-axis.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption><p>Figure 5. Given the evaluations (left), the result of <span class="math">J</span>-folding is shown. Notice that <span class="math">f_0</span> and <span class="math">f_1</span> can be actually parametrized by only the x-axis.</p></figcaption></figure>
 
 ($$\pi$$-folding) Next step:
 
@@ -178,7 +178,7 @@ $$
 
 These make up a constant $$c_k = f_{k_0,...,k_{n−1}} \in F$$, for each $$k$$ in the interval $$0 \leq k \leq 2^{n} −1$$, where $$k = k_0 + k_1 2+. . .+k_{n−1}2^{n−1}$$.
 
-<figure><img src="../../.gitbook/assets/image (51).png" alt=""><figcaption><p>Figure 6. Result of <span class="math">\pi</span>-folding on <span class="math">f_0</span>. We do the same for <span class="math">f_1</span> to get <span class="math">f_{10}</span> and <span class="math">f_{11}</span></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (71).png" alt=""><figcaption><p>Figure 6. Result of <span class="math">\pi</span>-folding on <span class="math">f_0</span>. We do the same for <span class="math">f_1</span> to get <span class="math">f_{10}</span> and <span class="math">f_{11}</span></p></figcaption></figure>
 
 In Figure 6, $$f_0(x)$$ suddenly has only 4 points. This is because $$f_0(x)$$ actually has only 4 evaluation points $$(-A, -B, B, A)$$ and is only parametrized by $$x$$. It is visualized on a circle for easier group operation visualization. To elaborate:
 
@@ -325,6 +325,6 @@ $$
 
 The initial implementation of CircleFFT demonstrated a performance improvement by a factor of 1.4 in a single-threaded setup. Building on this foundation, Starknet’s next-generation prover, Stwo (“STARK Two”), is designed to enhance and eventually replace the current prover, Stone (“STARK One”).
 
-<figure><img src="../../.gitbook/assets/image (53).png" alt=""><figcaption><p>Figure 7. Initial benchmark result of CFFT</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption><p>Figure 7. Initial benchmark result of CFFT</p></figcaption></figure>
 
 > Written by [Batzorig Zorigoo](https://app.gitbook.com/u/qkmdeDQ0VghI3poGEvfJmiZECAg1 "mention") from [A41](https://www.a41.io/)

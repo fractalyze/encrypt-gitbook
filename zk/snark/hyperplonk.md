@@ -17,7 +17,7 @@ description: >-
 
 ### Why is FFT a bottleneck?
 
-<figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Source:<a href="https://math.stackexchange.com/questions/4441884/fft-stride-pattern-formula"> https://math.stackexchange.com/questions/4441884/fft-stride-pattern-formula</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (75).png" alt=""><figcaption><p>Source:<a href="https://math.stackexchange.com/questions/4441884/fft-stride-pattern-formula"> https://math.stackexchange.com/questions/4441884/fft-stride-pattern-formula</a></p></figcaption></figure>
 
 The diagram above illustrates the FFT process for a polynomial of size 8. First, as shown on the left side of the diagram, a[ bit reversal](https://en.wikipedia.org/wiki/Bit-reversal_permutation) operation is performed. Then, [butterfly](https://en.wikipedia.org/wiki/Butterfly_diagram) operations are executed at each stage. A bit reversal operation takes $$O(N)$$, and a butterfly operation also requires $$O(N)$$. Since the number of stages is $$\log N$$, the overall complexity is $$O(N \cdot \log N)$$. Furthermore, FFT is notoriously difficult to parallelize. This is because, as the stages progress, the memory locations required to compute the outputs for the next stage become increasingly scattered. If calculations must be performed on hardware like GPUs with limited memory, these constraints can be critical.
 
@@ -44,7 +44,7 @@ Modern SNARKs are built by combining Polynomial IOP with PCS, structured as foll
 
 Let's walk through a simple circuit as an example. The circuit above represents a Fibonacci sequence starting with $$(1, 1)$$. Each column in the circuit is interpreted as a univariate polynomial. Since Plonk implements **Univariate IOP + Univariate PCS**, the protocol proceeds as follows:
 
-<figure><img src="../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
 
 For simplicity, the **Wiring Check (Permutation Argument)** is omitted in this example, as the focus is on why FFT is used.
 

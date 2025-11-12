@@ -10,7 +10,7 @@ description: >-
 
 Demonstrating that all values in Set $$\bm{A}$$ belong to Set $$\bm{S}$$ is the core feature of Lookup. In ZK, this Lookup is used to prove that a value falls within a specific range or to reference a value proven in another circuit. [Since 2022, significant advancements have been made in Lookup techniques](https://ingonyama-zk.github.io/ingopedia/protocolsLookup.html). Recently, it has converged into implementing one of two approaches: LogUp-GKR or Lasso. At ProgCrypto 2023, as seen in [the video by Dohun Kim](https://www.youtube.com/watch?v=AyhU7j2nGGI) from the PSE team, the performance of the two methods is reported to be nearly identical. In this article, we aim to discuss how Halo2 Lookup evolved into LogUp-GKR, as observed in the video.
 
-<figure><img src="../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (74).png" alt=""><figcaption></figcaption></figure>
 
 ## Background
 

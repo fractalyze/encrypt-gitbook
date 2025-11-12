@@ -383,7 +383,7 @@ $$
 
 Since $$\Delta^m_i(\omega_c + \omega_l)$$ can be computed from the Part 1, the left-hand terms can be determined.
 
-<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 The diagram above illustrates the data dependencies for transforming and inversely transforming a polynomial of size 8. Each eleme[nt is computed as the sum of a solid-line element and a dashed-line element, where the la](#user-content-fn-1)[^1]tter represents scalar multiplication by $$\widehat{W}^j_i$$.
 
@@ -395,11 +395,11 @@ $$
 
 The method for performing a formal derivative on the **Novel Polynomial Basis** and its use in the RS erasure decoding algorithm is omitted here due to space constraints. For those interested, please refer to the original paper.
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Complexities of Previous n-point FFT Algorithms</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Complexities of Previous n-point FFT Algorithms</p></figcaption></figure>
 
 Using the newly proposed Novel Polynomial Basis, the Additive NTT achieves $$O(n \log n)$$ additive complexity and $$O(n \log n)$$ multiplicative complexity without any constraints. Consequently, for the first time, RS-encoding over characteristic-2 finite fields achieves $$O(n \log n)$$ complexity.
 
-<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 Additionally, it is well-known that polynomial multiplication can be optimized using FFT. Similarly, by leveraging the Novel Polynomial Basis, multiplication in characteristic-2 finite fields can also be optimized.
 

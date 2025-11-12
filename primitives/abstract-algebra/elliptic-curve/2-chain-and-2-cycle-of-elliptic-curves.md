@@ -6,7 +6,7 @@
 
 A **2-chain** of elliptic curves is a list of two distinct curves $$E_1 / \mathbb{F}_{p_1}$$ and $$E_2/ \mathbb{F}_{p_2}$$ where $$p_1$$ divides $$\#E_2(\mathbb{F}_{p_2})$$. The first curve is denoted the **inner curve**, while the second curve whose order is the characteristic of the inner curve, is denoted the **outer curve**.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (151).png" alt=""><figcaption></figcaption></figure>
 
 SNARK-friendly 2-chains are composed of two curves that have subgroups of orders $$r_1$$ and $$r_2$$ where $$r_1 | \#E_1(\mathbb{F}_{p_1})$$,  $$r_2 | \#E_2(\mathbb{F}_{p_2})$$ and $$r_1 \equiv r_2 \equiv 1 \mod 2^L$$ for a large integer $$L$$ (2-adicity). An example of a 2-chain for SNARK is composed of the inner curve BLS12-377 and the outer curve BW6-761.
 
@@ -20,7 +20,7 @@ A **2-cycle** of elliptic curves is a list of two distinct prime-order curves $$
 
 A 2-cycle is a 2-chain where **both curves are inner and outer curves with respect to each other.**&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (101).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (152).png" alt=""><figcaption></figcaption></figure>
 
 
 

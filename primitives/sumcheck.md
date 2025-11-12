@@ -76,7 +76,7 @@ Once the scenario outlined above occurs, $$\mathcal{P}$$ can proceed onto the  r
 
 ### Cost
 
-<figure><img src="../.gitbook/assets/image (107).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
 
 We denote the cost of evaluation oracle query to $$g$$ by $$T$$. In reality, $$T$$ is equal to the cost to evaluate $$g$$ at a single input in $$\mathbb{F}^v$$.&#x20;
 

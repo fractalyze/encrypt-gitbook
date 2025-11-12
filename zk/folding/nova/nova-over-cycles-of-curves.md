@@ -31,7 +31,7 @@ For example, with four $$\mathsf{R1CS}^{(1)}$$ instances, the folding process wo
 
 ### IVC Construction
 
-<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption><p>Figure 1: Folding iteration over cycles of curves. Credit: <a href="https://youtu.be/h_PU7FZWiQk?t=583">https://youtu.be/h_PU7FZWiQk?t=583</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (83).png" alt=""><figcaption><p>Figure 1: Folding iteration over cycles of curves. Credit: <a href="https://youtu.be/h_PU7FZWiQk?t=583">https://youtu.be/h_PU7FZWiQk?t=583</a></p></figcaption></figure>
 
 To construct the folding described above, the original Nova implementation uses:
 
@@ -40,13 +40,13 @@ To construct the folding described above, the original Nova implementation uses:
 
 So if we denote the step function in $$\mathbb{F}^{(1)}$$ as $$\mathsf{F}_1$$ and $$\mathbb{F}^{(2)}$$ as $$\mathsf{F}_2$$. The high level overview of the IVC will be as shown below:
 
-<figure><img src="../../../.gitbook/assets/image (78).png" alt=""><figcaption><p>Figure 2: High level overview of the IVC over cycles of curves. Credit: <a href="https://www.youtube.com/watch?v=l-F5ykQQ4qw">https://www.youtube.com/watch?v=l-F5ykQQ4qw</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (98).png" alt=""><figcaption><p>Figure 2: High level overview of the IVC over cycles of curves. Credit: <a href="https://www.youtube.com/watch?v=l-F5ykQQ4qw">https://www.youtube.com/watch?v=l-F5ykQQ4qw</a></p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (79).png" alt=""><figcaption><p>Figure 3: Deeper look at each step of the IVC over cycle of curves. Credit: <a href="https://www.youtube.com/watch?v=l-F5ykQQ4qw">https://www.youtube.com/watch?v=l-F5ykQQ4qw</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (99).png" alt=""><figcaption><p>Figure 3: Deeper look at each step of the IVC over cycle of curves. Credit: <a href="https://www.youtube.com/watch?v=l-F5ykQQ4qw">https://www.youtube.com/watch?v=l-F5ykQQ4qw</a></p></figcaption></figure>
 
 This is the high-level view of $$\mathsf{R1CS}^{(1)}$$ but $$\mathsf{R1CS}^{(2)}$$ would also look the same:
 
-<figure><img src="../../../.gitbook/assets/image (81).png" alt=""><figcaption><p>Figure 4: Structure of each R1CS. Credit: <a href="https://www.youtube.com/watch?v=l-F5ykQQ4qw">https://www.youtube.com/watch?v=l-F5ykQQ4qw</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (101).png" alt=""><figcaption><p>Figure 4: Structure of each R1CS. Credit: <a href="https://www.youtube.com/watch?v=l-F5ykQQ4qw">https://www.youtube.com/watch?v=l-F5ykQQ4qw</a></p></figcaption></figure>
 
 To summarize what we need to do in $$\mathsf{R1CS}^{(1)}$$ is:
 
@@ -62,7 +62,7 @@ To summarize what we need to do in $$\mathsf{R1CS}^{(1)}$$ is:
 
 ## VC Verification
 
-<figure><img src="../../../.gitbook/assets/image (83).png" alt=""><figcaption><p>Figure 6: IVC Verification. Credit: <a href="https://www.youtube.com/watch?v=l-F5ykQQ4qw">https://www.youtube.com/watch?v=l-F5ykQQ4qw</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (103).png" alt=""><figcaption><p>Figure 6: IVC Verification. Credit: <a href="https://www.youtube.com/watch?v=l-F5ykQQ4qw">https://www.youtube.com/watch?v=l-F5ykQQ4qw</a></p></figcaption></figure>
 
 ### Faulty version
 

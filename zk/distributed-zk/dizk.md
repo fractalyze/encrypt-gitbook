@@ -14,7 +14,7 @@ Please read [**Distributed FFT**](../../primitives/number-theoretic-transform/pa
 
 ## Protocol Explanation
 
-<figure><img src="../../.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
 
 ### Distributed Setup
 
@@ -218,11 +218,11 @@ This design allows DIZK to scale to large witness sizes and high-throughput proo
 
 ## Conclusion
 
-<figure><img src="../../.gitbook/assets/image (105).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>
 
 As shown in the figure above, we observe that increasing the number of executors allows the system to support larger instance sizes.
 
-<figure><img src="../../.gitbook/assets/image (106).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (172).png" alt=""><figcaption></figcaption></figure>
 
 From the graph above, we can observe the following:
 

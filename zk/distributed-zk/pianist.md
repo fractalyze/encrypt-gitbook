@@ -39,7 +39,7 @@ $$
 a_i(X) = \sum_{j=0}^{T-1} a_{i,j} L_j(X)
 $$
 
-where $$L_j(X)$$ is a Lagrange polynomial, and can be computed in $$O(T \log T)$$ time using the [Number Theoretic Transform (NTT)](../../primitives/number-theoretic-transform.md).
+where $$L_j(X)$$ is a Lagrange polynomial, and can be computed in $$O(T \log T)$$ time using the [Number Theoretic Transform (NTT)](../../primitives/number-theoretic-transform/).
 
 All gate operations are encoded in a single polynomial equation:
 
@@ -413,7 +413,7 @@ Therefore, the overall communication complexity is $$O(M)$$.
 
 This is a practical improvement over the original Plonk prover time complexity of $$O(N \log N)$$.
 
-<figure><img src="../../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (183).png" alt=""><figcaption></figcaption></figure>
 
 ### Distributed KZG
 
@@ -520,20 +520,20 @@ This is called the **Robust Collaborative Proving System (RCPS)** — a protocol
 
 ## Conclusion
 
-<figure><img src="../../.gitbook/assets/image (114).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (180).png" alt=""><figcaption></figcaption></figure>
 
 While standard Plonk (on a single machine) hits a memory limit at **32 transactions**, Pianist can scale up to **8192 transactions** simply by increasing the number of machines. With 64 machines, Pianist is able to prove 8192 transactions in just **313 seconds**. This demonstrates that **the number of transactions included in a single proof scales proportionally with the number of machines**. Moreover, the time taken by the master node to gather and finalize the proof is just **2–16 ms**, which is **negligible compared to the overall proving time**. This highlights that **communication overhead in Pianist's parallel architecture is minimal**.
 
 ***
 
-<figure><img src="../../.gitbook/assets/image (115).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
 
 While Figure 1 shows the performance on **data-parallel circuits (e.g., zkRollups)**, Figure 2 extends the evaluation to **general circuits with arbitrary subcircuit connections**. In all circuit sizes tested, **the proving time decreases nearly linearly with the number of machines**, demonstrating **strong scalability even in general circuits**. In smaller circuits, the marginal benefit of scaling beyond 4–8 machines may diminish, but for larger circuits, **the benefits of parallelization become increasingly significant**.\
 In other words, Pianist **performs even better on larger circuits**, showcasing a desirable scalability property.
 
 ***
 
-<figure><img src="../../.gitbook/assets/image (116).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (182).png" alt=""><figcaption></figcaption></figure>
 
 As shown above, **the memory usage per machine decreases significantly as the number of machines increases**. For small circuits, memory savings are minor since the total memory requirement is already low, but for large circuits, **scaling the number of machines directly determines whether proof generation is even feasible**.
 

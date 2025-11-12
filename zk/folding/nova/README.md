@@ -22,7 +22,7 @@ Suppose prover $$\mathsf{P}$$ holds $$\bm{W}_1$$ and $$\bm{W}_2$$ and verifier $
 2. Verifier computes $$\mathsf{x}\leftarrow \mathsf{x}_1 + r\cdot \mathsf{x}_2$$ so the folded instance becomes $$(\bm{A},\bm{B},\bm{C},\mathsf{x})$$.
 3. Prover computes the folded witness $$\bm{W}\leftarrow \bm{W}_1 + r\cdot \bm{W}_2$$.
 
-<figure><img src="../../../.gitbook/assets/image (70).png" alt=""><figcaption><p>Figure 1. Folding R1CS. Credit: <a href="https://www.youtube.com/watch?v=ilrvqajkrYY">https://www.youtube.com/watch?v=ilrvqajkrYY</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (90).png" alt=""><figcaption><p>Figure 1. Folding R1CS. Credit: <a href="https://www.youtube.com/watch?v=ilrvqajkrYY">https://www.youtube.com/watch?v=ilrvqajkrYY</a></p></figcaption></figure>
 
 Unfortunately there exists many $$r$$ such that $$\bm{AZ}\circ \bm{BZ} \neq \bm{CZ}$$ for $$\bm{Z}=(\bm{W},\mathsf{x},1)$$.
 
@@ -56,7 +56,7 @@ To fold relaxed R1CS, the prover and verifier additionally compute:
 2. $$\bm{E} \leftarrow \bm{E}_1 + r\cdot (\bm{AZ}_1 \circ \bm{BZ}_2 + \bm{AZ}_2 \circ \bm{BZ}_1 - u_1\bm{CZ}_2 - u_2\bm{CZ}_1) + r^2\cdot \bm{E}_2$$
 3. Now, the folded instance is $$(\bm{A,B,C,E},u,\mathsf{x})$$.
 
-<figure><img src="../../../.gitbook/assets/image (72).png" alt=""><figcaption><p>Figure 2. Folding relaxed R1CS. Credit: https://www.youtube.com/watch?v=mY-LWXKsBLc</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (92).png" alt=""><figcaption><p>Figure 2. Folding relaxed R1CS. Credit: https://www.youtube.com/watch?v=mY-LWXKsBLc</p></figcaption></figure>
 
 Now, you will be able get $$\bm{AZ}\circ \bm{BZ} = u\cdot\bm{CZ} + \bm{E}$$ where $$\bm{Z}=\bm{Z}_1 + r\cdot \bm{Z}_2$$. But there is still a few issues remaining:
 
@@ -96,7 +96,7 @@ $$
 \bm{W}\leftarrow \bm{W}_1 + r\cdot \bm{W}_2 \\ \bm{E}\leftarrow \bm{E}_1 + r\cdot \bm{T} + r^2\cdot\bm{E}_2 \\ r_E\leftarrow r_{E_1}+r\cdot r_T + r^2\cdot r_{E_2} \\ r_W\leftarrow r_{W_1}+r\cdot r_{W_2}
 $$
 
-<figure><img src="../../../.gitbook/assets/image (73).png" alt=""><figcaption><p>Figure 3. Folding Commited Relaxed R1CS. Credit: <a href="https://www.youtube.com/watch?v=ilrvqajkrYY">https://www.youtube.com/watch?v=ilrvqajkrYY</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (93).png" alt=""><figcaption><p>Figure 3. Folding Commited Relaxed R1CS. Credit: <a href="https://www.youtube.com/watch?v=ilrvqajkrYY">https://www.youtube.com/watch?v=ilrvqajkrYY</a></p></figcaption></figure>
 
 **Proof of completeness.** To prove completeness, we must show that for any valid witness pairs, the folding verifier will accept the folded instance. For the folded witness to satisfy the constraint, we must have:
 
@@ -135,7 +135,7 @@ We constructed a way to fold two R1CS instances into one but now what? How do we
 1. (**State transition**) Execute a step of the incremental computation: instance $$\mathbb{U}_\mathsf{i}$$ contains $$z_i$$ which the augmented constraint system uses to output $$z_{i+1} = F(z_i)$$.
 2. **(Folding)** Fold $$\mathbb{U}_\mathsf{acc,i}$$ and $$\mathbb{U}_\mathsf{i}$$ into a single R1CS instance $$\mathbb{U}_\mathsf{acc,i+1}$$.
 
-<figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption><p>Figure 4: Simple outline of IVC. <a href="https://youtu.be/h_PU7FZWiQk?t=784">https://youtu.be/h_PU7FZWiQk?t=784</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (87).png" alt=""><figcaption><p>Figure 4: Simple outline of IVC. <a href="https://youtu.be/h_PU7FZWiQk?t=784">https://youtu.be/h_PU7FZWiQk?t=784</a></p></figcaption></figure>
 
 ### IVC over a single curve
 
@@ -151,7 +151,7 @@ First, let's understand how we can construct it over a single curve. What we nee
    1. Set $$\mathbb{U}_\mathsf{i+1}.\mathsf{x}=\mathsf{H}(i+1,z_0,z_{i+1},\mathbb{U}_\mathsf{acc,i+1})$$
    2. Generate $$\mathbb{U}_\mathsf{i+1}=(\bar{0},\bar{W}_{i+1},\mathsf{x},1)$$ instance which resembles correct execution of this step. Notice that the error term should be 0 and scalar should be 1 since it is not a folded instance.
 
-<figure><img src="../../../.gitbook/assets/image (84).png" alt=""><figcaption><p>Figure 5. In-depth view of the augmented constraint system. <a href="https://youtu.be/h_PU7FZWiQk?t=978">https://youtu.be/h_PU7FZWiQk?t=978</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (104).png" alt=""><figcaption><p>Figure 5. In-depth view of the augmented constraint system. <a href="https://youtu.be/h_PU7FZWiQk?t=978">https://youtu.be/h_PU7FZWiQk?t=978</a></p></figcaption></figure>
 
 ### IVC Verification
 

@@ -110,7 +110,7 @@ $$
 
 ### Motivation
 
-<figure><img src="../../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (153).png" alt=""><figcaption></figcaption></figure>
 
 In protocols like DIZK, distributing FFT requires 3 communications per FFT, which leads to substantial overhead. However, according to data from [ICICLE-Snark](https://medium.com/@ingonyama/icicle-snark-the-fastest-groth16-implementation-in-the-world-00901b39a21f), the dominant cost in Groth16 proving is **MSM**, not FFT.\
 Therefore, we choose **not to split the FFT**, and instead perform a **Full FFT after reconstructing**. This design reduces communication complexity while focusing optimization efforts on the actual bottleneck.
@@ -244,7 +244,7 @@ Field additions in BN254 are extremely lightweight on GPUs. Each operation for $
 | Receive time by the leader GPU | 2304 MB / (24 \~ 28) GB/s ≈ **82 \~ 96 ms** |
 | Estimated with NCCL overhead   | **92 \~ 106 ms**                            |
 
-<figure><img src="../../.gitbook/assets/image (103).png" alt=""><figcaption><p>Source: <a href="https://www.marvell.com/content/dam/marvell/en/blogs/2024/01/PCIe-Gen6-IO-Bandwidth.png">https://www.marvell.com/content/dam/marvell/en/blogs/2024/01/PCIe-Gen6-IO-Bandwidth.png</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (154).png" alt=""><figcaption><p>Source: <a href="https://www.marvell.com/content/dam/marvell/en/blogs/2024/01/PCIe-Gen6-IO-Bandwidth.png">https://www.marvell.com/content/dam/marvell/en/blogs/2024/01/PCIe-Gen6-IO-Bandwidth.png</a></p></figcaption></figure>
 
 We chose **PCIe Gen4 x16** because it offers a well-balanced trade-off between **performance, cost, and ecosystem stability**. Gen4 provides up to **32 GB/s bidirectional bandwidth**, which is sufficient for most real-world proving workloads, especially when combined with smart overlapping strategies between computation and communication.
 

@@ -88,7 +88,7 @@ Now what do I mean by this? Well, if the Garbler naively sends over gates every 
 
 In this section, I’ll illustrate optimizations done onto the naive version of Yao’s garbled circuits, as outlined in the [Mina Book](https://o1-labs.github.io/proof-systems/fundamentals/zkbook_2pc/overview.html). More specifically, we’ll go over “Point and Permute,” “Free-XOR,” “Row Reduction,” and “Half Gates.” Note that a full set of boolean gates can be created by using AND and XOR gates, which are the gates that these optimizations target.
 
-<figure><img src="../.gitbook/assets/image (1) (2).png" alt="" width="360"><figcaption><p>Construction of all other boolean gates with AND &#x26; XOR</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (47).png" alt="" width="360"><figcaption><p>Construction of all other boolean gates with AND &#x26; XOR</p></figcaption></figure>
 
 ### Point-and-Permute
 
@@ -216,7 +216,7 @@ Therefore, [Case 3](yaos-garbled-circuits.md#case-3-two-halves-make-a-whole-.-ne
 
 In the end, I showed how Yao’s Garbled Circuits runs as an MPC protocol and introduced a couple optimizations that can be added on top of Yao’s Garbled Circuits to drastically reduce the communication overhead between the Garbler and Evaluator by reducing the number of gate rows. The total results of these optimizations are shown below:
 
-<figure><img src="../.gitbook/assets/image (7) (2).png" alt=""><figcaption><p>Resulting gate rows from the naive case to the optimized case</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption><p>Resulting gate rows from the naive case to the optimized case</p></figcaption></figure>
 
 ## References
 

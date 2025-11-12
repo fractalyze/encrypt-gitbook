@@ -225,7 +225,7 @@ We assume that there exists an extractable polynomial commitment scheme for mult
 
 #### Cost Analysis
 
-<figure><img src="../../../.gitbook/assets/image (4) (3) (1).png" alt=""><figcaption><p>List of possible PCS schemes that can be used</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (124).png" alt=""><figcaption><p>List of possible PCS schemes that can be used</p></figcaption></figure>
 
 * Prover:
   * $$O(n)$$ for each sumcheck instances
@@ -238,7 +238,7 @@ We assume that there exists an extractable polynomial commitment scheme for mult
   * $$O(\log m)$$ for each sumcheck instances
   * The size of the commitment to $$\tilde{w}(\cdot)$$ and the communication in $$\mathsf{PC.Eval}$$
 
-<figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption><p>Total cost of the SpartanNIZK depending on PCS choice</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (107).png" alt=""><figcaption><p>Total cost of the SpartanNIZK depending on PCS choice</p></figcaption></figure>
 
 ### Computation commitments: zkSNARK from NIZK
 
@@ -255,7 +255,7 @@ After encoding, $$\mathcal{V}$$ retains the commitments and instead of evaluatin
 
 According to the table below, which is taken from the paper,  among the proof-succinct NIZKs, SpartanNIZK is 100× faster than Hyrax, 113× faster than Aurora, and 22× faster than Ligero at $$2^{20}$$ constraints. The commitment scheme used for this benchmark is Hyrax-PC over curve25519 ([ref](https://youtu.be/DyK86YMj7XU?t=1427)).
 
-<figure><img src="../../../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption><p>Performance benchmark</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (118).png" alt=""><figcaption><p>Performance benchmark</p></figcaption></figure>
 
 ## References
 
