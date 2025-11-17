@@ -13,4 +13,4 @@ Welcome! This GitBook is maintained by a group of volunteers who are passionate 
 
 ## **Contact Us**
 
-If you have any questions or would like to get involved, please reach out to us at ryan@fractalyze.io.
+If you have any questions or would like to get involved, please reach out to us at contact@fractalyze.io.
