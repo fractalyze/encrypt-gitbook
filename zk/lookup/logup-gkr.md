@@ -67,8 +67,7 @@ $$
 \bm{S} = \{1, 2, 3\}
 $$
 
-All rows larger than $$\bm{A}$$ and $$\bm{S}$$ are filled with zeros. In Halo2 Lookup, new polynomials (or auxiliary columns) $$A'(𝑋)$$ and $$S'(𝑋)$$ are created as shown below. Before creating $$A'(𝑋)$$ and $$S'(𝑋)$$, $$A(𝑋)$$ and $$S(𝑋)$$ must be committed. (For convenience, $$L_0(X)$$ is included below, but it is not actually a committed polynomial.)  \
-
+All rows larger than $$\bm{A}$$ and $$\bm{S}$$ are filled with zeros. In Halo2 Lookup, new polynomials (or auxiliary columns) $$A'(𝑋)$$ and $$S'(𝑋)$$ are created as shown below. Before creating $$A'(𝑋)$$ and $$S'(𝑋)$$, $$A(𝑋)$$ and $$S(𝑋)$$ must be committed. (For convenience, $$L_0(X)$$ is included below, but it is not actually a committed polynomial.)  <br>
 
 |              | L₀(X) | A(X) | S(X) | A'(X) | S'(X) |
 | ------------ | ----- | ---- | ---- | ----- | ----- |

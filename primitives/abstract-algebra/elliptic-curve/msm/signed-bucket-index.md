@@ -118,8 +118,7 @@ This means we can define the following NAF bucket method $$k' = \mathsf{NAF}(k, 
 
 Step 2c computes the $$2^{s}P$$ part of the $$kP$$ reduction and is also known as the "carry."
 
-Let's change our naive Pippenger's to follow this method and generate our buckets and windows:\
-
+Let's change our naive Pippenger's to follow this method and generate our buckets and windows:<br>
 
 <figure><img src="../../../../.gitbook/assets/image.avif" alt=""><figcaption><p>Stage 1: Separating previous window <span class="math">W_1</span> into new buckets</p></figcaption></figure>
 

@@ -179,7 +179,7 @@ $$
 C(x: \{ C, q \}, w: \{ k^\mathsf{Enc}, k^\mathsf{MAC}, m \}) : \\ \sigma \stackrel{?}= \mathsf{HMAC}(k^{\mathsf{MAC}} , m) \land C \stackrel{?}= \mathsf{AES\text{-}CBC.Encrypt}(k^\mathsf{Enc}, m \| \sigma) \land \mathsf{jq.exec}(m, q) \ge 1000
 $$
 
-Here, we use the notation from [the circuit overview](broken-reference).
+Here, we use the notation from [the circuit overview](/broken/pages/cv8qbHLJlTgC98jiZ4cT#circuit).
 
 * $$q$$ is the [jq](https://jqlang.org/) query: `.accounts[] | select(.account_id == 2) | .balance`
 * $$\mathsf{jq.exec}(m, q)$$ denotes applying the jq query $$q$$ to message $$m$$

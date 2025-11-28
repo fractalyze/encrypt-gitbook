@@ -134,8 +134,7 @@ $$
 Observe that:
 
 * $$Q_{\bm{io}}$$ is same as $$\tilde{F}_{\bm{io}}$$ over the boolean hypercub&#x65;_._&#x20;
-* $$Q_{\bm{io}}$$ is $$s$$-variate multilinear polynomial
-* $$\forall\bm{t}\in\{0,1\}^s$$, $$Q_{\bm{io}}(\bm{t})=0 \Leftrightarrow \mathsf{Sat}(\mathbf{x},\bm{w})=1$$ . Therefore, Since it has $$2^s$$ solutions, it has to be a 0 polynomial over the $$\mathbb{F}^s$$ if and only if $$\mathsf{Sat(\mathbf{x},\bm{w})}=1$$.
+* $$Q_{\bm{io}}$$ is 0 _outside_ the boolean hypercube thanks to the $$\widetilde{\sf{eq}}(\bm{\tau},\bm{x})$$.
 
 This implies that $$Q_{\bm{io}}(\bm{\tau})$$ is zero-polynomial if and only if $$\mathsf{Sat}(\mathbb{x},w)=1$$ and to check if $$Q_{\bm{io}}(\cdot)$$ is a zero-polynomial, its enough with a single random challenge $$Q_{\bm{io}}(\bm{r_\tau})\stackrel{?}{=}0$$ where $$\bm{r_\tau}\in_R \mathbb{F}^s$$ (this will introduce soundness error $$\frac{\log m}{|\mathbb{F}|})$$.
 
@@ -143,7 +142,7 @@ This implies that $$Q_{\bm{io}}(\bm{\tau})$$ is zero-polynomial if and only if $
 
 [**Theorem 5.1** ](https://eprint.iacr.org/2019/550.pdf#page=18\&zoom=100,178,370)**from the paper**. Given an extractable polynomial commitment scheme for multilinear polynomials, there exists a public-coin succinct interactive argument of knowledge where security holds under the assumptions needed for the polynomial commitment scheme and assuming $$|\mathbb{F}|$$ is exponential in $$\lambda$$ and the size parameter of R1CS instance $$n = O(\lambda)$$.
 
-[Theorem 4.1 ](https://eprint.iacr.org/2019/550.pdf#page=16\&zoom=100,178,620)established that for $$\mathcal{V}$$ to verify if an R1CS instance $$\mathbf{x}=(\mathbb{F},\bm{A,B,C},\bm{io},m,n)$$ is satisfiable, it can check if $$\sum_{\bm{x}\in\{0,1\}^{\log m}}\mathcal{G}_{\bm{io},\bm{\tau}}(\bm{x})=0$$. By using the sumcheck protocol, we can reduce the claim about the sum to $$e_x \stackrel{?}{=} \mathcal{G}_{\bm{io},\bm{\tau}}(\bm{r}_x)$$ where $$\bm{r}_x\in \mathbb{F}^s$$, so $$\mathcal{V}$$ needs a mechanism to evaluate $$\mathcal{G}_{\bm{io},\bm{\tau}}(\bm{r}_x)$$—without incurring $$O(m)$$ communication from $$\mathcal{P}$$ to $$\mathcal{V}$$.
+[Theorem 4.1 ](https://eprint.iacr.org/2019/550.pdf#page=16\&zoom=100,178,620)established that for $$\mathcal{V}$$ to verify if an R1CS instance $$\mathbf{x}=(\mathbb{F},\bm{A,B,C},\bm{io},m,n)$$ is satisfiable, it can check if $$\bm{r}_\tau \in_R \mathbb{F}^s:\sum_{\bm{x}\in\{0,1\}^{\log m}}\mathcal{G}_{\bm{io},\bm{r}_\tau}(\bm{x})=0$$. By using the sumcheck protocol, we can reduce the claim about the sum to $$e_x \stackrel{?}{=} \mathcal{G}_{\bm{io},\bm{r}_\tau}(\bm{r}_x)$$ where $$\bm{r}_x\in \mathbb{F}^s$$, so $$\mathcal{V}$$ needs a mechanism to evaluate $$\mathcal{G}_{\bm{io},\bm{r}_\tau}(\bm{r}_x)$$—without incurring $$O(m)$$ communication from $$\mathcal{P}$$ to $$\mathcal{V}$$.
 
 So let's denote it as the following:
 
@@ -154,7 +153,7 @@ $$
 Now, the prover can make three separate claims $$\bar{A}(\bm{r}_x)=v_A, \bar{B}(\bm{r}_x)=v_B, \bar{C}(\bm{r}_x)=v_C$$ and verifier can check:
 
 $$
-\mathcal{G}_{io,\tau}(\bm{r}_x)=(v_A\cdot v_B - v_C)\cdot\widetilde{\mathsf{eq}}(r_x,\tau)\stackrel{?}=e_x
+\mathcal{G}_{\bm{io},\bm{r}_\tau}(\bm{r}_x)=(v_A\cdot v_B - v_C)\cdot\widetilde{\mathsf{eq}}(\bm{r}_x,\bm{r}_\tau)\stackrel{?}=e_x
 $$
 
 Of course, the verifier still needs verify the $$v_A, v_B, v_C$$ claims and to do so, it can run three independent instances of sumcheck protocol but instead, we can use a [prior idea](https://eprint.iacr.org/2017/1132.pdf) to combine these into a single claim:
@@ -163,7 +162,7 @@ Of course, the verifier still needs verify the $$v_A, v_B, v_C$$ claims and to d
 2. Let $$L(\bm{x})=r_A\cdot\bar{A}(\bm{x}) + r_B\cdot\bar{B}(\bm{x})+r_C\cdot\bar{C}(\bm{x})$$. Then:
 
 $$
-L(\bm{r}_x)=\sum_{\bm{y}\in\{0,1\}^s}r_A\cdot\tilde{A}(\bm{r}_x,\bm{y})\tilde{Z}(\bm{y})+r_B\cdot\tilde{B}(\bm{r}_x,\bm{y})\tilde{Z}(\bm{y}) +r_C\cdot\tilde{C}(\bm{r}_x,\bm{y})\tilde{Z}(\bm{y}) \\ = \sum_{\bm{y}\in\{0,1\}^s}\bm{M}_{\bm{r}_x}(\bm{y})
+L(\bm{r}_x)=\sum_{\bm{y}\in\{0,1\}^s}r_A\cdot\widetilde{A}(\bm{r}_x,\bm{y})\widetilde{Z}(\bm{y})+r_B\cdot\widetilde{B}(\bm{r}_x,\bm{y})\widetilde{Z}(\bm{y}) +r_C\cdot\widetilde{C}(\bm{r}_x,\bm{y})\widetilde{Z}(\bm{y}) \\ = \sum_{\bm{y}\in\{0,1\}^s}\bm{M}_{\bm{r}_x}(\bm{y})
 $$
 
 3. Verifier uses sumcheck to verify:
@@ -175,7 +174,7 @@ $$
 Still there are some problems left. To verify the last sumcheck $$\sum_{\bm{y}\in\{0,1\}^s}\bm{M}_{\bm{r}_x}(\bm{y})\stackrel{?}{=}c$$, the verifier has to evaluate $$\bm{M}_{\bm{r}_x}$$ at some random $$\bm{r}_y\in_R \mathbb{F}^s$$:
 
 $$
-\bm{M}_{\bm{r}_x}(\bm{r}_y)=r_A\cdot\tilde{A}(\bm{r}_x,\bm{r}_y)\tilde{Z}(\bm{r}_y)+r_B\cdot\tilde{B}(\bm{r}_x,\bm{r}_y)\tilde{Z}(\bm{r}_y) +r_C\cdot\tilde{C}(\bm{r}_x,\bm{r}_y)\tilde{Z}(\bm{r}_y) \\ =(r_A\cdot\tilde{A}(\bm{r}_x,\bm{r}_y)+r_B\cdot\tilde{B}(\bm{r}_x,\bm{r}_y) +r_C\cdot\tilde{C}(\bm{r}_x,\bm{r}_y))\cdot\tilde{Z}(\bm{r}_y)
+\bm{M}_{\bm{r}_x}(\bm{r}_y)=r_A\cdot\widetilde{A}(\bm{r}_x,\bm{r}_y)\widetilde{Z}(\bm{r}_y)+r_B\cdot\widetilde{B}(\bm{r}_x,\bm{r}_y)\widetilde{Z}(\bm{r}_y) +r_C\cdot\widetilde{C}(\bm{r}_x,\bm{r}_y)\widetilde{Z}(\bm{r}_y) \\ =(r_A\cdot\widetilde{A}(\bm{r}_x,\bm{r}_y)+r_B\cdot\widetilde{B}(\bm{r}_x,\bm{r}_y) +r_C\cdot\widetilde{C}(\bm{r}_x,\bm{r}_y))\cdot\widetilde{Z}(\bm{r}_y)
 $$
 
 Observe that the only term in $$\bm{M}_{\bm{r}_x}(\bm{r}_y)$$ that depends on the prover’s witness is $$\tilde{Z}(\bm{r}_y)$$. This is because all other terms in the above expression can be computed locally by $$\mathcal{V}$$ using $$\mathbf{x}=(\mathbb{F},\bm{A,B,C},\bm{io},m,n)$$ in $$O(n)$$ time ([Section 6](https://eprint.iacr.org/2019/550.pdf#page=22\&zoom=100,178,340) in the paper discusses how to reduce the cost of those evaluations to be sub-linear in $$n$$).
@@ -183,13 +182,13 @@ Observe that the only term in $$\bm{M}_{\bm{r}_x}(\bm{r}_y)$$ that depends on th
 To evaluate $$\tilde{Z}(\bm{r}_y)$$, $$\mathcal{V}$$ does the following. WLOG, assume $$|\bm{w}| = |\bm{io}| + 1$$. Thus, by the closed form expression of multilinear polynomial evaluations, we have:
 
 $$
-\tilde{Z}(\bm{r}_y)=\bm{r}_y[0]\cdot\tilde{w}(\bm{r}_y[1..]) + (1-\bm{r}_y[0])\cdot\widetilde{(\bm{io},1)} (\bm{r}_y[1..])
+\widetilde{Z}(\bm{r}_y)=\bm{r}_y[0]\cdot\widetilde{w}(\bm{r}_y[1..]) + (1-\bm{r}_y[0])\cdot\widetilde{(\bm{io},1)} (\bm{r}_y[1..])
 $$
 
 If you recall that $$\bm{Z}=(\bm{io},1,\bm{w})$$ and $$\widetilde{\mathsf{eq}}(\bm{e},\bm{x})=\prod_{i=1}^s(x_i\cdot e_i + (1-x_i)(1-e_i))$$:
 
 $$
-\tilde{Z}(x_1,\dots,x_s)=\sum_{\bm{e}\in\{0,1\}^s}Z(\bm{e})\cdot \widetilde{\mathsf{eq}}(\bm{e},\bm{x}) \\=x_1\cdot \sum_{\bm{e'}\in\{0,1\}^{s-1}}Z(1,\bm{e'})\cdot \widetilde{\mathsf{eq}}(\bm{e'},\bm{x}[1..]) + \\ +(1-x_1)\cdot \sum_{\bm{e'}\in\{0,1\}^{s-1}}Z(0,\bm{e'})\cdot \widetilde{\mathsf{eq}}(\bm{e'},\bm{x}[1..])\\ = x_1 \cdot \tilde{w}(\bm{x}[1..])+(1-x_1)\cdot\widetilde{(\bm{io},1})(\bm{x}[1..])
+\widetilde{Z}(x_1,\dots,x_s)=\sum_{\bm{e}\in\{0,1\}^s}Z(\bm{e})\cdot \widetilde{\mathsf{eq}}(\bm{e},\bm{x}) \\=x_1\cdot \sum_{\bm{e'}\in\{0,1\}^{s-1}}Z(1,\bm{e'})\cdot \widetilde{\mathsf{eq}}(\bm{e'},\bm{x}[1..]) + \\ +(1-x_1)\cdot \sum_{\bm{e'}\in\{0,1\}^{s-1}}Z(0,\bm{e'})\cdot \widetilde{\mathsf{eq}}(\bm{e'},\bm{x}[1..])\\ = x_1 \cdot \widetilde{w}(\bm{x}[1..])+(1-x_1)\cdot\widetilde{(\bm{io},1})(\bm{x}[1..])
 $$
 
 Similar technique is also used by [vSQL](https://www.ieee-security.org/TC/SP2017/papers/581.pdf) under the section [_Avoiding Relaying the Inputs_](https://www.ieee-security.org/TC/SP2017/papers/581.pdf#page=11\&zoom=100,50,450)_._
@@ -201,12 +200,12 @@ We assume that there exists an extractable polynomial commitment scheme for mult
 * $$\mathsf{pp}\leftarrow \mathsf{PC.Setup}(1^\lambda,s)$$
 * $$\mathsf{IsSat}\leftarrow\langle\mathcal{P}(\bm{w}),\mathcal{V}(r)\rangle(\mathbb{F},\bm{A},\bm{B},\bm{C},\bm{io},m,n):$$
   1. $$\mathcal{P}:(\mathcal{C},\mathcal{S})\leftarrow \mathsf{PC.Commit}(\mathsf{pp},\tilde{\bm{w}})$$ and send $$\mathcal{C}$$ to $$\mathcal{V}$$.
-  2. $$\mathcal{V}:\bm{\tau}\in_R\mathbb{F}^{s}$$ and send $$\bm{\tau}$$ to $$\mathcal{P}$$
+  2. $$\mathcal{V}:\bm{r}_\tau\in_R\mathbb{F}^{s}$$ and send $$\bm{r}_\tau$$ to $$\mathcal{P}$$
   3. Let $$T_1=0, \mu_1=\log m,l_1=3$$.
   4. $$\mathcal{V}:$$ Sample $$\bm{r}_x\in_R\mathbb{F}^{\mu_1}$$
-  5. **Sumcheck #1:** $$e_x\leftarrow\langle\mathcal{P}_{sc}(\mathcal{G}_{\bm{io},\bm{\tau}}),\mathcal{V}_{sc}(\bm{r}_x)\rangle(\mu_1,l_1,T_1)$$
+  5. **Sumcheck #1:** $$e_x\leftarrow\langle\mathcal{P}_{sc}(\mathcal{G}_{\bm{io},\bm{r}_\tau}),\mathcal{V}_{sc}(\bm{r}_x)\rangle(\mu_1,l_1,T_1)$$
   6. $$\mathcal{P}:$$ Compute $$\bar{A}(\bm{r}_x)=v_A, \bar{B}(\bm{r}_x)=v_B, \bar{C}(\bm{r}_x)=v_C$$ and send $$(v_A,v_B,v_C)\rightarrow \mathcal{V}$$.
-  7. $$\mathcal{V}:$$ Abort with $$\mathsf{IsSat}=0$$ if $$e_x\neq(v_A\cdot v_B - v_C)\cdot\tilde{eq}(\bm{r}_x,\bm{\tau}).$$
+  7. $$\mathcal{V}:$$ Abort with $$\mathsf{IsSat}=0$$ if $$e_x\neq(v_A\cdot v_B - v_C)\cdot\tilde{eq}(\bm{r}_x,\bm{r}_\tau).$$
   8. $$\mathcal{V}:$$ Sample $$r_A,r_B,r_C\in_R\mathbb{F}$$ and send them to $$\mathcal{P}$$.
   9. Let  $$T_2=r_A\cdot v_A + r_B\cdot v_B + r_C\cdot v_C, \mu_2=\log m, l_2=2$$.
   10. $$\mathcal{V}:$$ Sample $$r_y\in_R \mathbb{F}^{\mu_2}$$
@@ -255,6 +254,6 @@ According to the table below, which is taken from the paper,  among the proof-su
 
 ## References
 
-* #### [Spartan: Efficient and general-purpose zkSNARKs without trusted setup](https://eprint.iacr.org/2019/550)
+* [Spartan: Efficient and general-purpose zkSNARKs without trusted setup](https://eprint.iacr.org/2019/550)
 
 > Written by [Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention") of Fractalyze

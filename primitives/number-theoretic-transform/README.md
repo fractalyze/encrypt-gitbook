@@ -330,8 +330,7 @@ a_{2i+1}&=\psi^{-1}B_i &\mod q
 \end{aligned}  \tag{31}
 $$
 
-With this finding, we just need to calculate $$A_i$$ and $$B_i$$ for $$0\leq i \leq \frac{n}{2}-1$$. Notice that $$A_i$$ and $$B_i$$ can be calculated using $$\frac{n}{2}$$ point INTT so if we repeat recursively, we can achieve the best case scenario $$O(n\log n)$$ which occurs when $$n$$ is a power of 2. \
-
+With this finding, we just need to calculate $$A_i$$ and $$B_i$$ for $$0\leq i \leq \frac{n}{2}-1$$. Notice that $$A_i$$ and $$B_i$$ can be calculated using $$\frac{n}{2}$$ point INTT so if we repeat recursively, we can achieve the best case scenario $$O(n\log n)$$ which occurs when $$n$$ is a power of 2. <br>
 
 <div align="center" data-full-width="false"><figure><img src="../../.gitbook/assets/image (114).png" alt=""><figcaption><p>Figure 2. Gentleman-Sande (GS) butterfly graph notation</p></figcaption></figure></div>
 

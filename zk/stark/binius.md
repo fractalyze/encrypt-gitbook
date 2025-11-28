@@ -164,8 +164,7 @@ Here, $$l = (l_0 = 7) + l_1$$, and $$\bm{t_i} \in (T_\iota^{m_1})^{m_0}$$ is the
 1.  From the $$m_0 \times m_1$$ ​matrix $$\bm{t}$$, pack each row of length $$m_1$$ ​into a new $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$\mathsf{pack}(\bm{t})$$.
 
     <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
-2.  If the rate is $$\rho$$, encode each row of the $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$\mathsf{pack}(\bm{t})$$ into rows of length $$n = \frac{m_1}{2^\kappa}\cdot\rho^{-1}$$, forming an $$m_0 \times n$$ matrix $$u$$. The prover sends a Merkle hash-based commitment of the $$u$$ matrix to the verifier. Note that while the polynomial represented by the $$\bm{t}$$ matrix is $$g$$, the polynomial represented by $$\mathsf{pack}(\bm{t})$$ is a new polynomial $$g'$$.\
-
+2.  If the rate is $$\rho$$, encode each row of the $$m_0 \times \frac{m_1}{2^\kappa}$$ matrix $$\mathsf{pack}(\bm{t})$$ into rows of length $$n = \frac{m_1}{2^\kappa}\cdot\rho^{-1}$$, forming an $$m_0 \times n$$ matrix $$u$$. The prover sends a Merkle hash-based commitment of the $$u$$ matrix to the verifier. Note that while the polynomial represented by the $$\bm{t}$$ matrix is $$g$$, the polynomial represented by $$\mathsf{pack}(\bm{t})$$ is a new polynomial $$g'$$.<br>
 
     <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 3. The verifier samples $$\bm{r} = (r_0, \dots,r_{l-1}) \leftarrow \mathbb{F_{2^{128}}^l}$$​ and sends it to the prover.
@@ -181,8 +180,7 @@ Here, $$l = (l_0 = 7) + l_1$$, and $$\bm{t_i} \in (T_\iota^{m_1})^{m_0}$$ is the
 
 ### Pack Virtual Polynomial
 
-Let us revisit the block-level encoding described earlier. In a **Polynomial IOP**, the polynomial that the verifier requests the prover to open is $$g \in \mathbb{F}_2[X_0, \dots, X_{l-1}]^{\leq 1}$$. However, the polynomial that the prover actually commits to and opens is $$g'$$, which is derived by packing $$g$$ into $$g' \in \mathbb{F}_{2^{\kappa}}[X_0, \dots, X_{l - \kappa - 1}]^{\leq 1}$$. The **packing function** $$\widetilde{\mathsf{pack}}_{\kappa}$$​ is defined as follows:\
-
+Let us revisit the block-level encoding described earlier. In a **Polynomial IOP**, the polynomial that the verifier requests the prover to open is $$g \in \mathbb{F}_2[X_0, \dots, X_{l-1}]^{\leq 1}$$. However, the polynomial that the prover actually commits to and opens is $$g'$$, which is derived by packing $$g$$ into $$g' \in \mathbb{F}_{2^{\kappa}}[X_0, \dots, X_{l - \kappa - 1}]^{\leq 1}$$. The **packing function** $$\widetilde{\mathsf{pack}}_{\kappa}$$​ is defined as follows:<br>
 
 $$
 \widetilde{\mathsf{pack}}_{\kappa}(g)(X_0, \dots, X_{l - \kappa - 1}) :=\sum_{v\in B_\kappa}\tilde{g}(v_0, \dots, v_{\kappa - 1}, X_0, \dots, X_{l - \kappa - 1}) \cdot \beta_v

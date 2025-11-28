@@ -77,8 +77,7 @@ $$
 \bm{u}= \{ \bm{u_i} \}_{i \in [r]} \in (\mathbb{F}^c)^r
 $$
 
-2.  For a given rate $$\rho$$, each row of length $$c$$ is encoded into a row of length $$N$$, producing an $$r \times N$$ matrix $$\bm{\hat{u}}$$. The prover commits this $$\bm{\hat{u}}$$ matrix to the verifier using Merkle hash.\
-
+2.  For a given rate $$\rho$$, each row of length $$c$$ is encoded into a row of length $$N$$, producing an $$r \times N$$ matrix $$\bm{\hat{u}}$$. The prover commits this $$\bm{\hat{u}}$$ matrix to the verifier using Merkle hash.<br>
 
     <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf2SD0w2En_Y9dpLmdKvC2lsARHqwgiPCd4J86ETjfZaV0s3MDRcOyMC0p7blgY9xgNcV0bmWckePT0DqWE4dLXYxyUNjEMyx_3qSZ3VTCq97fr77NohFKtoJArrlN4R1enowku?key=TV6kc-5CN5lS3U7bOqCI-uh5" alt=""><figcaption></figcaption></figure>
 
@@ -91,8 +90,7 @@ $$
 This phase verifies whether the encoding was performed correctly, with the following steps:
 
 1. The verifier samples a random scalar $$\alpha$$ and sends it to the prover.
-2.  The prover computes $$\bm{u'}$$ using the random value $$\alpha$$ and sends it to the verifier:\
-
+2.  The prover computes $$\bm{u'}$$ using the random value $$\alpha$$ and sends it to the verifier:<br>
 
     <div data-full-width="true"><figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfMd0VPOyqQNinoHcDkohIlvmfA6mCjbOLtVe_96Jo8-xC0vj1JQ5A_V8uJr9lw-gj5sCKlwWAraxfriSx8tTKtLkOZJIClX5Ve2hFWxmCjuyaQOKR9puu9Uol89u7CSWldkydA?key=TV6kc-5CN5lS3U7bOqCI-uh5" alt=""><figcaption></figcaption></figure></div>
 

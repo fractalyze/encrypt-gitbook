@@ -157,8 +157,7 @@ The verifier has oracle access to $$f_0: \mathcal{L}_0 \rightarrow \mathbb{F}$$.
 #### Query(Prover side)
 
 1. **Initial sumcheck:** Set $$\pmb{\alpha}_0 := \emptyset$$. For $$\ell = 1, \dots, k_0$$:&#x20;
-   1. The prover sends $$\hat{h}_{0, \ell} \in \mathbb{F}^{< d^*}[X]$$. In the honest case, $$\hat{h}_{0, \ell} := \sum_{\bm{b} \in \{0, 1\}^{m_0 - \ell - 1}} \hat{w}_0(\hat{f}_0(\alpha_0, X, \bm{b}), \bm{\alpha}_0, X, \bm{b})$$.\
-
+   1. The prover sends $$\hat{h}_{0, \ell} \in \mathbb{F}^{< d^*}[X]$$. In the honest case, $$\hat{h}_{0, \ell} := \sum_{\bm{b} \in \{0, 1\}^{m_0 - \ell - 1}} \hat{w}_0(\hat{f}_0(\alpha_0, X, \bm{b}), \bm{\alpha}_0, X, \bm{b})$$.<br>
    2. The verifier samples $$\alpha_{0, \ell} \leftarrow \mathbb{F}$$. Append $$\alpha_{0, \ell}$$ to set $$\bm{\alpha}_0$$.
 2. **Main loop**: For $$i = 1, \dots, M - 1$$:&#x20;
    1. **Send folded function**: The prover sends $$f_i: \mathcal{L}_i \rightarrow \mathbb{F}$$. In the honest case, $$f_i$$ is the evaluation of $$\hat{f}_i := \hat{f}_{i-1}(\bm{\alpha}_{i-1}, \cdot)$$ over $$\mathcal{L}_i$$.
