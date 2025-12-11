@@ -39,7 +39,7 @@ $$
 a_i(X) = \sum_{j=0}^{T-1} a_{i,j} L_j(X)
 $$
 
-where $$L_j(X)$$ is a Lagrange polynomial, and can be computed in $$O(T \log T)$$ time using the [Number Theoretic Transform (NTT)](../../primitives/number-theoretic-transform/).
+where $$L_j(X)$$ is a Lagrange polynomial, and can be computed in $$O(T \log T)$$ time using the [Number Theoretic Transform (NTT)](../../primitives/number-theoretic-transform.md).
 
 All gate operations are encoded in a single polynomial equation:
 

@@ -1,3 +1,7 @@
+---
+description: 'Presentation: https://youtu.be/djA3mzn7BPg'
+---
+
 # CycloneMSM
 
 ## Introduction
@@ -163,7 +167,7 @@ Thanks to this optimization, a **10–20% performance improvement** over Extende
 
 <figure><img src="../../../../.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
 
-Arithmetic in the finite field $$\mathbb{F}_q$$ is performed using 377-bit operations in [**Montgomery representation**](../../../modular-arithmetic/modular-reduction/montgomery-reduction.md#the-montgomery-representation), with a Montgomery parameter of $$R = 2^{384}$$. Field multiplication is implemented using **three 384-bit integer multiplications** based on the [**Karatsuba algorithm**.](../../../multiplication/karatsuba-multiplication.md)
+Arithmetic in the finite field $$\mathbb{F}_q$$ is performed using 377-bit operations in [**Montgomery representation**](../../../modular-arithmetic/modular-reduction/montgomery-reduction.md#the-montgomery-representation), with a Montgomery parameter of $$R = 2^{384}$$. Field multiplication is implemented using **three 384-bit integer multiplications** based on the [**Karatsuba algorithm**.](../../extension-field/multiplication/karatsuba-multiplication.md)
 
 Additionally, since $$R \ge 4q$$, the system can safely operate on inputs $$a, b \in [0, 2q)$$ for multiplication. This characteristic allows certain modular reductions to be skipped when implementing the Curve Adder module:
 

@@ -1,3 +1,7 @@
+---
+description: 'Presentation: https://www.youtube.com/watch?v=cTBqiwAx5jA'
+---
+
 # DECO
 
 ## Introduction

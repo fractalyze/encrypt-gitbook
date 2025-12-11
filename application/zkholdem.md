@@ -1,3 +1,7 @@
+---
+description: 'Presentation: https://www.youtube.com/watch?v=vQ5-Sn2dHFE'
+---
+
 # zkHoldem
 
 ## Introduction

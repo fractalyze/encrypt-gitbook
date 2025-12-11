@@ -1,3 +1,0 @@
-# Toom-Cook Multiplication
-
-TODO:

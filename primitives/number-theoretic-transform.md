@@ -250,7 +250,7 @@ $$
 
 With this finding, we can calculate $$A_j$$ and $$B_j$$ for $$j=0,\dots,\frac{n}{2}$$ and calculate $$\hat{\bm{a}}$$ by reusing them for the upper half. Notice that $$A_j$$ and $$B_j$$ can be calculated using $$\frac{n}{2}$$ point NTT so if we repeat recursively, we can achieve the best case scenario $$O(n\log n)$$ which occurs when $$n$$ is a power of 2.&#x20;
 
-<figure><img src="../.gitbook/assets/image (92).png" alt=""><figcaption><p>Figure 1. Cooley-Tukey Butterfly graph notation</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (112).png" alt=""><figcaption><p>Figure 1. Cooley-Tukey Butterfly graph notation</p></figcaption></figure>
 
 Figure 1 illustrates how this butterfly operation is denoted as a graph. This figure represents the computation of $$A+\psi^kB$$ and $$A-\psi^k B$$.
 
@@ -334,10 +334,9 @@ a_{2i+1}&=\psi^{-1}B_i &\mod q
 \end{aligned}  \tag{31}
 $$
 
-With this finding, we just need to calculate $$A_i$$ and $$B_i$$ for $$0\leq i \leq \frac{n}{2}-1$$. Notice that $$A_i$$ and $$B_i$$ can be calculated using $$\frac{n}{2}$$ point INTT so if we repeat recursively, we can achieve the best case scenario $$O(n\log n)$$ which occurs when $$n$$ is a power of 2. \
+With this finding, we just need to calculate $$A_i$$ and $$B_i$$ for $$0\leq i \leq \frac{n}{2}-1$$. Notice that $$A_i$$ and $$B_i$$ can be calculated using $$\frac{n}{2}$$ point INTT so if we repeat recursively, we can achieve the best case scenario $$O(n\log n)$$ which occurs when $$n$$ is a power of 2. <br>
 
-
-<div align="center" data-full-width="false"><figure><img src="../.gitbook/assets/image (4) (3).png" alt=""><figcaption><p>Figure 2. Gentleman-Sande (GS) butterfly graph notation</p></figcaption></figure></div>
+<div align="center" data-full-width="false"><figure><img src="../.gitbook/assets/image (114).png" alt=""><figcaption><p>Figure 2. Gentleman-Sande (GS) butterfly graph notation</p></figcaption></figure></div>
 
 Figure 2 illustrates how this butterfly operation is denoted as a graph. This figure represents the computation of $$(A+B)$$ and $$(A-B)\psi^k$$.
 
@@ -346,4 +345,4 @@ Figure 2 illustrates how this butterfly operation is denoted as a graph. This fi
 * [Conceptual Review on Number Theoretic&#x20;  Transform and Comprehensive  &#x20;Review on Its Implementations](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=10177902) by A. Satriawan et al (2023)
 * [Lifting a butterfly – A component-based FFT](https://www.researchgate.net/publication/220060688_Lifting_a_butterfly_-_A_component-based_FFT) by Sibylle Schupp (2003)
 
-> Written by [BATZORIG ZORIGOO](https://app.gitbook.com/u/lqk5Tx9zY4XYVRfF3ReRDiOhbxG3 "mention") of [A41](https://www.a41.io/)
+> Written by [Batzorig Zorigoo](https://app.gitbook.com/u/cO1lUla01ZW0seepO37jMHFTxg42 "mention") of Fractalyze

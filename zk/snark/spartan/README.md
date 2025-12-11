@@ -1,3 +1,7 @@
+---
+description: 'Presentation: https://www.youtube.com/watch?v=adsGo7DvkJ8'
+---
+
 # Spartan
 
 ## Introduction
