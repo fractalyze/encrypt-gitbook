@@ -20,6 +20,7 @@
   * [Linear Code](primitives/coding-theory/linear-code.md)
 * [Number Theoretic Transform](primitives/number-theoretic-transform.md)
   * [Parallel/Distributed FFT](primitives/number-theoretic-transform/parallel-distributed-fft.md)
+  * [NTT Over Extension Field](primitives/number-theoretic-transform/ntt-over-extension-field.md)
 * [Abstract Algebra](primitives/abstract-algebra/README.md)
   * [Group](primitives/abstract-algebra/group/README.md)
     * [-Morphisms](primitives/abstract-algebra/group/morphisms.md)

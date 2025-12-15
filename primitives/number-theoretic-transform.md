@@ -86,13 +86,7 @@ for all $$k=1,\dots,n-1$$.
 
 One thing to note is that the primitive $$n$$-th root of unity in a ring $$\mathbb{Z}_q$$ might not be unique. For example, in a ring $$\mathbb{Z}_{7}$$, primitive 3rd root of unity can be $$2$$ and $$4$$. The choice of value of $$\omega$$ will be important in calculating $$\mathsf{NWC}$$ and $$\mathsf{PWC}$$.
 
-**Definition 5**: The Number Theoretic Transform (NTT) of a vector of polynomial coefficients $$\boldsymbol{a}$$ is defined as $$\hat{\boldsymbol{a}} = \mathsf{NTT}(\boldsymbol{a})$$, where:
-
-$$
-\hat{a}_j=\sum^{n-1}_{i=0}\omega^{ij}a_i\mod q \tag{8}
-$$
-
-and $$j=0,1,\dots,n-1$$. Here, $$\hat{\bm{a}}$$ denotes the evaluations of the polynomial defined by $$\bm{a}$$ over $$\{\omega^{0},\omega^{1},\dots,\omega^{n-1}\}$$ which are the roots of $$(x^n-1)$$.
+{% include "../.gitbook/includes/definition-5-the-number-th... (1).md" %}
 
 **Definition 6**: The Inverse of Number Theoretic Transform (INTT) of an NTT vector $$\hat{\boldsymbol{a}}$$ is defined as $$\boldsymbol{a} = \mathsf{INTT}(\hat{\boldsymbol{a}})$$, where:
 
