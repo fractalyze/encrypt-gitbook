@@ -1,7 +1,3 @@
----
-description: 'Presentation: https://youtu.be/zNWatOe9Hmo'
----
-
 # Cairo
 
 ## Introduction
