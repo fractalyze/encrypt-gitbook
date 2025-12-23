@@ -46,7 +46,7 @@ Let $$\langle\mathcal{P},\mathcal{V}\rangle$$ denote a pair of [PPT](https://en.
 
 ### The sumcheck protocol
 
-Using [sumcheck](../../../primitives/sumcheck.md), a prover can prove statements of the form:
+Using [sumcheck](../../../primitives/sumcheck/), a prover can prove statements of the form:
 
 $$
 \sum_{\bm{x}\in\{0,1\}^\mu}\mathcal{G}(\bm{x})\stackrel{?}{=}T

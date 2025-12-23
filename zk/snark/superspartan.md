@@ -16,7 +16,7 @@ In contrast, SuperSpartan can prove uniform CCS instances, including AIR, withou
 
 1. Multilinear Extensions
 2. [CCS](https://fractalyze.gitbook.io/intro/~/revisions/GBuVDfZJZBNDtoleSgnx/zk/arithmetization/ccs)
-3. [Sumcheck](../../primitives/sumcheck.md)
+3. [Sumcheck](../../primitives/sumcheck/)
 4. [PCS](../../primitives/commitment-scheme/)
 5. Polynomial IOP
 6. [Spartan](https://fractalyze.gitbook.io/intro/~/revisions/auBV3JinIQSOc57um3fH/zk/snark/spartan)

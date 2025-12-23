@@ -61,7 +61,7 @@ The **query complexity** in WHIR remains the same as in STIR because the same id
 
 ### Sumcheck
 
-For each round in the [**Sumcheck protocol**](../../primitives/sumcheck.md), the verifier provides a random value, and the prover reduces the number of variables by one. With each variable reduction, the degree is also reduced by one. After $$k$$ rounds of sumcheck, $$k$$ variables can be eliminated, reducing the degree by $$k$$. This is the folding method used in WHIR, differing from the $$k$$-fold approach in STIR.
+For each round in the [**Sumcheck protocol**](../../primitives/sumcheck/), the verifier provides a random value, and the prover reduces the number of variables by one. With each variable reduction, the degree is also reduced by one. After $$k$$ rounds of sumcheck, $$k$$ variables can be eliminated, reducing the degree by $$k$$. This is the folding method used in WHIR, differing from the $$k$$-fold approach in STIR.
 
 For example, when $$k = 2$$, the process operates as follows. First, let us assume that the evaluation constraint claimed by the CRS in the previous round is as follows:
 

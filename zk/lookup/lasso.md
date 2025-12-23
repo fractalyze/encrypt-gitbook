@@ -30,7 +30,7 @@ $$\mathsf{Jolt}$$ is a RISC-V-powered zkVM which achieved substantial improvemen
 
 ## Preliminiaries
 
-As they already explained in previous presentations, I skip the parts for Multilinear extensions, SNARKs, Polynomial commitment scheme, Polynomial IOP and the [sumcheck protocol](../../primitives/sumcheck.md).
+As they already explained in previous presentations, I skip the parts for Multilinear extensions, SNARKs, Polynomial commitment scheme, Polynomial IOP and the [sumcheck protocol](../../primitives/sumcheck/).
 
 ### Sparsity.
 

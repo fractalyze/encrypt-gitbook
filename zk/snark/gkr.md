@@ -6,7 +6,7 @@ description: 'Presentation: https://youtu.be/OTCxQ9qIzDY'
 
 ## Overview
 
-Although interactive proofs like [Sumcheck](../../primitives/sumcheck.md) enabled the verifier to efficiently check the validity of solutions to problems in complexity classes beyond NP, real world computing entities cannot solve a large instance of problems beyond NP practically.&#x20;
+Although interactive proofs like [Sumcheck](../../primitives/sumcheck/) enabled the verifier to efficiently check the validity of solutions to problems in complexity classes beyond NP, real world computing entities cannot solve a large instance of problems beyond NP practically.&#x20;
 
 Still, it can be pretty useful regarding more solvable problems in the real world (even for the verifier) **if the verifier's cost is much less than solving it by itself** and the **prover's work is not increased asymptotically** compared to what it takes to merely solve it.&#x20;
 
@@ -21,7 +21,7 @@ The protocol starts from $$\mathcal{P}$$ sending the claimed output value to $$\
 
 In a high level view, the protocol iterates from the first layer (output layer) to the bottom (input layer), where in each iteration $$i$$ the goal is to **reduce the claim of the output values of the gates in layer** $$i$$ **to the claim of the output values of the gates in layer** $$i+1$$.
 
-Going through all the way down, the first claim is reduced to that of input values, which are known to $$\mathcal{V}$$ and thus can be checked by itself. Reduction in each iteration is done by the [sumcheck protocol](../../primitives/sumcheck.md).&#x20;
+Going through all the way down, the first claim is reduced to that of input values, which are known to $$\mathcal{V}$$ and thus can be checked by itself. Reduction in each iteration is done by the [sumcheck protocol](../../primitives/sumcheck/).&#x20;
 
 <figure><img src="../../.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
 

@@ -76,7 +76,7 @@ Once the scenario outlined above occurs, $$\mathcal{P}$$ can proceed onto the  r
 
 ### Cost
 
-<figure><img src="../.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (173).png" alt=""><figcaption></figcaption></figure>
 
 We denote the cost of evaluation oracle query to $$g$$ by $$T$$. In reality, $$T$$ is equal to the cost to evaluate $$g$$ at a single input in $$\mathbb{F}^v$$.&#x20;
 
@@ -94,7 +94,7 @@ Also assuming $$\deg_i(g) = O(1)$$, the total verifier cost is dominated by $$T$
 
 Combining with Fiat-Shamir transform, we have successfully reduced a complicated interactive proof into a simple evaluation task for $$\mathcal{V}$$. Unfortunately, in many real world problems, $$\mathcal{V}$$ does not have access to a constant cost oracle query to $$g$$, or even a single evaluation is prohibitively expensive.&#x20;
 
-The key part of sumcheck-based protocols is about how we will grant $$\mathcal{V}$$ oracle access. There should be either a way $$\mathcal{V}$$ can efficiently evaluate $$g$$, or we should run another protocol for the value $$g(r)$$ (refer to [polynomial commitment scheme](commitment-scheme/)).
+The key part of sumcheck-based protocols is about how we will grant $$\mathcal{V}$$ oracle access. There should be either a way $$\mathcal{V}$$ can efficiently evaluate $$g$$, or we should run another protocol for the value $$g(r)$$ (refer to [polynomial commitment scheme](../commitment-scheme/)).
 
 ## Example&#x20;
 

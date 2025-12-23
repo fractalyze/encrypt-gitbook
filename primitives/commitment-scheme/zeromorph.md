@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Aztec uses [Sumcheck](../sumcheck.md) to prove the proof of **circuit satisfiability**. In Sumcheck, a multilinear polynomial is used. Therefore, it is necessary to efficiently commit to and open this multilinear polynomial. Additionally, since Aztec is a privacy-focused Layer 2, an efficient way to achieve zero-knowledge (ZK) is also required. To address this, Aztec introduces a method called Zeromorph, which is currently implemented in [Aztec Zeromorph](https://github.com/AztecProtocol/aztec-packages/tree/98cd1bb/barretenberg/cpp/src/barretenberg/commitment_schemes/zeromorph).
+Aztec uses [Sumcheck](../sumcheck/) to prove the proof of **circuit satisfiability**. In Sumcheck, a multilinear polynomial is used. Therefore, it is necessary to efficiently commit to and open this multilinear polynomial. Additionally, since Aztec is a privacy-focused Layer 2, an efficient way to achieve zero-knowledge (ZK) is also required. To address this, Aztec introduces a method called Zeromorph, which is currently implemented in [Aztec Zeromorph](https://github.com/AztecProtocol/aztec-packages/tree/98cd1bb/barretenberg/cpp/src/barretenberg/commitment_schemes/zeromorph).
 
 ## Background
 

@@ -14,7 +14,7 @@ Demonstrating that all values in Set $$\bm{A}$$ belong to Set $$\bm{S}$$ is the 
 
 ## Background
 
-Prerequisites: See [Multiset Check](../../primitives/multiset-check.md) and [Sumcheck](../../primitives/sumcheck.md) for more details
+Prerequisites: See [Multiset Check](../../primitives/multiset-check.md) and [Sumcheck](../../primitives/sumcheck/) for more details
 
 ### Polynomial = Column
 
