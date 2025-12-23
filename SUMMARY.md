@@ -78,7 +78,8 @@
 ## ZK
 
 * [Arithmetization](zk/arithmetization/README.md)
-  * [R1CS](zk/arithmetization/r1cs.md)
+  * [R1CS](zk/arithmetization/r1cs/README.md)
+    * [QAP](zk/arithmetization/r1cs/qap.md)
   * [PLONK](zk/arithmetization/plonk.md)
   * [AIR](zk/arithmetization/air.md)
   * [CCS](zk/arithmetization/ccs.md)
