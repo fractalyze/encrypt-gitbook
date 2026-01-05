@@ -8,7 +8,7 @@ description: 'Presentation: https://youtu.be/9wpJk-wUa-w'
 
 Given a prime $$P$$, the **Frobenius Mapping** $$\Phi$$ on an element $$a \in \mathbb{F}_{P^k}$$ is defined as: $$\Phi(a) = a^P$$
 
-This mapping is a crucial [**endomorphism**](../group/morphisms.md#endomorphism-a-homomorphism-where-domain-and-codomain-are-the-same-object) of the field $$\mathbb{F}_{P^k}$$ that fixes the elements of the prime subfield $$\mathbb{F}_P$$.
+This mapping is a crucial [**endomorphism**](../../group/morphisms.md#endomorphism-a-homomorphism-where-domain-and-codomain-are-the-same-object) of the field $$\mathbb{F}_{P^k}$$ that fixes the elements of the prime subfield $$\mathbb{F}_P$$.
 
 ## 2. Efficient Computation of $$\Phi(a)$$
 

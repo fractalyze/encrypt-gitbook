@@ -50,6 +50,7 @@ We will use assertions in protocol descriptions. When the assertions do not hold
 
     , $$n$$ and $$m$$ are said to be _coprime_.
 * $$\varphi(n)$$ is Euler’s [totient function](https://en.wikipedia.org/wiki/Euler's_totient_function); for $$n \ge 1$$, it is the number of integers in $$\{1, \dots ,n\}$$ coprime with $$n$$.
+* $$\operatorname{adj}(M)$$ denotes the adjugate of the matrix $$M$$, which is formed by taking the transpose of the matrix of cofactors of $$M$$.
 
 ## Others
 
