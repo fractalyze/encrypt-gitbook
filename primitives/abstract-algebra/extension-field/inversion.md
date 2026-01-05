@@ -1,5 +1,7 @@
 ---
-description: 'Presentation: https://youtu.be/9wpJk-wUa-w'
+description: >-
+  Presentation: https://youtu.be/9wpJk-wUa-w,
+  https://www.youtube.com/watch?v=54I7Rd9_9_s
 ---
 
 # Inversion
@@ -8,7 +10,7 @@ description: 'Presentation: https://youtu.be/9wpJk-wUa-w'
 
 Given a prime $$P$$, the **Frobenius Mapping** $$\Phi$$ on an element $$a \in \mathbb{F}_{P^k}$$ is defined as: $$\Phi(a) = a^P$$
 
-This mapping is a crucial [**endomorphism**](../../group/morphisms.md#endomorphism-a-homomorphism-where-domain-and-codomain-are-the-same-object) of the field $$\mathbb{F}_{P^k}$$ that fixes the elements of the prime subfield $$\mathbb{F}_P$$.
+This mapping is a crucial [**endomorphism**](../group/morphisms.md#endomorphism-a-homomorphism-where-domain-and-codomain-are-the-same-object) of the field $$\mathbb{F}_{P^k}$$ that fixes the elements of the prime subfield $$\mathbb{F}_P$$.
 
 ## 2. Efficient Computation of $$\Phi(a)$$
 
@@ -142,5 +144,88 @@ The inverse $$x^{-1}$$ is calculated as the product of the pre-computed Frobeniu
 $$
 x^{-1} = x^{r-1} \cdot \left((x^{r-1} \cdot x)_0\right)^{-1}
 $$
+
+## 5. Relative Frobenius Mapping
+
+In a tower of extensions $$\mathbb{F}_{P^n} / \mathbb{F}_{P^m} / \mathbb{F}_P$$ (where $$n = m \cdot k$$), the **Relative Frobenius Mapping** $$\Phi_{rel}$$ on an element $$a \in \mathbb{F}_{P^n}$$ with respect to the base field $$\mathbb{F}_{P^m}$$ is defined as:
+
+$$
+\Phi_{rel}(a) = a^{P^m}
+$$
+
+Unlike the absolute Frobenius map $$\Phi(a) = a^P$$, this mapping specifically fixes the elements of the intermediate field $$\mathbb{F}_{P^m}$$. That is, for any $$x \in \mathbb{F}_{P^m}$$, $$\Phi_{rel}(x) = x$$.
+
+## 6. Relative Norm
+
+The **Relative Norm** of an element $$a \in \mathbb{F}_{P^n}$$ over $$\mathbb{F}_{P^m}$$, denoted as $$N_{\mathbb{F}_{P^n}/\mathbb{F}_{P^m}}(a)$$, is defined as the product of $$a$$ and its images under the iterated relative Frobenius mappings:
+
+$$
+N_{\mathbb{F}_{P^n}/\mathbb{F}_{P^m}}(a) = \prod_{i=0}^{k-1} \Phi_{rel}^i(a) = a \times a^{P^m} \times a^{P^{2m}} \times \cdots \times a^{P^{(k-1)m}}
+$$
+
+### 6.1. Properties and Transitivity (Tower Property)
+
+The norm in a tower structure exhibits the property of **Transitivity**, which allows for step-by-step reduction across multiple layers of extension:
+
+* **Mapping to Base Field:** The result of the relative norm is always an element of the immediate base field: $$N_{\mathbb{F}_{P^n}/\mathbb{F}_{P^m}}(a) \in \mathbb{F}_{P^m}$$.
+*   **Absolute Norm**: The norm of an element relative to the prime field $$\mathbb{F}_P$$ (the absolute norm) can be computed by taking the norm of the norm:
+
+    $$
+    N_{\mathbb{F}_{P^n}/\mathbb{F}_P}(a) = N_{\mathbb{F}_{P^m}/\mathbb{F}_P}(N_{\mathbb{F}_{P^n}/\mathbb{F}_{P^m}}(a))
+    $$
+
+### 6.2. Mathematical Derivation of Transitivity
+
+To compute the absolute norm $$N_{\mathbb{F}_{P^n}/\mathbb{F}_P}(a)$$ using the tower property, we follow a stepwise reduction process through the intermediate field $$\mathbb{F}_{P^m}$$.
+
+#### Step 1: Relative Norm from $$\mathbb{F}_{P^n}$$ to $$\mathbb{F}_{P^m}$$
+
+First, we reduce the element $$a \in \mathbb{F}_{P^n}$$ to an element $$b \in \mathbb{F}_{P^m}$$ by applying the relative norm:
+
+$$
+b = N_{\mathbb{F}_{P^n}/\mathbb{F}_{P^m}}(a) = \prod_{i=0}^{k-1} a^{(P^m)^i} = a \times a^{P^m} \times a^{P^{2m}} \times \cdots \times a^{P^{(k-1)m}}
+$$
+
+#### Step 2: Absolute Norm from $$\mathbb{F}_{P^m}$$ to $$\mathbb{F}_P$$
+
+Next, we treat $$b$$ as an element of the base field and apply its own norm mapping toward the prime field:
+
+$$
+N_{\mathbb{F}_{P^m}/\mathbb{F}_P}(b) = \prod_{j=0}^{m-1} b^{P^j} = b \times b^P \times b^{P^2} \times \cdots \times b^{P^{m-1}}
+$$
+
+#### Step 3: Final Consolidation
+
+By substituting the definition of $$b$$ into the second equation, we obtain the double product:
+
+$$
+N_{\mathbb{F}_{P^n}/\mathbb{F}_P}(a) = \prod_{j=0}^{m-1} \left( \prod_{i=0}^{k-1} a^{P^{mi}} \right)^{P^j} = \prod_{j=0}^{m-1} \prod_{i=0}^{k-1} a^{P^{mi + j}}
+$$
+
+This double product covers all exponents $$P^0, P^1, \dots, P^{n-1}$$ exactly once, proving that:
+
+$$
+N_{\mathbb{F}_{P^n}/\mathbb{F}_P}(a) = a \times a^P \times a^{P^2} \times \cdots \times a^{P^{n-1}}
+$$
+
+### 6.3. Practical Example: $$\mathbb{F}_{P^4} / \mathbb{F}_{P^2} / \mathbb{F}_P$$
+
+For an element $$a \in \mathbb{F}_{P^4}$$ where $$k=2$$ and $$m=2$$:
+
+1. **Relative Norm:** $$b = N_{\mathbb{F}_{P^4}/\mathbb{F}_{P^2}}(a) = a \cdot a^{P^2}$$.
+2. **Base Norm:** $$N_{\mathbb{F}_{P^2}/\mathbb{F}_P}(b) = b \cdot b^P$$.
+3. **Result:** $$(a \cdot a^{P^2}) \cdot (a \cdot a^{P^2})^P = a \cdot a^P \cdot a^{P^2} \cdot a^{P^3}$$, which is the absolute norm.
+
+## 7. Recursive Inversion in Tower Extensions
+
+The tower property of the norm provides an efficient recursive algorithm for computing the inverse $$x^{-1}$$ in high-degree extension fields.
+
+1. **Compute Relative Norm:** Calculate $$N(x) = x^{r} \in \mathbb{F}_{P^m}$$ using the pre-computed relative Frobenius coefficients, where $$r = \frac{(P^m)^k - 1}{P^m - 1}$$.
+2. **Recursive Call:** Compute the relative inverse of this norm, $$N(x)^{-1}$$, within the base field $$\mathbb{F}_{P^m}$$. If $$\mathbb{F}_{P^m}$$ is itself an extension field, repeat the norm-based inversion process.
+3.  **Final Reconstruction**: Multiply the partial product of Frobenius images by the inverse obtained from the base field:
+
+    $$
+    x^{-1} = \left(\prod_{i=1}^{k-1}\Phi_{rel}^i(x)\right) \cdot N_{\mathbb{F}_{P^n}/\mathbb{F}_{P^m}}(x)^{-1}
+    $$
 
 > Written by [Ryan Kim](https://app.gitbook.com/u/cPk8gft4tSd0Obi6ARBfoQ16SqG2 "mention") of Fractalyze

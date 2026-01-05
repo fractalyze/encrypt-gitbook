@@ -157,7 +157,7 @@ $$
 
 This completes the inversion algorithm using only base-field arithmetic.
 
-### 3. Performance Comparison with the [Itoh–Tsujii Algorithm](./)
+### 3. Performance Comparison with the [Itoh–Tsujii Algorithm](../inversion.md)
 
 This section compares the specialized inversion methods for low-degree extension fields with the Itoh–Tsujii algorithm from the perspective of arithmetic cost. The comparison is expressed in terms of operations over the prime field $$\mathbb{F}_p$$.
 
